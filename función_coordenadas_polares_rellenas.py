@@ -4,7 +4,7 @@ import random as rd
 from scipy.integrate import quad
 from matplotlib.patches import Circle
 from matplotlib.animation import FuncAnimation, PillowWriter
-
+#########################################################
 fps = 20
 theta1 = []
 theta2 = []
