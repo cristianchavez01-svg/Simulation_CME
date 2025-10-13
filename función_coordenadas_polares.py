@@ -57,12 +57,18 @@ ad2 = 3
 v02 = 0
 
 
-tiempo_inicial = 3  # tiempo inicial en segundos
+tiempo_inicial = 0  # tiempo inicial en segundos
+
+
+# Listas para almacenar los valores de f(t) y g(t)
+f_values = []
+g_values = []
+time_values = []
 
 def update(frame):
     # tiempo en segundos
     t = (frame / fps) + tiempo_inicial  # tiempo inicial en segundos
-
+    time_values.append(t)
 
 
     # --- Aceleración 1 ---
@@ -113,6 +119,11 @@ def update(frame):
     line1.set_data(theta1_new, r11)
     line2.set_data(theta2_new, r22)
     ax.set_title(f"t = {t:.1f} s")
+
+    # Almacenar los valores de f(t) y g(t)
+    f_values.append(f(t))
+    g_values.append(g(t))
+
     return line1, line2
 
      
@@ -124,5 +135,16 @@ out_path = "curva polar.gif"
 ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
 
 plt.close(fig)
+
+# Crear una nueva figura para graficar f(t) y g(t)
+plt.figure()
+plt.plot(time_values, f_values, label='f(t)', color='blue')
+plt.plot(time_values, g_values, label='g(t)', color='red')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Aceleración')
+plt.title('Aceleración en función del tiempo')
+plt.legend()
+plt.grid(True)
+plt.show()
 
 out_path
