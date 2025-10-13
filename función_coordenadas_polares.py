@@ -65,6 +65,10 @@ f_values = []
 g_values = []
 time_values = []
 
+# Listas para almacenar los valores de velocidad
+v_values_1 = []
+v_values_2 = []
+
 def update(frame):
     # tiempo en segundos
     t = (frame / fps) + tiempo_inicial  # tiempo inicial en segundos
@@ -87,6 +91,16 @@ def update(frame):
         integrand = lambda s: (t - s) * g(s)
         val, err = quad(integrand, 0, t)
         return val
+    
+
+    # --- Velocidad 1 ---
+    def v1(s):
+        return v01 + quad(f, 0, s)[0]  # Integrar f(s) desde 0 hasta s
+    
+    # --- Velocidad 2 ---
+    def v2(s):
+        return v02 + quad(g, 0, s)[0]  # Integrar g(s) desde 0 hasta s
+    
 
     # desplazamiento total en x
     dx1 = v01 * t + x_of1(t)
@@ -124,6 +138,9 @@ def update(frame):
     f_values.append(f(t))
     g_values.append(g(t))
 
+    # Almacenar los valores de velocidad
+    v_values_1.append(v1(t))
+    v_values_2.append(v2(t))
     return line1, line2
 
      
@@ -144,6 +161,19 @@ plt.xlabel('Tiempo (s)')
 plt.ylabel('Aceleración')
 plt.title('Aceleración en función del tiempo')
 plt.legend()
+plt.savefig('aceleracion_vs_tiempo.png')
+plt.grid(True)
+plt.show()
+
+# Crear una nueva figura para graficar las velocidades
+plt.figure()
+plt.plot(time_values, v_values_1, label='v1(t)', color='blue')
+plt.plot(time_values, v_values_2, label='v2(t)', color='red')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Velocidad')
+plt.title('Velocidad en función del tiempo')
+plt.legend()
+plt.savefig('velocidad_vs_tiempo.png')
 plt.grid(True)
 plt.show()
 
