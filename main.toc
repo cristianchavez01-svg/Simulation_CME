@@ -2,8 +2,8 @@
 \contentsline {chapter}{Tareas}{3}{chapter*.1}%
 \contentsline {chapter}{Agradecimientos}{6}{chapter*.3}%
 \contentsline {chapter}{Resumen}{7}{chapter*.4}%
-\contentsline {chapter}{Índice de Tablas}{10}{section*.7}%
-\contentsline {chapter}{\'{I}ndice de figuras}{11}{section*.8}%
+\contentsline {chapter}{Índice de Tablas}{10}{section*.6}%
+\contentsline {chapter}{\'{I}ndice de figuras}{11}{section*.7}%
 \contentsline {chapter}{\chapternumberline {1}Introducción}{15}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Rotación diferencial del Sol}{16}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Dinamo Solar}{16}{section.1.2}%
@@ -24,7 +24,7 @@
 \contentsline {section}{\numberline {2.4}Comportamiento en el medio interplanetario}{36}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Detección y observación de CMEs}{38}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Influencia en el clima espacial}{43}{section.2.6}%
-\contentsline {chapter}{\chapternumberline {3}Interacción \ac {CME} - CME}{46}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {3}Interacción CME - CME}{46}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Variación de las propiedades en la interacción}{46}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Estructuras resultantes de la interacción}{52}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Interacción CME-CME y los eventos de SEPs}{53}{section.3.3}%

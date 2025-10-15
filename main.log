@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  14 OCT 2025 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  15 OCT 2025 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1487,6 +1487,8 @@ LaTeX Info: Redefining \% on input line 16.
 (./Capítulos/CMEs.aux) (./Capítulos/Interacción de CME - CME.aux)
 (./Capítulos/Problema.aux) (./Capítulos/Análisis.aux)
 (./Capítulos/Discusión.aux) (./Capítulos/Conclusiones.aux)
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
 LaTeX Info: Redefining \. on input line 248.
 LaTeX Info: Redefining \% on input line 248.
 LaTeX Info: Redefining \. on input line 249.
@@ -1513,8 +1515,8 @@ LaTeX Info: Redefining \. on input line 259.
 LaTeX Info: Redefining \% on input line 259.
 LaTeX Info: Redefining \. on input line 260.
 LaTeX Info: Redefining \% on input line 260.
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \. on input line 262.
+LaTeX Info: Redefining \% on input line 262.
 LaTeX Info: Redefining \. on input line 263.
 LaTeX Info: Redefining \% on input line 263.
 LaTeX Info: Redefining \. on input line 264.
@@ -1577,8 +1579,8 @@ LaTeX Info: Redefining \. on input line 292.
 LaTeX Info: Redefining \% on input line 292.
 LaTeX Info: Redefining \. on input line 293.
 LaTeX Info: Redefining \% on input line 293.
-LaTeX Info: Redefining \. on input line 294.
-LaTeX Info: Redefining \% on input line 294.
+LaTeX Info: Redefining \. on input line 295.
+LaTeX Info: Redefining \% on input line 295.
 LaTeX Info: Redefining \. on input line 296.
 LaTeX Info: Redefining \% on input line 296.
 LaTeX Info: Redefining \. on input line 297.
@@ -1641,8 +1643,8 @@ LaTeX Info: Redefining \. on input line 325.
 LaTeX Info: Redefining \% on input line 325.
 LaTeX Info: Redefining \. on input line 326.
 LaTeX Info: Redefining \% on input line 326.
-LaTeX Info: Redefining \. on input line 327.
-LaTeX Info: Redefining \% on input line 327.
+LaTeX Info: Redefining \. on input line 328.
+LaTeX Info: Redefining \% on input line 328.
 LaTeX Info: Redefining \. on input line 329.
 LaTeX Info: Redefining \% on input line 329.
 LaTeX Info: Redefining \. on input line 330.
@@ -1657,8 +1659,6 @@ LaTeX Info: Redefining \. on input line 334.
 LaTeX Info: Redefining \% on input line 334.
 LaTeX Info: Redefining \. on input line 335.
 LaTeX Info: Redefining \% on input line 335.
-LaTeX Info: Redefining \. on input line 336.
-LaTeX Info: Redefining \% on input line 336.
 )
 \openout1 = `main.aux'.
 
@@ -1856,8 +1856,6 @@ ine 83.
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-Package acronym Info: Label `acro:CME' newly defined as it shall be overridden
-although it is yet undefined on input line 27.
  [8
 
 
@@ -2400,6 +2398,9 @@ LaTeX Info: Redefining \% on input line 94.
 LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+Package acronym Info: Label `acro:CME' newly defined as it shall be overridden
+although it is yet undefined on input line 17.
+ [11]
 LaTeX Info: Redefining \sptext on input line 24.
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
@@ -2658,7 +2659,7 @@ LaTeX Info: Redefining \% on input line 108.
 LaTeX Info: Redefining \sptext on input line 109.
 LaTeX Info: Redefining \. on input line 109.
 LaTeX Info: Redefining \% on input line 109.
-) [11]
+)
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
 
@@ -2713,12 +2714,12 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [17]
-<imag/Primera_CME.png, id=352, 928.46875pt x 906.38625pt>
+<imag/Primera_CME.png, id=350, 928.46875pt x 906.38625pt>
 File: imag/Primera_CME.png Graphic file (type png)
 <use imag/Primera_CME.png>
 Package pdftex.def Info: imag/Primera_CME.png  used on input line 50.
 (pdftex.def)             Requested size: 298.1987pt x 291.11446pt.
-<Imagenes Mein/viento solar.png, id=357, 870.25125pt x 592.2125pt>
+<Imagenes Mein/viento solar.png, id=355, 870.25125pt x 592.2125pt>
 File: Imagenes Mein/viento solar.png Graphic file (type png)
 <use Imagenes Mein/viento solar.png>
 Package pdftex.def Info: Imagenes Mein/viento solar.png  used on input line 65.
@@ -2830,7 +2831,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [29]
-<imag/expansión.png, id=503, 1064.97874pt x 533.995pt>
+<imag/expansión.png, id=501, 1064.97874pt x 533.995pt>
 File: imag/expansión.png Graphic file (type png)
 <use imag/expansión.png>
 Package pdftex.def Info: imag/expansión.png  used on input line 138.
@@ -2842,7 +2843,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [30]
-<imag/expansión MHD.png, id=520, 1506.62875pt x 830.10126pt>
+<imag/expansión MHD.png, id=518, 1506.62875pt x 830.10126pt>
 File: imag/expansión MHD.png Graphic file (type png)
 <use imag/expansión MHD.png>
 Package pdftex.def Info: imag/expansión MHD.png  used on input line 146.
@@ -2854,7 +2855,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [31 <./imag/expansión.png>]
-<imag/perfil de aceleración.png, id=540, 656.4525pt x 521.95pt>
+<imag/perfil de aceleración.png, id=538, 656.4525pt x 521.95pt>
 File: imag/perfil de aceleración.png Graphic file (type png)
 <use imag/perfil de aceleración.png>
 Package pdftex.def Info: imag/perfil de aceleración.png  used on input line 15
@@ -2867,7 +2868,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [32 <./imag/expansión MHD.png>]
-<imag/ejemploperfilaceleración.png, id=555, 666.49pt x 856.19875pt>
+<imag/ejemploperfilaceleración.png, id=553, 666.49pt x 856.19875pt>
 File: imag/ejemploperfilaceleración.png Graphic file (type png)
 <use imag/ejemploperfilaceleración.png>
 Package pdftex.def Info: imag/ejemploperfilaceleración.png  used on input line
@@ -2934,7 +2935,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [40]
-<imag/SWASTI_CME.png, id=674, 1579.9025pt x 871.255pt>
+<imag/SWASTI_CME.png, id=672, 1579.9025pt x 871.255pt>
 File: imag/SWASTI_CME.png Graphic file (type png)
 <use imag/SWASTI_CME.png>
 Package pdftex.def Info: imag/SWASTI_CME.png  used on input line 291.
@@ -2944,7 +2945,7 @@ Package pdftex.def Info: imag/SWASTI_CME.png  used on input line 291.
 LaTeX Warning: Reference `ResultadoscomparadosSWASTI' on page 41 undefined on i
 nput line 296.
 
-<imag/ResultadoscomparadosSWASTI.png, id=681, 1499.6025pt x 847.165pt>
+<imag/ResultadoscomparadosSWASTI.png, id=679, 1499.6025pt x 847.165pt>
 File: imag/ResultadoscomparadosSWASTI.png Graphic file (type png)
 <use imag/ResultadoscomparadosSWASTI.png>
 Package pdftex.def Info: imag/ResultadoscomparadosSWASTI.png  used on input lin
@@ -2987,147 +2988,142 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 [45]
 \openout2 = `"Capítulos/Interacción de CME - CME.aux"'.
 
- (./Capítulos/Interacción de CME - CME.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ac' on input line 1.
-
-[46
+ (./Capítulos/Interacción de CME - CME.tex [46
 
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [47]
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [48]
 
-LaTeX Warning: Command \' invalid in math mode on input line 74.
+LaTeX Warning: Command \' invalid in math mode on input line 77.
 
 Missing character: There is no � in font cmr8!
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [49]
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [50]
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [51]
-LaTeX Info: Redefining \. on input line 105.
-LaTeX Info: Redefining \% on input line 105.
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [52]
 
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 109.
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 112.
 
 
 
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 109.
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 112.
 
 
 Missing character: There is no � in font cmr8!
 
-LaTeX Warning: Command \guillemotright invalid in math mode on input line 114.
+LaTeX Warning: Command \guillemotright invalid in math mode on input line 117.
 
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [53]
-LaTeX Info: Redefining \. on input line 152.
-LaTeX Info: Redefining \% on input line 152.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [54]
-<imag/condiciones de contorno.png, id=857, 476.78125pt x 227.85126pt>
-File: imag/condiciones de contorno.png Graphic file (type png)
-<use imag/condiciones de contorno.png>
-Package pdftex.def Info: imag/condiciones de contorno.png  used on input line 1
-66.
-(pdftex.def)             Requested size: 170.3974pt x 81.43185pt.
-LaTeX Info: Redefining \. on input line 169.
-LaTeX Info: Redefining \% on input line 169.
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [55]
-<imag/condicones CMEs.png, id=866, 847.165pt x 189.70876pt>
+<imag/condiciones de contorno.png, id=851, 476.78125pt x 227.85126pt>
+File: imag/condiciones de contorno.png Graphic file (type png)
+<use imag/condiciones de contorno.png>
+Package pdftex.def Info: imag/condiciones de contorno.png  used on input line 1
+69.
+(pdftex.def)             Requested size: 170.3974pt x 81.43185pt.
+<imag/condicones CMEs.png, id=854, 847.165pt x 189.70876pt>
 File: imag/condicones CMEs.png Graphic file (type png)
 <use imag/condicones CMEs.png>
-Package pdftex.def Info: imag/condicones CMEs.png  used on input line 174.
+Package pdftex.def Info: imag/condicones CMEs.png  used on input line 177.
 (pdftex.def)             Requested size: 298.1987pt x 66.77536pt.
-<imag/1D.png, id=867, 1427.3325pt x 852.18375pt>
+<imag/1D.png, id=855, 1427.3325pt x 852.18375pt>
 File: imag/1D.png Graphic file (type png)
 <use imag/1D.png>
-Package pdftex.def Info: imag/1D.png  used on input line 181.
+Package pdftex.def Info: imag/1D.png  used on input line 184.
 (pdftex.def)             Requested size: 340.8013pt x 203.475pt.
-<imag/2D condiciones.png, id=872, 843.15pt x 174.6525pt>
+<imag/2D condiciones.png, id=860, 843.15pt x 174.6525pt>
 File: imag/2D condiciones.png Graphic file (type png)
 <use imag/2D condiciones.png>
-Package pdftex.def Info: imag/2D condiciones.png  used on input line 189.
+Package pdftex.def Info: imag/2D condiciones.png  used on input line 192.
 (pdftex.def)             Requested size: 298.1987pt x 61.76888pt.
-LaTeX Info: Redefining \. on input line 193.
-LaTeX Info: Redefining \% on input line 193.
+LaTeX Info: Redefining \. on input line 195.
+LaTeX Info: Redefining \% on input line 195.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [56 <./imag/condiciones de contorno.png> <./imag/condicones CMEs.png> <./imag/1
 D.png>]
-<imag/2D1.png, id=886, 771.88374pt x 801.99625pt>
+<imag/2D1.png, id=873, 771.88374pt x 801.99625pt>
 File: imag/2D1.png Graphic file (type png)
 <use imag/2D1.png>
-Package pdftex.def Info: imag/2D1.png  used on input line 197.
+Package pdftex.def Info: imag/2D1.png  used on input line 200.
 (pdftex.def)             Requested size: 340.8013pt x 354.09094pt.
-<imag/2D2.png, id=887, 771.88374pt x 801.99625pt>
+<imag/2D2.png, id=874, 771.88374pt x 801.99625pt>
 File: imag/2D2.png Graphic file (type png)
 <use imag/2D2.png>
-Package pdftex.def Info: imag/2D2.png  used on input line 204.
+Package pdftex.def Info: imag/2D2.png  used on input line 207.
 (pdftex.def)             Requested size: 340.8013pt x 354.09094pt.
-LaTeX Info: Redefining \. on input line 208.
-LaTeX Info: Redefining \% on input line 208.
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [57 <./imag/2D condiciones.png> <./imag/2D1.png>]
 
-LaTeX Warning: Citation '' on page 58 undefined on input line 211.
+LaTeX Warning: Citation '' on page 58 undefined on input line 214.
 
-LaTeX Info: Redefining \. on input line 214.
-LaTeX Info: Redefining \% on input line 214.
+LaTeX Info: Redefining \. on input line 217.
+LaTeX Info: Redefining \% on input line 217.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
@@ -3498,6 +3494,9 @@ LaTeX Info: Redefining \% on input line 16.
 (./Capítulos/CMEs.aux) (./Capítulos/Interacción de CME - CME.aux)
 (./Capítulos/Problema.aux) (./Capítulos/Análisis.aux)
 (./Capítulos/Discusión.aux) (./Capítulos/Conclusiones.aux)
+LaTeX Info: Redefining \sptext on input line 247.
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
 LaTeX Info: Redefining \sptext on input line 248.
 LaTeX Info: Redefining \. on input line 248.
 LaTeX Info: Redefining \% on input line 248.
@@ -3537,9 +3536,9 @@ LaTeX Info: Redefining \% on input line 259.
 LaTeX Info: Redefining \sptext on input line 260.
 LaTeX Info: Redefining \. on input line 260.
 LaTeX Info: Redefining \% on input line 260.
-LaTeX Info: Redefining \sptext on input line 261.
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \sptext on input line 262.
+LaTeX Info: Redefining \. on input line 262.
+LaTeX Info: Redefining \% on input line 262.
 LaTeX Info: Redefining \sptext on input line 263.
 LaTeX Info: Redefining \. on input line 263.
 LaTeX Info: Redefining \% on input line 263.
@@ -3633,9 +3632,9 @@ LaTeX Info: Redefining \% on input line 292.
 LaTeX Info: Redefining \sptext on input line 293.
 LaTeX Info: Redefining \. on input line 293.
 LaTeX Info: Redefining \% on input line 293.
-LaTeX Info: Redefining \sptext on input line 294.
-LaTeX Info: Redefining \. on input line 294.
-LaTeX Info: Redefining \% on input line 294.
+LaTeX Info: Redefining \sptext on input line 295.
+LaTeX Info: Redefining \. on input line 295.
+LaTeX Info: Redefining \% on input line 295.
 LaTeX Info: Redefining \sptext on input line 296.
 LaTeX Info: Redefining \. on input line 296.
 LaTeX Info: Redefining \% on input line 296.
@@ -3729,9 +3728,9 @@ LaTeX Info: Redefining \% on input line 325.
 LaTeX Info: Redefining \sptext on input line 326.
 LaTeX Info: Redefining \. on input line 326.
 LaTeX Info: Redefining \% on input line 326.
-LaTeX Info: Redefining \sptext on input line 327.
-LaTeX Info: Redefining \. on input line 327.
-LaTeX Info: Redefining \% on input line 327.
+LaTeX Info: Redefining \sptext on input line 328.
+LaTeX Info: Redefining \. on input line 328.
+LaTeX Info: Redefining \% on input line 328.
 LaTeX Info: Redefining \sptext on input line 329.
 LaTeX Info: Redefining \. on input line 329.
 LaTeX Info: Redefining \% on input line 329.
@@ -3753,9 +3752,6 @@ LaTeX Info: Redefining \% on input line 334.
 LaTeX Info: Redefining \sptext on input line 335.
 LaTeX Info: Redefining \. on input line 335.
 LaTeX Info: Redefining \% on input line 335.
-LaTeX Info: Redefining \sptext on input line 336.
-LaTeX Info: Redefining \. on input line 336.
-LaTeX Info: Redefining \% on input line 336.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -3769,23 +3765,20 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 07518C7EB25A23FCF965CE0C2AAD4EA6;4549.
+(rerunfilecheck)             Checksum: AB747579CA6A25A5612F9526A2CB7885;4549.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40401 strings out of 474222
- 737788 string characters out of 5748734
+ 40393 strings out of 474222
+ 737688 string characters out of 5748734
  1941975 words of memory out of 5000000
- 61512 multiletter control sequences out of 15000+600000
- 587217 words of font info for 211 fonts, out of 8000000 for 9000
+ 61509 multiletter control sequences out of 15000+600000
+ 586254 words of font info for 208 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,13n,98p,1936b,3822s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,12n,98p,1936b,3822s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -3797,21 +3790,20 @@ ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfbx3583.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></u
-sr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (68 pages, 4742101 bytes).
+/usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfbx3583.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts
+/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (68 pages, 4719135 bytes).
 PDF statistics:
- 1155 PDF objects out of 1200 (max. 8388607)
- 974 compressed objects within 10 object streams
+ 1137 PDF objects out of 1200 (max. 8388607)
+ 958 compressed objects within 10 object streams
  211 named destinations out of 1000 (max. 500000)
- 52034 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 49986 words of extra memory for PDF output out of 51595 (max. 10000000)
 
