@@ -1,0 +1,5 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'tareas.blg'
+[120] biber:340> INFO - === lun oct  6, 2025, 12:12:01
+[317] Utils.pm:399> ERROR - Cannot find 'tareas.bcf'!
+[318] Biber.pm:136> INFO - ERRORS: 1
