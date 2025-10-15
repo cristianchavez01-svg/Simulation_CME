@@ -37,6 +37,26 @@ line2, = ax.plot([], [], lw=2, color="red", label="Curva 2")
 scatter1 = ax.scatter([], [], s=10, color="blue", alpha=0.5)
 scatter2 = ax.scatter([], [], s=10, color="red", alpha=0.5)
 
+# --- Generar partículas dentro de la curva 1 (INICIAL) ---
+num_particles1 = 200  # Puedes aumentar este número
+theta_particles1 = np.random.uniform(theta1ord.min(), theta1ord.max(), num_particles1)
+# Para cada theta, interpola el radio máximo de la curva
+r_max_particles1 = np.interp(theta_particles1, theta1ord, r1)
+# El radio de cada partícula es aleatorio entre 0 y el radio máximo en ese ángulo
+r_particles1 = np.random.uniform(0, 1, num_particles1) * r_max_particles1
+x1_particles = r_particles1 * np.cos(theta_particles1)
+y1_particles = r_particles1 * np.sin(theta_particles1)
+
+# --- Generar partículas dentro de la curva 2 (INICIAL) ---
+num_particles2 = 200  # Puedes aumentar este número
+theta_particles2 = np.random.uniform(theta2ord.min(), theta2ord.max(), num_particles2)
+# Para cada theta, interpola el radio máximo de la curva
+r_max_particles2 = np.interp(theta_particles2, theta2ord, r2)
+# El radio de cada partícula es aleatorio entre 0 y el radio máximo en ese ángulo
+r_particles2 = np.random.uniform(0, 1, num_particles2) * r_max_particles2
+x2_particles = r_particles2 * np.cos(theta_particles2)
+y2_particles = r_particles2 * np.sin(theta_particles2)
+
 # para que las curvas se desplacen:
 def init():
     line1.set_data([], [])
@@ -108,38 +128,22 @@ def update(frame):
     def expansion_factor2(time):
         return time**4
     
-    r11 = r1_new*t + (expansion_factor1(t))
-    r22 = r2_new*t + (expansion_factor2(t))
-    
-       # --- Generar partículas dentro de la curva 1 ---
-    num_particles1 = 200  # Puedes aumentar este número
-    theta_particles1 = np.random.uniform(theta1_new.min(), theta1_new.max(), num_particles1)
-    # Para cada theta, interpola el radio máximo de la curva
-    r_max_particles1 = np.interp(theta_particles1, theta1_new, r11)
-    # El radio de cada partícula es aleatorio entre 0 y el radio máximo en ese ángulo
-    r_particles1 = np.random.uniform(0, 1, num_particles1) * r_max_particles1
-    x1_particles = r_particles1 * np.cos(theta_particles1)
-    y1_particles = r_particles1 * np.sin(theta_particles1)
+    r11 = (r1_new*t) + (expansion_factor1(t))
+    r22 = (r2_new*t) + (expansion_factor2(t))
 
-        # --- Generar partículas dentro de la curva 2 ---
-    num_particles2 = 200  # Puedes aumentar este número
-    theta_particles2 = np.random.uniform(theta2_new.min(), theta2_new.max(), num_particles2)
-    # Para cada theta, interpola el radio máximo de la curva
-    r_max_particles2 = np.interp(theta_particles2, theta2_new, r22)
-    # El radio de cada partícula es aleatorio entre 0 y el radio máximo en ese ángulo
-    r_particles2 = np.random.uniform(0, 1, num_particles2) * r_max_particles2
-    x2_particles = r_particles2 * np.cos(theta_particles2)
-    y2_particles = r_particles2 * np.sin(theta_particles2)
+# --- Expansión de las partículas ---
+    r_particles1_expandido = (r_particles1 * t) + expansion_factor1(t)
+    r_particles2_expandido = (r_particles2 * t) + expansion_factor2(t)
 
-    # --- Desplazar las partículas junto con las curvas ---
-    x1_particles_desplazados = x1_particles + dx1
-    y1_particles_desplazados = y1_particles + dx1
-    x2_particles_desplazados = x2_particles + dx2
-    y2_particles_desplazados = y2_particles + dx2
+    # --- Desplazar las partículas en coordenadas polares ---
+    x1_particles_desplazado = r_particles1_expandido * np.cos(theta_particles1)
+    y1_particles_desplazado = r_particles1_expandido * np.sin(theta_particles1)
+    x2_particles_desplazado = r_particles2_expandido * np.cos(theta_particles2)
+    y2_particles_desplazado = r_particles2_expandido * np.sin(theta_particles2)
 
     # --- Actualizar las posiciones de las partículas ---
-    scatter1.set_offsets(np.column_stack((x1_particles_desplazados, y1_particles_desplazados)))
-    scatter2.set_offsets(np.column_stack((x2_particles_desplazados, y2_particles_desplazados)))
+    scatter1.set_offsets(np.column_stack((x1_particles_desplazado, y1_particles_desplazado)))
+    scatter2.set_offsets(np.column_stack((x2_particles_desplazado, y2_particles_desplazado)))
 
     # actualizar la curva
     line1.set_data(theta1_new, r11)
