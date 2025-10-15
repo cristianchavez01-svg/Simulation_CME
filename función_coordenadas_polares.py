@@ -20,7 +20,7 @@ for i in range(100):
 theta1ord = np.append(sorted(theta1), sorted(theta1)[0])  # Ordenar los ángulos
 r1 = np.append(r1, r1[0])
 theta2ord = np.append(sorted(theta2), sorted(theta2)[0])
-r2 = np.append(r2, r2[0])
+r2 = np.append(r2, r2[0])  #Se puede intentar corregir la malformación inicial que atraviesa el Sol, toman do puntos desde -pi hasta pi y cerrando directamente la curva.
 
 fig = plt.figure()
 ax = plt.subplot(111, polar=True)  # Crear un gráfico polar
@@ -29,10 +29,8 @@ ax.set_thetamin(90)  # límite inferior en grados, para que se muestre solamente
 ax.set_thetamax(-90)  # límite superior en grados
 circle = Circle((0, 0), 0.1, transform=ax.transData._b, color="red", alpha=1)
 ax.add_patch(circle)
-
 line1, = ax.plot([], [], lw=2, color="blue", label="Curva 1")
 line2, = ax.plot([], [], lw=2, color="red", label="Curva 2")
-
 
 # para que las curvas se desplacen:
 def init():
