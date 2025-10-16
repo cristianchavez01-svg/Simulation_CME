@@ -112,41 +112,91 @@ def update(frame):
     
     r11 = (r1_new * t) + (expansion_factor1(t))
     r22 = (r2_new * t) + (expansion_factor2(t))
-
-
-    #######Para las curvas internas######
-    # --- Coordenadas en cartesiano ---
-    x11 = (r1 - 1) * np.cos(theta1ord) + dx1
-    y11 = (r1 - 1) * np.sin(theta1ord)
-
-    x22 = (r2 - 5) * np.cos(theta2ord) + dx2
-    y22 = (r2 - 5) * np.sin(theta2ord)
-
-    # --- Convertir de nuevo a polares ---
-    r11_new = np.sqrt(x11**2 + y11**2)
-    theta11_new = np.arctan2(y11, x11)
-    r22_new = np.sqrt(x22**2 + y22**2)
-    theta22_new = np.arctan2(y22, x22)
-
-    r111 = (r11_new * t) + (expansion_factor1(t))
-    r222 = (r22_new * t) + (expansion_factor1(t))
-
-
-# --- Actualizar las posiciones de las partículas en coordenadas polares ---
+    # --- Actualizar las posiciones de las partículas en coordenadas polares ---
     scatter1.set_offsets(np.column_stack((theta1_new, r11)))
     scatter2.set_offsets(np.column_stack((theta2_new, r22)))
-    scatter11.set_offsets(np.column_stack((theta11_new, r111)))
-    scatter22.set_offsets(np.column_stack((theta22_new, r222)))
 
     # actualizar la curva
     line1.set_data(theta1_new, r11)
     line2.set_data(theta2_new, r22)
     ax.set_title(f"t = {t:.1f} s")
+    return line1, line2, scatter1, scatter2
+
+
+
+theta11 = []
+theta22 = []
+r11 = []  # Radio 1 en función de θ
+r22 = []  # Radio 2 en función de θ
+
+for i in range(100):
+    r11.append(rd.uniform(1.5, 1.8))
+    theta11.append(rd.uniform(0, 2 * np.pi))
+    r22.append(rd.uniform(1.7, 1.9))
+    theta22.append(rd.uniform(0, 2 * np.pi))
+
+theta11ord = np.append(sorted(theta11), sorted(theta11)[0])  # Ordenar los ángulos
+r11 = np.append(r11, r11[0])
+theta22ord = np.append(sorted(theta22), sorted(theta22)[0])
+r22 = np.append(r22, r22[0])
+
+def update2(frame):
+    # tiempo en segundos
+    t = (frame / fps) + tiempo_inicial
+
+    # --- Aceleración 1 ---
+    def f(s):
+        return (ar1 * ad1) / (ad1 * np.exp(-s / tr1) + ar1 * np.exp(s / td1))
+
+    def x_of1(t):
+        integrand = lambda s: (t - s) * f(s)
+        val, err = quad(integrand, 0, t)
+        return val
+
+    def g(s):
+        return (ar2 * ad2) / (ad2 * np.exp(-s / tr2) + ar2 * np.exp(s / td2))
+
+    def x_of2(t):
+        integrand = lambda s: (t - s) * g(s)
+        val, err = quad(integrand, 0, t)
+        return val
+
+    # desplazamiento total en x
+    dx1 = v01 * t + x_of1(t)
+    dx2 = v02 * t + x_of2(t)
+    #######Para las curvas internas######
+    # --- Coordenadas en cartesiano ---
+    x1 = (r11) * np.cos(theta11ord) + dx1
+    y1 = (r11) * np.sin(theta11ord)
+
+    x2 = (r22) * np.cos(theta22ord) + dx2
+    y2 = (r22) * np.sin(theta22ord)
+
+    # --- Convertir de nuevo a polares ---
+    r1_new = np.sqrt(x1**2 + y1**2)
+    theta1_new = np.arctan2(y1, x1)
+    r2_new = np.sqrt(x2**2 + y2**2)
+    theta2_new = np.arctan2(y2, x2)
+    # --- Expansión radial ---
+    def expansion_factor1(time):
+        return time**4
+    def expansion_factor2(time):
+        return time**4
+    r111 = (r1_new * t) + (expansion_factor1(t))
+    r222 = (r2_new * t) + (expansion_factor1(t))
+
+
+# --- Actualizar las posiciones de las partículas en coordenadas polares ---
+    scatter11.set_offsets(np.column_stack((theta1_new, r111)))
+    scatter22.set_offsets(np.column_stack((theta2_new, r222)))
+    return scatter11, scatter22
+
+def updatefin(frame):
+    update(frame)
+    update2(frame)
     return line1, line2, scatter1, scatter2, scatter11, scatter22
-
-
 # Animación
-ani = FuncAnimation(fig, update, frames=100, init_func=init, blit=False)
+ani = FuncAnimation(fig, updatefin, frames=100, init_func=init, blit=False)
 
 out_path = "curva_polar_particulas.gif"
 ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
