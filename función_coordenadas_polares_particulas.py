@@ -109,55 +109,10 @@ def update(frame):
     r11 = (r1_new*t) + (expansion_factor1(t))
     r22 = (r2_new*t) + (expansion_factor2(t))
 
+# --- Actualizar las posiciones de las partículas en coordenadas polares ---
+    scatter1.set_offsets(np.column_stack((theta1_new, r11)))
+    scatter2.set_offsets(np.column_stack((theta2_new, r22)))
 
-    num_particles1 = 200  # Puedes aumentar este número
-    theta_particles1 = []
-    r_particles1 = []
-
-    num_particles2 = 200  # Puedes aumentar este número
-    theta_particles2 = []
-    r_particles2 = []
-
-    # --- Generar partículas dentro de la curva 1 (INICIAL) ---
-
-
-    for i in range(num_particles1):
-        theta = np.random.uniform(theta1_new.min(), theta1_new.max())
-        r_max = np.interp(theta, theta1_new, r11)
-        r = np.random.uniform(30, r_max)
-        theta_particles1.append(theta)
-        r_particles1.append(r)
-
-    theta_particles1 = np.array(theta_particles1)
-    r_particles1 = np.array(r_particles1)
-
-# --- Generar partículas dentro de la curva 2 (INICIAL) ---
-
-
-    for i in range(num_particles2):
-        theta = np.random.uniform(theta2_new.min(), theta2_new.max())
-        r_max = np.interp(theta, theta2_new, r22)
-        r = np.random.uniform(r_max, 20)
-        theta_particles2.append(theta)
-        r_particles2.append(r)
-
-    theta_particles2 = np.array(theta_particles2)
-    r_particles2 = np.array(r_particles2)
-
-
-    # --- Expansión de las partículas ---
-    r_particles1_expandido = (r_particles1) #* expansion_factor1(t)
-    r_particles2_expandido = (r_particles2) #* expansion_factor2(t)
-
-    # --- Actualizar las posiciones de las partículas ---
-    x1_particles_desplazado = r_particles1_expandido * np.cos(theta_particles1)
-    y1_particles_desplazado = r_particles1_expandido * np.sin(theta_particles1)
-    x2_particles_desplazado = r_particles2_expandido * np.cos(theta_particles2)
-    y2_particles_desplazado = r_particles2_expandido * np.sin(theta_particles2)
-
-
-    scatter1.set_offsets(np.column_stack((x1_particles_desplazado, y1_particles_desplazado)))
-    scatter2.set_offsets(np.column_stack((x2_particles_desplazado, y2_particles_desplazado)))
     # actualizar la curva
     line1.set_data(theta1_new, r11)
     line2.set_data(theta2_new, r22)
