@@ -1,0 +1,91 @@
+
+
+\include{preámbulo}
+
+
+\begin{document}
+
+\begin{tikzpicture}[overlay, fill opacity=0.75]
+\fill[NavyBlue](14.75,-27) rectangle (15,-2);
+\fill[MidnightBlue](15.1,-20) rectangle (15.2,-2);
+\fill[DarkBlue](15.3,-14) rectangle (15.4,-2);
+
+\fill[MidnightBlue](-4.5,0) rectangle (11,0.25);
+\fill[NavyBlue](2,0.4) rectangle (11,0.5);
+\end{tikzpicture}
+
+\AddToShipoutPicture*{\BackgroundPic}
+
+\thispagestyle{empty} %evita la numeración de la página
+\begin{textblock*}{5cm}(15.5cm,1.4cm)
+\includegraphics[width=4cm]{Imágenes/juntos.png}
+\end{textblock*}
+
+\begin{center}
+  {\fontsize{45pt}{30pt}\selectfont \textbf{\thetitle} \par}
+  \vspace{5cm}
+  {\Large \textbf{\theauthor} \par}
+  \vspace{6cm}
+  {\Large \universidad \par}
+  \vspace{0.5cm}
+  {\large \facultad \par}
+  \vspace{0.5cm}
+  {\large \lugar \par}
+  \vspace{0.5cm}
+  {\large \today}
+\end{center}
+
+
+\newpage
+
+
+\begin{tikzpicture}[overlay, fill opacity=0.75]
+\fill[NavyBlue](14.75,-27) rectangle (15,3);
+\fill[MidnightBlue](15.1,-20) rectangle (15.2,3);
+\fill[DarkBlue](15.3,-14) rectangle (15.4,3);
+
+\fill[MidnightBlue](-4.5,0) rectangle (17,0.25);
+\fill[NavyBlue](2,0.4) rectangle (17,0.5);
+\end{tikzpicture}
+
+\AddToShipoutPicture*{\BackgroundPic}
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{1cm}
+  {\Huge \textbf{\thetitle} \par}
+  \vspace{2cm}
+{Presenta 
+\large \par \textbf{\theauthor} \par}
+  \vspace*{2cm}
+ {Como trabajo de grado para optar por el título de \par \textbf{Físico} \par
+ \vspace{1cm}
+ \large \textbf{Director:} \par \tutor \par}
+  \vspace{2cm}
+  {\Large \universidad \par}
+  \vspace{0.5cm}
+  {\large \facultad \par}
+  \vspace{0.5cm}
+  {\large \lugar \par}
+  \vspace{0.5cm}
+  {\large \today}
+  \vfill
+\end{center}
+
+
+\newpage
+\tableofcontents*
+\newpage
+\listoftables 
+\newpage
+\listoffigures
+\newpage
+\chapter{Introducción}
+\newpage
+
+
+\backmatter 
+\printbibliography
+
+\newpage
+\printindex
+\end{document}
