@@ -31,8 +31,10 @@ circle = Circle((0, 0), 0.1, transform=ax.transData._b, color="red", alpha=1)
 ax.add_patch(circle)
 line1, = ax.plot([], [], lw=2, color="blue", label="Curva 1")
 line2, = ax.plot([], [], lw=2, color="red", label="Curva 2")
-scatter1 = ax.scatter([], [], s=10, color="blue", alpha=0.5)
-scatter2 = ax.scatter([], [], s=10, color="red", alpha=0.5)
+scatter1 = ax.scatter([], [], s=5, color="blue", alpha=0.5)
+scatter2 = ax.scatter([], [], s=5, color="red", alpha=0.5)
+scatter11 = ax.scatter([], [], s=5, color="green", alpha=0.5)
+scatter22 = ax.scatter([], [], s=5, color="purple", alpha=0.5)
 
 
 # para que las curvas se desplacen:
@@ -41,7 +43,9 @@ def init():
     line2.set_data([], [])
     scatter1.set_offsets(np.array([[], []]).T)
     scatter2.set_offsets(np.array([[], []]).T)
-    return line1, line2, scatter1, scatter2
+    scatter11.set_offsets(np.array([[], []]).T)
+    scatter22.set_offsets(np.array([[], []]).T)
+    return line1, line2, scatter1, scatter2, scatter11, scatter22
 
 
 # parametros para la aceleración
@@ -86,7 +90,7 @@ def update(frame):
     # desplazamiento total en x
     dx1 = v01 * t + x_of1(t)
     dx2 = v02 * t + x_of2(t)
-
+    #######Para las curvas externas######
     # --- Coordenadas en cartesiano ---
     x1 = r1 * np.cos(theta1ord) + dx1
     y1 = r1 * np.sin(theta1ord)
@@ -106,18 +110,39 @@ def update(frame):
     def expansion_factor2(time):
         return time**4
     
-    r11 = (r1_new*t) + (expansion_factor1(t))
-    r22 = (r2_new*t) + (expansion_factor2(t))
+    r11 = (r1_new * t) + (expansion_factor1(t))
+    r22 = (r2_new * t) + (expansion_factor2(t))
+
+
+    #######Para las curvas internas######
+    # --- Coordenadas en cartesiano ---
+    x11 = (r1 - 1) * np.cos(theta1ord) + dx1
+    y11 = (r1 - 1) * np.sin(theta1ord)
+
+    x22 = (r2 - 5) * np.cos(theta2ord) + dx2
+    y22 = (r2 - 5) * np.sin(theta2ord)
+
+    # --- Convertir de nuevo a polares ---
+    r11_new = np.sqrt(x11**2 + y11**2)
+    theta11_new = np.arctan2(y11, x11)
+    r22_new = np.sqrt(x22**2 + y22**2)
+    theta22_new = np.arctan2(y22, x22)
+
+    r111 = (r11_new * t) + (expansion_factor1(t))
+    r222 = (r22_new * t) + (expansion_factor1(t))
+
 
 # --- Actualizar las posiciones de las partículas en coordenadas polares ---
     scatter1.set_offsets(np.column_stack((theta1_new, r11)))
     scatter2.set_offsets(np.column_stack((theta2_new, r22)))
+    scatter11.set_offsets(np.column_stack((theta11_new, r111)))
+    scatter22.set_offsets(np.column_stack((theta22_new, r222)))
 
     # actualizar la curva
     line1.set_data(theta1_new, r11)
     line2.set_data(theta2_new, r22)
     ax.set_title(f"t = {t:.1f} s")
-    return line1, line2, scatter1, scatter2
+    return line1, line2, scatter1, scatter2, scatter11, scatter22
 
 
 # Animación
