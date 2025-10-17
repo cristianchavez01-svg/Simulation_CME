@@ -5,7 +5,7 @@ from scipy.integrate import quad
 from matplotlib.patches import Circle
 from matplotlib.animation import FuncAnimation, PillowWriter
 #########################################################
-fps = 2
+fps = 20
 
 fig = plt.figure()
 ax = plt.subplot(111, polar=True)  # Crear un gráfico polar
@@ -39,10 +39,10 @@ def init():
 # parametros para la aceleración
 
 # Para la CME1
-tr1 = 0.1
+tr1 = 0.3
 td1 = 1
 ar1 = 0.1
-ad1 = 1
+ad1 = 2
 v01 = 0.2
 # Para la CME2
 tr2 = 0.2
@@ -71,9 +71,9 @@ def x_of2(t):
 
 #Expansión radial
 def expansion_factor1(time):
-    return time**2
-def expansion_factor2(time):
     return time**4
+def expansion_factor2(time):
+    return time**6
 
 tiempo_inicial = 0  # tiempo inicial en segundos
 ############################################################################################
@@ -81,12 +81,20 @@ tiempo_inicial = 0  # tiempo inicial en segundos
 f_values = []
 g_values = []
 time_values = []
-
 # Listas para almacenar los valores de velocidad
 v_values_1 = []
 v_values_2 = []
 
+# NUEVAS LISTAS PARA r11 CON theta11 = 0
+r11_theta0_values = []  # Posición de r11 cuando theta11 = 0
+v_r11_theta0_values = []  # Velocidad de r11 cuando theta11 = 0
+a_r11_theta0_values = []  # Aceleración de r11 cuando theta11 = 0
 
+
+# NUEVAS LISTAS PARA r22 CON theta22 = 0
+r22_theta0_values = []  # Posición de r22 cuando theta22 = 0
+v_r22_theta0_values = []  # Velocidad de r22 cuando theta22 = 0
+a_r22_theta0_values = []  # Aceleración de r22 cuando theta22 = 0
 ########################################################################################
 
 theta1 = []
@@ -151,13 +159,24 @@ def update(frame):
     # Almacenar los valores de velocidad
     v_values_1.append(v1(t))
     v_values_2.append(v2(t))
+
+    # --- CALCULAR POSICIÓN DEL FRENTE DE CME1 (theta ≈ 0°) ---
+    idx1_theta0 = np.argmin(np.abs(theta1_new))
+    r11_theta0 = r11[idx1_theta0]
+    r11_theta0_values.append(r11_theta0)
+
+    # --- CALCULAR POSICIÓN DEL FRENTE DE CME2 (theta ≈ 0°) ---
+    idx2_theta0 = np.argmin(np.abs(theta2_new))
+    r22_theta0 = r22[idx2_theta0]
+    r22_theta0_values.append(r22_theta0)
+
     return line1, line2, scatter1, scatter2
 
 ######################################################################################
 
 theta11 = []
 theta22 = []
-r11 = []  # Radio 1 en función de θ
+r11 = []  # Radio 1 en función de θ (cambiado el nombre para evitar conflicto)
 r22 = []  # Radio 2 en función de θ
 
 for i in range(100):
@@ -195,7 +214,8 @@ def update2(frame, Dr1, Dr2):
 
     r1 = (r1_new * t) + (expansion_factor1(t))
     r2 = (r2_new * t) + (expansion_factor2(t))
-# --- Actualizar las posiciones de las partículas en coordenadas polares ---
+    
+    # --- Actualizar las posiciones de las partículas en coordenadas polares ---
     scatter11.set_offsets(np.column_stack((theta1_new, r1)))
     scatter22.set_offsets(np.column_stack((theta2_new, r2)))
     return scatter11, scatter22
@@ -252,11 +272,35 @@ def updatefin(frame):
     update(frame)
     update2(frame, -1.5, -1.5)
     update3(frame, -1, -1)
+    
+    # Calcular velocidad y aceleración de r11 con theta11 = 0
+    if len(r11_theta0_values) > 1:
+        # Calcular velocidad (derivada numérica)
+        dt = 1/fps
+        current_velocity1 = (r11_theta0_values[-1] - r11_theta0_values[-2]) / dt
+        v_r11_theta0_values.append(current_velocity1)
+        
+        # Calcular aceleración (derivada segunda numérica)
+        if len(v_r11_theta0_values) > 1:
+            current_acceleration1 = (v_r11_theta0_values[-1] - v_r11_theta0_values[-2]) / dt
+            a_r11_theta0_values.append(current_acceleration1)
+     # Calcular velocidad y aceleración de r22 con theta22 = 0
+    if len(r22_theta0_values) > 1:
+        # Calcular velocidad (derivada numérica)
+        dt = 1/fps
+        current_velocity2 = (r22_theta0_values[-1] - r22_theta0_values[-2]) / dt
+        v_r22_theta0_values.append(current_velocity2)
+        
+        # Calcular aceleración (derivada segunda numérica)
+        if len(v_r22_theta0_values) > 1:
+            current_acceleration2 = (v_r22_theta0_values[-1] - v_r22_theta0_values[-2]) / dt
+            a_r22_theta0_values.append(current_acceleration2)
+    
     return line1, line2, scatter1, scatter2, scatter11, scatter22, scatter111, scatter222
 
 
 # Animación
-ani = FuncAnimation(fig, updatefin, frames=50, init_func=init, blit=False)
+ani = FuncAnimation(fig, updatefin, frames=1000, init_func=init, blit=False)
 
 out_path = "curva_polar_particulas.gif"
 ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
@@ -275,7 +319,7 @@ plt.savefig('aceleracion_vs_tiempo.png')
 plt.grid(True)
 plt.show()
 
-# Crear una nueva figura para graficar las velocidades
+# Crear una nueva figura para graficar las velocidades de la CME1 y CME2
 plt.figure()
 plt.plot(time_values, v_values_1, label='v1(t)', color='blue')
 plt.plot(time_values, v_values_2, label='v2(t)', color='red')
@@ -287,5 +331,60 @@ plt.savefig('velocidad_vs_tiempo.png')
 plt.grid(True)
 plt.show()
 
+# NUEVA GRÁFICA: Velocidad y Aceleración de r11 con theta11 = 0
+plt.figure(figsize=(12, 8))
+# Subplot 1: Posición de r11 y r22
+plt.subplot(3, 1, 1)
+plt.plot(time_values[:len(r11_theta0_values)], r11_theta0_values, 'g-', linewidth=2, label='r11 (theta=0)')
+plt.plot(time_values[:len(r22_theta0_values)], r22_theta0_values, 'm-', linewidth=2, label='r22 (theta=0)')
+plt.ylabel('Posición')
+plt.title('Movimiento de Puntos r11 y r22 (theta=0) - Posición, Velocidad y Aceleración')
+plt.legend()
+plt.grid(True)
 
+# Subplot 2: Velocidad de r11 y r22
+plt.subplot(3, 1, 2)
+if len(v_r11_theta0_values) > 0:
+    time_velocity = time_values[1:len(v_r11_theta0_values)+1]
+    plt.plot(time_velocity, v_r11_theta0_values, 'r-', linewidth=2, label='v_r11')
+if len(v_r22_theta0_values) > 0:
+    time_velocity2 = time_values[1:len(v_r22_theta0_values)+1]
+    plt.plot(time_velocity2, v_r22_theta0_values, 'c-', linewidth=2, label='v_r22')
+plt.ylabel('Velocidad')
+plt.legend()
+plt.grid(True)
+
+# Subplot 3: Aceleración de r11 y r22
+plt.subplot(3, 1, 3)
+if len(a_r11_theta0_values) > 0:
+    time_accel1 = time_values[2:len(a_r11_theta0_values)+2]
+    plt.plot(time_accel1, a_r11_theta0_values, 'b-', linewidth=2, label='a_r11')
+if len(a_r22_theta0_values) > 0:
+    time_accel2 = time_values[2:len(a_r22_theta0_values)+2]
+    plt.plot(time_accel2, a_r22_theta0_values, 'y-', linewidth=2, label='a_r22')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Aceleración')
+plt.legend()
+plt.grid(True)
+
+plt.tight_layout()
+plt.savefig('r11_y_r22_theta0_velocidad_aceleracion.png')
+plt.show()
+
+# Mostrar valores estadísticos
+if len(r11_theta0_values) > 0:
+    print(f"Análisis del punto r11 con theta11 = 0:")
+    print(f"Posición máxima: {max(r11_theta0_values):.3f}")
+    if len(v_r11_theta0_values) > 0:
+        print(f"Velocidad máxima: {max(v_r11_theta0_values):.3f}")
+    if len(a_r11_theta0_values) > 0:
+        print(f"Aceleración máxima: {max(a_r11_theta0_values):.3f}")
+
+if len(r22_theta0_values) > 0:
+    print(f"\nAnálisis del punto r22 con theta22 = 0:")
+    print(f"Posición máxima: {max(r22_theta0_values):.3f}")
+    if len(v_r22_theta0_values) > 0:
+        print(f"Velocidad máxima: {max(v_r22_theta0_values):.3f}")
+    if len(a_r22_theta0_values) > 0:
+        print(f"Aceleración máxima: {max(a_r22_theta0_values):.3f}")
 out_path
