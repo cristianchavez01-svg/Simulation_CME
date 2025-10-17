@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,oneside]{memoir}
+\documentclass[12pt,a4paper,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish, es-tabla]{babel}
@@ -33,36 +33,10 @@ citecolor=MidnightBlue,    % Muy oscuro
 linkcolor=DarkBlue,        % Oscuro
 urlcolor=DarkBlue,        % Medio
 filecolor=DarkSlateBlue    % Oscuro
-}
-\makeindex[
-    title=Índice Alfabético,
-    columns=2,                          % 2 columnas
-    columnsep=1cm,                  % Espacio entre columnas
-    intoc]                              % Que aparezca en el índice general
-
-
+}                             % Que aparezca en el índice general
 \usepackage{titlesec}
 \usepackage{acronym}
-
-\definecolor{chaptercolor}{RGB}{0,0,0}
-\titleformat{\chapter}[display]
-{\normalfont\bfseries\color{chaptercolor}}
-{\raggedright\Huge\MakeUppercase{\chaptertitlename}\ {\fontsize{40}{45}\selectfont\thechapter}} % Capítulo X
-{20pt}
-{\titlerule\vspace{10pt}\Huge\raggedleft} % Línea + Título
-[\vspace{10pt}\titlerule] % Línea final
-\titlespacing*{\chapter}{0pt}{50pt}{30pt}
-
-\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
-
-\captionnamefont{\normalfont\bfseries}    % "Tabla" en negrita
-\captionstyle{\centering}                 % Centrado
-
-\linespread{1.5}
-
-
-\title{Estudio Hidrodinámico de la Interacción entre Eyecciones de Masa Coronal}
-\author {Cristian David Chavez Aponte}
+\linespread{1.2}
 \date{\today}
 \newcommand{\tutor}{Dr. Miguel Andrés Paez Murcia}
 \newcommand{\universidad}{Universidad Pedagógica y Tecnológica de Colombia}
@@ -70,32 +44,5 @@ filecolor=DarkSlateBlue    % Oscuro
 \newcommand{\programa}{Escuela de Física}
 \newcommand{\lugar}{Tunja, Boyacá, Colombia}
 
-
-\setlrmarginsandblock{3.5cm}{2.5cm}{*}
-\setulmarginsandblock{2.5cm}{2.5cm}{*}
-\checkandfixthelayout
-
 \usepackage{transparent} % Permite control de opacidad con \transparent
 
-% Marca de agua con opacidad
-\newcommand\BackgroundPic{
-  \put(0,0){
-    \parbox[b][\paperheight]{\paperwidth}{
-      \vfill
-      \centering
-      \transparent{0.05}
-      \includegraphics[width=0.7\paperwidth]{Imágenes/escudo.png}
-      \vfill
-    }
-  }
-}
-\newcommand{\margenIzquierdo}{
-  \AddToShipoutPictureBG*{
-    \ifnum\value{page}>2
-      \begin{tikzpicture}[remember picture,overlay]
-        \draw[white, thick, line width=2pt] (current page.south west) ++(2.55cm,5) -- ++ (0,25);
-      \end{tikzpicture}
-    \fi
-  }
-} 
-\AtBeginShipout{\margenIzquierdo}

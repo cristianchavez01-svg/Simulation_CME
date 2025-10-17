@@ -1,66 +1,19 @@
 
 
-\include{preámbulo}
+\include{preámbulo_propuesta}
 
 
 \begin{document}
 
-\begin{tikzpicture}[overlay, fill opacity=0.75]
-\fill[NavyBlue](14.75,-27) rectangle (15,-2);
-\fill[MidnightBlue](15.1,-20) rectangle (15.2,-2);
-\fill[DarkBlue](15.3,-14) rectangle (15.4,-2);
-
-\fill[MidnightBlue](-4.5,0) rectangle (11,0.25);
-\fill[NavyBlue](2,0.4) rectangle (11,0.5);
-\end{tikzpicture}
-
-\AddToShipoutPicture*{\BackgroundPic}
-
-\thispagestyle{empty} %evita la numeración de la página
-\begin{textblock*}{5cm}(15.5cm,1.4cm)
-\includegraphics[width=4cm]{Imágenes/juntos.png}
-\end{textblock*}
-
 \begin{center}
-  {\fontsize{45pt}{30pt}\selectfont \textbf{\thetitle} \par}
-  \vspace{5cm}
-  {\Large \textbf{\theauthor} \par}
-  \vspace{6cm}
-  {\Large \universidad \par}
-  \vspace{0.5cm}
-  {\large \facultad \par}
-  \vspace{0.5cm}
-  {\large \lugar \par}
-  \vspace{0.5cm}
-  {\large \today}
-\end{center}
+  \vspace*{0cm}
+  {\Huge \textbf{{Estudio Hidrodinámico de la Interacción de Eyecciones de Masa Coronal}} \par}
+  \vspace{1cm}
+{{
+\large \par \textbf{{Cristian David Chavez Aponte}} \par}
 
-
-\newpage
-
-
-\begin{tikzpicture}[overlay, fill opacity=0.75]
-\fill[NavyBlue](14.75,-27) rectangle (15,3);
-\fill[MidnightBlue](15.1,-20) rectangle (15.2,3);
-\fill[DarkBlue](15.3,-14) rectangle (15.4,3);
-
-\fill[MidnightBlue](-4.5,0) rectangle (17,0.25);
-\fill[NavyBlue](2,0.4) rectangle (17,0.5);
-\end{tikzpicture}
-
-\AddToShipoutPicture*{\BackgroundPic}
-\thispagestyle{empty}
-\begin{center}
-  \vspace*{1cm}
-  {\Huge \textbf{\thetitle} \par}
-  \vspace{2cm}
-{Presenta 
-\large \par \textbf{\theauthor} \par}
-  \vspace*{2cm}
- {Como trabajo de grado para optar por el título de \par \textbf{Físico} \par
- \vspace{1cm}
  \large \textbf{Director:} \par \tutor \par}
-  \vspace{2cm}
+  \vspace{1cm}
   {\Large \universidad \par}
   \vspace{0.5cm}
   {\large \facultad \par}
@@ -68,24 +21,32 @@
   {\large \lugar \par}
   \vspace{0.5cm}
   {\large \today}
-  \vfill
 \end{center}
 
 
-\newpage
-\tableofcontents*
-\newpage
-\listoftables 
-\newpage
-\listoffigures
-\newpage
-\chapter{Introducción}
-\newpage
+\section{Introducción}
 
 
-\backmatter 
+\section{Objetivos}
+
+\subsection{Objetivo general}
+\begin{itemize}
+\item Diseñar un modelo hidrodinámico de interacción de Eyecciones de Masa Coronal para el estudio de la densidad y la velocidad de la estructura resultante de la interacción, usando código de programación Python.
+\end{itemize}
+\subsection{Objetivos específicos}
+\begin{itemize}
+\item Elavorar un modelo hidrodinámico de la evolución de una Eyección de Masa Coronal para analizar el comportamiento de su expansión y propagación desde el Sol.
+\item Identificar los cambios de las propiedades del medio debido al paso de la primera Eyección de Masa Coronal para poder estudiar el comportamiento que tendrá la segunda Eyección de Masa Coronal.
+\item Desarrollar, en el modelo, la interacción entre las partículas de las Eyecciones de Masa Coronal para ver la evolución de la interacción entre las mismas.
+\item 
+\end{itemize}
+
+
+
+\section{Planteamiento del problema}
+La filosofía de los modelos de simulación de Eyecciones de Masa Coronal parte del análisis y desarrollo de las ecuaciones de la Magnetohidrodinámica bajo diferentes parámetros, lo cual conlleva un mecanismo complejo que incorpora múltiples fenómenos físicos. Por lo que se plantea una necesidad de un enfoque más simple desde los primeros principios, es decir, reducir el problema a su esensia: partículas que interactuan. 
+
+
+\section{Metodología}
 \printbibliography
-
-\newpage
-\printindex
 \end{document}
