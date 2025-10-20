@@ -3063,25 +3063,29 @@
     <bcf:citekey order="2" intorder="1">judge-2020</bcf:citekey>
     <bcf:citekey order="3" intorder="1">judge-2020</bcf:citekey>
     <bcf:citekey order="4" intorder="1">judge-2020</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">judge-2020</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">hathaway-2015</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">vaquero-2009</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">stakhiv-2015</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">2014swcm.book.....H</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">hathaway-2015</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">vaquero-2009</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">stakhiv-2015</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">2014swcm.book.....H</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">lugaz-2017</bcf:citekey>
     <bcf:citekey order="10" intorder="1">lugaz-2017</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">lugaz-2017</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">zhang-2006</bcf:citekey>
     <bcf:citekey order="12" intorder="1">zhang-2006</bcf:citekey>
     <bcf:citekey order="13" intorder="1">zhang-2006</bcf:citekey>
     <bcf:citekey order="14" intorder="1">zhang-2006</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">zhang-2006</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">odstrcil-2002</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">gallagher-2003</bcf:citekey>
-    <bcf:citekey order="17" intorder="2">zhang-2006</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">odstrcil-2002</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">gallagher-2003</bcf:citekey>
+    <bcf:citekey order="16" intorder="2">zhang-2006</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">Pevtsov_2000</bcf:citekey>
     <bcf:citekey order="18" intorder="1">Pevtsov_2000</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">Pevtsov_2000</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">lugaz-2017</bcf:citekey>
     <bcf:citekey order="20" intorder="1">lugaz-2017</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">lugaz-2017</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">2004ApJ...616L.171S</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">vasanth-2025</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">vasanth-2025</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">McDougall2025</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">McDougall2025</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">koehn-2022</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">koehn-2022</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
