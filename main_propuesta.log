@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  19 OCT 2025 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  22 OCT 2025 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1256,8 +1256,8 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
  (./main_propuesta.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
 )
 \openout1 = `main_propuesta.aux'.
 
@@ -1424,14 +1424,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [2] [3] [4]
-Overfull \hbox (23.8334pt too wide) in paragraph at lines 101--102
+<imag/_Diagrama de flujo.png, id=179, 1669.23625pt x 1065.9825pt>
+File: imag/_Diagrama de flujo.png Graphic file (type png)
+<use imag/_Diagrama de flujo.png>
+Package pdftex.def Info: imag/_Diagrama de flujo.png  used on input line 53.
+(pdftex.def)             Requested size: 455.24411pt x 290.71439pt.
+
+[5] [6 <./imag/_Diagrama de flujo.png>]
+Overfull \hbox (23.8334pt too wide) in paragraph at lines 117--118
  [] 
  []
 
-[5] [6] [7] (./main_propuesta.aux
-LaTeX Info: Redefining \sptext on input line 22.
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+[7] [8] [9] [10] [11] [12] (./main_propuesta.aux
+LaTeX Info: Redefining \sptext on input line 28.
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1439,18 +1446,23 @@ L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main_propuesta.out' has not changed.
 (rerunfilecheck)             Checksum: 629F93E4A9B03475C608B74DD2B9E84E;2925.
+
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'main_propuesta.run.xml'.
 \openout1 = `main_propuesta.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39342 strings out of 474222
- 744492 string characters out of 5748734
- 1941975 words of memory out of 5000000
- 60815 multiletter control sequences out of 15000+600000
- 576325 words of font info for 148 fonts, out of 8000000 for 9000
+ 39612 strings out of 474222
+ 752589 string characters out of 5748734
+ 1942975 words of memory out of 5000000
+ 61028 multiletter control sequences out of 15000+600000
+ 578256 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,7n,98p,1830b,2907s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,7n,98p,2114b,2907s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive
@@ -1460,14 +1472,15 @@ onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx144
 0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/te
 xmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfti1200.pfb>
-Output written on main_propuesta.pdf (7 pages, 259483 bytes).
+ic/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.
+pfb>
+Output written on main_propuesta.pdf (12 pages, 381247 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 200 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 26757 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 28810 words of extra memory for PDF output out of 29859 (max. 10000000)
 

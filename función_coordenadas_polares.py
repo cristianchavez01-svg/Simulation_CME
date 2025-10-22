@@ -5,16 +5,16 @@ from scipy.integrate import quad
 from matplotlib.patches import Circle
 from matplotlib.animation import FuncAnimation, PillowWriter
 
-fps = 15
+fps = 20
 theta1 = []
 theta2 = []
 r1 = []  # Radio 1 en función de θ
 r2 = []  # Radio 2 en función de θ
 
-for i in range(100):
-    r1.append(rd.uniform(5, 5.05))
+for i in range(10000):
+    r1.append(rd.uniform(0, 5))
     theta1.append(rd.uniform(0, 2 * np.pi))
-    r2.append(rd.uniform(6, 6.055))
+    r2.append(rd.uniform(0, 6))
     theta2.append(rd.uniform(0, 2 * np.pi))
 
 theta1ord = np.append(sorted(theta1), sorted(theta1)[0])  # Ordenar los ángulos
@@ -24,7 +24,7 @@ r2 = np.append(r2, r2[0])  #Se puede intentar corregir la malformación inicial 
 
 fig = plt.figure()
 ax = plt.subplot(111, polar=True)  # Crear un gráfico polar
-ax.set_rmax(2000)  # radio maximo del plano polar
+ax.set_rmax(20000)  # radio maximo del plano polar
 ax.set_thetamin(90)  # límite inferior en grados, para que se muestre solamente la mitad del plano.
 ax.set_thetamax(-90)  # límite superior en grados
 circle = Circle((0, 0), 0.1, transform=ax.transData._b, color="red", alpha=1)
@@ -144,7 +144,7 @@ def update(frame):
      
 
 # Animación
-ani = FuncAnimation(fig, update, frames=300, init_func=init, blit=False)
+ani = FuncAnimation(fig, update, frames=400, init_func=init, blit=False)
 
 out_path = "curva polar.gif"
 ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
