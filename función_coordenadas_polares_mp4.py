@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import random as rd
 from scipy.integrate import quad
 from matplotlib.patches import Circle
-from matplotlib.animation import FuncAnimation, PillowWriter
+from matplotlib.animation import FuncAnimation, FFMpegWriter
 
 fps = 20
 theta1 = []
@@ -11,7 +11,7 @@ theta2 = []
 r1 = []  # Radio 1 en función de θ
 r2 = []  # Radio 2 en función de θ
 
-for i in range(100000):
+for i in range(10000):
     r1.append(rd.uniform(0, 10))
     theta1.append(rd.uniform(0, 2 * np.pi))
     r2.append(rd.uniform(0, 12))
@@ -27,6 +27,7 @@ ax = plt.subplot(111, polar=True)  # Crear un gráfico polar
 ax.set_rmax(50000)  # radio maximo del plano polar
 ax.set_thetamin(75)  # límite inferior en grados, para que se muestre solamente la mitad del plano.
 ax.set_thetamax(-75)  # límite superior en grados
+ax.set_aspect("equal")
 circle = Circle((0, 0), 0.1, transform=ax.transData._b, color="red", alpha=1)
 ax.add_patch(circle)
 line1, = ax.plot([], [], lw=2, color="blue", label="Curva 1")
@@ -56,7 +57,6 @@ v02 = 0
 
 
 tiempo_inicial = 0  # tiempo inicial en segundos
-
 
 # Listas para almacenar los valores de f(t) y g(t)
 f_values = []
@@ -119,9 +119,9 @@ def update(frame):
 
     # --- Expansión radial ---
     def expansion_factor1(time):
-        return time**3# * 0.3 + 1  # Ajusta los parámetros
+        return time**4# * 0.3 + 1  # Ajusta los parámetros
     def expansion_factor2(time):
-        return  time**3# * 0.3 + 1  # Ajusta los parámetros
+        return  time**4# * 0.3 + 1  # Ajusta los parámetros
     
     r11 = r1_new*t + (expansion_factor1(t))
     r22 = r2_new*t + (expansion_factor2(t))
@@ -146,8 +146,11 @@ def update(frame):
 # Animación
 ani = FuncAnimation(fig, update, frames=400, init_func=init, blit=False)
 
-out_path = "curva polar.gif"
-ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
+# CAMBIO PRINCIPAL: Guardar como MP4 en lugar de GIF
+out_path = "curva_polar.mp4"
+# Usar FFMpegWriter con parámetros para buena calidad
+writer = FFMpegWriter(fps=fps, metadata=dict(artist='Me'), bitrate=1800)
+ani.save(out_path, writer=writer, dpi=200)
 
 plt.close(fig)
 
@@ -174,5 +177,3 @@ plt.legend()
 plt.savefig('velocidad_vs_tiempo.png')
 plt.grid(True)
 plt.show()
-
-out_path
