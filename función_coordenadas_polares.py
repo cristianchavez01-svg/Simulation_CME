@@ -11,33 +11,35 @@ theta2 = []
 r1 = []  # Radio 1 en función de θ
 r2 = []  # Radio 2 en función de θ
 
-for i in range(100000):
+for i in range(1000000):
     r1.append(rd.uniform(0, 10))
     theta1.append(rd.uniform(0, 2 * np.pi))
-    r2.append(rd.uniform(0, 12))
+    r2.append(rd.uniform(0, 15))
     theta2.append(rd.uniform(0, 2 * np.pi))
 
 theta1ord = np.append(sorted(theta1), sorted(theta1)[0])  # Ordenar los ángulos
 r1 = np.append(r1, r1[0])
 theta2ord = np.append(sorted(theta2), sorted(theta2)[0])
-r2 = np.append(r2, r2[0])  #Se puede intentar corregir la malformación inicial que atraviesa el Sol, toman do puntos desde -pi hasta pi y cerrando directamente la curva.
+r2 = np.append(r2, r2[0])
 
 fig = plt.figure()
 ax = plt.subplot(111, polar=True)  # Crear un gráfico polar
-ax.set_rmax(50000)  # radio maximo del plano polar
-ax.set_thetamin(75)  # límite inferior en grados, para que se muestre solamente la mitad del plano.
-ax.set_thetamax(-75)  # límite superior en grados
+ax.set_rmax(20000)  # radio maximo del plano polar
+ax.set_thetamin(60)  # límite inferior en grados
+ax.set_thetamax(-60)  # límite superior en grados
 circle = Circle((0, 0), 0.1, transform=ax.transData._b, color="red", alpha=1)
 ax.add_patch(circle)
-line1, = ax.plot([], [], lw=2, color="blue", label="Curva 1")
-line2, = ax.plot([], [], lw=2, color="red", label="Curva 2")
 
-# para que las curvas se desplacen:
+# CAMBIO: Usar scatter en lugar de plot para puntos
+scat1 = ax.scatter([], [], s=0.1, color="blue", alpha=0.4, label="Puntos 1")
+scat2 = ax.scatter([], [], s=0.1, color="red", alpha=0.4, label="Puntos 2")
+
+# para que los puntos se desplacen:
 def init():
-    line1.set_data([], [])
-    line2.set_data([], [])
-    return line1, line2
-
+    # Para scatter, necesitamos establecer datos vacíos
+    scat1.set_offsets(np.empty((0, 2)))
+    scat2.set_offsets(np.empty((0, 2)))
+    return scat1, scat2
 
 ## parametros para la aceleración
 
@@ -46,17 +48,15 @@ tr1 = 0.1
 td1 = 5
 ar1 = 0.1
 ad1 = 1
-v01 = 0.2
+v01 = 2
 # Para la CME2
 tr2 = 0.2
 td2 = 7
 ar2 = 0.1
 ad2 = 3
-v02 = 0
-
+v02 = 0.6
 
 tiempo_inicial = 0  # tiempo inicial en segundos
-
 
 # Listas para almacenar los valores de f(t) y g(t)
 f_values = []
@@ -71,7 +71,6 @@ def update(frame):
     # tiempo en segundos
     t = (frame / fps) + tiempo_inicial  # tiempo inicial en segundos
     time_values.append(t)
-
 
     # --- Aceleración 1 ---
     def f(s):
@@ -90,7 +89,6 @@ def update(frame):
         val, err = quad(integrand, 0, t)
         return val
     
-
     # --- Velocidad 1 ---
     def v1(s):
         return v01 + quad(f, 0, s)[0]  # Integrar f(s) desde 0 hasta s
@@ -99,7 +97,6 @@ def update(frame):
     def v2(s):
         return v02 + quad(g, 0, s)[0]  # Integrar g(s) desde 0 hasta s
     
-
     # desplazamiento total en x
     dx1 = v01 * t + x_of1(t)
     dx2 = v02 * t + x_of2(t)
@@ -119,17 +116,21 @@ def update(frame):
 
     # --- Expansión radial ---
     def expansion_factor1(time):
-        return time**3# * 0.3 + 1  # Ajusta los parámetros
+        return time**3
     def expansion_factor2(time):
-        return  time**3# * 0.3 + 1  # Ajusta los parámetros
+        return time**3
     
     r11 = r1_new*t + (expansion_factor1(t))
     r22 = r2_new*t + (expansion_factor2(t))
     
-
-    # actualizar la curva
-    line1.set_data(theta1_new, r11)
-    line2.set_data(theta2_new, r22)
+    # CAMBIO: Actualizar los puntos scatter
+    # Combinar ángulos y radios en arrays 2D para scatter
+    points1 = np.column_stack([theta1_new, r11])
+    points2 = np.column_stack([theta2_new, r22])
+    
+    scat1.set_offsets(points1)
+    scat2.set_offsets(points2)
+    
     ax.set_title(f"t = {t:.1f} s")
 
     # Almacenar los valores de f(t) y g(t)
@@ -139,14 +140,13 @@ def update(frame):
     # Almacenar los valores de velocidad
     v_values_1.append(v1(t))
     v_values_2.append(v2(t))
-    return line1, line2
-
-     
+    
+    return scat1, scat2
 
 # Animación
-ani = FuncAnimation(fig, update, frames=400, init_func=init, blit=False)
+ani = FuncAnimation(fig, update, frames=600, init_func=init, blit=False)
 
-out_path = "curva polar.gif"
+out_path = "puntos_polar.gif"
 ani.save(out_path, writer=PillowWriter(fps=fps), dpi=200)
 
 plt.close(fig)
@@ -175,4 +175,4 @@ plt.savefig('velocidad_vs_tiempo.png')
 plt.grid(True)
 plt.show()
 
-out_path
+print(f"Animación guardada como: {out_path}")
