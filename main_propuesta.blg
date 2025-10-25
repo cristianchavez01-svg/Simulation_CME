@@ -1,22 +1,23 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[1] Config.pm:310> INFO - Logfile is 'main_propuesta.blg'
-[178] biber:340> INFO - === jue oct 23, 2025, 13:59:49
-[217] Biber.pm:419> INFO - Reading 'main_propuesta.bcf'
-[411] Biber.pm:979> INFO - Found 42 citekeys in bib section 0
-[456] Biber.pm:4419> INFO - Processing section 0
-[479] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[486] bibtex.pm:1713> INFO - LaTeX decoding ...
-[618] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[1451] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1451] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1451] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1651] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1651] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1652] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1769] bbl.pm:660> INFO - Writing 'main_propuesta.bbl' with encoding 'UTF-8'
-[1866] bbl.pm:763> INFO - Output to main_propuesta.bbl
+[0] Config.pm:310> INFO - Logfile is 'main_propuesta.blg'
+[176] biber:340> INFO - === sáb oct 25, 2025, 12:42:45
+[210] Biber.pm:419> INFO - Reading 'main_propuesta.bcf'
+[403] Biber.pm:979> INFO - Found 43 citekeys in bib section 0
+[448] Biber.pm:4419> INFO - Processing section 0
+[469] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[475] bibtex.pm:1713> INFO - LaTeX decoding ...
+[607] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[1455] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1455] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1455] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1653] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1654] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1654] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1768] bbl.pm:660> INFO - Writing 'main_propuesta.bbl' with encoding 'UTF-8'
+[1865] bbl.pm:763> INFO - Output to main_propuesta.bbl
 [1866] Biber.pm:131> WARN - Duplicate entry key: 'mayank-2023' in file 'bibliografia.bib', skipping ...
 [1866] Biber.pm:131> WARN - Duplicate entry key: 'asplund-2009' in file 'bibliografia.bib', skipping ...
-[1867] Biber.pm:131> WARN - Duplicate entry key: 'hathaway-2015' in file 'bibliografia.bib', skipping ...
-[1867] Biber.pm:131> WARN - legacy month field 'mar' in entry 'Pevtsov_2000' is not an integer - this will probably not sort properly.
-[1867] Biber.pm:133> INFO - WARNINGS: 4
+[1866] Biber.pm:131> WARN - Duplicate entry key: 'hathaway-2015' in file 'bibliografia.bib', skipping ...
+[1866] Biber.pm:131> WARN - legacy month field 'mar' in entry 'Pevtsov_2000' is not an integer - this will probably not sort properly.
+[1866] Biber.pm:131> WARN - I didn't find a database entry for 'shen-2013' (section 0)
+[1866] Biber.pm:133> INFO - WARNINGS: 5

@@ -11,7 +11,7 @@ theta2 = []
 r1 = []  # Radio 1 en función de θ
 r2 = []  # Radio 2 en función de θ
 
-for i in range(1000000):
+for i in range(10000):
     r1.append(rd.uniform(0, 10))
     theta1.append(rd.uniform(0, 2 * np.pi))
     r2.append(rd.uniform(0, 15))
@@ -153,8 +153,8 @@ plt.close(fig)
 
 # Crear una nueva figura para graficar f(t) y g(t)
 plt.figure()
-plt.plot(time_values, f_values, label='f(t)', color='blue')
-plt.plot(time_values, g_values, label='g(t)', color='red')
+plt.plot(time_values, f_values, label='a1(t)', color='blue')
+plt.plot(time_values, g_values, label='a2(t)', color='red')
 plt.xlabel('Tiempo (s)')
 plt.ylabel('Aceleración')
 plt.title('Aceleración en función del tiempo')
