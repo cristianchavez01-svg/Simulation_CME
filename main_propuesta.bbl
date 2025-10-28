@@ -305,66 +305,6 @@
       \verb https://doi.org/10.1007/bf00240455
       \endverb
     \endentry
-    \entry{Goldberg1959}{inbook}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=8608363bd0d46476a72cb7e8ebbc2fbd}{%
-           family={Goldberg},
-           familyi={G\bibinitperiod},
-           given={Leo},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=735fcb3f945f1a50a6f2ed78ef920398}{%
-           family={Pierce},
-           familyi={P\bibinitperiod},
-           given={A.\bibnamedelimi Keith},
-           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=71330900f8655eb0567ba4a79295780a}{%
-           family={Flügge},
-           familyi={F\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Berlin, Heidelberg}%
-      }
-      \list{publisher}{1}{%
-        {Springer Berlin Heidelberg}%
-      }
-      \strng{namehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{fullhash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{bibnamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authorbibnamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authornamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authorfullhash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{editorbibnamehash}{71330900f8655eb0567ba4a79295780a}
-      \strng{editornamehash}{71330900f8655eb0567ba4a79295780a}
-      \strng{editorfullhash}{71330900f8655eb0567ba4a79295780a}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Astrophysics III: The Solar System / Astrophysik III: Das Sonnensystem}
-      \field{isbn}{978-3-642-45929-0}
-      \field{title}{The Photosphere of the Sun}
-      \field{year}{1959}
-      \field{pages}{1\bibrangedash 79}
-      \range{pages}{79}
-      \verb{doi}
-      \verb 10.1007/978-3-642-45929-0_1
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-3-642-45929-0_1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-3-642-45929-0_1
-      \endverb
-    \endentry
     \entry{gonzalez-esparza-2004}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5bf4df82f9a5a461004de8cab1d77ab1}{%
@@ -1002,42 +942,6 @@
       \verb https://doi.org/10.1007/s11207-025-02541-w
       \endverb
     \endentry
-    \entry{1967ARA&A...5..213N}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=971f086b3506aade7ecb5e7f29f8d379}{%
-           family={{Newkirk}},
-           familyi={N\bibinitperiod},
-           given={Gordon},
-           giveni={G\bibinitperiod},
-           givenun=0,
-           suffix={Jr.},
-           suffixi={J\bibinitperiod},
-           suffixun=0}}%
-      }
-      \strng{namehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{fullhash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{bibnamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authorbibnamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authornamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authorfullhash}{971f086b3506aade7ecb5e7f29f8d379}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
-      \field{month}{1}
-      \field{title}{{Structure of the Solar Corona}}
-      \field{volume}{5}
-      \field{year}{1967}
-      \field{pages}{213}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1146/annurev.aa.05.090167.001241
-      \endverb
-    \endentry
     \entry{odstrcil-2002}{article}{}
       \name{author}{7}{}{%
         {{un=0,uniquepart=base,hash=5aef9a8fb8000f374404d8b04439c0e7}{%
@@ -1110,39 +1014,6 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1029/2002ja009334
-      \endverb
-    \endentry
-    \entry{1964ARA&A...2..267P}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=425ffb7b8428d5013e7ba6535e233419}{%
-           family={{Pagel}},
-           familyi={P\bibinitperiod},
-           given={B.\bibnamedelimi E.\bibnamedelimi J.},
-           giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{fullhash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{bibnamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authorbibnamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authornamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authorfullhash}{425ffb7b8428d5013e7ba6535e233419}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
-      \field{month}{1}
-      \field{title}{{The Structure of the Solar Chromosphere}}
-      \field{volume}{2}
-      \field{year}{1964}
-      \field{pages}{267}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1146/annurev.aa.02.090164.001411
       \endverb
     \endentry
     \entry{nhess-2018-92}{article}{}
@@ -1329,12 +1200,12 @@
     \endentry
     \entry{1958ApJ...128..664P}{article}{}
       \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
+        {{un=0,uniquepart=base,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
            family={{Parker}},
            familyi={P\bibinitperiod},
            given={E.\bibnamedelimi N.},
            giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
       }
       \strng{namehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
       \strng{fullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
@@ -1358,42 +1229,6 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.1086/146579
-      \endverb
-    \endentry
-    \entry{parker2019cosmical}{book}{}
-      \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
-           family={Parker},
-           familyi={P\bibinitperiod},
-           given={E.N.},
-           giveni={E\bibinitperiod},
-           givenun=1}}%
-      }
-      \list{publisher}{1}{%
-        {Oxford University Press}%
-      }
-      \strng{namehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{fullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{bibnamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authorbibnamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authornamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authorfullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780198829966}
-      \field{series}{Oxford classic texts in the physical sciences}
-      \field{title}{Cosmical Magnetic Fields: Their Origin and Their Activity}
-      \field{year}{2019}
-      \verb{urlraw}
-      \verb https://books.google.co.in/books?id=rgCvDwAAQBAJ
-      \endverb
-      \verb{url}
-      \verb https://books.google.co.in/books?id=rgCvDwAAQBAJ
       \endverb
     \endentry
     \entry{Pevtsov_2000}{article}{}
@@ -1520,6 +1355,94 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s11214-006-9099-5
+      \endverb
+    \endentry
+    \entry{shen-2013}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=f91461ec7d03471cb984bf0ae5239045}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f2234b06477ac71f67fe16d3e2b397f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=21173e389590fc5148b020834157777f}{%
+           family={Kong},
+           familyi={K\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30c3519915a07c272d6fd946f3eaa35a}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2886aa4bd6113e1e4697a64f6866ac1b}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={X.\bibnamedelimi D.},
+           giveni={X\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8472d81eba2cea3b3e67d5f3f39cddf}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff38b98d2dc65002f66d028a85b9d58d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ba62c3a05e471773cbebe9a199a9243}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuming},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2608df375f162e8ffd4c09e67c9a0e8}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a465a3f23790196f0ba4422d7460597d}
+      \strng{fullhash}{78d721143164a96c282b97940918ebdc}
+      \strng{bibnamehash}{78d721143164a96c282b97940918ebdc}
+      \strng{authorbibnamehash}{78d721143164a96c282b97940918ebdc}
+      \strng{authornamehash}{a465a3f23790196f0ba4422d7460597d}
+      \strng{authorfullhash}{78d721143164a96c282b97940918ebdc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{1}
+      \field{number}{2}
+      \field{title}{{COMPOUND TWIN CORONAL MASS EJECTIONS IN THE 2012 MAY 17 GLE EVENT}}
+      \field{volume}{763}
+      \field{year}{2013}
+      \field{pages}{114}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/0004-637x/763/2/114
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/0004-637x/763/2/114
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/0004-637x/763/2/114
       \endverb
     \endentry
     \entry{2004ApJ...616L.171S}{article}{}
@@ -1929,53 +1852,6 @@
       \verb https://doi.org/10.1088/0004-637x/749/1/57
       \endverb
     \endentry
-    \entry{TURCKCHIEZE2008855}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=2454ac5a28b51bd7a3ec5c4c5bffeaac}{%
-           family={Turck-Chièze},
-           familyi={T\bibinithyphendelim C\bibinitperiod},
-           given={Sylvaine},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2bb3ebee94163bb20cbe4cb74ce150ac}{%
-           family={Talon},
-           familyi={T\bibinitperiod},
-           given={Suzanne},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{fullhash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{bibnamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authorbibnamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authornamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authorfullhash}{30c47981ba97a832e63ca54d31b49b31}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0273-1177}
-      \field{journaltitle}{Advances in Space Research}
-      \field{number}{6}
-      \field{title}{The dynamics of the solar radiative zone}
-      \field{volume}{41}
-      \field{year}{2008}
-      \field{pages}{855\bibrangedash 860}
-      \range{pages}{6}
-      \verb{doi}
-      \verb https://doi.org/10.1016/j.asr.2007.03.057
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0273117707002967
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0273117707002967
-      \endverb
-      \keyw{Solar interior,Helioseismology,Neutrino,Gravity waves}
-    \endentry
     \entry{vaquero-2009}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e0c4573aa5801b44a72afcb2460d378a}{%
@@ -2156,6 +2032,46 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s11207-012-0035-4
+      \endverb
+    \endentry
+    \entry{wilson-1969}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ad2451d4cd30035b04674ed5e864320}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={P.\bibnamedelimi R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{fullhash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{bibnamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authorbibnamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authornamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authorfullhash}{3ad2451d4cd30035b04674ed5e864320}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Solar Physics}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{{Temperature fluctuations in the solar photosphere}}
+      \field{volume}{6}
+      \field{year}{1969}
+      \field{pages}{364\bibrangedash 380}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1007/bf00146471
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf00146471
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf00146471
       \endverb
     \endentry
     \entry{zhang-2006}{article}{}
@@ -2492,66 +2408,6 @@
       \verb https://doi.org/10.1007/bf00240455
       \endverb
     \endentry
-    \entry{Goldberg1959}{inbook}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=8608363bd0d46476a72cb7e8ebbc2fbd}{%
-           family={Goldberg},
-           familyi={G\bibinitperiod},
-           given={Leo},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=735fcb3f945f1a50a6f2ed78ef920398}{%
-           family={Pierce},
-           familyi={P\bibinitperiod},
-           given={A.\bibnamedelimi Keith},
-           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=71330900f8655eb0567ba4a79295780a}{%
-           family={Flügge},
-           familyi={F\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Berlin, Heidelberg}%
-      }
-      \list{publisher}{1}{%
-        {Springer Berlin Heidelberg}%
-      }
-      \strng{namehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{fullhash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{bibnamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authorbibnamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authornamehash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{authorfullhash}{3daaad792dcde516b899fb313c6b7e79}
-      \strng{editorbibnamehash}{71330900f8655eb0567ba4a79295780a}
-      \strng{editornamehash}{71330900f8655eb0567ba4a79295780a}
-      \strng{editorfullhash}{71330900f8655eb0567ba4a79295780a}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Astrophysics III: The Solar System / Astrophysik III: Das Sonnensystem}
-      \field{isbn}{978-3-642-45929-0}
-      \field{title}{The Photosphere of the Sun}
-      \field{year}{1959}
-      \field{pages}{1\bibrangedash 79}
-      \range{pages}{79}
-      \verb{doi}
-      \verb 10.1007/978-3-642-45929-0_1
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-3-642-45929-0_1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-3-642-45929-0_1
-      \endverb
-    \endentry
     \entry{gonzalez-esparza-2004}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5bf4df82f9a5a461004de8cab1d77ab1}{%
@@ -3189,42 +3045,6 @@
       \verb https://doi.org/10.1007/s11207-025-02541-w
       \endverb
     \endentry
-    \entry{1967ARA&A...5..213N}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=971f086b3506aade7ecb5e7f29f8d379}{%
-           family={{Newkirk}},
-           familyi={N\bibinitperiod},
-           given={Gordon},
-           giveni={G\bibinitperiod},
-           givenun=0,
-           suffix={Jr.},
-           suffixi={J\bibinitperiod},
-           suffixun=0}}%
-      }
-      \strng{namehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{fullhash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{bibnamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authorbibnamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authornamehash}{971f086b3506aade7ecb5e7f29f8d379}
-      \strng{authorfullhash}{971f086b3506aade7ecb5e7f29f8d379}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
-      \field{month}{1}
-      \field{title}{{Structure of the Solar Corona}}
-      \field{volume}{5}
-      \field{year}{1967}
-      \field{pages}{213}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1146/annurev.aa.05.090167.001241
-      \endverb
-    \endentry
     \entry{odstrcil-2002}{article}{}
       \name{author}{7}{}{%
         {{un=0,uniquepart=base,hash=5aef9a8fb8000f374404d8b04439c0e7}{%
@@ -3297,39 +3117,6 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1029/2002ja009334
-      \endverb
-    \endentry
-    \entry{1964ARA&A...2..267P}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=425ffb7b8428d5013e7ba6535e233419}{%
-           family={{Pagel}},
-           familyi={P\bibinitperiod},
-           given={B.\bibnamedelimi E.\bibnamedelimi J.},
-           giveni={B\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{fullhash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{bibnamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authorbibnamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authornamehash}{425ffb7b8428d5013e7ba6535e233419}
-      \strng{authorfullhash}{425ffb7b8428d5013e7ba6535e233419}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
-      \field{month}{1}
-      \field{title}{{The Structure of the Solar Chromosphere}}
-      \field{volume}{2}
-      \field{year}{1964}
-      \field{pages}{267}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1146/annurev.aa.02.090164.001411
       \endverb
     \endentry
     \entry{nhess-2018-92}{article}{}
@@ -3516,12 +3303,12 @@
     \endentry
     \entry{1958ApJ...128..664P}{article}{}
       \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
+        {{un=0,uniquepart=base,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
            family={{Parker}},
            familyi={P\bibinitperiod},
            given={E.\bibnamedelimi N.},
            giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
       }
       \strng{namehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
       \strng{fullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
@@ -3545,42 +3332,6 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.1086/146579
-      \endverb
-    \endentry
-    \entry{parker2019cosmical}{book}{}
-      \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
-           family={Parker},
-           familyi={P\bibinitperiod},
-           given={E.N.},
-           giveni={E\bibinitperiod},
-           givenun=1}}%
-      }
-      \list{publisher}{1}{%
-        {Oxford University Press}%
-      }
-      \strng{namehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{fullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{bibnamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authorbibnamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authornamehash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \strng{authorfullhash}{1b8298bb4e7ccf76c3e1a5f988f5cd97}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780198829966}
-      \field{series}{Oxford classic texts in the physical sciences}
-      \field{title}{Cosmical Magnetic Fields: Their Origin and Their Activity}
-      \field{year}{2019}
-      \verb{urlraw}
-      \verb https://books.google.co.in/books?id=rgCvDwAAQBAJ
-      \endverb
-      \verb{url}
-      \verb https://books.google.co.in/books?id=rgCvDwAAQBAJ
       \endverb
     \endentry
     \entry{Pevtsov_2000}{article}{}
@@ -3707,6 +3458,94 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s11214-006-9099-5
+      \endverb
+    \endentry
+    \entry{shen-2013}{article}{}
+      \name{author}{9}{}{%
+        {{un=0,uniquepart=base,hash=f91461ec7d03471cb984bf0ae5239045}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f2234b06477ac71f67fe16d3e2b397f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=21173e389590fc5148b020834157777f}{%
+           family={Kong},
+           familyi={K\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30c3519915a07c272d6fd946f3eaa35a}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2886aa4bd6113e1e4697a64f6866ac1b}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={X.\bibnamedelimi D.},
+           giveni={X\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8472d81eba2cea3b3e67d5f3f39cddf}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff38b98d2dc65002f66d028a85b9d58d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ba62c3a05e471773cbebe9a199a9243}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuming},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d2608df375f162e8ffd4c09e67c9a0e8}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a465a3f23790196f0ba4422d7460597d}
+      \strng{fullhash}{78d721143164a96c282b97940918ebdc}
+      \strng{bibnamehash}{78d721143164a96c282b97940918ebdc}
+      \strng{authorbibnamehash}{78d721143164a96c282b97940918ebdc}
+      \strng{authornamehash}{a465a3f23790196f0ba4422d7460597d}
+      \strng{authorfullhash}{78d721143164a96c282b97940918ebdc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{1}
+      \field{number}{2}
+      \field{title}{{COMPOUND TWIN CORONAL MASS EJECTIONS IN THE 2012 MAY 17 GLE EVENT}}
+      \field{volume}{763}
+      \field{year}{2013}
+      \field{pages}{114}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/0004-637x/763/2/114
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1088/0004-637x/763/2/114
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1088/0004-637x/763/2/114
       \endverb
     \endentry
     \entry{2004ApJ...616L.171S}{article}{}
@@ -4116,53 +3955,6 @@
       \verb https://doi.org/10.1088/0004-637x/749/1/57
       \endverb
     \endentry
-    \entry{TURCKCHIEZE2008855}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=2454ac5a28b51bd7a3ec5c4c5bffeaac}{%
-           family={Turck-Chièze},
-           familyi={T\bibinithyphendelim C\bibinitperiod},
-           given={Sylvaine},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2bb3ebee94163bb20cbe4cb74ce150ac}{%
-           family={Talon},
-           familyi={T\bibinitperiod},
-           given={Suzanne},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{fullhash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{bibnamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authorbibnamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authornamehash}{30c47981ba97a832e63ca54d31b49b31}
-      \strng{authorfullhash}{30c47981ba97a832e63ca54d31b49b31}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0273-1177}
-      \field{journaltitle}{Advances in Space Research}
-      \field{number}{6}
-      \field{title}{The dynamics of the solar radiative zone}
-      \field{volume}{41}
-      \field{year}{2008}
-      \field{pages}{855\bibrangedash 860}
-      \range{pages}{6}
-      \verb{doi}
-      \verb https://doi.org/10.1016/j.asr.2007.03.057
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0273117707002967
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0273117707002967
-      \endverb
-      \keyw{Solar interior,Helioseismology,Neutrino,Gravity waves}
-    \endentry
     \entry{vaquero-2009}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=e0c4573aa5801b44a72afcb2460d378a}{%
@@ -4345,6 +4137,46 @@
       \verb https://doi.org/10.1007/s11207-012-0035-4
       \endverb
     \endentry
+    \entry{wilson-1969}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ad2451d4cd30035b04674ed5e864320}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={P.\bibnamedelimi R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{fullhash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{bibnamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authorbibnamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authornamehash}{3ad2451d4cd30035b04674ed5e864320}
+      \strng{authorfullhash}{3ad2451d4cd30035b04674ed5e864320}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Solar Physics}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{{Temperature fluctuations in the solar photosphere}}
+      \field{volume}{6}
+      \field{year}{1969}
+      \field{pages}{364\bibrangedash 380}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1007/bf00146471
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf00146471
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf00146471
+      \endverb
+    \endentry
     \entry{zhang-2006}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=8afab9bdc9b292debbeb136dfd97036c}{%
@@ -4392,7 +4224,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{shen-2013}
 \endrefsection
 \endinput
 

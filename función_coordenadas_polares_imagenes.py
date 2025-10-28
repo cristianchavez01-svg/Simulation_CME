@@ -212,7 +212,6 @@ plt.close(fig)
 # =============================================================================
 # PARTE 3: GENERAR GRÁFICOS DE ACELERACIÓN Y VELOCIDAD, con máximos
 # =============================================================================
-
 # Convertir a arrays numpy para cálculos
 time_array = np.array(time_values)
 f_array = np.array(f_values)
@@ -229,7 +228,7 @@ max_f_value = f_array[max_f_idx]
 max_g_time = time_array[max_g_idx]
 max_g_value = g_array[max_g_idx]
 
-# Calcular máximos de VELOCIDAD
+# Calcular máximos de VELOCIDAD (no se graficarán)
 max_v1_idx = np.argmax(v1_array)
 max_v2_idx = np.argmax(v2_array)
 
@@ -238,40 +237,65 @@ max_v1_value = v1_array[max_v1_idx]
 max_v2_time = time_array[max_v2_idx]
 max_v2_value = v2_array[max_v2_idx]
 
-# Gráfico de aceleración
-plt.figure(figsize=(8, 4))
-plt.plot(time_array, f_array, label='a1(t)', color='blue', linewidth=2)
-plt.plot(time_array, g_array, label='a2(t)', color='red', linewidth=2)
-# Marcar máximos
-plt.scatter(max_f_time, max_f_value, color='blue', s=100, zorder=5, 
+# Configurar tamaño de fuente global ANTES de crear la figura
+plt.rcParams.update({'font.size': 14})  # Tamaño base para todo
+
+# También puedes configurar elementos específicos:
+plt.rcParams.update({
+    'font.size': 14,           # Tamaño base
+    'axes.titlesize': 16,      # Título del gráfico
+    'axes.labelsize': 15,      # Etiquetas de ejes
+    'xtick.labelsize': 13,     # Números del eje X
+    'ytick.labelsize': 13,     # Números del eje Y
+    'legend.fontsize': 12      # Leyenda
+})
+
+# Crear figura y eje principal (para aceleraciones)
+fig = plt.figure(figsize=(10, 6))
+ax1 = fig.add_subplot(111)  # Crear el primer eje
+
+# Gráfico de ACELERACIONES en el eje izquierdo
+color_a1 = 'blue'
+color_a2 = 'red'
+ax1.set_xlabel('Tiempo (s)')
+ax1.set_ylabel('Aceleración', color='black')
+line_a1, = ax1.plot(time_array, f_array, label='a1(t)', color=color_a1, linewidth=2)
+line_a2, = ax1.plot(time_array, g_array, label='a2(t)', color=color_a2, linewidth=2)
+
+# Marcar máximos de aceleración con líneas punteadas verticales
+ax1.axvline(x=max_f_time, color=color_a1, linestyle='--', alpha=0.7, 
            label=f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s')
-plt.scatter(max_g_time, max_g_value, color='red', s=100, zorder=5,
+ax1.axvline(x=max_g_time, color=color_a2, linestyle='--', alpha=0.7,
            label=f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s')
-plt.xlabel('Tiempo (s)')
-plt.ylabel('Aceleración')
-plt.title('Aceleración en función del tiempo')
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.savefig('aceleracion_vs_tiempo.png', dpi=300, bbox_inches='tight')
-plt.show()
 
-# Gráfico de velocidad
-plt.figure(figsize=(8, 4))
-plt.plot(time_array, v1_array, label='v1(t)', color='blue', linewidth=2)
-plt.plot(time_array, v2_array, label='v2(t)', color='red', linewidth=2)
-# Marcar máximos
-plt.scatter(max_v1_time, max_v1_value, color='blue', s=100, zorder=5,
-           label=f'Máx v1: {max_v1_value:.3f} en t={max_v1_time:.1f}s')
-plt.scatter(max_v2_time, max_v2_value, color='red', s=100, zorder=5,
-           label=f'Máx v2: {max_v2_value:.3f} en t={max_v2_time:.1f}s')
-plt.xlabel('Tiempo (s)')
-plt.ylabel('Velocidad')
-plt.title('Velocidad en función del tiempo')
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.savefig('velocidad_vs_tiempo.png', dpi=300, bbox_inches='tight')
-plt.show()
+ax1.tick_params(axis='y', labelcolor='black')
+ax1.grid(True, alpha=0.3)
 
+# Crear segundo eje Y para VELOCIDADES (lado derecho)
+ax2 = ax1.twinx()
+color_v1 = 'skyblue'
+color_v2 = 'salmon'
+ax2.set_ylabel('Velocidad', color='black')
+line_v1, = ax2.plot(time_array, v1_array, label='v1(t)', color=color_v1, linewidth=2)
+line_v2, = ax2.plot(time_array, v2_array, label='v2(t)', color=color_v2, linewidth=2)
+ax2.tick_params(axis='y', labelcolor='black')
+
+# Combinar leyendas de ambos ejes
+lines = [line_a1, line_a2, line_v1, line_v2]
+labels = [line.get_label() for line in lines]
+
+# Añadir las líneas verticales punteadas a la leyenda
+lines.append(plt.Line2D([0], [0], color=color_a1, linestyle='--', alpha=0.7))
+lines.append(plt.Line2D([0], [0], color=color_a2, linestyle='--', alpha=0.7))
+labels.extend([f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s', 
+               f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s'])
+
+ax1.legend(lines, labels, loc='center right')
+
+plt.title('Aceleración y Velocidad en función del tiempo')
+plt.tight_layout()
+plt.savefig('aceleracion_velocidad_vs_tiempo.png', dpi=300, bbox_inches='tight')
+plt.show()
 # =============================================================================
 # PARTE 4: GENERAR FIGURA COMBINADA CON LAS 4 IMÁGENES
 # =============================================================================

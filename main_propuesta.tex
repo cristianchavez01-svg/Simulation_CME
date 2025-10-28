@@ -4,7 +4,7 @@
 \begin{document}
 
 \begin{center}
-  {\Huge \textbf{{Estudio de los parámetros Hidrodinámicos de la Interacción de Eyecciones de Masa Coronal gemelas}} \par}
+  {\Huge \textbf{{Estudio de los parámetros Hidrodinámicos en la simulación de la Interacción de Eyecciones de Masa Coronal gemelas}} \par}
   \vspace{1cm}
 {{
 \large \par {Cristian David Chavez Aponte} \par}
@@ -21,50 +21,28 @@
 \end{center}
 
 \section*{Resumen}
-Este trabajo busca desarrollar un modelo computacional hidrodinámico para estudiar la interacción entre Eyecciones de Masa Coronal gemelas (en inglés \textit{Twin Coronal Mass Ejections}). El modelo, implementado en Python, busca simular la evolución de parámetros críticos como densidad, velocidad y geometría durante la interacción de CMEs en el medio interplanetario. A diferencia de los enfoques magnetohidrodinámicos tradicionales que presentan alta complejidad computacional, este trabajo propone un modelo basado en partículas que interactúan, capturando la física esencial con menor costo computacional. Los resultados preliminares validan cualitativamente perfiles cinemáticos reportados en la literatura y demuestran la capacidad del modelo para reproducir los procesos de propagación y expansión. Establecer relaciones cuantitativas entre parámetros iniciales de velocidad, densidad con el resultado de la interacción determinará umbrales críticos que modulan la geoefectividad de estos eventos, contribuyendo a mejorar la predicción del clima espacial.\\
+
+%Este trabajo busca desarrollar un modelo computacional hidrodinámico para estudiar la interacción entre Eyecciones de Masa Coronal gemelas (en inglés \textit{Twin Coronal Mass Ejections}). El modelo, implementado en Python, busca simular la evolución de parámetros críticos como densidad, velocidad y geometría durante la interacción de CMEs en el medio interplanetario. A diferencia de los enfoques magnetohidrodinámicos tradicionales que presentan alta complejidad computacional, este trabajo propone un modelo basado en partículas que interactúan, capturando la física esencial con menor costo computacional. Los resultados preliminares validan cualitativamente perfiles cinemáticos reportados en la literatura y demuestran la capacidad del modelo para reproducir los procesos de propagación y expansión. También, se busca establecer relaciones cuantitativas entre parámetros iniciales de velocidad y densidad de las CMEs antes y después de la interacción, determinando umbrales críticos que modulan la geoefectividad de estos eventos, contribuyendo a mejorar la predicción del clima espacial.\\
 
 \textit{Palabras clave:  Sol: coronal mass ejection (CME) - Sol: heliosphere - hydrodynamics}
-\vspace{8cm}
+
 \section{Introducción}
-El Sol está hecho de plasma \parencite{Gray_2005}, un estado de la materia en donde los átomos se ionizan debido a las altas temperaturas dando como resultado un gas de núcleos de Hidrógeno, Helio y de elementos más pesados, \parencite[489]{asplund-2009}). \textcite[7, 11]{judge-2020} indica que el plasma tiene campos magnéticos a gran escala debido al movimiento de los iones, pero no campos eléctricos a gran escala porque se toma el plasma como neutro. La complejidad del comportamiento del plasma solar sumergido en el campo magnético del Sol y las estructuras resultantes de dicho comportamiento, \parencite[e.g.,]{parker2019cosmical}, representan un desafío para los astrofísicos.
+El núcleo del Sol es en donde se dan las condiciones extremas de temperatura ($\gtrsim 10^{7}$ K) y presión suficientes para fusionar Hidrógeno en Helio \parencite[e.g.,][]{fiorentini-2004}, elevando la temperatura lo suficiente como para llegar a formar plasma \parencite[e.g.,][]{Gray_2005} compuesto por núcleos de Hidrógeno, Helio y elementos más pesados, \parencite[e.g.,][]{asplund-2009}). \textcite[e.g.,][]{judge-2020} indica que el plasma genera campos magnéticos a gran escala debido al movimiento de los iones, pero no campos eléctricos porque se toma como neutro. La fusión nuclear libera una gran cantidad de energía que es recibida por la zona radiativa ($\approx 10^{7}$ K) que la transporta hacia la zona convectiva ($10^{4}-10^{6}$ K). La zona convectiva presenta un gradiente termico que genera un flujo de calor desde la zona radiativa hacia la superficie, produciendo células de convección, \parencite[e.g.,][]{stein-2012}. En la superficie solar se encuentra la fotosfera ($10^{3}-10^{4}$ K), donde la densidad del plasma disminuye lo suficiente como para que los fotones puedan escapar libremente al espacio enfriando el plasma, \parencite[e.g.,][]{wilson-1969}. La siguiente capa es la cromosfera ($\approx10^{4}$ K) que está envuelta por la corona solar ($\approx 10^{6}$ K), ésta última se expande en el medio interplanetario, dando origen al viento solar y por ende al clima espacial, \parencite[e.g.,][]{cranmer-2019}. Las temperaturas fueron tomadas de \textcite[]{judge-2020}.
 
-La estructura del Sol empieza en el núcleo \parencite[e.g.,][]{fiorentini-2004}, en donde se dan las condiciones extremas de temperatura y presión suficientes para fusionar Hidrógeno en Helio. La fusión nuclear libera una gran cantidad de energía que es recibida por la zona radiativa que transporta dicha energía en forma de radiación hacia la zona convectiva \parencite[e.g.,][]{TURCKCHIEZE2008855, stein-2012}. La zona convectiva presenta un gradiente termico que genera el flujo del calor desde la zona radiativa hacia la superficie, produciendo celulas de convección. 
-
-\begin{table}[h]
-\centering
-\caption{Temperatura y presión de las capas del Sol}
-\scalebox{0.8}{
-\begin{tabular}{lcc}
-\toprule
-\textbf{Capa} & \textbf{Temperatura (K)} & \textbf{Presión (nitrógeno$/m^{2}$)} \\
-\midrule
-Núcleo & $\gtrsim 10^{7}$ & $\gtrsim 10^{15}$ \\
-Zona radiativa & $\approx 10^{7}$ & $10^{13}-10^{15}$ \\
-Zona convectiva &  $10^{4}-10^{6}$ & $10^{4}-10^{13}$\\
-Fotosfera & $10^{3}-10^{4}$ & $10^{1}-10^{4}$\\
-Cromosfera & $\approx10^{4}$ & $10^{1}-10^{-2}$ \\
-Corona solar &  $\approx 10^{6}$ & $\approx 10^{-2}$\\
-\bottomrule
-\end{tabular}
-}
-\label{tab:tablaTemPre}
-\end{table}
-
-En la superficie solar se encuentra la fotosfera \parencite[e.g.,][]{Goldberg1959}, donde la densidad del plasma disminuye lo suficiente como para que los fotones puedan escapar libremente al espacio enfriando el plasma que viene de la zona convectiva. Luego está la cromosfera \parencite[e.g.,][]{1964ARA&A...2..267P}, una capa de plasma rojizo y dinámico envuelto por la corona solar \parencite[e.g.,][]{1967ARA&A...5..213N, cranmer-2019}. La corona solar es la atmósfera exterior del Sol y se caracteriza por ser muy tenue pero increíblemente caliente. Estas dos últimas capas dan origen al viento solar y contribuyen al comportamiento del clima espacial. La temperatura y presión de estas capas se muestran en la tabla \ref{tab:tablaTemPre} que fueron tomadas de \parencite[13--20][]{judge-2020}.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 El clima espacial es el conjunto de condiciones meteorológicas variables del entorno espacial alrededor de la Tierra y depende del ciclo solar \parencite{schwenn-2007}. El ciclo solar se describe como el cambio periódico en la actividad solar presentando un mínimo solar y un máximo solar cada 11 años, \parencite[e.g.,][]{gnevyshev-1977, hathaway-2015}. La actividad solar comprende diferentes eventos solares como lo son las Eyecciones de Masa Coronal (CMEs) \parencite[e.g.,][]{kahler-1987}, las Llamaradas Solares (en inglés \textit{Solar Flares}, SF) \parencite[e.g.,][]{1969ARA&A...7..149S}, además de las Manchas Solares (en inglés \textit{Sunspots}). Éstas últimas, fueron utilizadas por Galileo en 1612 para determinar el periodo de rotación del Sol sobre su propio eje (27 días), según \textcite[e.g.,][]{vaquero-2009}. Las CMEs son consideradas como las erupciones más violentas del Sistema Solar desencadenadas por la acumulación de energía magnética en las Manchas Solares, en donde se producen reconexiones magnéticas abruptas que liberan dicha energía.
 
 Otros elementos del clima espacial comprenden fenómenos como las Prominencias \parencite[e.g.,][]{parenti-2014}, los Agujeros Coronales (en inglés \textit{Coronal Holes}) \parencite[e.g.,][]{cranmer-2009} asociados con la generación del Viento Solar (\textit{Solar Wind}, SW) el cual está dividido en viento solar lento y viento solar rápido, con velocidades $\lesssim 500$km/s y $\gtrsim675$km/s, respectivamente, \parencite[e.g.,][]{stakhiv-2015}). El viento solar fluyen desde el Sol siguiendo las lineas abiertas de campo magnético, formando la Heliosfera. Ésta última, presenta un campo magnético interplanetario conocido como Espiral de Parker que toma una forma de espiral de Arquímedes debido a la rotación del Sol \parencite{1958ApJ...128..664P}.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Las CMEs fueron descubiertas en 1973 por Richard Tousey, con ayuda de la creación del coronógrafo en 1931 por Bernard Lyot, \parencite[e.g.][]{2014swcm.book.....H}. Las CMEs son desprendimientos de plasma a gran escala que pueden envolver múltiples sistemas de flujo de campo magnético de la superficie del Sol. Pueden salir eyectadas a grandes velocidades llegando a formar una onda de choque en su frente, en donde se generan Partículas Energéticas Solares (\textit{Solar Energy Particles}, SEPs) \parencite[e.g.,][]{2004ApJ...616L.171S} que representan un peligro para los astronautas así como para los aparatos electrónicos presentes en regiones fuera de la orbita terrestre, \textcite[e.g.,][]{nhess-2018-92, 2014swcm.book.....H}. Otra fuente de SEPs son las llamaradas solares, \parencite[e.g.,]{2016JSWSC...6A..42P}.
 
-Una CME tiene una evolución en su propagación a través del medio interplanetario y en su expansión debida al diferencial de presión que hay entre su interior y el exterior, \parencite{riley-2004}. Así pues, al considerar ambas contribuciones en la evolución de la CME se llega a lo mostrado en la figura \ref{propagacióndeCME}, que es la simulación MHD hecha por \textcite[]{odstrcil-2002}, en donde la CME presenta una deformación que la comprime en la dirección de su propagación y la expande perpendicularmente a la misma. Por otro lado, \textcite[e.g.,][]{gallagher-2003, zhang-2006} estudian la cinemática de una CME a partir de observaciones experimentales, encontrando que el perfil de la aceleración de una CME a lo largo de su propagación presenta una etapa de iniciación con aceleración casi nula, luego una etapa de aceleración descrita por una aceleración con dependencia temporal significativa, seguida de una etapa de propagación en donde hay una aceleración residual, ya que disminuye progresivamente hasta llegar a una velocidad de propagación aproximadamente constante.
+Una CME tiene una evolución en su propagación a través del medio interplanetario y en su expansión debida al diferencial de presión que hay entre su interior y el exterior, \parencite{riley-2004}. Así pues, al considerar ambas contribuciones en la evolución de la CME se llega a lo mostrado en la Figura \ref{propagacióndeCME}, que es la simulación MHD hecha por \textcite[]{odstrcil-2002}, en donde la CME presenta una deformación que la comprime en la dirección de su propagación y la expande perpendicularmente a la misma. Por otro lado, \textcite[e.g.,][]{gallagher-2003, zhang-2006} estudian la cinemática de una CME a partir de observaciones experimentales, encontrando que el perfil de la aceleración de una CME a lo largo de su propagación presenta una etapa de iniciación con aceleración casi nula, luego una etapa de aceleración descrita por una aceleración con dependencia temporal significativa, seguida de una etapa de propagación en donde hay una aceleración residual, ya que disminuye progresivamente hasta llegar a una velocidad de propagación aproximadamente constante.
 
 En \textcite[e.g.,][]{lugaz-2017}, se menciona una tasa de ocurrencia de eventos de CMEs de 2-3 CMEs por semana en el mínimo solar y de 5-6 CMEs por día en el máximo solar, con tiempos de propagación Sol-Tierra entre 3 y 4 días, evidenciando la relación entre el ciclo solar y las CMEs. También menciona que una CME lleva consigo aproximadamente $10^{32}$ ergios de energía cinética ($10^{25}$ J) con una masa de $10^{11}-10^{12}$ Kg y $10^{21}$ Mx (maxwells) ($10^{13}$ webers) de flujo de campo magnético en promedio. También, \textcite{zhang-2006} encuentra un rango para las velocidades de las CMEs entre 50 y 3000 km/s, con una velocidad media de 350 km/s. La velocidad depende de factores como la magnitud de la aceleración y su duración que puede ir desde los 6 minutos hasta los 1200 minutos, así como de la fase en la que se encuentre la CME. También \textcite{zhang-2006}, encontró la mediana de la aceleración para una muestra de 50 CMEs, siendo de $170.1$ m/s$^{2}$, con un promedio de $330.9$ m/s$^{2}$, un valor máximo de $4464.9$ m/s$^{2}$ y un valor mínimo de $2.8$ m/s$^{2}$. Por otro lado, la aceleración residual tiene una mediana de $3.1$ m/s$^{2}$ y un promedio de $0.9$ m/s$^{2}$, además tiene un máximo de 52 m/s$^{2}$ y un mínimo de $-131$ m/s$^{2}$.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Una clasificación de CMEs basada en su origen espacial y temporal, describe erupciones simultáneas, homólogas y gemelas. Las CMEs simultáneas se consideran a aquellas que ocurren en diferentes regiones activas del Sol pero aproximadamente al mismo tiempo y donde una CME puede desencadenar la otra, como lo señala \textcite[]{Pevtsov_2000}. Las CMEs homólogas son las CMEs que ocurren consecutivamente en una misma región activa, pero con una diferencia de tiempo que según \textcite[~p.10]{lugaz-2017} es de alrededor de 15 horas, también están las CMEs cuasi-homólogas las cuales tienen un intervalo de ocurrencia de entre 15 a 18 horas. Por otro lado están las CMEs gemelas, que se producen en la misma región activa pero con minutos o pocas horas de diferencia \parencite[e.g.,][]{shen-2013}, además presentan una dirección de propagación similar. 
 
-Las CMEs gemelas tienen mayor probabilidad de interactuar entre sí durante su propagación debido a los cortos intervalos de tiempo entre ellas, \textcite[e.g.,][]{vasanth-2025} señala $\sim$25 minutos de diferencia, amplificando su impacto en el clima espacial. \textcite[]{McDougall2025} describe un evento de CMEs consecutivas que, gracias a su interacción, creó un evento significativo de SEPs destacando el papel de los eventos de interacción como agentes que controlan el clima espacial. En el diagrama de flujo mostrado en la figura \ref{Diagramadeflujo} se indican los posibles casos de interacción y su desarrollo. Según \textcite[]{lugaz-2017}, el 60$\%$ de las CMEs gemelas conducen a grandes eventos de SEPs, mientras que solo el 20$\%$ de CMEs simples conducen a grandes eventos de SEPs. 
+Las CMEs gemelas tienen mayor probabilidad de interactuar entre sí durante su propagación debido a los cortos intervalos de tiempo entre ellas, \textcite[e.g.,][]{vasanth-2025} señala $\sim$25 minutos de diferencia, amplificando su impacto en el clima espacial. \textcite[]{McDougall2025} describe un evento de CMEs consecutivas que, gracias a su interacción, creó un evento significativo de SEPs destacando el papel de los eventos de interacción como agentes que controlan el clima espacial. En el diagrama de flujo mostrado en la Figura \ref{Diagramadeflujo} se indican los posibles casos de interacción y su desarrollo. Según \textcite[]{lugaz-2017}, el 60$\%$ de las CMEs gemelas conducen a grandes eventos de SEPs, mientras que solo el 20$\%$ de CMEs simples conducen a grandes eventos de SEPs. 
 
 \begin{figure}
 \centering
@@ -111,6 +89,13 @@ a(t)=\left[ \frac{1}{a_r\exp(\frac{t}{\tau_r})}+\frac{1}{a_d\exp(\frac{-t}{\tau_
 
 Donde $a_r$ y $a_d$ son las aceleraciones iniciales pico (rise) y de decaimiento (decay), respectivamente, mientras que los tiempos para las fases de aumento ($\tau_r$) y decaimiento ($\tau_d$) de la aceleración indican los tiempos que tarda la aceleración en aumentar o disminuir en un factor de $e$ (aproximadamente 2.718). Estos parámetros fueron ajustados para lograr calibrar la curva con los datos observados. Ya para la expansión se toma una función de prueba dependiente del tiempo.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{imag/VectoresCME.png}
+\caption{Representación de los vectores velocidad de propagación ($\text{V}_{\text{Prop}}$) y de expansión ($\text{V}_{\text{Exp}}$) en puntos cualquiera de la CME. El vector $\text{V}_{\text{Exp}}$ presenta direcciones hacia fuera de la CME en diferentes puntos, mientras que el vector $\text{V}_{\text{Prop}}$ tiene una dirección hacia la derecha en todo punto de la CME. Además, el vector resultante de la superposición del vector propagación y expansión, se muestra como $V_{CME}$ y cambia de dirección según el punto dentro de la CME.}
+\label{vectoresCME}
+\end{figure}
+
 Lo que buscamos es poder expresar la cinemática de cada punto dentro de la CME como la suma de su velocidad de propagación y de expansión, así:
 \begin{equation}
 V_{CME}(r,\theta)=V_{Prop}(r,\theta)+V_{Exp}(r,\theta)
@@ -119,67 +104,59 @@ Y por consecuencia, la suma de las aceleraciones de propagación y de expansion 
 \begin{equation}
 a_{CME}(r,\theta)=a_{Prop}(r,\theta)+a_{Exp}(r,\theta)
 \end{equation}
-Se busca que tanto la velocidad como la aceleracion dependan de las componenetes radial y angular, para poder generar velocidades y aceleraciones anisotrópicas que se acerquen más a un caso real de CME. 
+Se busca que tanto la velocidad como la aceleración dependan de las componenetes radial y angular, para poder generar velocidades y aceleraciones anisotrópicas que se acerquen más a un caso real de CME. Así pues, cada parte de la CME tendrá un vector propagación y un vector expansión diferente, como se muestra en la Figura \ref{vectoresCME}.
 
-\begin{figure}
+Utilizamos dos conjuntos de puntos generados aleatoriamente dentro de un rango y los etiquetamos según pertenezcan a la primera o segunda CME. Obtenemos los perfiles de aceleración y velocidad para cada conjunto de puntos mostrados en la Gráfica \ref{Aceleración_Velocidad}, respectivamente.
+
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.7\linewidth]{•}
-\caption{Representación de los vectores velocidad y aceleración en un punto cualquiera de la CME}
+\includegraphics[width=1\linewidth]{aceleracion_velocidad_vs_tiempo.png}
+\caption{Perfil de aceleración y vecidad en función del tiempo para las dos CMEs generadas en donde las curva a1 (azul) y a2 (roja) representan las aceleraciones de la CME1 y CME2, respectivamente. Las curvas v1 (azul claro) y v2 (salmón) representan las velocidades de las CME1 y CME2, respectivamente. Se indican los valores máximos de aceleración con lineas punteadas, azul para a1 y roja para a2}
+\label{Aceleración_Velocidad}
 \end{figure}
 
-Utilizamos dos conjuntos de puntos generados aleatoriamente dentro de un rango y los etiquetamos según pertenezcan a la primera o segunda CME. Obtenemos los perfiles de aceleración y velocidad para cada conjunto de puntos mostrados en las gráficas \ref{Aceleración} y \ref{Velocidad}, respectivamente.
+
+En la Gráfica \ref{Aceleración_Velocidad}, podemos ver como la cinemática del frente de las dos CMEs parten de una aceleración y una velocidad casi nulas, encontrandose en la fase de iniciación. La fase de aceleración, se muestra como la región de la gráfica de aceleración con mayor pendiente. Vemos que la duración y magnitud de la aceleración en esta fase, es diferente para cada CME puesto que cada una tiene parámetros de aceleración pico y decaimiento diferentes. Además, podemos ver que se señalan los valores máximos de aceleración y velocidad a los que se llega, así como los tiempos en los que se alcanzó dichos valores.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=0.7\linewidth]{aceleracion_vs_tiempo.png}
-\caption{Perfil de aceleración para los dos conjuntos de puntos generados, la curva a1 (azul) representa a la CME1, mientras que la curva a2 (roja) representa a la CME2}
-\label{Aceleración}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.7\linewidth]{velocidad_vs_tiempo.png}
-\caption{Perfil de velocidad para los dos conjuntos de puntos generados, la curva v1 (azul) representa a la CME1, mientras que la curva v2 (roja) representa a la CME2}
-\label{Velocidad}
-\end{figure}
-En las gráficas \ref{Aceleración} y \ref{Velocidad}, podemos ver como la cinemática del frente de las dos CMEs parten de una aceleración y una velocidad casi nulas, encontrandose en la fase de iniciación. La fase de aceleración, se muestra como la región de la gráfica de aceleración con mayor pendiente. Vemos que la duración y magnitud de la aceleración en esta fase, es diferente para cada CME puesto que cada una tiene parámetros de aceleración pico y decaimiento diferentes. Además, podemos ver que se señalan los valores máximos de aceleración y velocidad a los que se llega, así como los tiempos en los que se alcanzó dichos valores.
-Los perfiles obtenidos reproducen cualitativamente las características reportadas por \textcite[]{gallagher-2003} (figura \ref{ejemploperfilaceleracion}), validando la estructura general del modelo. Sin embargo, los valores de los parámetros son de prueba por lo que al manipularlos correctamente se espera llegar a encontrar algo con más sentido físico. Aun falta por ajustar las dimensiones de la velocidad y de la aceleración, así como de ajustar la escala de tiempo.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.8\linewidth]{imag/ejemploperfilaceleración.png}
-\caption{Perfiles de altura, velocidad y aceleración en función del tiempo para el evento CME del 21 de Abril de 2002 estudiado por \textcite[]{gallagher-2003} usando el Large Angle and Spectroscopic Coronagraph (LASCO). Además, el flujo de rayos X observados en el mismo periodo de tiempo.}
+\includegraphics[width=1\linewidth]{imag/ejemploperfilaceleración.png}
+\caption{Perfil de altura, velocidad, aceleración de la CME y el flujo de rayos X del 21 de abril de 2002 a las 00:43 UT, en función del tiempo. Los círculos rellenos son valores derivados de la gráfica de altura vs tiempo, los demás simbolos señalan las observaciones del TRACE, UVCS y del LASCO. La linea continua indica la curva con el mejor ajuste para los datos. Tomado de \textcite[]{gallagher-2003}.}
 \label{ejemploperfilaceleracion}
 \end{figure}
 
-Por otro lado, los puntos de los dos conjuntos utilizados, aún sin interacción, tienen una evolución en la propagación y en la expansión como se muestra en la imagen \ref{fig:puntos_completa}.
+
+Los perfiles obtenidos reproducen cualitativamente las características reportadas por \textcite[]{gallagher-2003} (Figura \ref{ejemploperfilaceleracion}), validando la estructura general del modelo. Sin embargo, los valores de los parámetros son de prueba por lo que al manipularlos correctamente se espera llegar a encontrar algo con más sentido físico. Aun falta por ajustar las dimensiones de la velocidad y de la aceleración, así como de ajustar la escala de tiempo.
+
+
+Por otro lado, los puntos de los dos conjuntos utilizados, aún sin interacción, tienen una evolución en la propagación y en la expansión como se muestra en la Imagen \ref{fig:puntos_completa}. Este resultado coincide con lo mencionado en \textcite{odstrcil-2002} (Figura \ref{propagacióndeCME}), en donde la morfología de las CMEs se ven alteradas por la superposición de la propagación y de la expansión. Cabe señalar que aun es necesario modificar los tiempos en los que se originan las CMEs, así como sus velocidades iniciales y aceleraciones, buscando que lleguen a interactuar. Por otro lado, aun no se ha considerado explicitamente las interacciones con el viento solar, además de ignorar la componente magnética de las CMEs.
 
 \begin{figure}[!h]
 \centering
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.22\textwidth}
     \centering
-    \includegraphics[width=1.4\linewidth]{puntos_t1.png}
+    \includegraphics[width=1.2\linewidth]{puntos_t1.png}
     \caption{}
     \label{fig:puntos_t1}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.22\textwidth}
     \centering
-    \includegraphics[width=1.4\linewidth]{puntos_t2.png}
+    \includegraphics[width=1.2\linewidth]{puntos_t2.png}
     \caption{}
     \label{fig:puntos_t2}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.22\textwidth}
     \centering
-    \includegraphics[width=1.4\linewidth]{puntos_t3.png}
+    \includegraphics[width=1.2\linewidth]{puntos_t3.png}
     \caption{}
     \label{fig:puntos_t3}
 \end{subfigure}
 \hfill
-\begin{subfigure}{0.23\textwidth}
+\begin{subfigure}{0.22\textwidth}
     \centering
-    \includegraphics[width=1.4\linewidth]{puntos_t4.png}
+    \includegraphics[width=1.2\linewidth]{puntos_t4.png}
     \caption{}
     \label{fig:puntos_t4}
 \end{subfigure}
@@ -189,31 +166,30 @@ Los puntos azules (CME1) y rojos (CME2) muestran la distribución y expansión d
 \label{fig:puntos_completa}
 \end{figure}
 
-Este resultado coincide con lo mencionado en \textcite{odstrcil-2002} (figura \ref{propagacióndeCME}), en donde la morfología de las CMEs se ven alteradas por la superposición de la propagación y de la expansión. Cabe señalar que aun es necesario modificar los tiempos en los que se originan las CMEs, así como sus velocidades iniciales y aceleraciones, buscando que lleguen a interactuar. Por otro lado, aun no se ha considerado explicitamente las interacciones con el viento solar, además de ignorar la componente magnética de las CMEs.
+Finalmente, vemos que el modelo se ha ajustado a lo mostrado en diferentes artículos, sin embargo, el modelo aún no cuenta con módulo del código necesario para que las CMEs lleguen a interactuar realmente y se afecten mutuamente, por lo que se debe desarrollar dicho código. Por otro lado, es necesario desarrollar el código que genere los mapas de densidad y de velocidad.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{imag/expansión MHD.png}
+\includegraphics[width=0.8\linewidth]{imag/expansión MHD.png}
 \caption{Propagación de una CME en la heliosfera. La velocidad radial se muestra con escala de colores, la densidad con los contornos negros y el campo magnético como contornos rojos. Se muestra la evolución de la CME en cuatro tiempos diferentes. Tomado de \textcite[]{odstrcil-2002}}
 \label{propagacióndeCME}
 \end{figure}
-Finalmente, vemos que el modelo se ha ajustado a lo mostrado en diferentes artículos, sin embargo, el modelo aún no cuenta con módulo del código necesario para que las CMEs lleguen a interactuar realmente y se afecten mutuamente, por lo que se debe desarrollar dicho código.
 
 \section{Metodología}
 
-\subsection{Investigación cinemática de CMEs homólogas y Twins en el Viento Solar}
+\subsection*{Investigación cinemática de CMEs homólogas y Twins en el Viento Solar}
 Esta fase del estudio se centra en el análisis cinemático de CMEs. Se estudiarán casos específicos de CMEs homólogas y "gemelas" (twins) para caracterizar su evolución y parámetros clave (velocidad, aceleración). En paralelo, se desarrollará un módulo de código para simular numéricamente esta cinemática.
-\subsection{Revisión de las propiedades estadísticas de las CMEs}
+\subsection*{Revisión de las propiedades estadísticas de las CMEs}
 Se recopilarán de la literatura las propiedades estadísticas fundamentales de las CMEs (velocidad, densidad, dirección, perfil de aceleración, intervalos de tiempo entre eventos) para establecer rangos realistas que sirvan de entrada y punto de referencia para las simulaciones.
-\subsection{Investigación de la interacción de CMEs}
-Se identificarán y analizarán eventos históricos de interacción entre CMEs. El objetivo es caracterizar cómo cambian sus propiedades durante la interacción, cuantificar su frecuencia y evaluar su impacto en el clima espacial. Además, se buscará información relacionada a la modelación numérica de la interacción.
-\subsection{Modelo de interacción de CMEs}
+\subsection*{Investigación de la interacción de CMEs}
+Se identificarán y analizarán eventos históricos de interacción entre CMEs. El objetivo es caracterizar cómo cambian sus propiedades durante la interacción, cuantificar su frecuencia y evaluar su impacto en el clima espacial. 
+\subsection*{Modelo de interacción de CMEs}
 Se desarrollará un código para simular las interacciones entre CMEs, generando mapas dinámicos de velocidad y densidad del plasma para visualizar su evolución.
-\subsection{Análisis de los resultados obtenidos}
+\subsection*{Análisis de los resultados obtenidos}
 Los resultados del modelo se compararán con datos observacionales para evaluar su fiabilidad. Se buscará determinar los umbrales críticos en los parámetros iniciales de las CMEs que conducen a interacciones significativas y aumentan su geoefectividad.
-\subsection{Entrega del libro}
+\subsection*{Entrega del libro}
 Se compilará el documento de trabajo de grado, integrando de manera coherente la revisión bibliográfica, el marco teórico, la metodología, los resultados obtenidos, el análisis de los mismos y las conclusiones finales, para luego ser entregado.
-\subsection{Defensa final}
+\subsection*{Defensa final}
 Se preparará y realizará la defensa pública del trabajo de investigación.
 
 

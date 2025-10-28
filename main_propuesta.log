@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  25 OCT 2025 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  28 OCT 2025 00:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,8 +1285,8 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
  (./main_propuesta.aux
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 )
 \openout1 = `main_propuesta.aux'.
 
@@ -1416,15 +1416,7 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main_propuesta.bbl' found.
 
-(./main_propuesta.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                shen-2013
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
+(./main_propuesta.bbl)
 Package biblatex Info: Reference section=0 on input line 4.
 Package biblatex Info: Reference segment=0 on input line 4.
 Package hyperref Info: Link coloring ON on input line 4.
@@ -1439,17 +1431,7 @@ most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
 loading the todonotes package. on input line 4.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
-
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-t1.enc}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1457,7 +1439,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1465,117 +1447,110 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [2] [3]
+) [1
 
-LaTeX Warning: Citation 'shen-2013' on page 4 undefined on input line 65.
-
-<imag/_Diagrama de flujo.png, id=167, 1669.23625pt x 1065.9825pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
+dvips/cm-super/cm-super-t1.enc}] [2]
+<imag/_Diagrama de flujo.png, id=122, 1669.23625pt x 1065.9825pt>
 File: imag/_Diagrama de flujo.png Graphic file (type png)
 <use imag/_Diagrama de flujo.png>
-Package pdftex.def Info: imag/_Diagrama de flujo.png  used on input line 71.
+Package pdftex.def Info: imag/_Diagrama de flujo.png  used on input line 49.
 (pdftex.def)             Requested size: 455.24411pt x 290.71439pt.
-[4] [5 <./imag/_Diagrama de flujo.png>] [6]
-
-! LaTeX Error: File `•' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.126 \includegraphics[width=0.7\linewidth]{•}
-                                                
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<aceleracion_vs_tiempo.png, id=209, 499.1448pt x 282.8166pt>
-File: aceleracion_vs_tiempo.png Graphic file (type png)
-<use aceleracion_vs_tiempo.png>
-Package pdftex.def Info: aceleracion_vs_tiempo.png  used on input line 134.
-(pdftex.def)             Requested size: 318.66948pt x 180.56183pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<velocidad_vs_tiempo.png, id=210, 505.4082pt x 282.8166pt>
-File: velocidad_vs_tiempo.png Graphic file (type png)
-<use velocidad_vs_tiempo.png>
-Package pdftex.def Info: velocidad_vs_tiempo.png  used on input line 141.
-(pdftex.def)             Requested size: 318.66948pt x 178.3178pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7]
-<imag/ejemploperfilaceleración.png, id=228, 666.49pt x 856.19875pt>
+ [3] [4 <./imag/_Diagrama de flujo.png>] [5]
+<imag/VectoresCME.png, id=164, 172.97958pt x 136.84459pt>
+File: imag/VectoresCME.png Graphic file (type png)
+<use imag/VectoresCME.png>
+Package pdftex.def Info: imag/VectoresCME.png  used on input line 94.
+(pdftex.def)             Requested size: 273.14923pt x 216.10141pt.
+ [6]
+<aceleracion_velocidad_vs_tiempo.png, id=176, 706.8006pt x 416.2752pt>
+File: aceleracion_velocidad_vs_tiempo.png Graphic file (type png)
+<use aceleracion_velocidad_vs_tiempo.png>
+Package pdftex.def Info: aceleracion_velocidad_vs_tiempo.png  used on input lin
+e 113.
+(pdftex.def)             Requested size: 455.24411pt x 268.12386pt.
+ [7 <./imag/VectoresCME.png>]
+<imag/ejemploperfilaceleración.png, id=190, 666.49pt x 856.19875pt>
 File: imag/ejemploperfilaceleración.png Graphic file (type png)
 <use imag/ejemploperfilaceleración.png>
 Package pdftex.def Info: imag/ejemploperfilaceleración.png  used on input line
- 150.
-(pdftex.def)             Requested size: 364.19667pt x 467.86673pt.
-<puntos_t1.png, id=232, 236.8047pt x 271.7352pt>
+ 123.
+(pdftex.def)             Requested size: 455.24411pt x 584.83342pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./aceleracion_velocidad_vs_tiempo.png>]
+
+LaTeX Warning: Text page 9 contains only floats.
+
+
+Overfull \vbox (7.05006pt too high) has occurred while \output is active []
+
+
+[9 <./imag/ejemploperfilaceleración.png>]
+<puntos_t1.png, id=210, 236.8047pt x 271.7352pt>
 File: puntos_t1.png Graphic file (type png)
 <use puntos_t1.png>
-Package pdftex.def Info: puntos_t1.png  used on input line 161.
-(pdftex.def)             Requested size: 146.58522pt x 168.2087pt.
+Package pdftex.def Info: puntos_t1.png  used on input line 138.
+(pdftex.def)             Requested size: 120.18478pt x 137.91554pt.
 
-Overfull \hbox (41.88103pt too wide) in paragraph at lines 161--162
+Overfull \hbox (20.03053pt too wide) in paragraph at lines 138--139
  [][] 
  []
 
-<puntos_t2.png, id=233, 236.8047pt x 271.7352pt>
+<puntos_t2.png, id=211, 236.8047pt x 271.7352pt>
 File: puntos_t2.png Graphic file (type png)
 <use puntos_t2.png>
-Package pdftex.def Info: puntos_t2.png  used on input line 168.
-(pdftex.def)             Requested size: 146.58522pt x 168.2087pt.
+Package pdftex.def Info: puntos_t2.png  used on input line 145.
+(pdftex.def)             Requested size: 120.18478pt x 137.91554pt.
 
-Overfull \hbox (41.88103pt too wide) in paragraph at lines 168--169
+Overfull \hbox (20.03053pt too wide) in paragraph at lines 145--146
  [][] 
  []
 
-<puntos_t3.png, id=234, 236.8047pt x 271.7352pt>
+<puntos_t3.png, id=212, 236.8047pt x 271.7352pt>
 File: puntos_t3.png Graphic file (type png)
 <use puntos_t3.png>
-Package pdftex.def Info: puntos_t3.png  used on input line 175.
-(pdftex.def)             Requested size: 146.58522pt x 168.2087pt.
+Package pdftex.def Info: puntos_t3.png  used on input line 152.
+(pdftex.def)             Requested size: 120.18478pt x 137.91554pt.
 
-Overfull \hbox (41.88103pt too wide) in paragraph at lines 175--176
+Overfull \hbox (20.03053pt too wide) in paragraph at lines 152--153
  [][] 
  []
 
-<puntos_t4.png, id=235, 236.8047pt x 271.7352pt>
+<puntos_t4.png, id=213, 236.8047pt x 271.7352pt>
 File: puntos_t4.png Graphic file (type png)
 <use puntos_t4.png>
-Package pdftex.def Info: puntos_t4.png  used on input line 182.
-(pdftex.def)             Requested size: 146.58522pt x 168.2087pt.
+Package pdftex.def Info: puntos_t4.png  used on input line 159.
+(pdftex.def)             Requested size: 120.18478pt x 137.91554pt.
 
-Overfull \hbox (41.88103pt too wide) in paragraph at lines 182--183
+Overfull \hbox (20.03053pt too wide) in paragraph at lines 159--160
  [][] 
  []
 
-[8 <./aceleracion_vs_tiempo.png> <./velocidad_vs_tiempo.png>] [9 <./imag/ejempl
-operfilaceleración.png>]
-<imag/expansión MHD.png, id=251, 1506.62875pt x 830.10126pt>
+<imag/expansión MHD.png, id=214, 1506.62875pt x 830.10126pt>
 File: imag/expansión MHD.png Graphic file (type png)
 <use imag/expansión MHD.png>
-Package pdftex.def Info: imag/expansión MHD.png  used on input line 196.
-(pdftex.def)             Requested size: 409.71692pt x 225.73895pt.
- [10 <./puntos_t1.png> <./puntos_t2.png> <./puntos_t3.png> <./puntos_t4.png>] [
-11 <./imag/expansión MHD.png>]
-Overfull \hbox (31.9963pt too wide) in paragraph at lines 248--249
+Package pdftex.def Info: imag/expansión MHD.png  used on input line 173.
+(pdftex.def)             Requested size: 364.19667pt x 200.65967pt.
+[10 <./puntos_t1.png> <./puntos_t2.png> <./puntos_t3.png> <./puntos_t4.png> <./
+imag/expansión MHD.png>]
+Overfull \hbox (31.9963pt too wide) in paragraph at lines 225--226
  [] 
  []
 
-[12] [13] [14] [15] [16]
+[11] [12] [13] [14]
 
 Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 (movie15)                @@ Package `movie15' is obsolete and @@
 (movie15)                @@ superseded by `media9'.           @@
 (movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
 
-[17] (./main_propuesta.aux
-LaTeX Info: Redefining \sptext on input line 14.
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+[15] (./main_propuesta.aux
+LaTeX Info: Redefining \sptext on input line 42.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1586,23 +1561,19 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `main_propuesta.out' has not changed.
-(rerunfilecheck)             Checksum: 629F93E4A9B03475C608B74DD2B9E84E;2925.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+(rerunfilecheck)             Checksum: 676DFD80018B5ABC9B1ED5C42CE6560B;1153.
 Package logreq Info: Writing requests to 'main_propuesta.run.xml'.
 \openout1 = `main_propuesta.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40373 strings out of 474222
- 767045 string characters out of 5748734
+ 40305 strings out of 474222
+ 765429 string characters out of 5748734
  1949975 words of memory out of 5000000
- 61771 multiletter control sequences out of 15000+600000
- 577775 words of font info for 155 fonts, out of 8000000 for 9000
+ 61708 multiletter control sequences out of 15000+600000
+ 578626 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 91i,11n,98p,2310b,2907s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 91i,9n,98p,2310b,2907s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
@@ -1619,10 +1590,10 @@ ic/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800
 mf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.
 pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main_propuesta.pdf (17 pages, 1838526 bytes).
+Output written on main_propuesta.pdf (15 pages, 1878890 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 375 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 28850 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 30842 words of extra memory for PDF output out of 35830 (max. 10000000)
 
