@@ -79,6 +79,50 @@
       \verb https://doi.org/10.1146/annurev.astro.46.060407.145222
       \endverb
     \endentry
+    \entry{chen-2003}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ad06bf06adee8d95fd62057f57acb739}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92819e8914165f8458aa542e0110808f}{%
+           family={Krall},
+           familyi={K\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{fullhash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{bibnamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authorbibnamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authornamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authorfullhash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{11}
+      \field{number}{A11}
+      \field{title}{{Acceleration of coronal mass ejections}}
+      \field{volume}{108}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1029/2003ja009849
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2003ja009849
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2003ja009849
+      \endverb
+    \endentry
     \entry{cranmer-2009}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a82c5a51d8fb6a04c9645206990141a8}{%
@@ -398,6 +442,7 @@
       \strng{authorbibnamehash}{2384100e1a57c421797e7f375ee7d468}
       \strng{authornamehash}{1053a11964a29f260d6f776dcd377e52}
       \strng{authorfullhash}{2384100e1a57c421797e7f375ee7d468}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -423,6 +468,89 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/318939
+      \endverb
+    \endentry
+    \entry{gopalswamy-2002}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=4c336979c551c82e0fd1b5109338406a}{%
+           family={Gopalswamy},
+           familyi={G\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=512649fe8a332a3ffd1bba79ba4712dd}{%
+           family={Yashiro},
+           familyi={Y\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bebea36befbb51a49a198b7bed2410f8}{%
+           family={Michałek},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79e1dd3ff7d4beb59bf59ead75d5045b}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29aef37a2536159f685f52bab2198022}{%
+           family={Reames},
+           familyi={R\bibinitperiod},
+           given={D.\bibnamedelimi V.},
+           giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4cff362fc1e6b1e512d992a849975aca}{%
+           family={Leske},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f8eb15328a76559f7cdadf05d04e839}{%
+           family={Von\bibnamedelima Rosenvinge},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1053a11964a29f260d6f776dcd377e52}
+      \strng{fullhash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{bibnamehash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{authorbibnamehash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{authornamehash}{1053a11964a29f260d6f776dcd377e52}
+      \strng{authorfullhash}{a4969cf1963c63d74b14dc0b38013294}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{6}
+      \field{number}{1}
+      \field{title}{{Interacting coronal mass ejections and solar energetic particles}}
+      \field{volume}{572}
+      \field{year}{2002}
+      \field{pages}{L103\bibrangedash L107}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1086/341601
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/341601
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/341601
       \endverb
     \endentry
     \entry{Gray_2005}{book}{}
@@ -774,34 +902,57 @@
       \verb https://doi.org/10.1007/s11207-017-1091-6
       \endverb
     \endentry
-    \entry{mayank-2022}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=23c30fb85531d222bec379ceda7e0476}{%
-           family={Mayank},
+    \entry{manchester-2017}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=1af5e51fbcd43f450f4df43d4eb28126}{%
+           family={Manchester},
            familyi={M\bibinitperiod},
-           given={Prateek},
+           given={Ward},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b99cf4f180a57d4800f2cfb3cbb4738d}{%
+           family={Kilpua},
+           familyi={K\bibinitperiod},
+           given={Emilia\bibnamedelimb K.\bibnamedelimi J.},
+           giveni={E\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb1e52744b34c6c887d27bfa7d3d2268}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ying\bibnamedelima D.},
+           giveni={Y\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3eb457285647e2b59ddfbefe6aa3ae57}{%
+           family={Lugaz},
+           familyi={L\bibinitperiod},
+           given={Noé},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e96598b673f78e8d4150f7cb5139b34}{%
+           family={Riley},
+           familyi={R\bibinitperiod},
+           given={Pete},
            giveni={P\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=c6308995f3fda865a09d4e0fd2406ada}{%
-           family={Vaidya},
+        {{un=0,uniquepart=base,hash=0e160a74e3e4c4fc88da3e0e418532cb}{%
+           family={Török},
+           familyi={T\bibinitperiod},
+           given={Tibor},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f1c42ce40cc0cd8ecc5e7640c568dd8}{%
+           family={Vršnak},
            familyi={V\bibinitperiod},
-           given={Bhargav},
+           given={Bojan},
            giveni={B\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=ddb03896b8e24ccc27afc64b2adc8d55}{%
-           family={Chakrabarty},
-           familyi={C\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
       }
-      \strng{namehash}{a1a566e33372514f6fbcda9f062a3e1e}
-      \strng{fullhash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{bibnamehash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{authorbibnamehash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{authornamehash}{a1a566e33372514f6fbcda9f062a3e1e}
-      \strng{authorfullhash}{592c4490df2496a4c953f46166f7e84c}
-      \field{extraname}{1}
+      \strng{namehash}{e51fa8111c50bc4434a6c9bd45638548}
+      \strng{fullhash}{76109f01b7457b029eeebea1d8410631}
+      \strng{bibnamehash}{76109f01b7457b029eeebea1d8410631}
+      \strng{authorbibnamehash}{76109f01b7457b029eeebea1d8410631}
+      \strng{authornamehash}{e51fa8111c50bc4434a6c9bd45638548}
+      \strng{authorfullhash}{76109f01b7457b029eeebea1d8410631}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -809,24 +960,22 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{1}
-      \field{journaltitle}{The Astrophysical Journal Supplement Series}
-      \field{month}{9}
-      \field{number}{1}
-      \field{title}{SWASTI-SW: Space Weather Adaptive Simulation Framework for Solar Wind and its relevance to the Aditya-L1 Mission}
-      \field{volume}{262}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{pages}{23}
-      \range{pages}{1}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{8}
+      \field{number}{3-4}
+      \field{title}{{The Physical Processes of CME/ICME Evolution}}
+      \field{volume}{212}
+      \field{year}{2017}
+      \field{pages}{1159\bibrangedash 1219}
+      \range{pages}{61}
       \verb{doi}
-      \verb 10.3847/1538-4365/ac8551
+      \verb 10.1007/s11214-017-0394-0
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.3847/1538-4365/ac8551
+      \verb https://doi.org/10.1007/s11214-017-0394-0
       \endverb
       \verb{url}
-      \verb https://doi.org/10.3847/1538-4365/ac8551
+      \verb https://doi.org/10.1007/s11214-017-0394-0
       \endverb
     \endentry
     \entry{mayank-2023}{article}{}
@@ -862,7 +1011,6 @@
       \strng{authorbibnamehash}{1373cff727dbf4d10f80a2dcf022973d}
       \strng{authornamehash}{a1a566e33372514f6fbcda9f062a3e1e}
       \strng{authorfullhash}{1373cff727dbf4d10f80a2dcf022973d}
-      \field{extraname}{2}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -940,6 +1088,52 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s11207-025-02541-w
+      \endverb
+    \endentry
+    \entry{mittal-2010}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2cd26f3bb221917e8cfffdc558985739}{%
+           family={Mittal},
+           familyi={M\bibinitperiod},
+           given={Nishant},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49946d539ac1e92e2126235c8ca10fba}{%
+           family={Narain},
+           familyi={N\bibinitperiod},
+           given={Udit},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{494d47d156e2d1228516b77106aba323}
+      \strng{fullhash}{494d47d156e2d1228516b77106aba323}
+      \strng{bibnamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authorbibnamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authornamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authorfullhash}{494d47d156e2d1228516b77106aba323}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Atmospheric and Solar-Terrestrial Physics}
+      \field{month}{3}
+      \field{number}{9-10}
+      \field{title}{{Initiation of CMEs: A review}}
+      \field{volume}{72}
+      \field{year}{2010}
+      \field{pages}{643\bibrangedash 652}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.jastp.2010.03.011
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.jastp.2010.03.011
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.jastp.2010.03.011
       \endverb
     \endentry
     \entry{odstrcil-2002}{article}{}
@@ -1161,43 +1355,6 @@
       \endverb
       \keyw{Solar flares,Coronal mass ejections,Radio bursts,Solar energetic particles,Element abundances,Neupert effect}
     \endentry
-    \entry{parenti-2014}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5729e7ecf62cea56b0960d629e850bae}{%
-           family={Parenti},
-           familyi={P\bibinitperiod},
-           given={Susanna},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{fullhash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{bibnamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authorbibnamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authornamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authorfullhash}{5729e7ecf62cea56b0960d629e850bae}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Living Reviews in Solar Physics}
-      \field{month}{1}
-      \field{title}{{Solar Prominences: Observations}}
-      \field{volume}{11}
-      \field{year}{2014}
-      \verb{doi}
-      \verb 10.12942/lrsp-2014-1
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.12942/lrsp-2014-1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.12942/lrsp-2014-1
-      \endverb
-    \endentry
     \entry{1958ApJ...128..664P}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
@@ -1315,6 +1472,180 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/379974
+      \endverb
+    \endentry
+    \entry{ruffenach-2012}{article}{}
+      \name{author}{17}{}{%
+        {{un=0,uniquepart=base,hash=750b9cf764e31e625af0489f26ea754a}{%
+           family={Ruffenach},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e437367e4b81086962f27f896d76b67a}{%
+           family={Lavraud},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f971cdaca8b13ac6357bd94f485828c}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={M.\bibnamedelimi J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adc3edff4eb4b1cbebf793ae51d46ffe}{%
+           family={Sauvaud},
+           familyi={S\bibinitperiod},
+           given={J.‐a.},
+           giveni={J\bibinithyphendelim a\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5e7972ac079b31106b2babe1112c8359}{%
+           family={Savani},
+           familyi={S\bibinitperiod},
+           given={N.\bibnamedelimi P.},
+           giveni={N\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef6bf0456bb0a01cd920965284b24c12}{%
+           family={Rouillard},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc856800121f326ef3300382df6fb054}{%
+           family={Démoulin},
+           familyi={D\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1604f260f63bb722619e078781e341df}{%
+           family={Foullon},
+           familyi={F\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70cfdd377b76d1c7d962b1c63f12c62d}{%
+           family={Opitz},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=014a03da45e0e7427d7b5fb8db8c7b72}{%
+           family={Fedorov},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473fcc53af947a24066be4f5285e4193}{%
+           family={Jacquey},
+           familyi={J\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2807ad19a004ff1740b6e312d44f1516}{%
+           family={Génot},
+           familyi={G\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86bda8911f65f7d512494691f9238cd8}{%
+           family={Louarn},
+           familyi={L\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c84b81940fbbddab9a0b0861f2d1046}{%
+           family={Luhmann},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0884610abbf55e74dd4fc3b6df851faf}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi T.},
+           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02bd969b0fe20c2ca527216911919247}{%
+           family={Farrugia},
+           familyi={F\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a1d020bd821fb6852105714c90963520}{%
+           family={Galvin},
+           familyi={G\bibinitperiod},
+           given={A.\bibnamedelimi B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1ed58a72b459022e1fc6eee32f081ea1}
+      \strng{fullhash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{bibnamehash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{authorbibnamehash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{authornamehash}{1ed58a72b459022e1fc6eee32f081ea1}
+      \strng{authorfullhash}{f3c6e20c6bf87667c80651e000dceded}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{8}
+      \field{number}{A9}
+      \field{title}{{Multispacecraft observation of magnetic cloud erosion by magnetic reconnection during propagation}}
+      \field{volume}{117}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1029/2012ja017624
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2012ja017624
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2012ja017624
+      \endverb
+    \endentry
+    \entry{schrijver-2008}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=675da6a773aa6d7446de66d66c9667fa}{%
+           family={Schrijver},
+           familyi={S\bibinitperiod},
+           given={Carolus\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{fullhash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{bibnamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authorbibnamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authornamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authorfullhash}{675da6a773aa6d7446de66d66c9667fa}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Space Research}
+      \field{month}{11}
+      \field{number}{5}
+      \field{title}{{Driving major solar flares and eruptions: A review}}
+      \field{volume}{43}
+      \field{year}{2008}
+      \field{pages}{739\bibrangedash 755}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.asr.2008.11.004
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.asr.2008.11.004
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.asr.2008.11.004
       \endverb
     \endentry
     \entry{schwenn-2007}{article}{}
@@ -1851,6 +2182,35 @@
       \verb{url}
       \verb https://doi.org/10.1088/0004-637x/749/1/57
       \endverb
+    \endentry
+    \entry{tousey1973solar}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=73783484a4950cc25f7e9504184346d2}{%
+           family={Tousey},
+           familyi={T\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{fullhash}{73783484a4950cc25f7e9504184346d2}
+      \strng{bibnamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authorbibnamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authornamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authorfullhash}{73783484a4950cc25f7e9504184346d2}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space research conference}
+      \field{title}{The solar corona.}
+      \field{volume}{2}
+      \field{year}{1973}
+      \field{pages}{713\bibrangedash 730}
+      \range{pages}{18}
     \endentry
     \entry{vaquero-2009}{book}{}
       \name{author}{2}{}{%
@@ -2182,6 +2542,50 @@
       \verb https://doi.org/10.1146/annurev.astro.46.060407.145222
       \endverb
     \endentry
+    \entry{chen-2003}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ad06bf06adee8d95fd62057f57acb739}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92819e8914165f8458aa542e0110808f}{%
+           family={Krall},
+           familyi={K\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{fullhash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{bibnamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authorbibnamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authornamehash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \strng{authorfullhash}{f3afd9ce66ac8ca094d7bb5d6d17a89b}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{11}
+      \field{number}{A11}
+      \field{title}{{Acceleration of coronal mass ejections}}
+      \field{volume}{108}
+      \field{year}{2003}
+      \verb{doi}
+      \verb 10.1029/2003ja009849
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2003ja009849
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2003ja009849
+      \endverb
+    \endentry
     \entry{cranmer-2009}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=a82c5a51d8fb6a04c9645206990141a8}{%
@@ -2501,6 +2905,7 @@
       \strng{authorbibnamehash}{2384100e1a57c421797e7f375ee7d468}
       \strng{authornamehash}{1053a11964a29f260d6f776dcd377e52}
       \strng{authorfullhash}{2384100e1a57c421797e7f375ee7d468}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{extradatescope}{labelyear}
@@ -2526,6 +2931,89 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/318939
+      \endverb
+    \endentry
+    \entry{gopalswamy-2002}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=4c336979c551c82e0fd1b5109338406a}{%
+           family={Gopalswamy},
+           familyi={G\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=512649fe8a332a3ffd1bba79ba4712dd}{%
+           family={Yashiro},
+           familyi={Y\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bebea36befbb51a49a198b7bed2410f8}{%
+           family={Michałek},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=79e1dd3ff7d4beb59bf59ead75d5045b}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29aef37a2536159f685f52bab2198022}{%
+           family={Reames},
+           familyi={R\bibinitperiod},
+           given={D.\bibnamedelimi V.},
+           giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4cff362fc1e6b1e512d992a849975aca}{%
+           family={Leske},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f8eb15328a76559f7cdadf05d04e839}{%
+           family={Von\bibnamedelima Rosenvinge},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1053a11964a29f260d6f776dcd377e52}
+      \strng{fullhash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{bibnamehash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{authorbibnamehash}{a4969cf1963c63d74b14dc0b38013294}
+      \strng{authornamehash}{1053a11964a29f260d6f776dcd377e52}
+      \strng{authorfullhash}{a4969cf1963c63d74b14dc0b38013294}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{6}
+      \field{number}{1}
+      \field{title}{{Interacting coronal mass ejections and solar energetic particles}}
+      \field{volume}{572}
+      \field{year}{2002}
+      \field{pages}{L103\bibrangedash L107}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1086/341601
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/341601
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/341601
       \endverb
     \endentry
     \entry{Gray_2005}{book}{}
@@ -2877,34 +3365,57 @@
       \verb https://doi.org/10.1007/s11207-017-1091-6
       \endverb
     \endentry
-    \entry{mayank-2022}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=23c30fb85531d222bec379ceda7e0476}{%
-           family={Mayank},
+    \entry{manchester-2017}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=1af5e51fbcd43f450f4df43d4eb28126}{%
+           family={Manchester},
            familyi={M\bibinitperiod},
-           given={Prateek},
+           given={Ward},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b99cf4f180a57d4800f2cfb3cbb4738d}{%
+           family={Kilpua},
+           familyi={K\bibinitperiod},
+           given={Emilia\bibnamedelimb K.\bibnamedelimi J.},
+           giveni={E\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb1e52744b34c6c887d27bfa7d3d2268}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ying\bibnamedelima D.},
+           giveni={Y\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3eb457285647e2b59ddfbefe6aa3ae57}{%
+           family={Lugaz},
+           familyi={L\bibinitperiod},
+           given={Noé},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6e96598b673f78e8d4150f7cb5139b34}{%
+           family={Riley},
+           familyi={R\bibinitperiod},
+           given={Pete},
            giveni={P\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=c6308995f3fda865a09d4e0fd2406ada}{%
-           family={Vaidya},
+        {{un=0,uniquepart=base,hash=0e160a74e3e4c4fc88da3e0e418532cb}{%
+           family={Török},
+           familyi={T\bibinitperiod},
+           given={Tibor},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0f1c42ce40cc0cd8ecc5e7640c568dd8}{%
+           family={Vršnak},
            familyi={V\bibinitperiod},
-           given={Bhargav},
+           given={Bojan},
            giveni={B\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=ddb03896b8e24ccc27afc64b2adc8d55}{%
-           family={Chakrabarty},
-           familyi={C\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
       }
-      \strng{namehash}{a1a566e33372514f6fbcda9f062a3e1e}
-      \strng{fullhash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{bibnamehash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{authorbibnamehash}{592c4490df2496a4c953f46166f7e84c}
-      \strng{authornamehash}{a1a566e33372514f6fbcda9f062a3e1e}
-      \strng{authorfullhash}{592c4490df2496a4c953f46166f7e84c}
-      \field{extraname}{1}
+      \strng{namehash}{e51fa8111c50bc4434a6c9bd45638548}
+      \strng{fullhash}{76109f01b7457b029eeebea1d8410631}
+      \strng{bibnamehash}{76109f01b7457b029eeebea1d8410631}
+      \strng{authorbibnamehash}{76109f01b7457b029eeebea1d8410631}
+      \strng{authornamehash}{e51fa8111c50bc4434a6c9bd45638548}
+      \strng{authorfullhash}{76109f01b7457b029eeebea1d8410631}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -2912,24 +3423,22 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{1}
-      \field{journaltitle}{The Astrophysical Journal Supplement Series}
-      \field{month}{9}
-      \field{number}{1}
-      \field{title}{SWASTI-SW: Space Weather Adaptive Simulation Framework for Solar Wind and its relevance to the Aditya-L1 Mission}
-      \field{volume}{262}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{pages}{23}
-      \range{pages}{1}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{8}
+      \field{number}{3-4}
+      \field{title}{{The Physical Processes of CME/ICME Evolution}}
+      \field{volume}{212}
+      \field{year}{2017}
+      \field{pages}{1159\bibrangedash 1219}
+      \range{pages}{61}
       \verb{doi}
-      \verb 10.3847/1538-4365/ac8551
+      \verb 10.1007/s11214-017-0394-0
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.3847/1538-4365/ac8551
+      \verb https://doi.org/10.1007/s11214-017-0394-0
       \endverb
       \verb{url}
-      \verb https://doi.org/10.3847/1538-4365/ac8551
+      \verb https://doi.org/10.1007/s11214-017-0394-0
       \endverb
     \endentry
     \entry{mayank-2023}{article}{}
@@ -2965,7 +3474,6 @@
       \strng{authorbibnamehash}{1373cff727dbf4d10f80a2dcf022973d}
       \strng{authornamehash}{a1a566e33372514f6fbcda9f062a3e1e}
       \strng{authorfullhash}{1373cff727dbf4d10f80a2dcf022973d}
-      \field{extraname}{2}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradatescope}{labelyear}
@@ -3043,6 +3551,52 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s11207-025-02541-w
+      \endverb
+    \endentry
+    \entry{mittal-2010}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2cd26f3bb221917e8cfffdc558985739}{%
+           family={Mittal},
+           familyi={M\bibinitperiod},
+           given={Nishant},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49946d539ac1e92e2126235c8ca10fba}{%
+           family={Narain},
+           familyi={N\bibinitperiod},
+           given={Udit},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{494d47d156e2d1228516b77106aba323}
+      \strng{fullhash}{494d47d156e2d1228516b77106aba323}
+      \strng{bibnamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authorbibnamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authornamehash}{494d47d156e2d1228516b77106aba323}
+      \strng{authorfullhash}{494d47d156e2d1228516b77106aba323}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Atmospheric and Solar-Terrestrial Physics}
+      \field{month}{3}
+      \field{number}{9-10}
+      \field{title}{{Initiation of CMEs: A review}}
+      \field{volume}{72}
+      \field{year}{2010}
+      \field{pages}{643\bibrangedash 652}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.jastp.2010.03.011
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.jastp.2010.03.011
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.jastp.2010.03.011
       \endverb
     \endentry
     \entry{odstrcil-2002}{article}{}
@@ -3264,43 +3818,6 @@
       \endverb
       \keyw{Solar flares,Coronal mass ejections,Radio bursts,Solar energetic particles,Element abundances,Neupert effect}
     \endentry
-    \entry{parenti-2014}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5729e7ecf62cea56b0960d629e850bae}{%
-           family={Parenti},
-           familyi={P\bibinitperiod},
-           given={Susanna},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{fullhash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{bibnamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authorbibnamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authornamehash}{5729e7ecf62cea56b0960d629e850bae}
-      \strng{authorfullhash}{5729e7ecf62cea56b0960d629e850bae}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Living Reviews in Solar Physics}
-      \field{month}{1}
-      \field{title}{{Solar Prominences: Observations}}
-      \field{volume}{11}
-      \field{year}{2014}
-      \verb{doi}
-      \verb 10.12942/lrsp-2014-1
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.12942/lrsp-2014-1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.12942/lrsp-2014-1
-      \endverb
-    \endentry
     \entry{1958ApJ...128..664P}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=1b8298bb4e7ccf76c3e1a5f988f5cd97}{%
@@ -3418,6 +3935,180 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/379974
+      \endverb
+    \endentry
+    \entry{ruffenach-2012}{article}{}
+      \name{author}{17}{}{%
+        {{un=0,uniquepart=base,hash=750b9cf764e31e625af0489f26ea754a}{%
+           family={Ruffenach},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e437367e4b81086962f27f896d76b67a}{%
+           family={Lavraud},
+           familyi={L\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f971cdaca8b13ac6357bd94f485828c}{%
+           family={Owens},
+           familyi={O\bibinitperiod},
+           given={M.\bibnamedelimi J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=adc3edff4eb4b1cbebf793ae51d46ffe}{%
+           family={Sauvaud},
+           familyi={S\bibinitperiod},
+           given={J.‐a.},
+           giveni={J\bibinithyphendelim a\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5e7972ac079b31106b2babe1112c8359}{%
+           family={Savani},
+           familyi={S\bibinitperiod},
+           given={N.\bibnamedelimi P.},
+           giveni={N\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ef6bf0456bb0a01cd920965284b24c12}{%
+           family={Rouillard},
+           familyi={R\bibinitperiod},
+           given={A.\bibnamedelimi P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc856800121f326ef3300382df6fb054}{%
+           family={Démoulin},
+           familyi={D\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1604f260f63bb722619e078781e341df}{%
+           family={Foullon},
+           familyi={F\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70cfdd377b76d1c7d962b1c63f12c62d}{%
+           family={Opitz},
+           familyi={O\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=014a03da45e0e7427d7b5fb8db8c7b72}{%
+           family={Fedorov},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473fcc53af947a24066be4f5285e4193}{%
+           family={Jacquey},
+           familyi={J\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2807ad19a004ff1740b6e312d44f1516}{%
+           family={Génot},
+           familyi={G\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86bda8911f65f7d512494691f9238cd8}{%
+           family={Louarn},
+           familyi={L\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c84b81940fbbddab9a0b0861f2d1046}{%
+           family={Luhmann},
+           familyi={L\bibinitperiod},
+           given={J.\bibnamedelimi G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0884610abbf55e74dd4fc3b6df851faf}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={C.\bibnamedelimi T.},
+           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02bd969b0fe20c2ca527216911919247}{%
+           family={Farrugia},
+           familyi={F\bibinitperiod},
+           given={C.\bibnamedelimi J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a1d020bd821fb6852105714c90963520}{%
+           family={Galvin},
+           familyi={G\bibinitperiod},
+           given={A.\bibnamedelimi B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1ed58a72b459022e1fc6eee32f081ea1}
+      \strng{fullhash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{bibnamehash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{authorbibnamehash}{f3c6e20c6bf87667c80651e000dceded}
+      \strng{authornamehash}{1ed58a72b459022e1fc6eee32f081ea1}
+      \strng{authorfullhash}{f3c6e20c6bf87667c80651e000dceded}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{8}
+      \field{number}{A9}
+      \field{title}{{Multispacecraft observation of magnetic cloud erosion by magnetic reconnection during propagation}}
+      \field{volume}{117}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1029/2012ja017624
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2012ja017624
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2012ja017624
+      \endverb
+    \endentry
+    \entry{schrijver-2008}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=675da6a773aa6d7446de66d66c9667fa}{%
+           family={Schrijver},
+           familyi={S\bibinitperiod},
+           given={Carolus\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{fullhash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{bibnamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authorbibnamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authornamehash}{675da6a773aa6d7446de66d66c9667fa}
+      \strng{authorfullhash}{675da6a773aa6d7446de66d66c9667fa}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Space Research}
+      \field{month}{11}
+      \field{number}{5}
+      \field{title}{{Driving major solar flares and eruptions: A review}}
+      \field{volume}{43}
+      \field{year}{2008}
+      \field{pages}{739\bibrangedash 755}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.asr.2008.11.004
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.asr.2008.11.004
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.asr.2008.11.004
       \endverb
     \endentry
     \entry{schwenn-2007}{article}{}
@@ -3954,6 +4645,35 @@
       \verb{url}
       \verb https://doi.org/10.1088/0004-637x/749/1/57
       \endverb
+    \endentry
+    \entry{tousey1973solar}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=73783484a4950cc25f7e9504184346d2}{%
+           family={Tousey},
+           familyi={T\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{fullhash}{73783484a4950cc25f7e9504184346d2}
+      \strng{bibnamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authorbibnamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authornamehash}{73783484a4950cc25f7e9504184346d2}
+      \strng{authorfullhash}{73783484a4950cc25f7e9504184346d2}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space research conference}
+      \field{title}{The solar corona.}
+      \field{volume}{2}
+      \field{year}{1973}
+      \field{pages}{713\bibrangedash 730}
+      \range{pages}{18}
     \endentry
     \entry{vaquero-2009}{book}{}
       \name{author}{2}{}{%
