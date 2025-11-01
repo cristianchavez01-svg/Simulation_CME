@@ -59,7 +59,7 @@ def x_of1(t):
     integrand = lambda s: (t - s) * f(s)
     val, err = quad(integrand, 0, t)
     return val
-
+    # --- Aceleración 2 ---
 def g(s):
     return (ar2 * ad2) / (ad2 * np.exp(-s / tr2) + ar2 * np.exp(s / td2))
 

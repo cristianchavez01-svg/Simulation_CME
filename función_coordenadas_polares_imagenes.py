@@ -228,7 +228,7 @@ max_f_value = f_array[max_f_idx]
 max_g_time = time_array[max_g_idx]
 max_g_value = g_array[max_g_idx]
 
-# Calcular máximos de VELOCIDAD (no se graficarán)
+# Calcular máximos de VELOCIDAD
 max_v1_idx = np.argmax(v1_array)
 max_v2_idx = np.argmax(v2_array)
 
@@ -254,6 +254,19 @@ plt.rcParams.update({
 fig = plt.figure(figsize=(10, 6))
 ax1 = fig.add_subplot(111)  # Crear el primer eje
 
+# AJUSTE 1: Escalar ejes para que coincidan
+# Calcular límites proporcionales para ambos ejes Y
+y1_max = max(np.max(f_array), np.max(g_array)) * 1.05  # Aceleración
+y2_max = max(np.max(v1_array), np.max(v2_array)) * 1.05  # Velocidad
+
+# Encontrar la relación de escalado para que coincidan los ticks
+# Esto hará que los valores numéricos sean diferentes pero la posición visual sea similar
+import matplotlib.ticker as ticker
+
+# Configurar límites del eje X
+ax1.set_xlim(0, time_array[-1])
+ax1.set_ylim(0, y1_max)
+
 # Gráfico de ACELERACIONES en el eje izquierdo
 color_a1 = 'blue'
 color_a2 = 'red'
@@ -262,14 +275,27 @@ ax1.set_ylabel('Aceleración', color='black')
 line_a1, = ax1.plot(time_array, f_array, label='a1(t)', color=color_a1, linewidth=2)
 line_a2, = ax1.plot(time_array, g_array, label='a2(t)', color=color_a2, linewidth=2)
 
-# Marcar máximos de aceleración con líneas punteadas verticales
-ax1.axvline(x=max_f_time, color=color_a1, linestyle='--', alpha=0.7, 
-           label=f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s')
-ax1.axvline(x=max_g_time, color=color_a2, linestyle='--', alpha=0.7,
-           label=f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s')
+# AJUSTE 2: Configurar ticks para que coincidan visualmente
+# Usar el mismo número de ticks principales en ambos ejes
+ax1.yaxis.set_major_locator(ticker.MaxNLocator(6))
+
+# Configurar ticks principales y menores internos
+ax1.tick_params(axis='both', which='major', direction='in', length=6, width=1.5)
+ax1.tick_params(axis='both', which='minor', direction='in', length=3, width=1)
+ax1.minorticks_on()
+
+# AJUSTE 3: Configurar grid con líneas principales y menores
+ax1.grid(True, which='major', alpha=0.4, linestyle='-', linewidth=0.8)
+ax1.grid(True, which='minor', alpha=0.2, linestyle='--', linewidth=0.5)
+
+# AJUSTE 4: Cambiar líneas discontinuas por marcadores de estrellas en los máximos
+# Marcar máximos de aceleración con estrellas
+star_a1 = ax1.scatter(max_f_time, max_f_value, color=color_a1, marker='o', s=50, 
+                     zorder=5, label=f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s')
+star_a2 = ax1.scatter(max_g_time, max_g_value, color=color_a2, marker='o', s=50, 
+                     zorder=5, label=f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s')
 
 ax1.tick_params(axis='y', labelcolor='black')
-ax1.grid(True, alpha=0.3)
 
 # Crear segundo eje Y para VELOCIDADES (lado derecho)
 ax2 = ax1.twinx()
@@ -278,22 +304,37 @@ color_v2 = 'salmon'
 ax2.set_ylabel('Velocidad', color='black')
 line_v1, = ax2.plot(time_array, v1_array, label='v1(t)', color=color_v1, linewidth=2)
 line_v2, = ax2.plot(time_array, v2_array, label='v2(t)', color=color_v2, linewidth=2)
+
+# AJUSTE 5: Configurar el segundo eje con el mismo número de ticks
+ax2.set_ylim(0, y2_max)
+ax2.yaxis.set_major_locator(ticker.MaxNLocator(6))
+
+# AJUSTE 6: Configurar ticks del segundo eje también internos
+ax2.tick_params(axis='y', which='major', direction='in', length=6, width=1.5)
+ax2.tick_params(axis='y', which='minor', direction='in', length=3, width=1)
+ax2.minorticks_on()
+
 ax2.tick_params(axis='y', labelcolor='black')
 
-# Combinar leyendas de ambos ejes
+# AJUSTE 7: Combinar leyendas de ambos ejes incluyendo las estrellas
 lines = [line_a1, line_a2, line_v1, line_v2]
 labels = [line.get_label() for line in lines]
 
-# Añadir las líneas verticales punteadas a la leyenda
-lines.append(plt.Line2D([0], [0], color=color_a1, linestyle='--', alpha=0.7))
-lines.append(plt.Line2D([0], [0], color=color_a2, linestyle='--', alpha=0.7))
-labels.extend([f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s', 
-               f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s'])
+# Añadir las estrellas a la leyenda
+lines.extend([star_a1, star_a2])
+labels.extend([
+    f'Máx a1: {max_f_value:.3f} en t={max_f_time:.1f}s',
+    f'Máx a2: {max_g_value:.3f} en t={max_g_time:.1f}s'
+])
 
 ax1.legend(lines, labels, loc='center right')
 
 plt.title('Aceleración y Velocidad en función del tiempo')
-plt.tight_layout()
+
+# AJUSTE 8: Ajustar márgenes para eliminar espacios vacíos
+plt.tight_layout(pad=2.0)
+plt.subplots_adjust(left=0.08, right=0.92, top=0.92, bottom=0.08)
+
 plt.savefig('aceleracion_velocidad_vs_tiempo.png', dpi=300, bbox_inches='tight')
 plt.show()
 # =============================================================================

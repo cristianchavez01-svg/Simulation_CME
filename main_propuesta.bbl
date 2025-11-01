@@ -2212,44 +2212,6 @@
       \field{pages}{713\bibrangedash 730}
       \range{pages}{18}
     \endentry
-    \entry{vaquero-2009}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e0c4573aa5801b44a72afcb2460d378a}{%
-           family={Vaquero},
-           familyi={V\bibinitperiod},
-           given={J.M.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=753a1ec10428e21f7eafcca04c08ff18}{%
-           family={Vázquez},
-           familyi={V\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{fullhash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{bibnamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authorbibnamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authornamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authorfullhash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-0-387-92789-3}
-      \field{month}{5}
-      \field{title}{The Sun recorded through history}
-      \field{year}{2009}
-      \field{pages}{115\bibrangedash 117}
-      \range{pages}{3}
-    \endentry
     \entry{vasanth-2025}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8bd7bb2c7a02cf33a1eb20d82f0e2722}{%
@@ -2394,6 +2356,76 @@
       \verb https://doi.org/10.1007/s11207-012-0035-4
       \endverb
     \endentry
+    \entry{wang-2011}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=4ba62c3a05e471773cbebe9a199a9243}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuming},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f1c989660b62dc6fc1b43e9a2260d057}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Caixia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5df9c7c8f0ef7bfde5a4cc457bf77fe3}{%
+           family={Gui},
+           familyi={G\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7521a39eb0658a3447b4557c2b5608af}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Chenglong},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f28dce66f9c1b29b672a326f977b108e}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Pinzhong},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd6c1d35aed39fa11fcfba0d353120d6}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d06c6866a1534a1c97747e49abc74dd4}
+      \strng{fullhash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{bibnamehash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{authorbibnamehash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{authornamehash}{d06c6866a1534a1c97747e49abc74dd4}
+      \strng{authorfullhash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{4}
+      \field{number}{A4}
+      \field{title}{{Statistical study of coronal mass ejection source locations: Understanding CMEs viewed in coronagraphs}}
+      \field{volume}{116}
+      \field{year}{2011}
+      \field{pages}{n/a}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1029/2010ja016101
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2010ja016101
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2010ja016101
+      \endverb
+    \endentry
     \entry{wilson-1969}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3ad2451d4cd30035b04674ed5e864320}{%
@@ -2436,12 +2468,12 @@
     \endentry
     \entry{zhang-2006}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=8afab9bdc9b292debbeb136dfd97036c}{%
+        {{un=1,uniquepart=given,hash=8afab9bdc9b292debbeb136dfd97036c}{%
            family={Zhang},
            familyi={Z\bibinitperiod},
            given={J.},
            giveni={J\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=e65eb09de194173050eabc964c926f0e}{%
            family={Dere},
            familyi={D\bibinitperiod},
@@ -2459,7 +2491,6 @@
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Astrophysical Journal}
@@ -2478,6 +2509,108 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/506903
+      \endverb
+    \endentry
+    \entry{zhang-2004}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=8afab9bdc9b292debbeb136dfd97036c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=e65eb09de194173050eabc964c926f0e}{%
+           family={Dere},
+           familyi={D\bibinitperiod},
+           given={K.\bibnamedelimi P.},
+           giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
+           family={Vourlidas},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{20caff317817169cad5ad44a90ac50b4}
+      \strng{fullhash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{bibnamehash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{authorbibnamehash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{authornamehash}{20caff317817169cad5ad44a90ac50b4}
+      \strng{authorfullhash}{f8bdfe1719f75736753f2f52080ecd03}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{{A study of the kinematic evolution of coronal mass ejections}}
+      \field{volume}{604}
+      \field{year}{2004}
+      \field{pages}{420\bibrangedash 432}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1086/381725
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/381725
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/381725
+      \endverb
+    \endentry
+    \entry{zhang-2005}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=33ac89107822f0f2dfeb56d5f50efcea}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Mei},
+           giveni={M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9aeef3461a40a9c58e1cf8187dbe09b1}{%
+           family={Low},
+           familyi={L\bibinitperiod},
+           given={Boon\bibnamedelima Chye},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{fullhash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{bibnamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authorbibnamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authornamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authorfullhash}{446877cc889860f8521e9aceaa5ca38a}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{{The hydromagnetic nature of solar coronal mass ejections}}
+      \field{volume}{43}
+      \field{year}{2005}
+      \field{pages}{103\bibrangedash 137}
+      \range{pages}{35}
+      \verb{doi}
+      \verb 10.1146/annurev.astro.43.072103.150602
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
       \endverb
     \endentry
   \enddatalist
@@ -4675,44 +4808,6 @@
       \field{pages}{713\bibrangedash 730}
       \range{pages}{18}
     \endentry
-    \entry{vaquero-2009}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e0c4573aa5801b44a72afcb2460d378a}{%
-           family={Vaquero},
-           familyi={V\bibinitperiod},
-           given={J.M.},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=753a1ec10428e21f7eafcca04c08ff18}{%
-           family={Vázquez},
-           familyi={V\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{fullhash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{bibnamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authorbibnamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authornamehash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \strng{authorfullhash}{a77f02a407e2fcc75a836ecb5cc9099f}
-      \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-0-387-92789-3}
-      \field{month}{5}
-      \field{title}{The Sun recorded through history}
-      \field{year}{2009}
-      \field{pages}{115\bibrangedash 117}
-      \range{pages}{3}
-    \endentry
     \entry{vasanth-2025}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=8bd7bb2c7a02cf33a1eb20d82f0e2722}{%
@@ -4857,6 +4952,76 @@
       \verb https://doi.org/10.1007/s11207-012-0035-4
       \endverb
     \endentry
+    \entry{wang-2011}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=4ba62c3a05e471773cbebe9a199a9243}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yuming},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f1c989660b62dc6fc1b43e9a2260d057}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Caixia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5df9c7c8f0ef7bfde5a4cc457bf77fe3}{%
+           family={Gui},
+           familyi={G\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7521a39eb0658a3447b4557c2b5608af}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Chenglong},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f28dce66f9c1b29b672a326f977b108e}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Pinzhong},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd6c1d35aed39fa11fcfba0d353120d6}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d06c6866a1534a1c97747e49abc74dd4}
+      \strng{fullhash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{bibnamehash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{authorbibnamehash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \strng{authornamehash}{d06c6866a1534a1c97747e49abc74dd4}
+      \strng{authorfullhash}{f8544becade6c9206e8d7b8a5c0f3ddc}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{4}
+      \field{number}{A4}
+      \field{title}{{Statistical study of coronal mass ejection source locations: Understanding CMEs viewed in coronagraphs}}
+      \field{volume}{116}
+      \field{year}{2011}
+      \field{pages}{n/a}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1029/2010ja016101
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2010ja016101
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2010ja016101
+      \endverb
+    \endentry
     \entry{wilson-1969}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3ad2451d4cd30035b04674ed5e864320}{%
@@ -4899,12 +5064,12 @@
     \endentry
     \entry{zhang-2006}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=8afab9bdc9b292debbeb136dfd97036c}{%
+        {{un=1,uniquepart=given,hash=8afab9bdc9b292debbeb136dfd97036c}{%
            family={Zhang},
            familyi={Z\bibinitperiod},
            given={J.},
            giveni={J\bibinitperiod},
-           givenun=0}}%
+           givenun=1}}%
         {{un=0,uniquepart=base,hash=e65eb09de194173050eabc964c926f0e}{%
            family={Dere},
            familyi={D\bibinitperiod},
@@ -4922,7 +5087,6 @@
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Astrophysical Journal}
@@ -4941,6 +5105,108 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1086/506903
+      \endverb
+    \endentry
+    \entry{zhang-2004}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=8afab9bdc9b292debbeb136dfd97036c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=e65eb09de194173050eabc964c926f0e}{%
+           family={Dere},
+           familyi={D\bibinitperiod},
+           given={K.\bibnamedelimi P.},
+           giveni={K\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={Howard},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
+           family={Vourlidas},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{20caff317817169cad5ad44a90ac50b4}
+      \strng{fullhash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{bibnamehash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{authorbibnamehash}{f8bdfe1719f75736753f2f52080ecd03}
+      \strng{authornamehash}{20caff317817169cad5ad44a90ac50b4}
+      \strng{authorfullhash}{f8bdfe1719f75736753f2f52080ecd03}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{{A study of the kinematic evolution of coronal mass ejections}}
+      \field{volume}{604}
+      \field{year}{2004}
+      \field{pages}{420\bibrangedash 432}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1086/381725
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/381725
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/381725
+      \endverb
+    \endentry
+    \entry{zhang-2005}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=33ac89107822f0f2dfeb56d5f50efcea}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Mei},
+           giveni={M\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9aeef3461a40a9c58e1cf8187dbe09b1}{%
+           family={Low},
+           familyi={L\bibinitperiod},
+           given={Boon\bibnamedelima Chye},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{fullhash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{bibnamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authorbibnamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authornamehash}{446877cc889860f8521e9aceaa5ca38a}
+      \strng{authorfullhash}{446877cc889860f8521e9aceaa5ca38a}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Astronomy and Astrophysics}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{{The hydromagnetic nature of solar coronal mass ejections}}
+      \field{volume}{43}
+      \field{year}{2005}
+      \field{pages}{103\bibrangedash 137}
+      \range{pages}{35}
+      \verb{doi}
+      \verb 10.1146/annurev.astro.43.072103.150602
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
       \endverb
     \endentry
   \enddatalist

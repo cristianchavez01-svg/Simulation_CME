@@ -9,7 +9,7 @@ def velocidad_radial(theta, r, t):
     t: parámetro temporal (0 a 7 para los 8 estados)
     """
     fase = 2*np.pi*t/8
-    return r * (1 - r/2) * (1 + 0.3*np.sin(fase))
+    return r * (1 - r) * (1 + 0.3*np.sin(fase))
 
 def velocidad_angular(theta, r, t):
     """
@@ -25,7 +25,7 @@ def densidad(theta, r, t):
     fase = 2*np.pi*t/8
     # Densidad que se expande desde el centro
     onda = np.sin(3*r - fase) * 0.3
-    angular = 0.2*np.cos(3*theta/2 + fase)
+    angular = 0.2*np.cos(3*theta + fase)
     base = np.exp(-r/2)
     return base * (1 + onda + angular)
 
@@ -36,10 +36,10 @@ def cardioide_desplazado(theta, t, r0=0, theta0=0):
     r0, theta0: desplazamiento inicial
     """
     # Desplazamiento radial que crece con el tiempo
-    desplazamiento = 0.3 * t
+    desplazamiento = 1.2 * t
     
     # CME básico
-    r_base = 1 + np.cos(theta - theta0*t/8)
+    r_base = 1 + (np.cos(theta))
     
     # Aplicar desplazamiento
     r = r_base + desplazamiento + r0
@@ -54,19 +54,19 @@ fig = plt.figure(figsize=(20, 10))
 fig.suptitle('Propagación de CME - Evolución de Densidad y Campo Vectorial', 
              fontsize=16, fontweight='bold', y=0.98)
 
-# Crear 8 subplots en 2 filas x 4 columnas
-estados_tiempo = 8
+# Crear 10 subplots en 2 filas x 5 columnas
+estados_tiempo = 10
 
 for idx in range(estados_tiempo):
     t = idx  # Tiempo discreto
     
     # Crear subplot polar
-    ax = plt.subplot(2, 4, idx+1, projection='polar')
+    ax = plt.subplot(2, 5, idx+1, projection='polar')
     
     # ========================================================================
     # CARDIOIDE EN POSICIÓN DESPLAZADA
     # ========================================================================
-    theta_curva = np.linspace(0, 2 * np.pi, 1000)
+    theta_curva = np.linspace(0, 2 * np.pi, 10000)
     
     # Cada cardioide en una dirección diferente del plano polar
     angulo_propagacion = 0
@@ -121,12 +121,12 @@ for idx in range(estados_tiempo):
     # ========================================================================
     # CONTORNO DEL CARDIOIDE
     # ========================================================================
-    ax.plot(theta_curva, r_cardioide, 'darkred', linewidth=2.5)
+    #ax.plot(theta_curva, r_cardioide, 'darkred', linewidth=2.5)
     
     # ========================================================================
     # CONFIGURACIÓN DEL SUBPLOT
     # ========================================================================
-    ax.set_title(f't = {t} (fase: {angulo_propagacion:.2f} rad)', 
+    ax.set_title(f't = {t}', 
                  fontsize=11, fontweight='bold', pad=15)
     ax.grid(True, alpha=0.3, linewidth=0.5)
     ax.set_ylim([0, 3.5])
