@@ -257,6 +257,46 @@
       \verb https://doi.org/10.1143/ptps.154.309
       \endverb
     \endentry
+    \entry{forbes-2000}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b79f390e5a439a6cffcd360b40af5d77}{%
+           family={Forbes},
+           familyi={F\bibinitperiod},
+           given={T.\bibnamedelimi G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{fullhash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{bibnamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authorbibnamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authornamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authorfullhash}{b79f390e5a439a6cffcd360b40af5d77}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{10}
+      \field{number}{A10}
+      \field{title}{{A review on the genesis of coronal mass ejections}}
+      \field{volume}{105}
+      \field{year}{2000}
+      \field{pages}{23153\bibrangedash 23165}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1029/2000ja000005
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2000ja000005
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2000ja000005
+      \endverb
+    \endentry
     \entry{gallagher-2003}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=b76d644671cf0e16062ad4f6f01d07cb}{%
@@ -2035,6 +2075,44 @@
       \verb 10.1146/annurev.aa.07.090169.001053
       \endverb
     \endentry
+    \entry{temmer-2021}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=da1ef42198bc47a26c8cbcbe1941081e}{%
+           family={Temmer},
+           familyi={T\bibinitperiod},
+           given={Manuela},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{fullhash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{bibnamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authorbibnamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authornamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authorfullhash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Living Reviews in Solar Physics}
+      \field{month}{6}
+      \field{number}{1}
+      \field{title}{{Space weather: the solar perspective}}
+      \field{volume}{18}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1007/s41116-021-00030-3
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s41116-021-00030-3
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s41116-021-00030-3
+      \endverb
+    \endentry
     \entry{temmer-2012}{article}{}
       \name{author}{19}{}{%
         {{un=0,uniquepart=base,hash=da1ef42198bc47a26c8cbcbe1941081e}{%
@@ -2611,6 +2689,60 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
+      \endverb
+    \endentry
+    \entry{zhuang-2021}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0eaa58d21801a114137c270794427f63}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3eb457285647e2b59ddfbefe6aa3ae57}{%
+           family={Lugaz},
+           familyi={L\bibinitperiod},
+           given={Noé},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f7294d30015162917495c68ccdc801c}{%
+           family={Gou},
+           familyi={G\bibinitperiod},
+           given={Tingyu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=28291744d4332836dc4462d0a460c173}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Liuguan},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e502a20436e4e79a68f402542b1d56c8}
+      \strng{fullhash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{bibnamehash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{authorbibnamehash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{authornamehash}{e502a20436e4e79a68f402542b1d56c8}
+      \strng{authorfullhash}{ca908beca6ce602f86cd5b18810606a6}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv (Cornell University)}
+      \field{month}{9}
+      \field{title}{{Successive Coronal Mass Ejections Associated with Weak Solar Energetic Particle Events}}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.3847/1538-4357/ac17e9
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2109.02225
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2109.02225
       \endverb
     \endentry
   \enddatalist
@@ -2853,6 +2985,46 @@
       \verb https://doi.org/10.1143/ptps.154.309
       \endverb
     \endentry
+    \entry{forbes-2000}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b79f390e5a439a6cffcd360b40af5d77}{%
+           family={Forbes},
+           familyi={F\bibinitperiod},
+           given={T.\bibnamedelimi G.},
+           giveni={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{fullhash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{bibnamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authorbibnamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authornamehash}{b79f390e5a439a6cffcd360b40af5d77}
+      \strng{authorfullhash}{b79f390e5a439a6cffcd360b40af5d77}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{10}
+      \field{number}{A10}
+      \field{title}{{A review on the genesis of coronal mass ejections}}
+      \field{volume}{105}
+      \field{year}{2000}
+      \field{pages}{23153\bibrangedash 23165}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1029/2000ja000005
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/2000ja000005
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/2000ja000005
+      \endverb
+    \endentry
     \entry{gallagher-2003}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=b76d644671cf0e16062ad4f6f01d07cb}{%
@@ -4631,6 +4803,44 @@
       \verb 10.1146/annurev.aa.07.090169.001053
       \endverb
     \endentry
+    \entry{temmer-2021}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=da1ef42198bc47a26c8cbcbe1941081e}{%
+           family={Temmer},
+           familyi={T\bibinitperiod},
+           given={Manuela},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{fullhash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{bibnamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authorbibnamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authornamehash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \strng{authorfullhash}{da1ef42198bc47a26c8cbcbe1941081e}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Living Reviews in Solar Physics}
+      \field{month}{6}
+      \field{number}{1}
+      \field{title}{{Space weather: the solar perspective}}
+      \field{volume}{18}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1007/s41116-021-00030-3
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s41116-021-00030-3
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s41116-021-00030-3
+      \endverb
+    \endentry
     \entry{temmer-2012}{article}{}
       \name{author}{19}{}{%
         {{un=0,uniquepart=base,hash=da1ef42198bc47a26c8cbcbe1941081e}{%
@@ -5207,6 +5417,60 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1146/annurev.astro.43.072103.150602
+      \endverb
+    \endentry
+    \entry{zhuang-2021}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0eaa58d21801a114137c270794427f63}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3eb457285647e2b59ddfbefe6aa3ae57}{%
+           family={Lugaz},
+           familyi={L\bibinitperiod},
+           given={Noé},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f7294d30015162917495c68ccdc801c}{%
+           family={Gou},
+           familyi={G\bibinitperiod},
+           given={Tingyu},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=28291744d4332836dc4462d0a460c173}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Liuguan},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e502a20436e4e79a68f402542b1d56c8}
+      \strng{fullhash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{bibnamehash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{authorbibnamehash}{ca908beca6ce602f86cd5b18810606a6}
+      \strng{authornamehash}{e502a20436e4e79a68f402542b1d56c8}
+      \strng{authorfullhash}{ca908beca6ce602f86cd5b18810606a6}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv (Cornell University)}
+      \field{month}{9}
+      \field{title}{{Successive Coronal Mass Ejections Associated with Weak Solar Energetic Particle Events}}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.3847/1538-4357/ac17e9
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2109.02225
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2109.02225
       \endverb
     \endentry
   \enddatalist

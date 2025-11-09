@@ -1,45 +1,61 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.integrate import quad
+
+
+# Para la CME1
+tr1 = 0.5
+td1 = 0.6
+ar1 = 1
+ad1 = 3
+v01 = 0.2
+
+def f(s):
+    return (ar1 * ad1) / (ad1 * np.exp(-s / tr1) + ar1 * np.exp(s / td1))
 
 # funciones
+def velocidad_x(theta, r, t):
+    vx = v01 + quad(f, 0, t)[0]
+    return vx
 
 def velocidad_radial(theta, r, t):
     """
     Componente radial de la velocidad que evoluciona con el tiempo
     t: parámetro temporal (0 a 7 para los 8 estados)
     """
-    fase = 2*np.pi*t/8
-    return r * (1 - r) * (1 + 0.3*np.sin(fase))
+    vy= r*t*np.cos(theta)
+    vxx=velocidad_x(theta, r, t)
+    return np.sqrt(vxx**2 + vy**2)
 
 def velocidad_angular(theta, r, t):
     """
     Componente angular de la velocidad que evoluciona con el tiempo
     """
-    fase = 2*np.pi*t/8
+    fase = np.pi*t/16
     return np.sin(2*theta + fase) * (2 - r**2) * (1 + 0.2*np.cos(fase))
 
 def densidad(theta, r, t):
     """
     Densidad que se propaga y cambia con el tiempo
     """
-    fase = 2*np.pi*t/8
+    fase = np.pi*t/45
     # Densidad que se expande desde el centro
-    onda = np.sin(3*r - fase) * 0.3
-    angular = 0.2*np.cos(3*theta + fase)
-    base = np.exp(-r/2)
+    onda = np.sin(3*r - fase) * 0.7
+    angular = 0.6*np.exp(np.cos(5*theta + fase))
+    base = np.exp(-r)
     return base * (1 + onda + angular)
 
-def cardioide_desplazado(theta, t, r0=0, theta0=0):
+def cardioide_desplazado(theta, t, r0=0.1, theta0=0):
     """
     Genera un cardioide que se propaga en el plano polar
     t: tiempo (0-7)
     r0, theta0: desplazamiento inicial
     """
     # Desplazamiento radial que crece con el tiempo
-    desplazamiento = 1.2 * t
+    desplazamiento = 0.2 * t
     
     # CME básico
-    r_base = 1 + (np.cos(theta))
+    r_base = 0.1 + np.cos(theta)
     
     # Aplicar desplazamiento
     r = r_base + desplazamiento + r0
@@ -66,7 +82,7 @@ for idx in range(estados_tiempo):
     # ========================================================================
     # CARDIOIDE EN POSICIÓN DESPLAZADA
     # ========================================================================
-    theta_curva = np.linspace(0, 2 * np.pi, 10000)
+    theta_curva = np.linspace(0, 2 * np.pi, 1000)
     
     # Cada cardioide en una dirección diferente del plano polar
     angulo_propagacion = 0
@@ -94,7 +110,7 @@ for idx in range(estados_tiempo):
     # ========================================================================
     # CAMPO VECTORIAL (menos denso para claridad)
     # ========================================================================
-    theta_vec = np.linspace(0, 2 * np.pi, 16)
+    theta_vec = np.linspace(0, 2 * np.pi, 30)
     r_vec = np.linspace(0.2, 3.0, 10)
     THETA_vec, R_vec = np.meshgrid(theta_vec, r_vec)
     
@@ -106,12 +122,23 @@ for idx in range(estados_tiempo):
     v_r = velocidad_radial(THETA_vec, R_vec, t)
     v_theta = velocidad_angular(THETA_vec, R_vec, t)
     
-    # Enmascarar
-    v_r_masked = np.where(mascara_vec, v_r, np.nan)
-    v_theta_masked = np.where(mascara_vec, v_theta, np.nan)
-    
+   # NORMALIZACIÓN DE VECTORES
+# Calcular la magnitud de cada vector
+    magnitud = np.sqrt(v_r**2 + v_theta**2)
+
+# Evitar división por cero
+    magnitud_segura = np.where(magnitud == 0, 1, magnitud)
+
+# Normalizar componentes
+    v_r_normalized = v_r / magnitud_segura
+    v_theta_normalized = v_theta / magnitud_segura
+
+# Enmascarar (usar los vectores normalizados)
+    v_r_masked = np.where(mascara_vec, v_r_normalized, np.nan)
+    v_theta_masked = np.where(mascara_vec, v_theta_normalized, np.nan)
+
     # Convertir a componentes cartesianas
-    U = v_r_masked * np.cos(THETA_vec) - v_theta_masked * np.sin(THETA_vec)
+    U = v_r_masked * np.cos(THETA_vec) + v_theta_masked * np.sin(THETA_vec)
     V = v_r_masked * np.sin(THETA_vec) + v_theta_masked * np.cos(THETA_vec)
     
     # Dibujar vectores
