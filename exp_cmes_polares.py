@@ -31,17 +31,17 @@ def velocidad_angular(theta, r, t):
     """
     Componente angular de la velocidad que evoluciona con el tiempo
     """
-    fase = np.pi*t/16
-    return np.sin(2*theta + fase) * (2 - r**2) * (1 + 0.2*np.cos(fase))
+    fase = np.pi/2*t**2
+    return np.sin(theta + fase)
 
 def densidad(theta, r, t):
     """
     Densidad que se propaga y cambia con el tiempo
     """
-    fase = np.pi*t/45
+    fase = 2*np.pi*t
     # Densidad que se expande desde el centro
-    onda = np.sin(3*r - fase) * 0.7
-    angular = 0.6*np.exp(np.cos(5*theta + fase))
+    onda = np.sin(fase)
+    angular = np.sin(theta/2 + fase)
     base = np.exp(-r)
     return base * (1 + onda + angular)
 
