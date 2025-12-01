@@ -2400,6 +2400,70 @@
       \verb https://doi.org/10.12942/lrsp-2012-4
       \endverb
     \endentry
+    \entry{strugarek-2023}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=3fc82d37c07994211b453adb061ccfef}{%
+           family={Strugarek},
+           familyi={S\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9270fa705fe46ca800cb7ce91c2c2d91}{%
+           family={Belucz},
+           familyi={B\bibinitperiod},
+           given={Bernadett},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ef10e9a2e86c4e6cf117af8cdcf2ea8}{%
+           family={Brun},
+           familyi={B\bibinitperiod},
+           given={Allan\bibnamedelima Sacha},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dbf2a1dd1751a7b3185f993f2bc96a1c}{%
+           family={Dikpati},
+           familyi={D\bibinitperiod},
+           given={Mausumi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd74960762eaabdf3959136f0022d2fa}{%
+           family={Guerrero},
+           familyi={G\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1db1796a89372b4d2d4a1e3d92890916}
+      \strng{fullhash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{bibnamehash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{authorbibnamehash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{authornamehash}{1db1796a89372b4d2d4a1e3d92890916}
+      \strng{authorfullhash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{12}
+      \field{number}{8}
+      \field{title}{{Dynamics of the Tachocline}}
+      \field{volume}{219}
+      \field{year}{2023}
+      \field{pages}{87}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s11214-023-01027-0
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11214-023-01027-0
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11214-023-01027-0
+      \endverb
+    \endentry
     \entry{subramanian-2016}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=fe8ef0084e4566f8780b1eb2e248d5cf}{%
@@ -5689,6 +5753,70 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.12942/lrsp-2012-4
+      \endverb
+    \endentry
+    \entry{strugarek-2023}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=3fc82d37c07994211b453adb061ccfef}{%
+           family={Strugarek},
+           familyi={S\bibinitperiod},
+           given={Antoine},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9270fa705fe46ca800cb7ce91c2c2d91}{%
+           family={Belucz},
+           familyi={B\bibinitperiod},
+           given={Bernadett},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ef10e9a2e86c4e6cf117af8cdcf2ea8}{%
+           family={Brun},
+           familyi={B\bibinitperiod},
+           given={Allan\bibnamedelima Sacha},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dbf2a1dd1751a7b3185f993f2bc96a1c}{%
+           family={Dikpati},
+           familyi={D\bibinitperiod},
+           given={Mausumi},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd74960762eaabdf3959136f0022d2fa}{%
+           family={Guerrero},
+           familyi={G\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1db1796a89372b4d2d4a1e3d92890916}
+      \strng{fullhash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{bibnamehash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{authorbibnamehash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \strng{authornamehash}{1db1796a89372b4d2d4a1e3d92890916}
+      \strng{authorfullhash}{5b448cb2b6fb2a7dbff163b709c70f30}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{12}
+      \field{number}{8}
+      \field{title}{{Dynamics of the Tachocline}}
+      \field{volume}{219}
+      \field{year}{2023}
+      \field{pages}{87}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/s11214-023-01027-0
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s11214-023-01027-0
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s11214-023-01027-0
       \endverb
     \endentry
     \entry{subramanian-2016}{article}{}
