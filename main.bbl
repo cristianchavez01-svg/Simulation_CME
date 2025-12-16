@@ -148,6 +148,52 @@
       \verb https://doi.org/10.1146/annurev.astro.46.060407.145222
       \endverb
     \endentry
+    \entry{bahcall-1988}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2612ba569f72a50983b6c45d387a2475}{%
+           family={Bahcall},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=678e689a7fb9b3d569c257f014ef4ca8}{%
+           family={Ulrich},
+           familyi={U\bibinitperiod},
+           given={Roger\bibnamedelima K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{fullhash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{bibnamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authorbibnamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authornamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authorfullhash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{{Solar models, neutrino experiments, and helioseismology}}
+      \field{volume}{60}
+      \field{year}{1988}
+      \field{pages}{297\bibrangedash 372}
+      \range{pages}{76}
+      \verb{doi}
+      \verb 10.1103/revmodphys.60.297
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1103/revmodphys.60.297
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1103/revmodphys.60.297
+      \endverb
+    \endentry
     \entry{1951ZA.....29..274B}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c33d8155c01d9209cca32e17f304e2ea}{%
@@ -690,35 +736,6 @@
       \verb https://doi.org/10.1086/318939
       \endverb
     \endentry
-    \entry{Gray_2005}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=982d06183f83af393cb5fb9692b8222c}{%
-           family={Gray},
-           familyi={G\bibinitperiod},
-           given={David\bibnamedelima F.},
-           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{fullhash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{bibnamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authorbibnamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authornamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authorfullhash}{982d06183f83af393cb5fb9692b8222c}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{3}
-      \field{title}{The Observation and Analysis of Stellar Photospheres}
-      \field{year}{2005}
-    \endentry
     \entry{hathaway-2015}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f5bef70bec5beb0cbd3b90b952dc6150}{%
@@ -853,6 +870,44 @@
       \field{month}{1}
       \field{title}{{The Sun}}
       \field{year}{2020}
+    \endentry
+    \entry{kopal-1966}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd885de4555ed9a41e0d8a5f51d0b01a}{%
+           family={Kopal},
+           familyi={K\bibinitperiod},
+           given={Zdeněk},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{fullhash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{bibnamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authorbibnamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authornamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authorfullhash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Astrophysics and space science library}
+      \field{month}{1}
+      \field{title}{{Hydrostatic equilibrium}}
+      \field{year}{1966}
+      \field{pages}{73\bibrangedash 86}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-94-011-7545-6\{_}7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-94-011-7545-6_7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-94-011-7545-6_7
+      \endverb
     \endentry
     \entry{SolarFlares}{misc}{}
       \name{author}{1}{}{%
@@ -2652,6 +2707,52 @@
       \verb https://doi.org/10.1146/annurev.astro.46.060407.145222
       \endverb
     \endentry
+    \entry{bahcall-1988}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2612ba569f72a50983b6c45d387a2475}{%
+           family={Bahcall},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima N.},
+           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=678e689a7fb9b3d569c257f014ef4ca8}{%
+           family={Ulrich},
+           familyi={U\bibinitperiod},
+           given={Roger\bibnamedelima K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{fullhash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{bibnamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authorbibnamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authornamehash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \strng{authorfullhash}{6cde53ecaf153f6aba2b12ee0e4b065e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{{Solar models, neutrino experiments, and helioseismology}}
+      \field{volume}{60}
+      \field{year}{1988}
+      \field{pages}{297\bibrangedash 372}
+      \range{pages}{76}
+      \verb{doi}
+      \verb 10.1103/revmodphys.60.297
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1103/revmodphys.60.297
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1103/revmodphys.60.297
+      \endverb
+    \endentry
     \entry{1951ZA.....29..274B}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c33d8155c01d9209cca32e17f304e2ea}{%
@@ -3194,35 +3295,6 @@
       \verb https://doi.org/10.1086/318939
       \endverb
     \endentry
-    \entry{Gray_2005}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=982d06183f83af393cb5fb9692b8222c}{%
-           family={Gray},
-           familyi={G\bibinitperiod},
-           given={David\bibnamedelima F.},
-           giveni={D\bibinitperiod\bibinitdelim F\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{fullhash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{bibnamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authorbibnamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authornamehash}{982d06183f83af393cb5fb9692b8222c}
-      \strng{authorfullhash}{982d06183f83af393cb5fb9692b8222c}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{3}
-      \field{title}{The Observation and Analysis of Stellar Photospheres}
-      \field{year}{2005}
-    \endentry
     \entry{hathaway-2015}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f5bef70bec5beb0cbd3b90b952dc6150}{%
@@ -3357,6 +3429,44 @@
       \field{month}{1}
       \field{title}{{The Sun}}
       \field{year}{2020}
+    \endentry
+    \entry{kopal-1966}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd885de4555ed9a41e0d8a5f51d0b01a}{%
+           family={Kopal},
+           familyi={K\bibinitperiod},
+           given={Zdeněk},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{fullhash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{bibnamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authorbibnamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authornamehash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \strng{authorfullhash}{bd885de4555ed9a41e0d8a5f51d0b01a}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Astrophysics and space science library}
+      \field{month}{1}
+      \field{title}{{Hydrostatic equilibrium}}
+      \field{year}{1966}
+      \field{pages}{73\bibrangedash 86}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-94-011-7545-6\{_}7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-94-011-7545-6_7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-94-011-7545-6_7
+      \endverb
     \endentry
     \entry{SolarFlares}{misc}{}
       \name{author}{1}{}{%

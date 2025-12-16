@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  30 NOV 2025 19:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  9 DEC 2025 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1889,94 +1889,120 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [18]
-LaTeX Info: Redefining \. on input line 39.
-LaTeX Info: Redefining \% on input line 39.
+<imag/Capas_del_Sol.png, id=389, 980.66376pt x 957.5775pt>
+File: imag/Capas_del_Sol.png Graphic file (type png)
+<use imag/Capas_del_Sol.png>
+Package pdftex.def Info: imag/Capas_del_Sol.png  used on input line 46.
+(pdftex.def)             Requested size: 383.3974pt x 374.35963pt.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [19]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 47.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 47.
-
-Missing character: There is no � in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 47.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 47.
-
-Missing character: There is no � in font cmr12!
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[20]
-<imag/Primera_CME.png, id=425, 928.46875pt x 906.38625pt>
-File: imag/Primera_CME.png Graphic file (type png)
-<use imag/Primera_CME.png>
-Package pdftex.def Info: imag/Primera_CME.png  used on input line 57.
-(pdftex.def)             Requested size: 298.1987pt x 291.11446pt.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+[20 <./imag/Capas_del_Sol.png>]
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[21 <./imag/Primera_CME.png>]
-Package acronym Info: Label `acro:SW' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
-Package acronym Info: Label `acro:CHs' newly defined as it shall be overridden
-although it is yet undefined on input line 71.
-<Imagenes Mein/viento solar.png, id=448, 870.25125pt x 592.2125pt>
-File: Imagenes Mein/viento solar.png Graphic file (type png)
-<use Imagenes Mein/viento solar.png>
-Package pdftex.def Info: Imagenes Mein/viento solar.png  used on input line 79.
+[21]
 
-(pdftex.def)             Requested size: 298.1987pt x 202.93095pt.
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 117.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 117.
+
+Missing character: There is no � in font cmr12!
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 117.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 117.
+
+Missing character: There is no � in font cmr12!
+LaTeX Info: Redefining \. on input line 118.
+LaTeX Info: Redefining \% on input line 118.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
 [22]
-LaTeX Info: Redefining \. on input line 112.
-LaTeX Info: Redefining \% on input line 112.
+<imag/Primera_CME.png, id=448, 928.46875pt x 906.38625pt>
+File: imag/Primera_CME.png Graphic file (type png)
+<use imag/Primera_CME.png>
+Package pdftex.def Info: imag/Primera_CME.png  used on input line 127.
+(pdftex.def)             Requested size: 298.1987pt x 291.11446pt.
+LaTeX Info: Redefining \. on input line 131.
+LaTeX Info: Redefining \% on input line 131.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[23 <./Imagenes Mein/viento solar.png>]
-LaTeX Info: Redefining \. on input line 146.
-LaTeX Info: Redefining \% on input line 146.
+[23]
+Package acronym Info: Label `acro:SW' newly defined as it shall be overridden
+although it is yet undefined on input line 137.
+Package acronym Info: Label `acro:CHs' newly defined as it shall be overridden
+although it is yet undefined on input line 137.
+<Imagenes Mein/viento solar.png, id=469, 870.25125pt x 592.2125pt>
+File: Imagenes Mein/viento solar.png Graphic file (type png)
+<use Imagenes Mein/viento solar.png>
+Package pdftex.def Info: Imagenes Mein/viento solar.png  used on input line 145
+.
+(pdftex.def)             Requested size: 298.1987pt x 202.93095pt.
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[24]
-LaTeX Info: Redefining \. on input line 169.
-LaTeX Info: Redefining \% on input line 169.
+[24 <./imag/Primera_CME.png>]
+LaTeX Info: Redefining \. on input line 160.
+LaTeX Info: Redefining \% on input line 160.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[25])
+[25 <./Imagenes Mein/viento solar.png>]
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
+
+Overfull \vbox (0.11858pt too high) has occurred while \output is active []
+
+
+[26]
+LaTeX Info: Redefining \. on input line 222.
+LaTeX Info: Redefining \% on input line 222.
+
+Overfull \vbox (0.11858pt too high) has occurred while \output is active []
+
+
+[27])
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[26]
+[28]
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
+
+Overfull \vbox (0.11858pt too high) has occurred while \output is active []
+
+
+[29]
 \openout2 = `Capítulos/CMEs.aux'.
 
- (./Capítulos/CMEs.tex [27
+ (./Capítulos/CMEs.tex [30
 
 
 
@@ -1995,7 +2021,7 @@ LaTeX Info: Redefining \% on input line 30.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[28]
+[31]
 
 LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 38.
 
@@ -2016,48 +2042,48 @@ LaTeX Info: Redefining \% on input line 47.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[29]
+[32]
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[30]
+[33]
 LaTeX Info: Redefining \. on input line 88.
 LaTeX Info: Redefining \% on input line 88.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[31{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[34{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 LaTeX Info: Redefining \. on input line 104.
 LaTeX Info: Redefining \% on input line 104.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[32]
+[35]
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[33]
+[36]
 LaTeX Info: Redefining \. on input line 135.
 LaTeX Info: Redefining \% on input line 135.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[34]
-<imag/expansión.png, id=598, 1064.97874pt x 533.995pt>
+[37]
+<imag/expansión.png, id=626, 1064.97874pt x 533.995pt>
 File: imag/expansión.png Graphic file (type png)
 <use imag/expansión.png>
 Package pdftex.def Info: imag/expansión.png  used on input line 138.
 (pdftex.def)             Requested size: 383.3974pt x 192.23805pt.
-<imag/expansión MHD.png, id=607, 1506.62875pt x 830.10126pt>
+<imag/expansión MHD.png, id=635, 1506.62875pt x 830.10126pt>
 File: imag/expansión MHD.png Graphic file (type png)
 <use imag/expansión MHD.png>
 Package pdftex.def Info: imag/expansión MHD.png  used on input line 146.
@@ -2068,8 +2094,8 @@ LaTeX Info: Redefining \% on input line 150.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[35 <./imag/expansión.png>]
-<imag/perfil de aceleración.png, id=622, 656.4525pt x 521.95pt>
+[38 <./imag/expansión.png>]
+<imag/perfil de aceleración.png, id=650, 656.4525pt x 521.95pt>
 File: imag/perfil de aceleración.png Graphic file (type png)
 <use imag/perfil de aceleración.png>
 Package pdftex.def Info: imag/perfil de aceleración.png  used on input line 15
@@ -2081,8 +2107,8 @@ LaTeX Info: Redefining \% on input line 161.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[36 <./imag/expansión MHD.png>]
-<imag/ejemploperfilaceleración.png, id=633, 666.49pt x 856.19875pt>
+[39 <./imag/expansión MHD.png>]
+<imag/ejemploperfilaceleración.png, id=661, 666.49pt x 856.19875pt>
 File: imag/ejemploperfilaceleración.png Graphic file (type png)
 <use imag/ejemploperfilaceleración.png>
 Package pdftex.def Info: imag/ejemploperfilaceleración.png  used on input line
@@ -2099,67 +2125,67 @@ LaTeX Info: Redefining \% on input line 170.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[37 <./imag/perfil de aceleración.png>]
+[40 <./imag/perfil de aceleración.png>]
 LaTeX Info: Redefining \. on input line 173.
 LaTeX Info: Redefining \% on input line 173.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[38 <./imag/ejemploperfilaceleración.png>]
+[41 <./imag/ejemploperfilaceleración.png>]
 LaTeX Info: Redefining \. on input line 183.
 LaTeX Info: Redefining \% on input line 183.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[39]
+[42]
 LaTeX Info: Redefining \. on input line 198.
 LaTeX Info: Redefining \% on input line 198.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[40]
+[43]
 LaTeX Info: Redefining \. on input line 201.
 LaTeX Info: Redefining \% on input line 201.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[41]
+[44]
 LaTeX Info: Redefining \. on input line 219.
 LaTeX Info: Redefining \% on input line 219.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[42]
+[45]
 LaTeX Info: Redefining \. on input line 253.
 LaTeX Info: Redefining \% on input line 253.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[43]
+[46]
 LaTeX Info: Redefining \. on input line 288.
 LaTeX Info: Redefining \% on input line 288.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[44]
-<imag/SWASTI_CME.png, id=751, 1579.9025pt x 871.255pt>
+[47]
+<imag/SWASTI_CME.png, id=778, 1579.9025pt x 871.255pt>
 File: imag/SWASTI_CME.png Graphic file (type png)
 <use imag/SWASTI_CME.png>
 Package pdftex.def Info: imag/SWASTI_CME.png  used on input line 291.
 (pdftex.def)             Requested size: 426.0pt x 234.92293pt.
 
 
-LaTeX Warning: Reference `ResultadoscomparadosSWASTI' on page 45 undefined on i
+LaTeX Warning: Reference `ResultadoscomparadosSWASTI' on page 48 undefined on i
 nput line 296.
 
-<imag/ResultadoscomparadosSWASTI.png, id=756, 1499.6025pt x 847.165pt>
+<imag/ResultadoscomparadosSWASTI.png, id=783, 1499.6025pt x 847.165pt>
 File: imag/ResultadoscomparadosSWASTI.png Graphic file (type png)
 <use imag/ResultadoscomparadosSWASTI.png>
 Package pdftex.def Info: imag/ResultadoscomparadosSWASTI.png  used on input lin
@@ -2171,38 +2197,38 @@ LaTeX Info: Redefining \% on input line 303.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[45 <./imag/SWASTI_CME.png>]
+[48 <./imag/SWASTI_CME.png>]
 LaTeX Info: Redefining \. on input line 313.
 LaTeX Info: Redefining \% on input line 313.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[46 <./imag/ResultadoscomparadosSWASTI.png>]
+[49 <./imag/ResultadoscomparadosSWASTI.png>]
 LaTeX Info: Redefining \. on input line 320.
 LaTeX Info: Redefining \% on input line 320.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[47]
+[50]
 LaTeX Info: Redefining \. on input line 327.
 LaTeX Info: Redefining \% on input line 327.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[48])
+[51])
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[49]
+[52]
 \openout2 = `"Capítulos/Interacción de CME - CME.aux"'.
 
- (./Capítulos/Interacción de CME - CME.tex [50
+ (./Capítulos/Interacción de CME - CME.tex [53
 
 
 
@@ -2214,14 +2240,14 @@ LaTeX Info: Redefining \% on input line 55.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[51]
+[54]
 LaTeX Info: Redefining \. on input line 70.
 LaTeX Info: Redefining \% on input line 70.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[52]
+[55]
 
 LaTeX Warning: Command \' invalid in math mode on input line 77.
 
@@ -2232,28 +2258,28 @@ LaTeX Info: Redefining \% on input line 82.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[53]
+[56]
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[54]
+[57]
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[55]
+[58]
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[56]
+[59]
 
 LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 112.
 
@@ -2272,38 +2298,38 @@ LaTeX Info: Redefining \% on input line 131.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[57]
+[60]
 LaTeX Info: Redefining \. on input line 154.
 LaTeX Info: Redefining \% on input line 154.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[58]
+[61]
 LaTeX Info: Redefining \. on input line 164.
 LaTeX Info: Redefining \% on input line 164.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[59]
-<imag/condiciones de contorno.png, id=925, 476.78125pt x 227.85126pt>
+[62]
+<imag/condiciones de contorno.png, id=954, 476.78125pt x 227.85126pt>
 File: imag/condiciones de contorno.png Graphic file (type png)
 <use imag/condiciones de contorno.png>
 Package pdftex.def Info: imag/condiciones de contorno.png  used on input line 1
 69.
 (pdftex.def)             Requested size: 170.3974pt x 81.43185pt.
-<imag/condicones CMEs.png, id=928, 847.165pt x 189.70876pt>
+<imag/condicones CMEs.png, id=957, 847.165pt x 189.70876pt>
 File: imag/condicones CMEs.png Graphic file (type png)
 <use imag/condicones CMEs.png>
 Package pdftex.def Info: imag/condicones CMEs.png  used on input line 177.
 (pdftex.def)             Requested size: 298.1987pt x 66.77536pt.
-<imag/1D.png, id=929, 1427.3325pt x 852.18375pt>
+<imag/1D.png, id=958, 1427.3325pt x 852.18375pt>
 File: imag/1D.png Graphic file (type png)
 <use imag/1D.png>
 Package pdftex.def Info: imag/1D.png  used on input line 184.
 (pdftex.def)             Requested size: 340.8013pt x 203.475pt.
-<imag/2D condiciones.png, id=932, 843.15pt x 174.6525pt>
+<imag/2D condiciones.png, id=961, 843.15pt x 174.6525pt>
 File: imag/2D condiciones.png Graphic file (type png)
 <use imag/2D condiciones.png>
 Package pdftex.def Info: imag/2D condiciones.png  used on input line 192.
@@ -2314,14 +2340,14 @@ LaTeX Info: Redefining \% on input line 195.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[60 <./imag/condiciones de contorno.png> <./imag/condicones CMEs.png> <./imag/1
+[63 <./imag/condiciones de contorno.png> <./imag/condicones CMEs.png> <./imag/1
 D.png>]
-<imag/2D1.png, id=944, 771.88374pt x 801.99625pt>
+<imag/2D1.png, id=972, 771.88374pt x 801.99625pt>
 File: imag/2D1.png Graphic file (type png)
 <use imag/2D1.png>
 Package pdftex.def Info: imag/2D1.png  used on input line 200.
 (pdftex.def)             Requested size: 340.8013pt x 354.09094pt.
-<imag/2D2.png, id=945, 771.88374pt x 801.99625pt>
+<imag/2D2.png, id=973, 771.88374pt x 801.99625pt>
 File: imag/2D2.png Graphic file (type png)
 <use imag/2D2.png>
 Package pdftex.def Info: imag/2D2.png  used on input line 207.
@@ -2332,9 +2358,9 @@ LaTeX Info: Redefining \% on input line 211.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[61 <./imag/2D condiciones.png> <./imag/2D1.png>]
+[64 <./imag/2D condiciones.png> <./imag/2D1.png>]
 
-LaTeX Warning: Citation '' on page 62 undefined on input line 214.
+LaTeX Warning: Citation '' on page 65 undefined on input line 214.
 
 LaTeX Info: Redefining \. on input line 217.
 LaTeX Info: Redefining \% on input line 217.
@@ -2342,17 +2368,17 @@ LaTeX Info: Redefining \% on input line 217.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[62 <./imag/2D2.png>])
+[65 <./imag/2D2.png>])
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[63]
+[66]
 \openout2 = `Capítulos/Problema.aux'.
 
- (./Capítulos/Problema.tex) [64
+ (./Capítulos/Problema.tex) [67
 
 
 
@@ -2360,7 +2386,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 ]
 \openout2 = `Capítulos/Análisis.aux'.
 
- (./Capítulos/Análisis.tex) [65
+ (./Capítulos/Análisis.tex) [68
 
 
 
@@ -2369,7 +2395,7 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 \openout2 = `Capítulos/Discusión.aux'.
 
 
-(./Capítulos/Discusión.tex) [66
+(./Capítulos/Discusión.tex) [69
 
 
 
@@ -2377,13 +2403,13 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 ]
 \openout2 = `Capítulos/Conclusiones.aux'.
 
- (./Capítulos/Conclusiones.tex) [67
+ (./Capítulos/Conclusiones.tex) [70
 
 
 
 
 ]
-[68
+[71
 
 
 
@@ -2395,28 +2421,28 @@ LaTeX Info: Redefining \% on input line 115.
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[69]
+[72]
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[70]
+[73]
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[71]
+[74]
 LaTeX Info: Redefining \. on input line 117.
 LaTeX Info: Redefining \% on input line 117.
 
 Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 
 
-[72]
+[75]
 runsystem(makeindex main.idx)...executed safely (allowed).
 
  (./main.ind)
@@ -2426,7 +2452,7 @@ Class memoir Warning: The material used in the headers is too large
 either increase the head height or redesign the header
 (in both cases you will find help in the memoir manual). on input line 119.
 
-[73
+[76
 
 
 ]
@@ -2460,8 +2486,11 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 45CA955D524E167E6329B67FD9A11A76;4557.
+(rerunfilecheck)             Checksum: CA53F930EE09EE5778CC9A7AC0C0A40B;4557.
 
 Package biblatex Warning: Please rerun LaTeX.
 (biblatex)                Page breaks have changed.
@@ -2471,11 +2500,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44236 strings out of 474222
- 830385 string characters out of 5748734
- 1951975 words of memory out of 5000000
- 65274 multiletter control sequences out of 15000+600000
- 586207 words of font info for 210 fonts, out of 8000000 for 9000
+ 44273 strings out of 474222
+ 831179 string characters out of 5748734
+ 1950975 words of memory out of 5000000
+ 65301 multiletter control sequences out of 15000+600000
+ 586373 words of font info for 212 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,12n,98p,1938b,3921s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
@@ -2499,10 +2528,10 @@ er/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></us
 r/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/
 type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sfsl1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on main.pdf (73 pages, 4738558 bytes).
+Output written on main.pdf (76 pages, 4871857 bytes).
 PDF statistics:
- 1269 PDF objects out of 1440 (max. 8388607)
- 1093 compressed objects within 11 object streams
- 243 named destinations out of 1000 (max. 500000)
- 49474 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1303 PDF objects out of 1440 (max. 8388607)
+ 1120 compressed objects within 12 object streams
+ 249 named destinations out of 1000 (max. 500000)
+ 49479 words of extra memory for PDF output out of 51595 (max. 10000000)
 

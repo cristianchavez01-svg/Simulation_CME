@@ -9,7 +9,7 @@
 
 El Sol, como el motor y centro del Sistema Solar, se ha considerado como una deidad en el pasado y ha alimentado la curiosidad del hombre, por ejemplo en \textcite[][]{2010anaxagoras} se dice que Anaxágoras de Clazómenas (500 – 428 a.C.) creó una teoría en la que afirmaba que el Sol era una masa de metal incandescente y no el carro del dios Helios, como se creía entonces. Ya en la actualidad, gracias a avances en la ciencia y en la tecnología, se ha desarrollado un enorme marco teórico que entiende en gran medida el funcionamiento del Sol, permitiendo el estudio y la clasificación de diferentes eventos solares como lo son las \ac{SF}\index{Solar Flare} y los eventos de \ac{CME}\index{Coronal Mass Ejection}; así como las \ac{Sunspots}\index{Sunspots}, que fueron utilizadas por Galileo en 1612, según \textcite[e.g.,]{vaquero-2009}, para determinar el periodo de rotación del Sol sobre su propio eje, encontrando un valor de 27 días, que se menciona en su publicación \textit{Istoria e dimostrazione intorno alle macchie solari}, que en español traduce: Historia y demostraciones sobre las manchas solares. Este periodo de rotación se estandarizó en 1859 bajo el nombre de \index{rotación de Carrington}, gracias a Richard Christopher Carrington quien la definió con mayor precisión, observando un valor de $27.3$ días, correspondiente a la rotación del Sol vista desde la Tierra.
 
-La Tierra, así como todos los planetas del Sistema Solar, describe un desplazamiento al rededor del Sol que sigue una trayectoria en forma de elipse en donde el Sol se ubica en uno de sus focos. Así pues, la Tierra presenta un perihelio y un afelio, el primero es el punto en el que la Tierra se encuentra más cercana al Sol ($\sim 1.471 \times 10^{8}$ km); mientras que el segundo es el punto más alejado de la órbita terrestre con respecto al Sol ($\sim 1.521\times10^{8}$ km), según \textcite[e.g.,][]{hughes-2024}. En 1976 la International Astronomical Union definió la \ac{AU}\index{Astronomical Unit}, estableciendola como una distancia de $149597870$ km \parencite[e.g.,][]{stix-2002, standish-2004}.
+La Tierra, así como todos los planetas del Sistema Solar, describe un desplazamiento al rededor del Sol que sigue una trayectoria en forma de elipse en donde el Sol se ubica en uno de sus focos. Así pues, la Tierra presenta un perihelio y un afelio, el primero es el punto en el que la Tierra se encuentra más cercana al Sol ($\sim 1.471 \times 10^{8}$ km); mientras que el segundo es el punto más alejado de la órbita terrestre con respecto al Sol ($\sim 1.521\times10^{8}$ km), según \textcite[e.g.,][]{hughes-2024}. En 1976 la International Astronomical Union definió la \ac{AU}\index{Astronomical Unit}, como una distancia de $149597870$ km \parencite[e.g.,][]{stix-2002, standish-2004}, la cual se encuentra entre la distancia del perihelio y el afelio.
 
 La masa del Sol $m_{\odot}$ se calcula en $1.9889\times10^{30}$ kg, aunque debido a la energía emitida, en forma de radiación y partículas hacia el medio interplanetario, ocurre una perdida de masa por parte del Sol, $\sim 4 \times 10^{9}$ kg s$^{-1}$ por radiación y $10^{9}$ kg s$^{-1}$ por viento solar o liberación de partículas. Por lo tanto, si consideramos estas dos perdidas de masa desde que el Sol entró en la secuencia principal, es decir, desde que empezó a fusionar hidrógeno en helio, comprendiendo un tiempo aproximado de $1.5\times10^{17}$ s, el Sol habría perdido menos de $10^{27}$ kg en toda su vida \parencite[e.g.,][]{stix-2002, pitjeva-2012}, tres ordenes de magnitud por abajo de su masa total. Por otro lado, el radio solar se calcula con ayuda del diámetro angular de su disco solar visible y la AU, por lo que el radio del Sol $r_\odot$ se calcula en $6.96\times10^{8}$ metros \parencite[e.g.,][]{rozelot-2018}. Conociendo su tamaño y su masa, es posible determinar su densidad media, la cual se toma como $\bar{\rho}_{\odot}=1.408$ g cm$^{-3}$; además, la aceleración gravitacional en su superficie $g_{\odot}$ es de $274$ m s$^{-2}$ \parencite[e.g.,][]{stix-2002}.
 
@@ -18,21 +18,85 @@ Aunque, desde una perspectiva cotidiana el Sol podría parecer un astro estable,
 En las páginas que siguen se presenta un recorrido por las capas del Sol y su rotación diferencial, además de los conceptos fundamentales de la actividad solar y el viento solar, además de cómo todo ello se relaciona con los principios básicos de las CMEs y el contexto en el que sus interacciones ocurren y adquieren relevancia.
 
 \section{Capas del Sol}
+El Sol está conformado por plasma, y éste a su vez por núcleos de Hidrógeno, Helio, Carbono, Nitrogeno, Oxígeno, entre otros \parencite[e.g.,][]{asplund-2009}, los cuales son el resultado mayormente de la fusión de hidrógeno en helio en el núcleo del Sol, es decir la fusión entre protones, liberando energía en forma de calor y radiación. El plasma genera campos magnéticos a gran escala debido al movimiento de los iones, pero al considerarlo como plasma no colisional, éste no presentrará campos eléctricos ya que se toma como neutro fuera de la esfera de Debye \parencite[e.g.,][]{judge-2020}, como ocurre con el viento solar \parencite[e.g.,][]{artemyev-2018}. Sin embargo, al tener un plasma colisonal se encuentra que existe un campo eléctrico interno sostenido por el plasma y su resistividad, esta última generada por las colisones presentadas, como ocurre en la fotósfera.
+
+La fuerza gravitacional autoejercida por el Sol hacia su centro obliga a que éste colapse sobre si mismo, pero eso no es lo que sucede. Existe una fuerza que contraresta los efectos gravitacionales, generada por la presión del plasma y radiación que se genera en su interior. Por lo tanto, el Sol se encuentra en un equilibrio hidrostático consecuencia de la conservación del momento, lo que significa que el gradiente de presión hacia afuera ($\frac{\partial P}{\partial r}$) contrarresta exactamente la fuerza gravitatoria hacia dentro ($-\rho g$) que, según \textcite[e.g.,][]{stix-2002, kopal-1966}, se puede escribir como: 
+
+\begin{equation}
+\frac{\partial P}{\partial r} = -\rho g
+\end{equation}
+
+Es este equilibrio el que explica porque el Sol, y en general cualquier estrella, no colapsa sobre si mismo ni se dispersa en el espacio. La fuerza gravitacional ocurre gracias a la masa del Sol, pero el gradiente de presión es generado esencialmente por la fusión nuclear en su núcleo, en donde se presentan las condiciones extremas de temperatura ($\gtrsim 10^{7}$ K) y presión suficientes para fusionar Hidrógeno en Helio \parencite[e.g.,][]{fiorentini-2004}. Esta fusión genera grandes cantidades de energía que es transportada hasta la superficie en forma de radiación, para luego ser emitida al medio interplanetario una vez haya pasado por todas las capas del Sol: Núcleo, Zona Radiativa, Tacoclina,  Zona Convectiva, Fotosfera, Cromosfera y Corona Solar.
+
+Las \index{reacciones nucleares} más frecuentes pertenecen a la cadena ppI, 
+que representa aproximadamente el $85\%$ de todas las reacciones protón-protón las cuales producen el $98.8\%$ de la energía solar total \parencite[e.g.,][]{stix-2002, bahcall-1988}. Esta cadena, comprende las siguientes etapas, donde en cada paso se presenta una liberación de energía en forma de calor (Q):
+\begin{align*}
+{}^{1}\mathrm{H} + p \;\rightarrow\; {}^{2}\mathrm{H} + e^{+} + \nu_e,&
+\qquad Q = 1.442~\mathrm{MeV}, \\[6pt]
+{}^{2}\mathrm{H} + p \;\rightarrow\; {}^{3}\mathrm{He} + \gamma,&
+\qquad Q = 5.494~\mathrm{MeV}, \\[6pt]
+{}^{3}\mathrm{He} + {}^{3}\mathrm{He} \;\rightarrow\; {}^{4}\mathrm{He} + 2p,&
+\qquad Q = 12.860~\mathrm{MeV}.
+\end{align*}
+
+Dos núcleos de protio se fusionan en uno de deuterio liberando un positrón y un neutrino electrónico, en seguida dos núcleos de deuterio se fusionan en uno de Helio-3 liberando un fotón, para finalmente fusionarse con otro núcleo de Helio-3 y formar Helio-4, también llamado partícula alfa ($\alpha$), y liberando dos protones que aseguran la continuidad de la reacción. Por lo tanto, estas reacciones son responsables de la mayor parte de la generación de energía en el Sol, la cual se manifiesta en la luminosidad del Sol ($L_\odot$), la cual es de aproximadamente $4\times10^{26}$ W \parencite[e.g.,][]{judge-2020}.
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.9\linewidth]{imag/Capas_del_Sol.png}
+    \caption[Representación gráfica de las capas del Sol.]{Esquema de la estructura interna y externa del Sol, mostrando sus principales capas físicas y fenómenos asociados. En el interior se distinguen el núcleo, la zona de radiación y la zona convectiva, separadas por la tacoclina. En la superficie solar aparecen las regiones de la fotosfera, cromosfera y corona, junto con manifestaciones de la actividad magnética como manchas solares, espículas, granulación, bucles coronales, plagas y plumas polares, estas últimas asociadas con líneas de campo magnético abiertas. También se ilustran estructuras coherentes extendidas como los streamers coronales y la hoja de corriente ecuatorial. Adaptado de \textcite[][]{judge-2020}.}
+    \label{fig:CapasSol}
+\end{figure}
 
 
-%Expandir y agregar cosas.
-
-El núcleo del Sol presenta condiciones extremas de temperatura ($\gtrsim 10^{7}$ K) y presión suficientes para fusionar Hidrógeno en Helio \parencite[e.g.,][]{fiorentini-2004}, estas condicines permiten la formación de plasma \parencite[e.g.,][]{Gray_2005} compuesto por núcleos de Hidrógeno, Helio, Carbono, Nitrogeno, Oxígeno, entre otros \parencite[e.g.,][]{asplund-2009}. El plasma genera campos magnéticos a gran escala debido al movimiento de los iones, pero al considerarlo como plasma no colisional, éste no presentrará campos eléctricos ya que se toma como neutro fuera de la esfera de Debye \parencite[e.g.,][]{judge-2020}, siendo el caso del vienso solar \parencite[e.g.,][]{artemyev-2018}. Sin embargo, al tener un plasma colisonal se encuentra que existe un campo eléctrico interno sostenido por el plasma y su resistividad, generada por las colisones presentadas, como ocurre en la fotósfera. 
-
-La energía generada en el núcleo es recibida por la zona radiativa ($\sim 10^{7}$ K), que está envuelta por la tacoclina, una región delgada en la que se presenta un cizallamiento extremo debido al cambio entre la rotación rígida de la zona radiativa y la rotación diferencial de la siguiente capa, la zona convectiva \parencite[e.g.,][]{strugarek-2023}. Posteriormente, la energía pasa de la tacoclina hacia la zona convectiva ($10^{4}-10^{6}$ K), esta última presenta gradientes de temperatura y velocidad que inducen flujos de calor y campo magnético desde la zona radiativa hacia la superficie, lo cual produce células de convección \parencite[e.g.,][]{stein-2012} que, junto con la rotación diferencial del Sol, alimentan el dinamo solar \parencite[e.g.,][]{ossendrijver-2003}. 
-
-Sobre la zona radiativa se encuentra la fotosfera ($10^{3}-10^{4}$ K), donde la densidad del plasma disminuye lo suficiente como para que los fotones puedan escapar libremente al espacio, enfriando el plasma \parencite[e.g.,][]{wilson-1969}. La siguiente capa es la cromosfera ($\sim10^{4}$ K) que está envuelta por la corona solar ($\sim 10^{6}$ K), esta última se expande en el medio interplanetario dando origen al viento solar que es una corriente de plasma formada en los Agujeros Coronales (en inglés \textit{coronal holes}), \parencite[e.g.,][]{schwenn-2007, cranmer-2009, cranmer-2019}, dividido en lento ($\lesssim 500$ km s$^{-1}$) a bajas latitudes y rápido ($\gtrsim675$ km s$^{-1}$) a altas latitudes del Sol, \parencite[e.g.,][]{stakhiv-2015}. Además, en la corona solar se manifiesta la actividad solar que comprende diferentes eventos como lo son las Llamaradas Solares (en inglés \textit{Solar Flares}, SF), \parencite[e.g.,][]{1969ARA&A...7..149S, schrijver-2008} y las Manchas Solares (en inglés \textit{Sunspots}).
+%traducir imagen
 
 
-%Explicar el campo poloida y el campo toroidal, hablar de las diferentes zonas del Sol.
+En la Figura \ref{fig:CapasSol} se muestran las diferentes capas del Sol y fenómenos solares 
+
+
+%Expandir y profundizar
+
+
+
+La energía generada en el núcleo es recibida por la zona radiativa ($\sim 10^{7}$ K).....
+
+
+
+%profundizar en la tacoclina, ya que es la región en donde se forma el campo magnético del Sol y conectarlo con la rotación diferencial.
+La zona radiativa está envuelta por la tacoclina, una región delgada en la que se presenta un cizallamiento extremo debido al cambio entre la rotación rígida de la zona radiativa y la rotación diferencial de la siguiente capa, la zona convectiva \parencite[e.g.,][]{strugarek-2023}.
+
+
+
+
+Posteriormente, la energía pasa de la tacoclina hacia la zona convectiva ($10^{4}-10^{6}$ K), esta última presenta gradientes de temperatura y velocidad que inducen flujos de calor y campo magnético desde la zona radiativa hacia la superficie, lo cual produce células de convección \parencite[e.g.,][]{stein-2012} que, junto con la rotación diferencial del Sol, alimentan el dinamo solar \parencite[e.g.,][]{ossendrijver-2003}. 
+
+
+
+
+
+Sobre la zona convectiva se encuentra la fotosfera ($10^{3}-10^{4}$ K), donde la densidad del plasma disminuye lo suficiente como para que los fotones puedan escapar libremente al espacio, enfriando el plasma \parencite[e.g.,][]{wilson-1969}. 
+
+
+
+
+La siguiente capa es la cromosfera ($\sim10^{4}$ K)......
+
+
+
+La cromosfera está envuelta por la corona solar ($\sim 10^{6}$ K), la cual se expande en el medio interplanetario dando origen al viento solar que es una corriente de plasma formada en los Agujeros Coronales (en inglés \textit{coronal holes}), \parencite[e.g.,][]{schwenn-2007, cranmer-2009, cranmer-2019}, dividido en lento ($\lesssim 500$ km s$^{-1}$) a bajas latitudes y rápido ($\gtrsim675$ km s$^{-1}$) a altas latitudes del Sol, \parencite[e.g.,][]{stakhiv-2015}. 
+
+
+
+Además, en la corona solar se manifiesta la actividad solar que comprende diferentes eventos como lo son las \acsp{SF}, \parencite[e.g.,][]{1969ARA&A...7..149S, schrijver-2008} y las \acsp{Sunspots}.
+
 
 
 \section{Rotación diferencial del Sol}
+
+
+%Leer artículo sobre la rotación de las capas del Sol.
+
 Hoy sabemos que el Sol está hecho de \index{plasma}, un estado de la materia en donde los átomos se encuentran ionizados debido a las altas energías a las que se encuentra el material (....K), dando como resultado un gas de partículas ionizadas a altas temperaturas. El plasma es el cuarto estado de la materia, después del estado gaseoso, líquido y sólido, compuesto por un fluido de partículas cargadas o iones con propiedades electromagnéticas, estos iones llegaron a ese estado debido a las altas temperaturas en las que se encuentran. Es decir, que la materia va cambiando de fase a medida que se aumenta de temperatura partiendo del estado sólido, pasando por el líquido y el gaseoso hasta llegar al plasma. El Sol está conformado por plasma \cite[e.g,][]{cermak-2025} el cual presenta una composición de núcleos de oxígeno, nitrógeno, carbono, helio, deuterio, hidrógeno entre otros \cite[e.g.,][]{asplund-2009}. El Sol, al ser una acumulación de plasma, presenta una \index{rotación diferencial}, la cual indica que no todas las partes en su superficie tienen la misma velocidad angular, por lo que se generan regiones con diferentes velocidades tangenciales a la superficie de forma que el Sol no rota como un cuerpo sólido, sino que la velocidad tangencial es más grande en el ecuador que en los polos. Esto ocurre porque las capas externas (convectiva y fotosfera) están compuestas de gas ionizado (fluido), por lo que cada región en su superficie es independiente de las demás.
 
 Esta rotación diferencial es la que alimenta el ciclo solar generando estructuras como \ac{Sunspots}\index{Sunspots}, \acp{CME}\index{Coronal Mass Ejection}, \acp{SF}\index{Solar Flare} entre otros, es decir que alimenta el \index{Dinamo solar}. Es el proceso que explica la generación y mantenimiento del campo magnético del Sol. Este campo magnético, que varía a lo largo del ciclo solar, es resultado del complejo movimiento del plasma solar conductor y la rotación diferencial del Sol. El dinamo solar funciona gracias a la convección (transferencia de calor) y a la rotación diferencial del Sol, ya que al estar formado por plasma en movimiento genera corrientes eléctricas internas que a su vez generan campos magnéticos, por lo que la forma de las lineas de campo magnético abiertas y cerradas dependen de las corrientes internas del plasma. El movimiento del plasma en presencia de un campo magnético preexistente, induce nuevas corrientes, amplificando el campo magnético inicial, este proceso se conoce como efecto dinamo.
@@ -42,6 +106,12 @@ La rotación diferencial convierte el campo poloidal (como un dipolo) en campo t
 La corona solar, al estar compuesta de hidrógeno ionizado (plasma) a altas temperaturas, mayores a los $10^{6}$K, bajas densidades al rededor de $10^{-16}g~cm^{-3}$ se expande a velocidades supersónicas formando la espiral de Parker, \cite[e.g.,]{lugaz-2005}.
 
 %hablar más de la convección
+
+
+\section{Ciclo Solar}
+La actividad magnética solar, incluyendo las manchas solares y las CMEs, sigue un ciclo con un periodo de 11 años aproximadamente,\cite[e.g.,][]{hathaway-2015}. En cada ciclo, el campo magnético solar se invierte, pasando de un polo a otro.
+%Hablar sobre el dinamo solar
+
 
 \subsection{Manchas Solares}
 Las Sunspots son regiones oscuras puesto que son relativamente más frías que las demás regiones en la superficie del Sol, estas regiones presentan un alta actividad magnética ya que el intenso campo magnético presente en esa región inhibe la convección, que consiste en el transporte del calor del interior solar a la superficie. Al suprimir este flujo de energía, la región se enfría aproximadamente $1500-2000~°$C en comparación con la fotosfera circundante (que está a unos $5800 ~°$C), \cite[e,g.,]{solanki-2003}. Además, son un indicador clave de la actividad solar, por lo que su número y tamaño varían a lo largo del ciclo solar, como lo muestra \cite[e.g.,][]{hathaway-2015}, por lo que también están relacionadas proporcionalmente con la producción de CMEs. Las Sunspots, al almacenar enormes cantidades de energía magnética, pueden llegar a presentar reconexiones magnpeticas abruptas que liberan dicha energía en forma de SF y desencadenar las erupciones más violentas del Sistema Solar, CMEs.
@@ -59,10 +129,6 @@ Las Solar Flares o llamaradas solares son procesos ocurridos en la corona solar 
     \label{fig:PrimeraCME}
 \end{figure}
 
-
-\section{Ciclo Solar}
-La actividad magnética solar, incluyendo las manchas solares y las CMEs, sigue un ciclo con un periodo de 11 años aproximadamente,\cite[e.g.,][]{hathaway-2015}. En cada ciclo, el campo magnético solar se invierte, pasando de un polo a otro.
-%Hablar sobre el dinamo solar
 
 
 \section{Viento solar}
