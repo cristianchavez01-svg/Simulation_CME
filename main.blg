@@ -1,23 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'main.blg'
-[116] biber:340> INFO - === dom dic  7, 2025, 17:06:50
-[140] Biber.pm:419> INFO - Reading 'main.bcf'
-[273] Biber.pm:979> INFO - Found 53 citekeys in bib section 0
-[302] Biber.pm:4419> INFO - Processing section 0
-[316] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[322] bibtex.pm:1713> INFO - LaTeX decoding ...
-[457] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[1098] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1098] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1098] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1251] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1252] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1252] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1340] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1411] bbl.pm:763> INFO - Output to main.bbl
-[1411] Biber.pm:131> WARN - Duplicate entry key: 'mayank-2023' in file 'bibliografia.bib', skipping ...
-[1411] Biber.pm:131> WARN - Duplicate entry key: 'asplund-2009' in file 'bibliografia.bib', skipping ...
-[1411] Biber.pm:131> WARN - Duplicate entry key: 'hathaway-2015' in file 'bibliografia.bib', skipping ...
-[1411] Biber.pm:131> WARN - Duplicate entry key: 'li-2012' in file 'bibliografia.bib', skipping ...
-[1411] Biber.pm:131> WARN - legacy month field 'mar' in entry 'Pevtsov_2000' is not an integer - this will probably not sort properly.
-[1411] Biber.pm:133> INFO - WARNINGS: 5
+[124] biber:340> INFO - === sáb feb  7, 2026, 19:45:06
+[153] Biber.pm:419> INFO - Reading 'main.bcf'
+[322] Biber.pm:979> INFO - Found 95 citekeys in bib section 0
+[354] Biber.pm:4419> INFO - Processing section 0
+[369] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[377] bibtex.pm:1713> INFO - LaTeX decoding ...
+[572] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[1745] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1745] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1746] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1895] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1895] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1895] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1986] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[2056] bbl.pm:763> INFO - Output to main.bbl
+[2056] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
+[2056] Biber.pm:133> INFO - WARNINGS: 1

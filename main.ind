@@ -1,37 +1,45 @@
 \begin{theindex}
 
-  \item Astronomical Unit, \hyperpage{17}
+  \item Astronomical Unit, \hyperpage{18}
 
   \indexspace
 
-  \item Coronal Hole, \hyperpage{24}
-  \item Coronal Mass Ejection, \hyperpage{16}, \hyperpage{22}, 
-		\hyperpage{24}, \hyperpage{30, 31}, \hyperpage{33}, 
-		\hyperpage{35--39}, \hyperpage{42--59}, 
-		\hyperpage{61--66}
+  \item campo magnético interplanetario, \hyperpage{35}
+  \item ciclo solar, \hyperpage{28}
+  \item Coronal Hole, \hyperpage{34}
+  \item Coronal Mass Ejection, \hyperpage{17}, \hyperpage{28}, 
+		\hyperpage{32}, \hyperpage{34}, \hyperpage{45, 46}, 
+		\hyperpage{48}, \hyperpage{51--56}, \hyperpage{58--70}, 
+		\hyperpage{72, 73}
 
   \indexspace
 
-  \item Dinamo solar, \hyperpage{22}
+  \item efecto fotoeléctrico, \hyperpage{22}
 
   \indexspace
 
-  \item Heliosfera, \hyperpage{17}
+  \item granulación, \hyperpage{24}
 
   \indexspace
 
-  \item plasma, \hyperpage{21}
+  \item Heliosfera, \hyperpage{18}
+  \item heliosismología, \hyperpage{27}
 
   \indexspace
 
-  \item reacciones nucleares, \hyperpage{19}
-  \item rotación de Carrington, \hyperpage{16}
-  \item rotación diferencial, \hyperpage{21}
+  \item magnetihidrodinámica, \hyperpage{28}
 
   \indexspace
 
-  \item Solar Flare, \hyperpage{16}, \hyperpage{22}, \hyperpage{24}
-  \item Solar Wind, \hyperpage{24}
-  \item Sunspots, \hyperpage{16}, \hyperpage{22}
+  \item reacciones nucleares, \hyperpage{20}
+  \item rotación de Carrington, \hyperpage{30}
+  \item rotación diferencial, \hyperpage{27}
+
+  \indexspace
+
+  \item Solar Flare, \hyperpage{17}, \hyperpage{28}, \hyperpage{34}
+  \item Solar Wind, \hyperpage{34}
+  \item Sunspots, \hyperpage{17}, \hyperpage{28}
+  \item supergranulación, \hyperpage{25}
 
 \end{theindex}

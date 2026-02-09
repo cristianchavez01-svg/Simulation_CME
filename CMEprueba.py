@@ -6,12 +6,12 @@ from scipy.integrate import quad
 # PARÁMETROS FÍSICOS Y CONSTANTES
 # ============================================================================
 
-tr1 = 0.5  # Tiempo característico de crecimiento
-td1 = 0.6  # Tiempo característico de decaimiento  
-ar1 = 1    # Amplitud de crecimiento
-ad1 = 3    # Amplitud de decaimiento
-v01 = 0.2  # Velocidad inicial
-x01 = 0.1  # Posición inicial
+tr1 = 138  # Tiempo característico de crecimiento en segundos
+td1 = 1249  # Tiempo característico de decaimiento en segundos
+ar1 = 0.001    # Amplitud de crecimiento en kilometros por segundo cuadrado
+ad1 = 4.950    # Amplitud de decaimiento en kilometros por segundo cuadrado
+v01 = 40  # Velocidad inicial en kilómetros por segundo
+x01 = 25000  # Posición inicial en kilómetros
 
 # ============================================================================
 # FUNCIONES CINEMÁTICAS CORREGIDAS (f(s) = ACELERACIÓN)
@@ -34,12 +34,14 @@ def velocidad(t):
 
 def desplazamiento_centro(t):
     """
-    Calcula el desplazamiento integrando la velocidad
-    x(t) = x0 + ∫₀ᵗ v(s) ds
+    x(t) = x0 + v0*t + ∬ a(s) ds du
     """
-    # Integramos directamente la función velocidad
-    # Usamos quad con la función velocidad definida arriba
-    return x01 + quad(velocidad, 0, t)[0]
+    # Alternativa: integrar la velocidad precalculada
+    tiempos = np.linspace(0, t, 200)
+    velocidades = [velocidad(ti) for ti in tiempos]
+    # Integración trapezoidal simple
+    integral = np.trapz(velocidades, tiempos)
+    return x01 + integral
 
 def aceleracion(t):
     """
@@ -51,66 +53,69 @@ def aceleracion(t):
 # FUNCIONES DE VELOCIDAD PARA EL CAMPO VECTORIAL
 # ============================================================================
 
-def velocidad_x(theta, r, t):
+def velocidad_r(theta, r, t):
     """
     Componente x de la velocidad para el campo vectorial
     Usa la velocidad del centro más componentes adicionales
     """
     # Velocidad base del centro
     v_centro = velocidad(t)
-    # Componente adicional dependiente de posición
-    v_extra = 0.1 * r * np.cos(theta) * t
+    v_extra = 0.07 * np.cos(theta)  # Componente adicional dependiente de theta, puede ajustarse para generar la dependencia radial y temporal.
     return v_centro + v_extra
-
-def velocidad_radial(theta, r, t):
-    """
-    Componente radial de la velocidad que evoluciona con el tiempo
-    """
-    vy = r * t * np.cos(theta)
-    vxx = velocidad_x(theta, r, t)
-    return np.sqrt(vxx**2 + vy**2)
 
 def velocidad_angular(theta, r, t):
     """
     Componente angular de la velocidad que evoluciona con el tiempo
     """
-    fase = np.pi * t / 16
-    return np.sin(2 * theta + fase) * (2 - r**2) * (1 + 0.2 * np.cos(fase))
+    return np.sin(theta/2)
 
-def densidad(theta, r, t, densidad_fondo=0.3):
+def velocidad_radial(theta, r, t):
+    """
+    Componente radial de la velocidad que evoluciona con el tiempo
+    """
+    vtheta = 2 * np.cos(theta)
+    vr = velocidad_r(theta, r, t)
+    return np.sqrt(vr**2 + (r * vtheta)**2)
+
+
+############################################################################
+
+densidad_fondo = 1000  # Densidad del viento solar en protones por cm³
+
+def densidad(theta, r, t, densidad_fondo):
     """
     Densidad modificada para ser mayor en el borde derecho del cardioide
     """
-    fase = np.pi * t / 10
+    fase = np.pi * r / (t + 0.1)
     
-    # COMPONENTE PRINCIPAL: MÁXIMA DENSIDAD EN EL BORDE DERECHO (theta ≈ 0)
+    # COMPONENTE PRINCIPAL: MÁXIMA DENSIDAD EN EL BORDE DERECHO (theta ≈ 0), en la dirección de propagación
     componente_derecha = (1 + np.cos(theta))
     
     # REFUERZO EN EL BORDE
     posicion_cardioide = desplazamiento_centro(t)
-    factor_borde = np.exp(-(r - posicion_cardioide)**2)
+    factor_borde = 0.1 * np.exp(-(r - posicion_cardioide)**2) #crea una especie de "borde" en la densidad, usando una gaussiana centrada en la posición del cardioide.
     
-    # ONDA PROPAGANTE que enfatiza el lado derecho
-    onda = np.sin(3 * r - fase) * 0.5 * componente_derecha
-    
-    # COMPONENTE ANGULAR que refuerza el lado derecho
-    angular = 0.8 * componente_derecha * np.sin(fase)
+    # ONDA PROPAGANTE que enfatiza el lado derecho y hacia r mayores, gracias a la fase temporal
+    onda = np.sin(fase) * componente_derecha
     
     # BASE con distribución radial
-    base = np.exp(-r * 0.5) * (1 + 2 * componente_derecha * factor_borde)
+    base = np.exp(-r * 0.3) * (1 + (componente_derecha * factor_borde))
     
     # DENSIDAD TOTAL
-    densidad_total = base * (1 + onda + angular) + densidad_fondo
+    densidad_total = (base * (1 + onda)) + densidad_fondo #es necesario verificar la forma en que se combinan las densidades.
     
     return densidad_total
 
-def cardioide_desplazado(theta, t, r0=0.1, theta0=0):
+def cardioide_desplazado(theta, t, a_0=2, factor_expansion=4):
     """
     Genera un cardioide que se propaga siguiendo la cinemática correcta
     x(t) = x0 + ∫₀ᵗ v(s) ds, donde v(t) = v0 + ∫₀ᵗ a(s) ds
     """
-    desplazamiento_cinematica = desplazamiento_centro(t) - x01  # Solo el desplazamiento desde inicial
-    r_base = 0.1 + np.cos(theta)
+    desplazamiento_cinematica = desplazamiento_centro(t)  # Solo el desplazamiento desde inicial
+
+    # Expansión con el tiempo
+    a = a_0 * ((1 + factor_expansion) * t)
+    r_base = a * (1 + np.cos(theta))
     r = r_base + desplazamiento_cinematica
     return r
 
@@ -119,7 +124,7 @@ def cardioide_desplazado(theta, t, r0=0.1, theta0=0):
 # ============================================================================
 
 # Crear array de tiempos
-tiempos = np.linspace(0, 9, 100)
+tiempos = np.linspace(1, 6000, 200) #en segundos
 
 # Calcular las cantidades cinemáticas
 posiciones = [desplazamiento_centro(t) for t in tiempos]
@@ -136,24 +141,24 @@ fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 10))
 
 # GRÁFICA 1: POSICIÓN vs TIEMPO
 ax1.plot(tiempos, posiciones, 'b-', linewidth=2.5, label='Posición x(t)')
-ax1.set_xlabel('Tiempo (t)', fontsize=12, fontweight='bold')
-ax1.set_ylabel('Posición (x)', fontsize=12, fontweight='bold')
+ax1.set_xlabel('Tiempo (seg)', fontsize=12, fontweight='bold')
+ax1.set_ylabel('Posición (km)', fontsize=12, fontweight='bold')
 ax1.set_title('POSICIÓN: x(t) = x₀ + ∫₀ᵗ v(s) ds', fontsize=14, fontweight='bold')
 ax1.grid(True, alpha=0.3)
 ax1.legend(fontsize=11)
 
 # GRÁFICA 2: VELOCIDAD vs TIEMPO
 ax2.plot(tiempos, velocidades, 'r-', linewidth=2.5, label='Velocidad v(t)')
-ax2.set_xlabel('Tiempo (t)', fontsize=12, fontweight='bold')
-ax2.set_ylabel('Velocidad (v)', fontsize=12, fontweight='bold')
+ax2.set_xlabel('Tiempo (seg)', fontsize=12, fontweight='bold')
+ax2.set_ylabel('Velocidad (km/s)', fontsize=12, fontweight='bold')
 ax2.set_title('VELOCIDAD: v(t) = v₀ + ∫₀ᵗ a(s) ds', fontsize=14, fontweight='bold')
 ax2.grid(True, alpha=0.3)
 ax2.legend(fontsize=11)
 
 # GRÁFICA 3: ACELERACIÓN vs TIEMPO
 ax3.plot(tiempos, aceleraciones, 'g-', linewidth=2.5, label='Aceleración a(t)')
-ax3.set_xlabel('Tiempo (t)', fontsize=12, fontweight='bold')
-ax3.set_ylabel('Aceleración (a)', fontsize=12, fontweight='bold')
+ax3.set_xlabel('Tiempo (seg)', fontsize=12, fontweight='bold')
+ax3.set_ylabel('Aceleración (km/s²)', fontsize=12, fontweight='bold')
 ax3.set_title('ACELERACIÓN: a(t) = f(t)', fontsize=14, fontweight='bold')
 ax3.grid(True, alpha=0.3)
 ax3.legend(fontsize=11)
@@ -165,9 +170,11 @@ plt.show()
 # ============================================================================
 # VISUALIZACIÓN DE LA CME CON CINEMÁTICA CORREGIDA
 # ============================================================================
+limite_gráfico = 24  # Límite radial para la gráfica
+
 
 fig = plt.figure(figsize=(20, 10))
-fig.suptitle('Propagación de CME - Cinemática Corregida (f(s) = Aceleración)', 
+fig.suptitle('Propagación de CME', 
              fontsize=16, fontweight='bold', y=0.98)
 
 estados_tiempo = 10
@@ -186,15 +193,15 @@ for idx in range(estados_tiempo):
     # ========================================================================
     # MALLA PARA DENSIDAD
     # ========================================================================
-    theta_dense = np.linspace(0, 2 * np.pi, 200)
-    r_dense = np.linspace(0, 3.5, 120)
+    theta_dense = np.linspace(0, 2 * np.pi, 360)
+    r_dense = np.linspace(0, limite_gráfico, 120)
     THETA_dense, R_dense = np.meshgrid(theta_dense, r_dense)
     
     R_limite_dense = cardioide_desplazado(THETA_dense, t)
     mascara_dense = R_dense <= R_limite_dense
     
     # CALCULAR DENSIDAD
-    dens = densidad(THETA_dense, R_dense, t, densidad_fondo=0.3)
+    dens = densidad(THETA_dense, R_dense, t, densidad_fondo) #la densidad de fondo es 25 protones por centímetro cúbico (valor por verificar)
     dens_enmascarada = np.where(mascara_dense, dens, np.nan)
     
     # Graficar mapa de densidad
@@ -205,17 +212,17 @@ for idx in range(estados_tiempo):
     # DENSIDAD DE FONDO
     # ========================================================================
     mascara_fondo = R_dense > R_limite_dense
-    dens_fondo = np.full_like(dens, 0.3)
+    dens_fondo = np.full_like(dens, densidad_fondo)  # Densidad de fondo constante
     dens_fondo_enmascarada = np.where(mascara_fondo, dens_fondo, np.nan)
     
     ax.contourf(THETA_dense, R_dense, dens_fondo_enmascarada, 
-                levels=20, cmap='Blues', alpha=0.2)
+                levels=10, cmap='Blues', alpha=0.2)
     
     # ========================================================================
     # CAMPO VECTORIAL
     # ========================================================================
     theta_vec = np.linspace(0, 2 * np.pi, 30)
-    r_vec = np.linspace(0.2, 3.0, 10)
+    r_vec = np.linspace(0.2, limite_gráfico, 8)
     THETA_vec, R_vec = np.meshgrid(theta_vec, r_vec)
     
     R_limite_vec = cardioide_desplazado(THETA_vec, t)
@@ -258,7 +265,7 @@ for idx in range(estados_tiempo):
                  fontsize=9, fontweight='bold', pad=15)
     
     ax.grid(True, alpha=0.3, linewidth=0.5)
-    ax.set_ylim([0, 3.5])
+    ax.set_ylim([0, limite_gráfico])
     
     # Información de densidad
     if not np.all(np.isnan(dens_enmascarada)):
@@ -318,3 +325,15 @@ print(f"\nVerificación en t={t_test}:")
 print(f"  v({t_test}) calculado: {velocidad(t_test):.4f}")
 print(f"  v({t_test}) por integral: {vel_integral:.4f}")
 print(f"  ¿Coinciden?: {np.isclose(velocidad(t_test), vel_integral, rtol=1e-3)}")
+
+# Añade esto después de la verificación numérica
+print("\n=== ANÁLISIS FÍSICO DE LA CINEMÁTICA ===")
+print(f"Aceleración máxima: {np.max(aceleraciones):.4f}")
+print(f"Velocidad máxima: {np.max(velocidades):.4f}")
+print(f"Desplazamiento total en t=9: {posiciones[-1]:.4f}")
+
+# ¿Qué tiempo tarda en alcanzar el 90% de velocidad máxima?
+vel_max = np.max(velocidades)
+indice_90 = np.where(velocidades >= 0.9*vel_max)[0][0]
+t_90 = tiempos[indice_90]
+print(f"Tiempo para alcanzar 90% de v_max: {t_90:.2f}")
