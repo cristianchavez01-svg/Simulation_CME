@@ -1,0 +1,41 @@
+# Archivos y carpetas ignorados por Git
+
+# Archivos de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.run.xml
+*.toc
+*.out
+*.log
+*.synctex.gz
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de Jupyter
+*.ipynb_checkpoints
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Carpetas de imágenes y datos
+Imágenes/
+Imagenes Mein/
+imag/
+
+# Archivos de configuración
+.env
+
+# Otros
+*.csv
