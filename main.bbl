@@ -1643,6 +1643,46 @@
       \field{pages}{7\bibrangedash 16}
       \range{pages}{10}
     \endentry
+    \entry{gosling-1993}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1e9f59e934937d7330a7ae7a2bb7cf0d}{%
+           family={Gosling},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{fullhash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{bibnamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authorbibnamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authornamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authorfullhash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{11}
+      \field{number}{A11}
+      \field{title}{{The solar flare myth}}
+      \field{volume}{98}
+      \field{year}{1993}
+      \field{pages}{18937\bibrangedash 18949}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1029/93ja01896
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/93ja01896
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/93ja01896
+      \endverb
+    \endentry
     \entry{gosling-1976}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=1e9f59e934937d7330a7ae7a2bb7cf0d}{%
@@ -4675,6 +4715,67 @@
       \field{pages}{115\bibrangedash 117}
       \range{pages}{3}
     \endentry
+    \entry{2002ESASP.506...91V}{inbook}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
+           family={{Vourlidas}},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=956e5010f70336c6f381bd40f7e6d4ee}{%
+           family={{Buzasi}},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={{Howard}},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=68be654ba230fbca3ad1eb1053525a65}{%
+           family={{Esfandiari}},
+           familyi={E\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=ed55bdf8bb72be2963ba3245d4ace9ef}{%
+           family={{Wilson}},
+           familyi={W\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{872a59ba521cb98a9edc1bf8de8168ae}
+      \strng{fullhash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{bibnamehash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{authorbibnamehash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
+      \strng{authorfullhash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{editorbibnamehash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \strng{editornamehash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \strng{editorfullhash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \field{extraname}{1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Solar Variability: From Core to Outer Frontiers}
+      \field{month}{12}
+      \field{series}{ESA Special Publication}
+      \field{title}{{Mass and energy properties of LASCO CMEs}}
+      \field{volume}{1}
+      \field{year}{2002}
+      \field{pages}{91\bibrangedash 94}
+      \range{pages}{4}
+      \keyw{Coronal Mass Ejections,Solar Activity}
+    \endentry
     \entry{vourlidas-2010}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
@@ -4720,7 +4821,7 @@
       \strng{authorbibnamehash}{bdf68da8e69f410d50c0c1a600067f95}
       \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
       \strng{authorfullhash}{bdf68da8e69f410d50c0c1a600067f95}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
@@ -4779,7 +4880,7 @@
       \strng{authorbibnamehash}{26c87b42876dc909a8fb17460002502a}
       \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
       \strng{authorfullhash}{26c87b42876dc909a8fb17460002502a}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
@@ -6980,6 +7081,46 @@
       \field{pages}{7\bibrangedash 16}
       \range{pages}{10}
     \endentry
+    \entry{gosling-1993}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1e9f59e934937d7330a7ae7a2bb7cf0d}{%
+           family={Gosling},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{fullhash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{bibnamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authorbibnamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authornamehash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \strng{authorfullhash}{1e9f59e934937d7330a7ae7a2bb7cf0d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Geophysical Research Atmospheres}
+      \field{month}{11}
+      \field{number}{A11}
+      \field{title}{{The solar flare myth}}
+      \field{volume}{98}
+      \field{year}{1993}
+      \field{pages}{18937\bibrangedash 18949}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1029/93ja01896
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1029/93ja01896
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1029/93ja01896
+      \endverb
+    \endentry
     \entry{gosling-1976}{article}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=1e9f59e934937d7330a7ae7a2bb7cf0d}{%
@@ -10012,6 +10153,67 @@
       \field{pages}{115\bibrangedash 117}
       \range{pages}{3}
     \endentry
+    \entry{2002ESASP.506...91V}{inbook}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
+           family={{Vourlidas}},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=956e5010f70336c6f381bd40f7e6d4ee}{%
+           family={{Buzasi}},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910eaf6e14e158f7a13df34a5632de0}{%
+           family={{Howard}},
+           familyi={H\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=68be654ba230fbca3ad1eb1053525a65}{%
+           family={{Esfandiari}},
+           familyi={E\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=ed55bdf8bb72be2963ba3245d4ace9ef}{%
+           family={{Wilson}},
+           familyi={W\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{872a59ba521cb98a9edc1bf8de8168ae}
+      \strng{fullhash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{bibnamehash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{authorbibnamehash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
+      \strng{authorfullhash}{1f15740bda560db362ded9958bcaa2f6}
+      \strng{editorbibnamehash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \strng{editornamehash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \strng{editorfullhash}{ed55bdf8bb72be2963ba3245d4ace9ef}
+      \field{extraname}{1}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Solar Variability: From Core to Outer Frontiers}
+      \field{month}{12}
+      \field{series}{ESA Special Publication}
+      \field{title}{{Mass and energy properties of LASCO CMEs}}
+      \field{volume}{1}
+      \field{year}{2002}
+      \field{pages}{91\bibrangedash 94}
+      \range{pages}{4}
+      \keyw{Coronal Mass Ejections,Solar Activity}
+    \endentry
     \entry{vourlidas-2011}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=2ff637705dffde2b9e1c936db3af90d6}{%
@@ -10045,7 +10247,7 @@
       \strng{authorbibnamehash}{26c87b42876dc909a8fb17460002502a}
       \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
       \strng{authorfullhash}{26c87b42876dc909a8fb17460002502a}
-      \field{extraname}{1}
+      \field{extraname}{2}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}
@@ -10116,7 +10318,7 @@
       \strng{authorbibnamehash}{bdf68da8e69f410d50c0c1a600067f95}
       \strng{authornamehash}{872a59ba521cb98a9edc1bf8de8168ae}
       \strng{authorfullhash}{bdf68da8e69f410d50c0c1a600067f95}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{extradatescope}{labelyear}

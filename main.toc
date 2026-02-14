@@ -21,17 +21,17 @@
 \contentsline {chapter}{\chapternumberline {2}Eyecciones de masa coronal (CMEs)}{42}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Origen de la CME}{43}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Propiedades de la CME}{46}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Clasificación}{52}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Comportamiento en el medio interplanetario}{53}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Detección y observación de CMEs}{54}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Influencia en el clima espacial}{57}{section.2.6}%
-\contentsline {chapter}{\chapternumberline {3}Interacción CME - CME}{59}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Variación de las propiedades en la interacción}{60}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Estructuras resultantes de la interacción}{66}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Interacción CME-CME y los eventos de SEPs}{68}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}Problema}{75}{chapter.4}%
-\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{76}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Discusión}{77}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{78}{chapter.7}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{79}{section*.56}%
-\contentsline {chapter}{Índice Alfabético}{89}{section*.57}%
+\contentsline {section}{\numberline {2.3}Clasificación}{53}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Comportamiento en el medio interplanetario}{54}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Detección y observación de CMEs}{55}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Influencia en el clima espacial}{58}{section.2.6}%
+\contentsline {chapter}{\chapternumberline {3}Interacción CME - CME}{60}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Variación de las propiedades en la interacción}{61}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Estructuras resultantes de la interacción}{67}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Interacción CME-CME y los eventos de SEPs}{69}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}Problema}{76}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{77}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Discusión}{78}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{79}{chapter.7}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{80}{section*.56}%
+\contentsline {chapter}{Índice Alfabético}{90}{section*.57}%
