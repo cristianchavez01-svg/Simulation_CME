@@ -1,5 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    "font.serif": ["Computer Modern Roman"],  # La fuente por defecto de LaTeX
+})
 
 def leer_datos_solar(archivo):
     """Lee el archivo del modelo solar, ignorando encabezados y texto."""
@@ -60,23 +65,24 @@ fig, ax1 = plt.subplots(figsize=(11, 7))
 # Graficar densidad (azul) - con etiqueta para la leyenda
 linea_densidad, = ax1.plot(R, rho, 'b-', linewidth=2, label='Densidad')
 ax1.axvline(x=0.71, color='k', linestyle='-.', linewidth=1)
-ax1.set_xlabel('Radio (R/R$_\odot$)', fontsize=13, fontweight='bold')
-ax1.set_ylabel('Densidad (g cm$^{-3}$)', fontsize=13, fontweight='bold')
+ax1.set_title(r'Densidad y Temperatura en funci\'on del Radio Solar', fontsize=19)
+ax1.set_xlabel(r'Radio (R/R$_\odot$)', fontsize=18)
+ax1.set_ylabel(r'Densidad (g cm$^{-3}$)', fontsize=18)
 ax1.tick_params(axis='y')
 ax1.set_yscale('log')
 ax1.set_xlim(left=0)
-ax1.tick_params(axis='both', direction='in', length=8, width=1.2, labelsize=14)  # Ticks mayores
+ax1.tick_params(axis='both', direction='in', length=8, width=1.2, labelsize=15)  # Ticks mayores
 ax1.tick_params(axis='both', which='minor', direction='in', length=4, width=1)  # Ticks menores
 ax1.grid(True, alpha=0.3)
 
 # Graficar temperatura (rojo) - con etiqueta para la leyenda
 ax2 = ax1.twinx()
 linea_temperatura, = ax2.plot(R, T, 'r-', linewidth=2, label='Temperatura')
-ax2.set_ylabel('Temperatura (K)', fontsize=13, fontweight='bold')
+ax2.set_ylabel(r'Temperatura (K)', fontsize=18)
 ax2.tick_params(axis='y')
 ax2.set_yscale('log')
 ax2.set_xlim(ax1.get_xlim())
-ax2.tick_params(axis='both', direction='in', length=8, width=1.2, labelsize=14)  # Ticks mayores
+ax2.tick_params(axis='both', direction='in', length=8, width=1.2, labelsize=15)  # Ticks mayores
 ax2.tick_params(axis='both', which='minor', direction='in', length=4, width=1)  # Ticks menores
 ax2.grid(False)
 

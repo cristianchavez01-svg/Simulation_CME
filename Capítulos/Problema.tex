@@ -1,6 +1,107 @@
-\chapter{Problema}
-\begin{flushright}
-\item \textit{''Los hombres viven en un planeta insignificante de una estrella trivial perdida en la inmensidad de una galaxia que no es más que una entre millones. Pero eso no nos hace insignificantes. Nos hace afortunados.''}
+\chapter{Interacción CME - CME: Fenómeno}
 
--Isaac Asimov
+\begin{flushright}
+\begin{minipage}{0.6\textwidth}
+\raggedleft  % Justifica el texto dentro de la minipage a la derecha
+\footnotesize\itshape
+\setlength{\baselineskip}{12pt} 
+\vspace{0.7cm} 
+''Entonces la tormenta estalló, y los dragones danzaron.''\\
+\medskip
+\vspace{0.3cm} 
+- George R.R. Martin, \textit{Fire \& Blood}
+\end{minipage}
 \end{flushright}
+\vspace{1cm}
+
+En la evolución de CMEs homólogas puede presentarse una interacción entre ellas que modifica sus características, intensificando sus propiedades de tal forma que den lugar a una única CME con una geoefectividad mucho mayor que la de las CMEs individuales previas a la interacción. En consecuencia, es de gran importancia entender cómo las propiedades de las CMEs modulan su interacción: propiedades como la velocidad, la aceleración, el intervalo de tiempo entre erupciones y la morfología de las mismas. Estas características se postulan como moduladoras importantes de sus interacciones, por lo que su cuantificación precisa y el establecimiento de umbrales físicos asociados permanecen como objetivos pendientes en física solar.
+
+Un escenario de interacción típico involucra dos CMEs homólogas, en el que la primera CME emitida (CME - 1) alcanza su velocidad máxima rápidamente tras una aceleración inicial; mientras que la segunda CME (CME - 2), con una aceleración de magnitud similar, requiere un intervalo temporal mayor para alcanzar su velocidad máxima, la cual supera a la de CME - 1, propiciando así la interacción. Adicionalmente, para que la interacción ocurra, el intervalo de tiempo entre la erupción de CME1 y CME - 2 debe ser suficientemente corto como para impedir la dispersión de CME1 en el medio interplanetario antes de que CME - 2 la alcance. 
+
+Del mismo modo, puede generarse una interacción por diferencia de velocidades mediada por la interacción de las CMEs con el viento solar: la CME - 1 experimenta una fuerza de arrastre que reduce su velocidad al desplazar material del viento solar, mientras que la CME - 2 se propaga en un medio parcialmente evacuado que le imprime una fuerza de arrastre relativamente menor, facilitando su propagación y permitiéndole alcanzar velocidades suficientes para interactuar con la CME - 1.
+
+También puede ocurrir que, a pesar de ser CMEs homólogas, no se produzca interacción. Esto puede deberse a que el intervalo de tiempo entre erupciones es suficientemente grande como para que la CME - 2 no logre alcanzar a la CME - 1, o simplemente a que la CME - 1 presenta una velocidad significativamente mayor a causa de una aceleración inicial más intensa o de un tiempo de acción de dicha aceleración más prolongado. Cabe señalar que la producción de dos CMEs en un intervalo de tiempo relativamente corto no implica necesariamente su interacción, puesto que pueden originarse en diferentes regiones activas —es decir, tratarse de CMEs simultáneas— y propagarse en direcciones distintas.
+
+Otro evento de interacción puede ocurrir gracias a CMEs super-Alfvénicas, es decir, con velocidades mayores a la velocidad magnetosónica, generando ondas de choque en sus frentes, lo que en su interacción se manifiesta como una superposición de choques. La superposición intensifica tanto su geoefectividad como la producción de SEPs, representando un evento con un impacto mucho más importante en comparación con la interacción de CMEs sin choque. Por consiguiente, la CME resultante de una interacción con o sin presencia de choques, presentará características con mayor influencia en el clima espacial en comparación con las presentadas por las CMEs individualmente.
+
+La limitación del estudio de estas interacciones viene dada por la escasez de datos observacionales que caractericen cómo estas propiedades varían durante la interacción, alterando propiedades clave como los tiempos de llegada a la Tierra, la geoefectividad, y la inyección de masa y campo magnético al viento solar. Por lo tanto, establecer la existencia de relaciones cuantitativas entre los parámetros cinemáticos de CMEs sucesivas que lleven a su interacción es una necesidad fundamental para el desarrollo de predicciones confiables del clima espacial.
+
+
+\section{Aspectos generales}
+La simulación busca estudiar el comportamiento de la densidad de las CMEs durante su interacción, así como su velocidad, por lo que es necesario implementar un mapa de densidad y velocidad que facilite la comprensión y estudio cualitativo de la evolución de la interacción. Además, la morfología de la CME debe estár acorde a la literatura, presentando en superposición una propagación y una expansión de tal manera que en su propagación presente una deformación. 
+
+Para el desarrollo de la simulación de la interacción de CMEs es necesario atravesar por diferentes etapas. La primera estapa consiste en la simulación de la cinemática de una CME, para nuestro caso la nombramos CME - 1, verificando que los perfiles de velocidad y aceleración concuerdan con los reportados en la literatura. Los retos en esta etapa vienen dados por la representación gráfica de su evolución, usando coordenadas polares, así como la distribución de su densidad y de su velocidad. Las características de la CME - 1 se definen en esta etapa, buscando principalmente una velocidad de propagación relativamente menor que permita una interacción con una segunda CME con velocidad mayor.
+
+En una segunda etapa se busca simular la segunda CME, que denominamos CME - 2, la cual será una variación del código desarrollado para la CME - 1, pero con una velocidad de propagación mayor. Además, se intenta generar irregularidad en la producción de las CMEs usando funciones aleatorias, de tal manera que su morfología se vea distorcionada cada que se ejecute el código, permitiendo la diversidad en distribuciones de densidad.
+
+Ya en una tercera etapa, se requiere fusionar las dos propagaciones de CMEs previamente desarrolladas, considerando el intervalo de tiempo de producción entre las mismas. En esta fase se quiere conseguir que las distribuciones de densidad y velocidad de cada CME se afecten mutuamente y creen una única CME con parámetros propios. Es de importancia los resultados de esta etapa, puesto que indicarán las relaciones necesarias de velocidad y densidad para que las CMEs lleguen a interactuar, considerando aceleraciones y sus tiempos efectivos sobre las CMEs.
+
+Por otro lado, se pueden presentar dos escenarios de interacción de interés para esta investigación. Un escenario consiste en la interacción de CMEs con velocidades similares y sub-Alfvénicas, indicando la ausencia de ondas de choque; por otro lado, el segundo escenario de interés se caracterisa por una interacción entre CMEs con velocidades considerablemente diferentes.
+
+\section{CME 1}
+La cinemática que se busca replicar está dada por la aceleración del frente de la CME reportada por \textcite[][]{gallagher-2003}, en la Ecuación \eqref{ecuaceleración},
+
+\begin{equation*}
+a(t)=\left[ \frac{1}{a_r\exp(\frac{t}{\tau_r})}+\frac{1}{a_d\exp(\frac{-t}{\tau_d})}\right]^{-1},
+\end{equation*}
+
+la cual se incluye en la simulación. Por lo tanto, el código parte de utilizar esta expresión para determinar la velocidad y la posición de la CME en función del tiempo, haciendo uso de los valores de $a_r$, $a_d$, $\tau_r$ y $\tau_d$ que son los que dominan el comportamiento y duración de cada etapa de propagación de la CME. Por consiguiente, se desarrolla el módulo de código necesario para producir la cinemática, mostrado a continuación.
+\vspace{0.7cm}
+\begin{lstlisting}
+# PARAMETROS FISICOS
+tr1, td1 = 138, 1249
+ar1, ad1 = 0.001, 4.950
+v01, x01 = 40, 25000
+DENSIDAD_FONDO = 100
+R_CME_INICIAL = 2.0
+
+def f(s):
+    return (ar1 * ad1) / (ad1 * np.exp(-s / tr1) + ar1 * np.exp(s / td1))
+
+def velocidad(t):
+    return v01 if t == 0 else v01 + quad(f, 0, t)[0]
+
+def desplazamiento_centro(t):
+    if t == 0:
+        return x01
+    tiempos_int = np.linspace(0, t, 100)
+    velocidades_int = np.array([velocidad(ti) for ti in tiempos_int])
+    return x01 + np.trapz(velocidades_int, tiempos_int)
+
+# CINEMATICA
+tiempos = np.linspace(0, 36000, 500)
+tiempos_h = tiempos / 3600
+print("Calculando_cinematica...")
+posiciones    = np.array([desplazamiento_centro(t) for t in tiempos])
+velocidades   = np.array([velocidad(t) for t in tiempos])
+aceleraciones = np.array([f(t) for t in tiempos])
+\end{lstlisting}
+
+Se hace uso de las librerías \lstinline|numpy|, \lstinline|matplotlib.pyplot| y \lstinline|scipy.integrate|. Primero se definen los parámetros que caracterizan la cinemática de la CME - 1, como lo son $a_r$, $a_d$, $\tau_r$ y $\tau_d$; están nombrados como \lstinline|ar1|, \lstinline|ad1|, \lstinline|tr1| y \lstinline|td1|, respectivamente. También se definen otros parámetros como velocidad inicial \lstinline|v01|, posición inicial \lstinline|x01|, densidad de fondo y el radio inicial de la CME en radios solares. En seguida se introduce la Ecuación \eqref{ecuaceleración}, siendo la aceleración anteriormente mencionada, para luego definir la velocidad como la integral de esta función respecto al tiempo. Una vez teniendo la velocidad, es posible encontrar la posición, nombrada como \lstinline|desplazamiento_centro(t)| y definida como la integral de la velocidad respecto al tiempo. Además, es necesario convertir la unidad de tiempo, pasandola de segundos a horas, para poder establecer posiciones, velocidades y aceleraciones.
+
+
+Los valores de los parámetros utilizados se tomaron de \textcite[][]{gallagher-2003}, por lo que es posible realizar un contraste con el mismo, por lo que se generan los perfiles de posición, velocidad y aceleración en un tiempo de 10 horas, mostrados en la Figura \ref{CME1cinemática}. Se evidencia que lo reportado en el artículo, Figura \ref{fig:ejemploperfilaceleración}, coincide con lo acá replicado, encontrando tiempos similares en los que alcanza la aceleración máxima.
+
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=\linewidth]{cinematica_original.pdf}
+    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME - 1]{Perfiles de posición, velocidad y aceleración para la simulación de la CME - 1. Las diferentes etapas en la evolución de la CME se identifican con regiones de colores, la región de iniciación se indica en amarillo, la de aceleración en rojo y la de propagación en azul.}
+    \label{CME1cinemática}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=\textheight, angle=90]{cme_evolucion_polar.pdf}
+    \caption[Evolución en 2D de la primera CME]{Evolución en 2D de la primera CME. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial.}
+    \label{CME1evolución}
+\end{figure}
+
+
+\section{CME 2}
+
+\section{Interacción: $V_{\text{CME 1}} < V_{\text{CME 2}}$}
+
+\section{Interacción: $V_{\text{CME 1}} \ll V_{\text{CME 2}}$}

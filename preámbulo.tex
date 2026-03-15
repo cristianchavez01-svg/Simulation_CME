@@ -4,14 +4,57 @@
 \usepackage[spanish, es-tabla]{babel}
 \addto\captionsspanish{
   \renewcommand{\listtablename}{Índice de Tablas}
+  \renewcommand{\listfigurename}{Índice de Figuras}
 }
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color[HTML]{0000FF},
+    commentstyle=\color[HTML]{008000},
+    stringstyle=\color[HTML]{BA2121},
+    numberstyle=\tiny\color[HTML]{888888},
+    emph={True,False,None,self},
+    emphstyle=\color[HTML]{008080},
+    numbers=left,
+    frame=single,
+    rulecolor=\color[HTML]{CCCCCC},
+    backgroundcolor=\color[HTML]{F9F9F9},
+    lineskip=-1pt,
+    aboveskip=5pt,
+    belowskip=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1
+        {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1
+        {Ó}{{\'O}}1 {Ú}{{\'U}}1 {Ñ}{{\~N}}1
+}
 \usepackage{booktabs}
 \usepackage{ragged2e}
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{physics}
+\usepackage[version=4]{mhchem}
+
+% Elimina numeración de secciones
+\setcounter{secnumdepth}{0} %acá se utiliza para quitar la numeración desde: -1=chapter, 0=section, 1=subsection, etc.
+
+% Pero mantiene todos los niveles en el índice
+\setcounter{tocdepth}{3}
+%sirven para enumerar en un unico continuo las imágenes, tablas y ecuaciones: (1,2,3,4,5,..., sucesivamente)
+%\usepackage{chngcntr}
+%\counterwithout{figure}{chapter}
+%\counterwithout{table}{chapter}
+%\counterwithout{equation}{chapter}
+
 \usepackage{nameref}
 \usepackage{gensymb}
 \usepackage{eso-pic}
