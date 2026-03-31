@@ -1,19 +1,19 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'main.blg'
-[63] biber:340> INFO - === dom mar 15, 2026, 00:15:44
+[60] biber:340> INFO - === lun mar 30, 2026, 19:12:20
 [77] Biber.pm:419> INFO - Reading 'main.bcf'
-[172] Biber.pm:979> INFO - Found 115 citekeys in bib section 0
-[188] Biber.pm:4419> INFO - Processing section 0
-[196] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[201] bibtex.pm:1713> INFO - LaTeX decoding ...
-[318] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[1152] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1152] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1152] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1345] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1345] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1345] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
-[1456] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1556] bbl.pm:763> INFO - Output to main.bbl
-[1556] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
-[1556] Biber.pm:133> INFO - WARNINGS: 1
+[167] Biber.pm:979> INFO - Found 114 citekeys in bib section 0
+[184] Biber.pm:4419> INFO - Processing section 0
+[192] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[198] bibtex.pm:1713> INFO - LaTeX decoding ...
+[312] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[1096] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1096] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1096] Biber.pm:4239> INFO - Sorting list 'nyt/apasortcite//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1285] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1285] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1285] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'es-ES'
+[1394] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1490] bbl.pm:763> INFO - Output to main.bbl
+[1490] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
+[1490] Biber.pm:133> INFO - WARNINGS: 1

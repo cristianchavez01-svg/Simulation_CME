@@ -5,33 +5,33 @@
 \contentsline {chapter}{Índice de Figuras}{8}{section*.5}%
 \contentsline {chapter}{\chapternumberline {1}Introducción}{12}{chapter.1}%
 \contentsline {section}{Capas del Sol}{14}{section*.12}%
-\contentsline {section}{Rotación diferencial del Sol}{20}{figure.caption.19}%
-\contentsline {section}{Dinamo Solar}{21}{figure.caption.19}%
-\contentsline {section}{Ciclo Solar}{23}{figure.caption.21}%
-\contentsline {subsection}{Manchas Solares}{23}{section*.22}%
-\contentsline {subsection}{Eyecciones de masa coronal}{25}{figure.caption.24}%
-\contentsline {subsection}{Llamaradas solares}{26}{figure.caption.25}%
-\contentsline {section}{Viento solar}{27}{figure.caption.25}%
-\contentsline {subsection}{Velocidad de Alfvén}{31}{figure.caption.31}%
-\contentsline {chapter}{\chapternumberline {2}Eyecciones de masa coronal (CMEs)}{32}{chapter.2}%
-\contentsline {section}{Origen}{33}{section*.33}%
-\contentsline {section}{Propiedades}{36}{table.caption.34}%
-\contentsline {section}{Clasificación}{42}{equation.2.0.1}%
-\contentsline {section}{Comportamiento en el medio interplanetario}{43}{equation.2.0.1}%
-\contentsline {section}{Detección y observación de CMEs}{44}{equation.2.0.1}%
-\contentsline {section}{Influencia en el clima espacial}{47}{figure.caption.50}%
-\contentsline {chapter}{\chapternumberline {3}Interacción CME - CME: teoría}{49}{chapter.3}%
-\contentsline {section}{Variación de las propiedades en la interacción}{50}{section*.51}%
-\contentsline {section}{Estructuras resultantes de la interacción}{55}{section*.51}%
-\contentsline {section}{Interacción CME-CME y los eventos de SEPs}{57}{section*.51}%
-\contentsline {chapter}{\chapternumberline {4}Interacción CME - CME: Fenómeno}{64}{chapter.4}%
-\contentsline {section}{Aspectos generales}{65}{section*.58}%
-\contentsline {section}{CME 1}{66}{section*.58}%
-\contentsline {section}{CME 2}{68}{figure.caption.60}%
-\contentsline {section}{Interacción: $V_{\text {CME 1}} < V_{\text {CME 2}}$}{68}{figure.caption.60}%
-\contentsline {section}{Interacción: $V_{\text {CME 1}} \ll V_{\text {CME 2}}$}{68}{figure.caption.60}%
-\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{69}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Discusión}{70}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{71}{chapter.7}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{72}{section*.62}%
-\contentsline {chapter}{Índice Alfabético}{84}{section*.63}%
+\contentsline {section}{Rotación diferencial del Sol}{21}{figure.caption.19}%
+\contentsline {section}{Dinamo Solar}{22}{figure.caption.19}%
+\contentsline {section}{Ciclo Solar}{24}{figure.caption.21}%
+\contentsline {subsection}{Manchas Solares}{24}{section*.22}%
+\contentsline {subsection}{Eyecciones de masa coronal}{26}{figure.caption.24}%
+\contentsline {subsection}{Llamaradas solares}{27}{figure.caption.25}%
+\contentsline {section}{Viento solar}{28}{figure.caption.25}%
+\contentsline {subsection}{Velocidad de Alfvén}{32}{figure.caption.31}%
+\contentsline {chapter}{\chapternumberline {2}Eyecciones de masa coronal (CMEs)}{33}{chapter.2}%
+\contentsline {section}{Origen}{34}{section*.33}%
+\contentsline {section}{Propiedades}{37}{table.caption.34}%
+\contentsline {section}{Clasificación}{43}{equation.2.0.1}%
+\contentsline {section}{Comportamiento en el medio interplanetario}{44}{equation.2.0.1}%
+\contentsline {section}{Detección y observación de CMEs}{45}{equation.2.0.1}%
+\contentsline {section}{Influencia en el clima espacial}{48}{figure.caption.50}%
+\contentsline {chapter}{\chapternumberline {3}Interacción CME - CME: Teoría}{50}{chapter.3}%
+\contentsline {section}{Variación de las propiedades en la interacción}{51}{section*.51}%
+\contentsline {section}{Estructuras resultantes de la interacción}{56}{section*.51}%
+\contentsline {section}{Interacción CME-CME y los eventos de SEPs}{58}{section*.51}%
+\contentsline {chapter}{\chapternumberline {4}Interacción CME - CME: Fenómeno}{65}{chapter.4}%
+\contentsline {section}{Aspectos generales}{67}{figure.caption.58}%
+\contentsline {section}{Modelo CME--1}{68}{figure.caption.58}%
+\contentsline {section}{Modelo CME--2}{75}{figure.caption.61}%
+\contentsline {section}{Interacción: $V_{\text {CME 1}} < V_{\text {CME 2}}$}{78}{figure.caption.63}%
+\contentsline {section}{Interacción: $V_{\text {CME 1}} \ll V_{\text {CME 2}}$}{79}{figure.caption.64}%
+\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{80}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Discusión}{81}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{82}{chapter.7}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{83}{section*.67}%
+\contentsline {chapter}{Índice Alfabético}{95}{section*.68}%

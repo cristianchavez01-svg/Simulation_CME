@@ -308,58 +308,6 @@
       \verb https://doi.org/10.1103/revmodphys.60.297
       \endverb
     \endentry
-    \entry{bahcall-2005}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=2612ba569f72a50983b6c45d387a2475}{%
-           family={Bahcall},
-           familyi={B\bibinitperiod},
-           given={John\bibnamedelima N.},
-           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e3e70c01b2d9eb54322a01de47753cf9}{%
-           family={Serenelli},
-           familyi={S\bibinitperiod},
-           given={Aldo\bibnamedelima M.},
-           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4eb928df34c596bdc094bece2bd42268}{%
-           family={Basu},
-           familyi={B\bibinitperiod},
-           given={Sarbani},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{24cd1403d168884b773e24bee1e25902}
-      \strng{fullhash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{bibnamehash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{authorbibnamehash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{authornamehash}{24cd1403d168884b773e24bee1e25902}
-      \strng{authorfullhash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Astrophysical Journal}
-      \field{month}{1}
-      \field{number}{1}
-      \field{title}{{New solar opacities, abundances, helioseismology, and neutrino fluxes}}
-      \field{volume}{621}
-      \field{year}{2005}
-      \field{pages}{L85\bibrangedash L88}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1086/428929
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1086/428929
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1086/428929
-      \endverb
-    \endentry
     \entry{bein-2011}{article}{}
       \name{author}{8}{}{%
         {{un=0,uniquepart=base,hash=a36e7c414f0c36b9d5ac60cc7f5265a7}{%
@@ -6283,58 +6231,6 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1146/annurev.astro.46.060407.145222
-      \endverb
-    \endentry
-    \entry{bahcall-2005}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=2612ba569f72a50983b6c45d387a2475}{%
-           family={Bahcall},
-           familyi={B\bibinitperiod},
-           given={John\bibnamedelima N.},
-           giveni={J\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e3e70c01b2d9eb54322a01de47753cf9}{%
-           family={Serenelli},
-           familyi={S\bibinitperiod},
-           given={Aldo\bibnamedelima M.},
-           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4eb928df34c596bdc094bece2bd42268}{%
-           family={Basu},
-           familyi={B\bibinitperiod},
-           given={Sarbani},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{24cd1403d168884b773e24bee1e25902}
-      \strng{fullhash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{bibnamehash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{authorbibnamehash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \strng{authornamehash}{24cd1403d168884b773e24bee1e25902}
-      \strng{authorfullhash}{d5686aa0fa6bacdf930d3ad24e417105}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{The Astrophysical Journal}
-      \field{month}{1}
-      \field{number}{1}
-      \field{title}{{New solar opacities, abundances, helioseismology, and neutrino fluxes}}
-      \field{volume}{621}
-      \field{year}{2005}
-      \field{pages}{L85\bibrangedash L88}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1086/428929
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1086/428929
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1086/428929
       \endverb
     \endentry
     \entry{bahcall-1988}{article}{}
