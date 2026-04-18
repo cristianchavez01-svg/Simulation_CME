@@ -20,7 +20,6 @@
 La interacción entre \acp{CME}\index{Coronal Mass Ejection} ha sido observada desde los años 2000 con ayuda del \ac{LASCO}, además de tener mediciones in situ desde 1970s. Por ejemplo, \textcite[][]{gopalswamy-2001} muestra el primer estudio de la interacción de las CMEs con el experimento WAVES a bordo de la nave espacial Wind, usando señales de radio de longitudes de onda entre 21 y 280 metros. Menciona la detección de una ráfaga de tipo II estrecha en la banda de frecuencia baja, seguida de una repentina y ancha banda de radio amplificada que duró unos 36 minutos; esta ráfaga se relaciona con el choque de la CME rápida, el cual atravesó el núcleo de la CME lenta.
 
 
-
 La interacción entre dos o más \acp{CME}\index{Coronal Mass Ejection} está asociada a:
 
 \begin{itemize}
@@ -182,22 +181,39 @@ Ahora, generan las características del viento solar especificando su velocidad,
 
 Por consiguiente, la simulación se puede generar en 1D o en 2D. Para 1D se inyectaron 2 \acp{CME}\index{Coronal Mass Ejection} con intervalo de 15 horas, generando datos a intervalos de 20, 40 y 70 horas después del primer lanzamiento (los resultados de la simulación se muestran en la figura \ref{fig:1D}), la primera \ac{CME}\index{Coronal Mass Ejection} con una velocidad de 450 $km/s$ y la segunda a 800 $km/s$, en un viento solar con una velocidad de 400 $km/s$, además se tiene en cuenta las características del viento solar a una distancia de 0.083 AU, en donde se colocan condiciones de frontera (tanto para 1D como para 2D) así como a 1AU, mostradas en la tabla \ref{fig:condiciones de contorno}.
 
-
-%convertir las imagenes de tablas a tablas
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\linewidth]{imag/condiciones de contorno.png}
-    \caption{Características del ambiente del viento solar a 0.083AU y a 1AU}
-    \label{fig:condiciones de contorno}
-\end{figure}
+\begin{table}[h]
+\centering
+\caption{Características del ambiente del viento solar a 0.083AU y a 1AU}
+\label{fig:condiciones de contorno}
+\begin{tabular}{lccc}
+\toprule
+ & R$_0$ & \multicolumn{2}{c}{1.0 AU} \\
+\cmidrule(lr){3-4}
+ &  & 1-D & 2-D \\
+\midrule
+N [cm$^{-3}$] & 990 & 6.4 & 6.1 \\
+T [$10^5$K]   & 4.5 & 0.49 & 0.48 \\
+V [km/s]      & 400 & 426 & 447 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Por otro lado, las condiciones de las \acp{CME}\index{Coronal Mass Ejection} generadas en la simulación de 1D, se muestran en la tabla \ref{fig:caracteristicas de las CMEs}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{imag/condicones CMEs.png}
-    \caption{Características de las CMEs, con $V_e$ las velocidades de las CMEs, incremento de la densidad $\Delta N_e=N_e/N_0$ y de la temperatura $\Delta T_e=T_e/T_0$, $\tau_e$ como la duración de la generación de la CME, $M_e$ es la masa total y $U_e$ es la energía cinética total.}
-    \label{fig:caracteristicas de las CMEs}
-\end{figure}
+
+\begin{table}[h]
+\centering
+\caption[Características de las CMEs en 1D reportadas en \textcite{gonzalez-esparza-2004}.]{Características de las CMEs, con $V_e$ las velocidades de las CMEs, incremento de la densidad $\Delta N_e=N_e/N_0$ y de la temperatura $\Delta T_e=T_e/T_0$, $\tau_e$ como la duración de la generación de la CME, $M_e$ es la masa total y $U_e$ es la energía cinética total.}
+\label{fig:caracteristicas de las CMEs}
+\begin{tabular}{lcccccc}
+\toprule
+ & $V_e$ [km/s] & $\Delta T_e$ & $\Delta N_e$ & $t_e$ [h] & $M_e$ [$10^{16}$g] & $K_e$ [$10^{31}$ergs] \\
+\midrule
+eyección 1 & 450 & 1.2 & 1.2 & 5.0 & 3.1 & 3.14 \\
+eyección 2 & 800 & 1.2 & 1.2 & 6.0 & 6.6 & 21.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \begin{figure}[H]
     \centering
@@ -207,12 +223,22 @@ Por otro lado, las condiciones de las \acp{CME}\index{Coronal Mass Ejection} gen
 \end{figure}
 
 Ya para 2D se tiene que las condiciones de las \acp{CME}\index{Coronal Mass Ejection} generadas son las mostradas en la tabla \ref{fig:condiciones 2D}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{imag/2D condiciones.png}
-    \caption{Condiciones de las CME utilizadas en la simulación en 2D}
-    \label{fig:condiciones 2D}
-\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Condiciones de las CME utilizadas en la simulación en 2D por \textcite{gonzalez-esparza-2004}.}
+\label{fig:condiciones 2D}
+\begin{tabular}{lcccccc}
+\toprule
+ & $U_e$ [km/s] & $\Delta T_e$ & $\Delta N_e$ & $t_e$ [h] & $M_e$ [$10^{16}$g] & $K_e$ [$10^{31}$ergs] \\
+\midrule
+ejecta 1 & 600  & 1.2 & 1.2 & 4.0 & 0.51 & 0.92 \\
+ejecta 2 & 1600 & 1.2 & 1.2 & 4.0 & 2.86 & 36.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 Para esta simulación se tiene en cuenta la dirección de propagación de las CMEs, así como su tamaño angular. También, el intervalo de tiempo entre los lanzamientos de las 2 \acp{CME}\index{Coronal Mass Ejection} es de 15 horas. Los resultados de esta simulación se muestran en las figuras \ref{fig:simulación 2D1} y \ref{fig:simulación 2D2}.
 
 \begin{figure}[H]
@@ -229,9 +255,5 @@ Para esta simulación se tiene en cuenta la dirección de propagación de las CM
     \label{fig:simulación 2D2}
 \end{figure}
 Se evidencia que la complejidad de la simulación aumenta cuando se utilizan 2 dimensiones. Cabe señalar que se utiliza un modelo hidrodinámico, ya que la interacción ocurre en regiones en donde no hay re-conexión magnética. Además, el paper llega a la conclusión de que hay una transferencia de momentum entre las CMEs, en donde la CME2 con una velocidad mayor transfiere momentum a la CME1 a través de la onda de choque de la CME2 que comprime y acelera la CME1. Cuando llegan a 1AU, las dos \acp{CME}\index{Coronal Mass Ejection} llevan velocidades similares, pero la CME1 un poco más rápida que la CME2, además las ondas de choque se superponen y forman una única onda de choque más intensa.
-
-
-Por otro lado, \cite{} realiza una simulación en 2.5D, es decir que considera dos dimensiones espaciales y la tercera dimensión la considera parcialmente, lo que reduce el gasto computacional de la simulación, la cual se basa en un modelo magnetohidrodinámico. La simulación busca ver el comportamiento de las nubes magnéticas, su interacción con otras nubes magnéticas y la formación de nubes múltiples en la heliosfera.
-Para correr la simulación primero se modela una nube magnética como una linea de flujo en 2.5D. Cabe señalar que la simulación se realiza en coordenadas esféricas. Una vez modeladas las dos lineas de flujo, se les permite propagarse la primera con una velocidad menor a la segunda y separadas un intervalo de 12 horas entre la primera y la segunda.
-El artículo reporta que la segunda \ac{CME}\index{Coronal Mass Ejection} tarde 18 horas en alcanzar a la primera CME, por lo que en ese momento interactúan y generan una nube magnética múltiple que llega hasta 1AU. Además, menciona que la segunda nube magnética se ve desacelerada debido a la interacción con la primera nube magnética, por lo que el tiempo de viaje de la nube magnética múltiple depende de la velocidad de la primera \ac{CME}\index{Coronal Mass Ejection} (lenta). 
+Además, menciona que la segunda nube magnética se ve desacelerada debido a la interacción con la primera nube magnética, por lo que el tiempo de viaje de la nube magnética múltiple depende de la velocidad de la primera \ac{CME}\index{Coronal Mass Ejection}. 
 

@@ -16,18 +16,18 @@
 
 En la evolución de CMEs homólogas puede presentarse una interacción entre ellas que modifica sus características, intensificando sus propiedades de tal forma que den lugar a una única CME con una geoefectividad mucho mayor que la de las CMEs individuales previas a la interacción. En consecuencia, es de gran importancia entender cómo las propiedades de las CMEs modulan su interacción: propiedades como la velocidad, la aceleración, el intervalo de tiempo entre erupciones y la morfología de las mismas. Estas características se postulan como moduladoras importantes de sus interacciones, por lo que su cuantificación precisa y el establecimiento de umbrales físicos asociados permanecen como objetivos pendientes en física solar.
 
-Un escenario de interacción típico involucra dos CMEs homólogas, en el que la primera CME emitida (CME--1) alcanza su velocidad máxima rápidamente tras una aceleración inicial; mientras que la segunda CME (CME--2), con una aceleración de magnitud similar, requiere un intervalo temporal mayor para alcanzar su velocidad máxima, la cual supera a la de CME--1, propiciando así la interacción. Adicionalmente, para que la interacción ocurra, el intervalo de tiempo entre la erupción de CME--1 y CME--2 debe ser suficientemente corto como para impedir la dispersión de CME--1 en el medio interplanetario antes de que CME--2 la alcance. 
+Un escenario de interacción típico involucra dos CMEs homólogas, en el que la primera CME emitida (CME--1) alcanza su velocidad máxima rápidamente tras una aceleración inicial; mientras que la segunda CME (CME--2), con una aceleración de magnitud similar, requiere un intervalo temporal mayor para alcanzar su velocidad máxima, la cual supera a la de CME--1, propiciando así la interacción. Adicionalmente, para que la interacción ocurra, el intervalo de tiempo entre la erupción de CME--1 y CME--2 debe ser suficientemente corto como para impedir la dispersión de la CME previa en el medio interplanetario antes de que la CME subsecuente la alcance. 
 
-Del mismo modo, puede generarse una interacción por diferencia de velocidades mediada por la interacción de las CMEs con el viento solar: la CME--1 experimenta una fuerza de arrastre que reduce su velocidad al desplazar material del viento solar, mientras que la CME--2 se propaga en un medio parcialmente evacuado que le imprime una fuerza de arrastre relativamente menor, facilitando su propagación y permitiéndole alcanzar velocidades suficientes para interactuar con la CME--1.
+Del mismo modo, puede generarse una interacción por diferencia de velocidades mediada por la interacción de las CMEs con el viento solar: la CME--1 experimenta una fuerza de arrastre que reduce su velocidad al desplazar material del viento solar, mientras que la CME--2 se propaga en un medio parcialmente evacuado que le imprime una fuerza de arrastre relativamente menor, facilitando su propagación y permitiéndole alcanzar velocidades suficientes para interactuar con la CME precursora.
 
-También puede ocurrir que, a pesar de ser CMEs homólogas, no se produzca interacción. Esto puede deberse a que el intervalo de tiempo entre erupciones es suficientemente grande como para que la CME--2 no logre alcanzar a la CME--1, o simplemente a que la CME--1 presenta una velocidad significativamente mayor a causa de una aceleración inicial más intensa o de un tiempo de acción de dicha aceleración más prolongado. Cabe señalar que la producción de dos CMEs en un intervalo de tiempo relativamente corto no implica necesariamente su interacción, puesto que pueden originarse en diferentes regiones activas —es decir, tratarse de CMEs simultáneas— y propagarse en direcciones distintas.
+También puede ocurrir que, a pesar de ser CMEs homólogas, no se produzca interacción. Esto puede deberse a que el intervalo de tiempo entre erupciones es suficientemente grande como para que la CME--2 no logre alcanzar a la CME--1, o simplemente a que la CME primaria presenta una velocidad significativamente mayor a causa de una aceleración inicial más intensa o de un tiempo de acción de dicha aceleración más prolongado. Cabe señalar que la producción de dos CMEs en un intervalo de tiempo relativamente corto no implica necesariamente su interacción, puesto que pueden originarse en diferentes regiones activas —es decir, tratarse de CMEs simultáneas— y propagarse en direcciones distintas.
 
 Otro evento de interacción puede ocurrir gracias a CMEs super-Alfvénicas, es decir, con velocidades mayores a la velocidad magnetosónica, generando ondas de choque en sus frentes, lo que en su interacción se manifiesta como una superposición de choques. La superposición intensifica tanto su geoefectividad como la producción de SEPs, representando un evento con un impacto mucho más importante en comparación con la interacción de CMEs sin choque. Por consiguiente, la CME resultante de una interacción con o sin presencia de choques, presentará características con mayor influencia en el clima espacial en comparación con las presentadas por las CMEs individualmente. Todo esto se resume en el diagrama mostrado en la Figura \ref{Diagramadeflujo}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[angle=0, width=1\linewidth]{imag/_Diagrama de flujo.png}
-\caption{Diagrama de flujo de la interacción de CMEs, sus condiciones y consecuencias. El diagrama parte de clasificar las CMEs en simultáneas, homólogas y gemelas para luego seleccionar aquellas con la condición necesaria para que interactuen ($V_1<V_2$), donde $V_1$ es la velocidad de la CME1 y $V_2$ de la CME2. Luego se indica la interacción si hay presencia de ondas de choque asociadas a las CMEs para luego indicar la producción de SEPs como resultado de la interacción.}
+\caption[Diagrama de flujo de la interacción de CMEs.]{Diagrama de flujo de la interacción de CMEs, sus condiciones y consecuencias. El diagrama parte de clasificar las CMEs en simultáneas, homólogas y gemelas para luego seleccionar aquellas con la condición necesaria para que interactuen ($V_1<V_2$), donde $V_1$ es la velocidad de la CME--1 y $V_2$ de la CME--2. Luego se indica la interacción si hay presencia de ondas de choque asociadas a las CMEs para luego indicar la producción de SEPs como resultado de la interacción.}
 \label{Diagramadeflujo}
 \end{figure}
 
@@ -38,7 +38,19 @@ La limitación del estudio de estas interacciones viene dada por la escasez de d
 \section{Aspectos generales}
 La simulación busca estudiar el comportamiento de la densidad de las CMEs durante su interacción, así como su velocidad, por lo que es necesario implementar un mapa de densidad y velocidad que facilite la comprensión y estudio cualitativo de la evolución de la interacción. Además, la morfología de la CME debe estár acorde a la literatura, presentando en superposición una propagación y una expansión de tal manera que en su propagación presente una deformación. 
 
-Para el desarrollo de la simulación de la interacción de CMEs es necesario atravesar por diferentes etapas. La primera estapa consiste en la simulación de la cinemática de una CME, para nuestro caso la nombramos CME--1, verificando que los perfiles de velocidad y aceleración concuerdan con los reportados en la literatura. Los retos en esta etapa vienen dados por la representación gráfica de su evolución, usando coordenadas polares, así como la distribución de su densidad y de su velocidad. Las características de la CME--1 se definen en esta etapa, buscando principalmente una velocidad de propagación relativamente menor que permita una interacción con una segunda CME con velocidad mayor.
+Para lograr reproducir el perfil de velocidad de una CME a lo largo de su evolución, es necesario considerar tanto su propagación como su expansión. Partimos de expresar la cinemática de cada punto dentro de la CME como la suma de su velocidad de propagación y de expansión, dada por
+\begin{equation*}
+\vec{v}_{\text{CME}}(r,\theta)=\vec{v}_{\text{Prop}}(r,\theta)+\vec{v}_{\text{Exp}}(r,\theta),
+\end{equation*}
+
+en donde $\vec{v}_{\text{CME}}(r,\theta)$ es la velocidad resultante de la superposición, $\vec{v}_{\text{Prop}}(r,\theta)$ es la velocidad de propagación y $\vec{v}_{\text{Exp}}(r,\theta)$ es la velocidad de expansión. Es preciso indicar la dependencia de las velocidades con las coordenadas polares ($r$, $\theta$), puesto que se busca generar velocidades y aceleraciones anisotrópicas que se acerquen más a un caso real de CME. 
+
+También, la suma de las aceleraciones de propagación y de expansion dan la aceleración total que experimenta cada punto de la CME, dado por
+\begin{equation*}
+\vec{a}_{\text{CME}}(r,\theta)=\vec{a}_{\text{Prop}}(r,\theta)+\vec{a}_{\text{Exp}}(r,\theta).
+\end{equation*}
+
+Para el desarrollo de la simulación de la interacción de CMEs es necesario atravesar por diferentes etapas. La primera estapa consiste en la simulación de la cinemática de una CME, para nuestro caso la nombramos CME--1, verificando que los perfiles de velocidad y aceleración concuerdan con los reportados en la literatura. Los retos en esta etapa vienen dados por la representación gráfica de su evolución, usando coordenadas polares, así como la distribución de su densidad y de su velocidad. Las características de la CME inicial se definen en esta etapa, buscando principalmente una velocidad de propagación relativamente menor que permita una interacción con una segunda CME con velocidad mayor.
 
 En una segunda etapa se busca simular la segunda CME, que denominamos CME--2, la cual será una variación del código desarrollado para la CME--1, pero con una velocidad de propagación mayor. Además, se intenta generar irregularidad en la producción de las CMEs usando funciones aleatorias, de tal manera que su morfología se vea distorcionada cada que se ejecute el código, permitiendo la diversidad en distribuciones de densidad.
 
@@ -85,18 +97,20 @@ velocidades   = np.array([velocidad(t) for t in tiempos])
 aceleraciones = np.array([f(t) for t in tiempos])
 \end{lstlisting}
 
-Se hace uso de las librerías \lstinline|numpy|, \lstinline|matplotlib.pyplot| y \lstinline|scipy.integrate|. Primero se definen los parámetros que caracterizan la cinemática de la CME--1, como lo son $a_r$, $a_d$, $\tau_r$ y $\tau_d$; están nombrados como \lstinline|ar1|, \lstinline|ad1|, \lstinline|tr1| y \lstinline|td1|, respectivamente. También se definen otros parámetros como velocidad inicial \lstinline|v01|, posición inicial \lstinline|x01|, densidad de fondo y el radio inicial de la CME en radios solares. En seguida se introduce la Ecuación \eqref{ecuaceleración}, siendo la aceleración anteriormente mencionada, para luego definir la velocidad como la integral de esta función respecto al tiempo. Una vez teniendo la velocidad, es posible encontrar la posición, nombrada como \lstinline|desplazamiento_centro(t)| y definida como la integral de la velocidad respecto al tiempo. Además, es necesario convertir la unidad de tiempo, pasandola de segundos a horas, para poder establecer posiciones, velocidades y aceleraciones.
+Se hace uso de las librerías \lstinline|numpy|, \lstinline|matplotlib.pyplot| y \lstinline|scipy.integrate|. Primero se definen los parámetros que caracterizan la cinemática de la CME precursora, como lo son $a_r$, $a_d$, $\tau_r$ y $\tau_d$; están nombrados como \lstinline|ar1|, \lstinline|ad1|, \lstinline|tr1| y \lstinline|td1|, respectivamente. También se definen otros parámetros como velocidad inicial \lstinline|v01|, posición inicial \lstinline|x01|, densidad de fondo y el radio inicial de la CME en radios solares. En seguida se introduce la Ecuación \eqref{ecuaceleración}, siendo la aceleración anteriormente mencionada, para luego definir la velocidad como la integral de esta función respecto al tiempo. Una vez teniendo la velocidad, es posible encontrar la posición, nombrada como \lstinline|desplazamiento_centro(t)| y definida como la integral de la velocidad respecto al tiempo. Además, es necesario convertir la unidad de tiempo, pasandola de segundos a horas, para poder establecer posiciones, velocidades y aceleraciones.
 
 
-Los valores de los parámetros utilizados se tomaron de \textcite[][]{gallagher-2003}, por lo que es posible realizar un contraste con el mismo, por lo que se generan los perfiles de posición, velocidad y aceleración en un tiempo de 10 horas, mostrados en la Figura \ref{CME1cinemática}; cabe aclarar que los perfiles se obtienen del comportamiento del centro de cada CME, es decir, describen la cinemática del centro de la CME. Se evidencia que lo reportado en el artículo, Figura \ref{fig:ejemploperfilaceleración}, coincide con lo acá replicado, encontrando tiempos similares en los que alcanza la aceleración máxima.
+Los valores de los parámetros utilizados se tomaron de \textcite[][]{gallagher-2003}, por lo que es posible realizar un contraste con el mismo, por lo que se generan los perfiles de posición, velocidad y aceleración en un tiempo de 10 horas, mostrados en la Figura \ref{CME1cinemática}; cabe aclarar que los perfiles se obtienen del comportamiento del centro de cada CME, es decir, describen la cinemática del centro de la CME. Se evidencia que lo reportado en el artículo de \textcite[][]{gallagher-2003}, Figura \ref{fig:ejemploperfilaceleración}, coincide con lo acá replicado, encontrando tiempos similares en los que alcanza la aceleración máxima.
 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{cinematica_original.pdf}
-    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME--1]{Perfiles de posición, velocidad y aceleración para la simulación de la CME--1. Las diferentes etapas en la evolución de la CME se identifican con regiones delimitadas; la región de iniciación se indica en blanco hasta la línea discontinua, la etapa de aceleración se muestra en gris desde la línea discontinua hasta la punteada, la región de propagación en balnco va desde la línea punteada hasta el final de la gráfica. La línea discontinua indica el momento en el que la aceleración es máxima, mientras que la línea punteada señala el momento en el que la velocidad alcanza el $95\%$ de su velocidad máxima. Cabe señalar que el punto que se toma para determinar la cinemática de la CME es en su centro.}
+    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial]{Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial. Las diferentes etapas en la evolución de la CME se identifican con regiones delimitadas; la región de iniciación se indica en blanco hasta la línea discontinua, la etapa de aceleración se muestra en gris desde la línea discontinua hasta la punteada, la región de propagación en balnco va desde la línea punteada hasta el final de la gráfica. La línea discontinua indica el momento en el que la aceleración es máxima, mientras que la línea punteada señala el momento en el que la velocidad alcanza el $95\%$ de su velocidad máxima. Cabe señalar que el punto que se toma para determinar la cinemática de la CME es en su centro.}
     \label{CME1cinemática}
 \end{figure}
+
+En la Figura \ref{CME1cinemática} se señala el intervalo de la etapa de iniciación, la cual se caracteriza por tener bajas velocidades y aceleraciones. En seguida se muestra la etapa de aceleración, en donde la CME alcanza velocidades de $\sim 2500$ km s$^{-1}$ y aceleraciones pico de $\sim1400$ km s$^{-2}$. También, una vez que la aceleración disminuye en la etapa de propagación, la velocidad se estabiliza en un valor casi constante, por lo que la posición de la CME se comporta linealmente con el tiempo alcanzando distancias de $120$ $R_\odot$ después de una propagación de 10 horas.
 
 Una vez comprobado el comportamiento de la cinemática a utilizar, se desarrolla el módulo del código necesario para la visualización en coordenadas polares 2D de la densidad y velocidad de la CME. Para ello se tiene el siguiente código.
 
@@ -219,15 +233,18 @@ Luego se hace la conversión de coordenadas polares $(r,\,\theta)$ a cartesianas
     ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.7)
 \end{lstlisting}
 
-Se dibujan las flechas, se coloca el título con el tiempo del frame, se fija el límite radial, se mueven las etiquetas del eje $r$ a $45°$ para que no se superpongan con los datos, y se activa la grilla. Finalmente al ejecutar el código se obtiene lo mostrado en la Figura \ref{CME1evolución}, en donde se evidencia la deformación que sufre la CME en su origen y evolución, siendo la superposición de su propagación y expansión. Es posible compararlo con la Figura \ref{CME1Boseto}, la cual consiste en un esquema del comportamiento que se espera, encontrando que la distribución de densidad es similar y los vectores de velocidad total son similares.
+Se dibujan las flechas, se coloca el título con el tiempo del frame, se fija el límite radial, se mueven las etiquetas del eje $r$ a $45\degree$ para que no se superpongan con los datos, y se activa la grilla. Finalmente al ejecutar el código se obtiene lo mostrado en la Figura \ref{CME1evolución}, en donde se evidencia la deformación que sufre la CME en su origen y evolución, siendo la superposición de su propagación y expansión. Es posible compararlo con la Figura \ref{CME1Boseto}, que consiste en un esquema del comportamiento que se espera, encontrando que la distribución de densidad y los vectores de velocidad total son similares.
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textheight, angle=90]{cme_evolucion_polar.pdf}
+\begin{landscape}
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\linewidth]{cme_evolucion_polar.pdf}
     \caption[Evolución en 2D de la CME--1]{Evolución en 2D de la CME--1 durante 10 horas. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial en rojo. En la parte superior de cada panel se indica el tiempo trancurrido y la posición del centro de la CME.}
     \label{CME1evolución}
-\end{figure}
+    \end{figure}
+\end{landscape}
+
+En la Figura \ref{CME1evolución} se muestra el comportamiento de la densidad y velocidad de la CME--1 a lo largo de su propagación. La densidad inicial es relativamente grande en el frente y menor en su parte tracera, progresivamente va disminuyendo según la CME se expanda y se propague. El campo de velocidades es radial, centrado en el Sol, señalando la expansión y propagación de cada parte de la CME.
 
 \begin{figure}[H]
     \centering
@@ -238,7 +255,7 @@ Se dibujan las flechas, se coloca el título con el tiempo del frame, se fija el
 
 
 \section{Modelo CME--2}
-Para el desarrollo de la CME--2, se parte del mismo código para la CME--1, pero realizando diferentes variaciones en los parámetros que describen su aceleración. Por consiguiente, los parámetros a utilizar son:
+Para el desarrollo de la CME--2 o sucesora, se parte del mismo código para la CME precursora, pero realizando diferentes variaciones en los parámetros que describen su aceleración. Por consiguiente, los parámetros a utilizar son:
 
 \begin{lstlisting}
 # PARAMETROS FISICOS
@@ -249,32 +266,35 @@ DENSIDAD_FONDO = 100
 R_CME_INICIAL = 1.5  
 \end{lstlisting}
 
-Por lo tanto, al ejecutar el código obtenemos los perfiles de posición, velocidad y aceleración para la CME--2, mostrados en la Figura \ref{CME2cinemática}. Era de esperar que su comportamiento fuese similar al de la CME--1, puesto que los cambios en los parámetros fueron minimos.
+Por lo tanto, al ejecutar el código obtenemos los perfiles de posición, velocidad y aceleración para la CME secundaria, mostrados en la Figura \ref{CME2cinemática}. Era de esperar que su comportamiento fuese similar al de la CME inicial, puesto que los cambios en los parámetros fueron minimos.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{cinematica_original_CME2.pdf}
-    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME--2]{Perfiles de posición, velocidad y aceleración para la simulación de la CME--2. Las diferentes etapas en la evolución de la CME se identifican con regiones delimitadas; la región de iniciación se indica en blanco hasta la línea discontinua, la etapa de aceleración se muestra en gris desde la línea discontinua hasta la punteada, la región de propagación en balnco va desde la línea punteada hasta el final de la gráfica. La línea discontinua indica el momento en el que la aceleración es máxima, mientras que la línea punteada señala el momento en el que la velocidad alcanza el $95\%$ de su velocidad máxima. Cabe señalar que el punto que se toma para determinar la cinemática de la CME es en su centro.}
+    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria]{Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria. Las diferentes etapas en la evolución de la CME se identifican con regiones delimitadas; la región de iniciación se indica en blanco hasta la línea discontinua, la etapa de aceleración se muestra en gris desde la línea discontinua hasta la punteada, la región de propagación en balnco va desde la línea punteada hasta el final de la gráfica. La línea discontinua indica el momento en el que la aceleración es máxima, mientras que la línea punteada señala el momento en el que la velocidad alcanza el $95\%$ de su velocidad máxima. Cabe señalar que el punto que se toma para determinar la cinemática de la CME es en su centro.}
     \label{CME2cinemática}
 \end{figure}
 
-La parte de visualización en coordenadas polares tiene el mismo módulo de código que la CME--1. Teniendo pues el perfil mostrado en la Figura \ref{CME2evolución}.
+En comparación de la Figura \ref{CME2cinemática} con la Figura \ref{CME1cinemática}, se puede evidenciar la diferencia en los tamaños de las etapas, ésto debido a los cambios en los parámetros cinemáticos. Para esta CME se presenta una velocidad máxima de $\sim2700$ km s$^{-1}$ y una aceleración pico de $\sim1800$ km s$^{-2}$, así como una distancia de $\sim140$ $R_\odot$ después de 10 horas de propagación.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textheight, angle=90]{cme_evolucion_polar_CME2.pdf}
-    \caption[Evolución en 2D de la CME--2]{Evolución en 2D de la CME--2 durante 10 horas. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial en rojo. En la parte superior de cada panel se indica el tiempo trancurrido y la posición del centro de la CME.}
+La parte de visualización en coordenadas polares tiene el mismo módulo de código que la CME--1. Teniendo pues el perfil mostrado en la Figura \ref{CME2evolución}, donde presenta una distribución de densidad y velocidad similares a la reportada en la Figura \ref{CME1evolución}, sin embargo sus morfologías difieren entre sí.
+
+\begin{landscape}
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\linewidth]{cme_evolucion_polar_CME2.pdf}
+    		\caption[Evolución en 2D de la CME--2]{Evolución en 2D de la CME--2 durante 10 horas. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial en rojo. En la parte superior de cada panel se indica el tiempo trancurrido y la posición del centro de la CME.}
     \label{CME2evolución}
-\end{figure}
+	\end{figure}
+\end{landscape}
 
-La manipulación de los parámetros de la CME--2 es relevante para llegar a una interacción, por lo que se buscará que a velocidad e intervalo de tiempo de la CME--2 permitan una interacción en la evolución de las CMEs. Teniendo esto presente, podemos encontrar dos casos: por un lado que la CME--2 sea de una velocidad mayor pero similar a la de la CME--1, por otr lado que la CME--2 presente una velocidad mucho mayor a la de la CME--1, llegando a generar una onda de choque. Ésto se trata en los siguientes títulos.
+La manipulación de los parámetros de la CME secundaria es relevante para llegar a una interacción, por lo que se buscará que a velocidad e intervalo de tiempo de la CME--2 permitan una interacción en la evolución de las CMEs. Teniendo esto presente, podemos encontrar dos casos: por un lado que la CME secundaria sea de una velocidad mayor pero similar a la de la CME primaria y por otro lado que la CME--2 presente una velocidad mucho mayor a la de la CME--1, llegando a generar una onda de choque. Ésto se trata en el siguiente título.
 
 
-
-\section{Interacción: $V_{\text{CME 1}} < V_{\text{CME 2}}$}
+\section{Interacción: $V_{\text{CME--1}} < V_{\text{CME--2}}$}
 Una vez con las dos CMEs simuladas, se busca integrar en un único código su evolución con el fin de simular a una interacción. Para esta parte, las densidades deben afectarse mutuamente, de tal forma que se superpongan así como los campos de velocidad. Se buscará determinar las propiedades físicas de la CME resultante de la interacción. Para este escenario la CME--1 presenta una velocidad menor pero similar a la CME--2.
 
-Se espera que su interacción sea suave, puesto que presentan velocidades similares. Un esquema de lo que se espera suceda se muestra en la Figura \ref{Caso1}. En donde la CME--2 presenta una velocidad levemente mayor a la CME--1, permitiendo una interacción suave y por ende una fusión entre CMEs, produciendo una CME final.
+Se espera que su interacción sea suave, puesto que presentan velocidades similares. Un esquema de lo que se espera suceda se muestra en la Figura \ref{Caso1}. En donde la CME sucesora presenta una velocidad levemente mayor a la CME precursora, permitiendo una interacción suave y por ende una fusión entre CMEs, produciendo una CME final.
 
 \begin{figure}[H]
     \centering
@@ -287,32 +307,31 @@ Se desarrolla el código que permite la evolución de las dos CMEs en un mismo e
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{imag/cinematica_conjunta.pdf}
+    \includegraphics[width=\linewidth]{cinematica_conjunta.pdf}
     \caption[Perfiles cinemáticos de las dos CMEs sin considerar interacción]{Perfiles cinemáticos de las dos CMEs sin considerar interacción. En azul se muestra la cinemática de la CME--1 y en rojo la de la CME--2, además se señalan las regiones de iniciación (blanco), aceleración (gris) y propagación (blanco) de las CMEs, etiquedas con Ini, Acel y Prop. También, las etapas de iniciación y aceleración están separadas por una línea discontinua, mientras que las etapas de aceleración y propagación lo están con una línea punteada.}
     \label{cinematicaconjunta}
 \end{figure}
 
 
-Ahora, sus evoluciones en el plano polar se muestran en la Figura \ref{cinematicapolarconjunta}, donde se evidencia que la CME--2 alcanza a la CME--2 pero no la sobrepasa, indicando una interacción. Ésto podría ser contradictorio con la Figura \ref{cinematicaconjunta}, puesto que en esta última no se evidencia una interacción. Sin embargo, esto se explica porque los perfiles cinemáticos se toman del comportamiento del centro de las CMEs, por lo que éstos nunca interactúan, pero sus contornos si podrían hacerlo como se muestra en la Figura \ref{cinematicapolarconjunta}. 
+Ahora, sus evoluciones en el plano polar se muestran en la Figura \ref{cinematicapolarconjunta}, donde se evidencia que la CME posterior alcanza a la CME inicial pero no la sobrepasa, indicando una interacción. Ésto podría ser contradictorio con la Figura \ref{cinematicaconjunta}, puesto que en esta última no se evidencia una interacción. Sin embargo, esto se explica porque los perfiles cinemáticos se toman del comportamiento del centro de las CMEs, por lo que éstos nunca interactúan, pero sus contornos si podrían hacerlo como se muestra en la Figura \ref{cinematicapolarconjunta}. 
 
-Las CMEs interactuan de tal manera que sus densidades y velocidades se superponen, llegando a producir una CME resultante que presenta una densidad mayor a lo que se esperaría de una CME individual, ver Figuras \ref{CME1evolución} y \ref{CME2evolución}. También, la velocidad de la CME resultante presenta una magnitud mayor a lo que se esperaría, puesto que se suma la velocidad de la CME--1 con la velocidad de la CME--2. 
+Las CMEs interactuan de tal manera que sus densidades y velocidades se superponen, llegando a producir una CME resultante que presenta una densidad mayor a lo que se esperaría de una CME individual, ver Figuras \ref{CME1evolución} y \ref{CME2evolución}. También, la velocidad de la CME resultante presenta una magnitud mayor a lo que se esperaría, puesto que se suma la velocidad de la CME precedente con la velocidad de la CME incidente. 
 
-
-\begin{figure}[H]
+\begin{landscape}
+    \begin{figure}[p]
     \centering
-    \includegraphics[width=\textheight, angle=90{imag/cme_conjunta_polar.pdf}
-    \caption[Evolución conjunta de densidad y velocidad de las CMEs en el plano polar]{Evolución conjunta de densidad y velocidad de las CMEs en el plano polar durante 10 horas. La densidad de protones dentro de las CMEs se reporta en escala de colores, en donde el amarillo indica una mayor densidad en comparación con el morado. La velocidad de las CMEs se muestra a través de vectores en rojo, señalando la magnitud y dirección de la misma. En la parte superior de cada panel se indica el tiempo transcurrido desde la producción de la CME--1, junto con la posición del centro de cada CME. Las distancias radiales están en función de veces el radio solar y se muestran en cada panel.}
+    \includegraphics[width=0.95\linewidth]{cme_conjunta_polar.pdf}
+	\caption[Evolución conjunta de densidad y velocidad de las CMEs en el plano polar]{Evolución conjunta de densidad y velocidad de las CMEs en el plano polar durante 10 horas. La densidad de protones dentro de las CMEs se reporta en escala de colores, en donde el amarillo indica una mayor densidad en comparación con el morado. La velocidad de las CMEs se muestra a través de vectores en rojo, señalando la magnitud y dirección de la misma. En la parte superior de cada panel se indica el tiempo transcurrido desde la producción de la CME--1, junto con la posición del centro de cada CME. Las distancias radiales están en función del radio solar.}
     \label{cinematicapolarconjunta}
-\end{figure}
+    \end{figure}
+\end{landscape}
 
-
-
-\section{Interacción: $V_{\text{CME 1}} \ll V_{\text{CME 2}}$}
-El boseto de la interacción para este caso se muestra en la Figura \ref{Caso2}, en donde la diferencia de velocidades es considerable generando una interacción brusca y principalmente dominada por la velocidad de la CME--2. Además, se muestra que la CME--2 presenta un choque, indicando que su velocidad es super-Alfvénica. Cabe señalar que en la interacción, la CME--1 es atravesada por la CME--2, deformando completamente la estructura de la CME--1.
+\section{Interacción: $V_{\text{CME--1}} \ll V_{\text{CME--2}}$}
+El boseto de la interacción para este caso se muestra en la Figura \ref{Caso2}, en donde la diferencia de velocidades es considerable generando una interacción brusca y principalmente dominada por la velocidad de la CME posterior. Además, se muestra que la CME--2 presenta un choque, indicando que su velocidad es super-Alfvénica. Cabe señalar que en la interacción, la CME--1 es atravesada por la CME--2 deformando completamente la estructura de la misma.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{imag/caso2.png}
-    \caption[Caso de interacción con velocidades significativamente diferentes]{Bosquejo de interacción de CMEs con velocidades significativamente diferentes. La velocidad de la CME--1, $v_{CME--1}$ es mucho menor que la velocidad de la CME--2, $v_{CME--2}$. La CME--2 presenta un frente de onda de choque, puesto que su velocidad es super-Alfvénica.  Durante la interacción en el panel inferior derecho, la CME--2 atraviesa abruptamente a la CME--1, debido a la diferencia entre sus velocidades. Tengase en cuenta el tamaño de los vectores velocidad y la opacidad en los colores de las CMEs.}
+    \caption[Caso de interacción con velocidades significativamente diferentes]{Bosquejo de interacción de CMEs con velocidades significativamente diferentes. La velocidad de la CME primaria, $v_{CME--1}$ es mucho menor que la velocidad de la CME secundaria, $v_{CME--2}$. La CME--2 presenta un frente de onda de choque, puesto que su velocidad es super-Alfvénica, por lo que durante la interacción, en el panel inferior derecho, la CME--2 atraviesa abruptamente a la CME--1, debido a la diferencia entre sus velocidades. Tengase en cuenta el tamaño de los vectores velocidad y la opacidad en los colores de las CMEs.}
     \label{Caso2}
 \end{figure}
 
