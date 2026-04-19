@@ -174,24 +174,27 @@ class CME:
 # ──────────────────────────────────────────────────────────────────────────────
 # INSTANCIAS DE CADA CME
 # ──────────────────────────────────────────────────────────────────────────────
-RETRASO_CME2 = 4500.0   # CME-2 sale 1.39 horas después que CME-1
+RETRASO_CME2 = 3600.0   # CME-2 sale 1.17 horas después que CME-1
+
+semilla1=435
+semilla2=210
 
 cme1 = CME(
     nombre='CME-1',
-    tr=138, td=1249, ar=0.001, ad=4.950,
-    v0=40,  x0=25000,
-    R_CME_INICIAL=2.2, 
-    semilla=26,
+    ar=0.0012, tr=120, ad=1.745, td=620,
+    v0=35,  x0=19000,
+    R_CME_INICIAL=5.2, 
+    semilla=semilla1,
     color_cine='steelblue',
     t_inicio_s=0.0,
 )
 
 cme2 = CME(
     nombre='CME-2',
-    tr=100, td=1050, ar=0.002, ad=5.150,
-    v0=50,  x0=21000,
-    R_CME_INICIAL=1.1, 
-    semilla=15,
+    ar=0.002, tr=210, ad=4.700, td=675,
+    v0=75,  x0=21000,
+    R_CME_INICIAL=1.5, 
+    semilla=semilla2,
     color_cine='red',
     t_inicio_s=RETRASO_CME2,
 )
@@ -319,8 +322,8 @@ for ax in axes:
         ax.text(t_mid, y2, label, ha='center', fontsize=12,
                 color='#444444', zorder=4, rotation=90, va='center')
 
-plt.savefig("cinematica_conjunta.pdf", dpi=300, bbox_inches='tight')
-print("✓ Gráfica cinemática guardada: cinematica_conjunta.pdf")
+plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf", dpi=300, bbox_inches='tight')
+print(f"✓ Gráfica cinemática guardada: cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf")
 plt.show()
 
 
@@ -520,8 +523,8 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
                rotation=270, labelpad=25, fontsize=11)
 
-plt.savefig("cme_conjunta_polar.pdf", dpi=300, bbox_inches='tight')
-print("\n✓ Visualización polar guardada: cme_conjunta_polar.pdf")
+plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf", dpi=300, bbox_inches='tight')
+print(f"\n✓ Visualización polar guardada: cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf")
 plt.show()
 
 
@@ -537,6 +540,8 @@ for cme, vels, acels, poss in [
     (cme2, vel2, acel2, pos2),
 ]:
     print(f"\n  {cme.nombre}  (lanzamiento en t = {cme.t_inicio_s/3600:.1f} h):")
+    print(f"    Semilla:             {cme.semilla}")
+    print(f"    Radio inicial:         {cme.R_CME_INICIAL:.2f} {R_SOL_STR}")
     print(f"    Velocidad inicial:    {cme.v0:.2f} km/s")
     print(f"    Velocidad máxima:     {np.nanmax(vels):.2f} km/s")
     print(f"    Velocidad final:      {vels[~np.isnan(vels)][-1]:.2f} km/s")

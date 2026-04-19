@@ -10,20 +10,24 @@
 		\begin{tabular}{lcccccccc}
 		\toprule
 		& Semilla & R$_{\text{ini}}$ (R$_\odot$)$^{a}$ & $\tau_r$ (s) & $\tau_d$ (s) & $a_r$ (km$/\text{s}^{2}$) & $a_d$ (km$/\text{s}^{2}$) & v$_0$ (km$/\text{s}$)
-		& $x_0$ (km)\\
+		& $x_0$ (km)$^{b}$\\
 		\midrule
 		CME--1 & 26 & 2.2 & 138 & 1249 & 0.001 & 4.950 & 40 & 25000 \\
 		CME--2 & 15 & 1.1 & 100 & 1050 & 0.002 & 5.150 & 50 & 21000 \\
-		CME--3 & & & & & & & & \\
-		CME--4 & & & & & & & & \\
-		CME--5 & & & & & & & & \\
-		CME--6 & & & & & & & & \\
-		CME--7 & & & & & & & & \\
+		CME--3 & 314 & 3.2 & 138 & 1249 & 0.001 & 2.150 & 40 & 20000 \\
+		CME--4 & 151 & 1.4 & 100 & 750 & 0.002 & 5.000 & 50 & 18000 \\
+		CME--5 & 250 & 4.1 & 138 & 900 & 0.001 & 2.150 & 85 & 22500 \\
+		CME--6 & 836 & 1.9 & 100 & 650 & 0.004 & 3.400 & 50 & 19000 \\
+		CME--7 & 1930 & 3.6 & 76 & 520 & 0.0012 & 1.745 & 35 & 19000 \\
+		CME--8 & 1962 & 4.0 & 320 & 775 & 0.002 & 5.200 & 100 & 20000 \\
+		CME--9 & 435 & 5.2 & 120 & 620 & 0.0012 & 1.745 & 35 & 19000 \\
+		CME--10 & 210 & 1.5 & 210 & 675 & 0.002 & 4.700 & 75 & 21000 \\		
 		\bottomrule
 		\end{tabular}
         \begin{tablenotes}
             \small
             \item[$^{a}$] Radio inicial de la CME.
+            \item[$^{b}$] Altura inicial de la CME.
         \end{tablenotes}
     \end{threeparttable}
 \end{table}
@@ -31,26 +35,29 @@
 \begin{table}[H]
     \centering
     \begin{threeparttable}
-        \caption{Características cinemáticas alcanzadas por las diferentes CMEs después de 10 horas de simulación}
+        \caption{Características cinemáticas alcanzadas por las diferentes CMEs a lo largo de 10 horas de tiempo simulado}
 		\label{tab:parámetro}
 		\scriptsize
 		\begin{tabular}{lcccccccc}
 		\toprule
-		& Posición final (R$_\odot$)$^{a}$ & v$_{\text{máx}}$ (km$/\text{s}$)$^{b}$ & a$_{\text{máx}}$ (km$/\text{s}^{2}$)\\
+		& Altura final (R$_\odot$)$^{a}$ & v$_{\text{máx}}$ (km$/\text{s}$)$^{b}$ & a$_{\text{máx}}$ (m$/\text{s}^{2}$)\\
 		\midrule
 		CME--1 & 132.812 & 2735.53 & 1530.7284 \\
 		CME--2 & 138.8056 & 2815.61 & 1935.6834 \\
-		CME--3 &  &  &  \\
-		CME--4 &  &  &  \\
-		CME--5 &  &  &  \\
-		CME--6 &  &  &  \\
-		CME--7 &  &  &  \\
+		CME--3 & 63.9675 & 1312.00 & 724.7296 \\
+		CME--4 & 69.5240 & 1578.09 & 1374.7408 \\
+		CME--5 & 39.7736 & 803.22 & 523.5238 \\
+		CME--6 & 49.5871 & 975.53 & 933.9926 \\
+		CME--7 & 20.3756 & 403.20 & 463.3426 \\
+		CME--8 & 24.3935 & 567.25 & 285.2207 \\
+		CME--9 & 19.1376 & 381.82 & 341.4541 \\
+		CME--10 & 27.8225 & 627.27 & 430.1600 \\
 
 		\bottomrule
 		\end{tabular}
         \begin{tablenotes}
             \small
-            \item[$^{a}$] La posición final es la misma posición máxima.
+            \item[$^{a}$] La altura final es la misma altura máxima.
             \item[$^{b}$] La velocidad máxima es la misma velocidad final.
         \end{tablenotes}
     \end{threeparttable}
