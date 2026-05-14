@@ -966,42 +966,6 @@
       \verb https://doi.org/10.1146/annurev-astro-091918-104416
       \endverb
     \endentry
-    \entry{2010anaxagoras}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1a4be83668a1f1932e048bea70cba398}{%
-           family={Curd},
-           familyi={C\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {University of Toronto Press}%
-      }
-      \strng{namehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{fullhash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{bibnamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authorbibnamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authornamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authorfullhash}{1a4be83668a1f1932e048bea70cba398}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9781442611634}
-      \field{series}{Phoenix pre-Socratics}
-      \field{title}{Anaxagoras of Clazomenae: Fragments and Testimonia : a Text and Translation with Notes and Essays}
-      \field{year}{2010}
-      \verb{urlraw}
-      \verb https://books.google.com.ni/books?id=240MF0fzc8wC
-      \endverb
-      \verb{url}
-      \verb https://books.google.com.ni/books?id=240MF0fzc8wC
-      \endverb
-    \endentry
     \entry{emslie-2012}{article}{}
       \name{author}{9}{}{%
         {{un=0,uniquepart=base,hash=d07621fcb14978ffb5b994f840f20d6d}{%
@@ -4018,6 +3982,106 @@
       \verb https://doi.org/10.1134/s0038094612010054
       \endverb
     \endentry
+    \entry{reisenfeld-2021}{article}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=4482d6f539267660a61550e54e3b2b6d}{%
+           family={Reisenfeld},
+           familyi={R\bibinitperiod},
+           given={Daniel\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d2743d9854b601438749c15145f0926}{%
+           family={Bzowski},
+           familyi={B\bibinitperiod},
+           given={Maciej},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2d867fff4075c2af89d43e627d5411e4}{%
+           family={Funsten},
+           familyi={F\bibinitperiod},
+           given={Herbert\bibnamedelima O.},
+           giveni={H\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2c515c2eaf30ebceaf43cf8747b4633}{%
+           family={Heerikhuisen},
+           familyi={H\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=656fa30e44878d02f800d5fbff2cafd8}{%
+           family={Janzen},
+           familyi={J\bibinitperiod},
+           given={Paul\bibnamedelima H.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4856f49acae45f6f561f87ff6741c854}{%
+           family={Kubiak},
+           familyi={K\bibinitperiod},
+           given={Marzena\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=098b3f88d9c4d350fc34e2fc69be226e}{%
+           family={McComas},
+           familyi={M\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86730abfda83598f654b05ee1ad8d8d5}{%
+           family={Schwadron},
+           familyi={S\bibinitperiod},
+           given={Nathan\bibnamedelima A.},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=541f7643e424578a93546d9b03a059b9}{%
+           family={Sokół},
+           familyi={S\bibinitperiod},
+           given={Justyna\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0ce9730cc2175ef895373daf5adf090}{%
+           family={Zimorino},
+           familyi={Z\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfc0cb9433c6298f865e2c70d1b3fbd7}{%
+           family={Zirnstein},
+           familyi={Z\bibinitperiod},
+           given={Eric\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{646458f3620716e322886704194e0e8b}
+      \strng{fullhash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{bibnamehash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{authorbibnamehash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{authornamehash}{646458f3620716e322886704194e0e8b}
+      \strng{authorfullhash}{60d7585322b4e3b68c89f7b82d947b85}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal Supplement Series}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{{A Three-dimensional Map of the Heliosphere from IBEX}}
+      \field{volume}{254}
+      \field{year}{2021}
+      \field{pages}{40}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3847/1538-4365/abf658
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3847/1538-4365/abf658
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3847/1538-4365/abf658
+      \endverb
+    \endentry
     \entry{richardson-2003}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=a527b0c24c0c56145e7b1a73d3c8b62f}{%
@@ -4924,6 +4988,49 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s00159-003-0018-4
+      \endverb
+    \endentry
+    \entry{solanki-2001}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fc5ac166461d1d3e616007966bfc338e}{%
+           family={Solanki},
+           familyi={S\bibinitperiod},
+           given={Sami\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02abd63645b3d24e66062aefdac7f6ae}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={Reiner},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{fullhash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{bibnamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authorbibnamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authornamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authorfullhash}{04ce4a3da3aae477f270d92756dc60fe}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Century of Space Science}
+      \field{month}{1}
+      \field{title}{{The solar atmosphere}}
+      \field{year}{2001}
+      \field{pages}{1065\bibrangedash 1088}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1007/978-94-010-0320-9\{_}45
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-94-010-0320-9_45
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-94-010-0320-9_45
       \endverb
     \endentry
     \entry{sonett-1964}{article}{}
@@ -7278,42 +7385,6 @@
       \verb https://doi.org/10.1146/annurev-astro-091918-104416
       \endverb
     \endentry
-    \entry{2010anaxagoras}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1a4be83668a1f1932e048bea70cba398}{%
-           family={Curd},
-           familyi={C\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {University of Toronto Press}%
-      }
-      \strng{namehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{fullhash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{bibnamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authorbibnamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authornamehash}{1a4be83668a1f1932e048bea70cba398}
-      \strng{authorfullhash}{1a4be83668a1f1932e048bea70cba398}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9781442611634}
-      \field{series}{Phoenix pre-Socratics}
-      \field{title}{Anaxagoras of Clazomenae: Fragments and Testimonia : a Text and Translation with Notes and Essays}
-      \field{year}{2010}
-      \verb{urlraw}
-      \verb https://books.google.com.ni/books?id=240MF0fzc8wC
-      \endverb
-      \verb{url}
-      \verb https://books.google.com.ni/books?id=240MF0fzc8wC
-      \endverb
-    \endentry
     \entry{emslie-2012}{article}{}
       \name{author}{9}{}{%
         {{un=0,uniquepart=base,hash=d07621fcb14978ffb5b994f840f20d6d}{%
@@ -10330,6 +10401,106 @@
       \verb https://doi.org/10.1134/s0038094612010054
       \endverb
     \endentry
+    \entry{reisenfeld-2021}{article}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=4482d6f539267660a61550e54e3b2b6d}{%
+           family={Reisenfeld},
+           familyi={R\bibinitperiod},
+           given={Daniel\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d2743d9854b601438749c15145f0926}{%
+           family={Bzowski},
+           familyi={B\bibinitperiod},
+           given={Maciej},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2d867fff4075c2af89d43e627d5411e4}{%
+           family={Funsten},
+           familyi={F\bibinitperiod},
+           given={Herbert\bibnamedelima O.},
+           giveni={H\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2c515c2eaf30ebceaf43cf8747b4633}{%
+           family={Heerikhuisen},
+           familyi={H\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=656fa30e44878d02f800d5fbff2cafd8}{%
+           family={Janzen},
+           familyi={J\bibinitperiod},
+           given={Paul\bibnamedelima H.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4856f49acae45f6f561f87ff6741c854}{%
+           family={Kubiak},
+           familyi={K\bibinitperiod},
+           given={Marzena\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=098b3f88d9c4d350fc34e2fc69be226e}{%
+           family={McComas},
+           familyi={M\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86730abfda83598f654b05ee1ad8d8d5}{%
+           family={Schwadron},
+           familyi={S\bibinitperiod},
+           given={Nathan\bibnamedelima A.},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=541f7643e424578a93546d9b03a059b9}{%
+           family={Sokół},
+           familyi={S\bibinitperiod},
+           given={Justyna\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0ce9730cc2175ef895373daf5adf090}{%
+           family={Zimorino},
+           familyi={Z\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfc0cb9433c6298f865e2c70d1b3fbd7}{%
+           family={Zirnstein},
+           familyi={Z\bibinitperiod},
+           given={Eric\bibnamedelima J.},
+           giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{646458f3620716e322886704194e0e8b}
+      \strng{fullhash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{bibnamehash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{authorbibnamehash}{60d7585322b4e3b68c89f7b82d947b85}
+      \strng{authornamehash}{646458f3620716e322886704194e0e8b}
+      \strng{authorfullhash}{60d7585322b4e3b68c89f7b82d947b85}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal Supplement Series}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{{A Three-dimensional Map of the Heliosphere from IBEX}}
+      \field{volume}{254}
+      \field{year}{2021}
+      \field{pages}{40}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3847/1538-4365/abf658
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.3847/1538-4365/abf658
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3847/1538-4365/abf658
+      \endverb
+    \endentry
     \entry{richardson-2003}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=a527b0c24c0c56145e7b1a73d3c8b62f}{%
@@ -11236,6 +11407,49 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/s00159-003-0018-4
+      \endverb
+    \endentry
+    \entry{solanki-2001}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fc5ac166461d1d3e616007966bfc338e}{%
+           family={Solanki},
+           familyi={S\bibinitperiod},
+           given={Sami\bibnamedelima K.},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02abd63645b3d24e66062aefdac7f6ae}{%
+           family={Hammer},
+           familyi={H\bibinitperiod},
+           given={Reiner},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{fullhash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{bibnamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authorbibnamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authornamehash}{04ce4a3da3aae477f270d92756dc60fe}
+      \strng{authorfullhash}{04ce4a3da3aae477f270d92756dc60fe}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Century of Space Science}
+      \field{month}{1}
+      \field{title}{{The solar atmosphere}}
+      \field{year}{2001}
+      \field{pages}{1065\bibrangedash 1088}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1007/978-94-010-0320-9\{_}45
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-94-010-0320-9_45
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-94-010-0320-9_45
       \endverb
     \endentry
     \entry{sonett-1964}{article}{}

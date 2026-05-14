@@ -1,556 +1,590 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import quad
+from scipy.integrate import cumulative_trapezoid
+from scipy.ndimage import gaussian_filter1d
 import matplotlib
 
-# ──────────────────────────────────────────────────────────────────────────────
-# CONFIGURACIÓN GLOBAL DE FUENTES
-# ──────────────────────────────────────────────────────────────────────────────
-matplotlib.rcParams['font.family'] = 'serif'
-matplotlib.rcParams['font.serif'] = ['Computer Modern Roman', 'DejaVu Serif']
-matplotlib.rcParams['mathtext.fontset'] = 'cm'
-matplotlib.rcParams['axes.titleweight'] = 'normal'
+matplotlib.rcParams.update({
+    'font.family': 'serif', 'font.serif': ['Computer Modern Roman', 'DejaVu Serif'],
+    'mathtext.fontset': 'cm', 'axes.titleweight': 'normal'})
 
-# ──────────────────────────────────────────────────────────────────────────────
-# CONSTANTES COMPARTIDAS
-# ──────────────────────────────────────────────────────────────────────────────
-R_SOL_KM  = 695700
-R_SOL_STR = r'$R_\odot$'
-DENSIDAD_FONDO = 100
-T_HORAS   = 10
-FACTOR_ESCALA = R_SOL_KM
+# ── PARÁMETROS GLOBALES ───────────────────────────────────────────────────────
+R_SOL_KM, R_SOL_STR   = 695700, r'$R_\odot$'
+DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 10, 695700
+V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
+semilla1, semilla2, RETRASO_CME2 = 435, 1962, 7200.0
+FACTOR_COMPRESION = 1.15
+DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
 
-# ──────────────────────────────────────────────────────────────────────────────
-# CLASE CME: encapsula parámetros y funciones cinemáticas de cada evento
-# ──────────────────────────────────────────────────────────────────────────────
-class CME:
-    """
-    Encapsula los parámetros físicos y las funciones cinemáticas de una CME.
-    Acepta un 'retraso' en segundos: la CME no existe antes de t_inicio.
-    """
+PUNTOS_OBS = [(round(r,4), 0.0) for r in np.linspace(3, 20.0, 4)]
+print(f"Puntos de observación: {len(PUNTOS_OBS)}")
 
-    def __init__(self, nombre, tr, td, ar, ad, v0, x0,
-                 R_CME_INICIAL, semilla, color_cine,
-                 t_inicio_s=0.0):
-        self.nombre       = nombre
-        self.tr           = tr
-        self.td           = td
-        self.ar           = ar
-        self.ad           = ad
-        self.v0           = v0
-        self.x0           = x0
-        self.R_CME_INICIAL = R_CME_INICIAL
-        self.semilla      = semilla
-        self.color_cine   = color_cine   # color para gráficas cinemáticas
-        self.t_inicio_s   = t_inicio_s   # retraso de lanzamiento en segundos
 
-        # Genera forma aleatoria reproducible
+# ── MORFOLOGÍA COMPARTIDA ─────────────────────────────────────────────────────
+class _Morfo:
+    def _rfourier(self, th, amp, fase):
+        r = np.zeros_like(th, dtype=float)
+        for k,(a,ph) in enumerate(zip(amp,fase), start=2):
+            r += a*np.cos(k*th+ph)
+        return r
+
+    def _fils(self, th):
+        f = np.zeros_like(th, dtype=float)
+        for ang,a,anc in zip(self.ang_fil, self.amp_fil, self.ancho_fil):
+            f += a*np.exp(-((th-ang)**2)/(2*anc**2))
+        return f
+
+    def forma(self, th, r_cme, r_ext_ov=None):
+        ap  = np.pi*0.56
+        ven = np.clip(np.cos(th/ap*(np.pi/2)), 0, 1)**2
+        tha = th * np.where(th>=0, self.asimetria, 2-self.asimetria)
+        rr  = r_ext_ov if r_ext_ov is not None else r_cme
+        rex = (rr*(0.75+0.45*np.cos(tha))
+               + rr*self._rfourier(th,self.amp_ext,self.fase_ext)
+               + rr*self._fils(th)) * ven
+        gro = np.clip(0.28+0.10*np.cos(tha)
+                      +self._rfourier(th,self.amp_gros,self.fase_gros), 0.10, 0.50)
+        return rex, np.maximum(rex*(1-gro)*ven, r_cme*0.15*ven)
+
+    def _vel_vec_base(self, TH, R, r_cme, v_t, r_ext_ov=None):
+        rex,rin = self.forma(TH, r_cme, r_ext_ov)
+        mask = (R>rin) & (R<=rex)
+        fd   = np.clip((1+np.cos(TH))**2.5, 0, 1)
+        vr   = v_t*fd*(1+0.3*np.cos(TH)**2)
+        vt   = 0.05*v_t*np.sin(2*TH)*fd
+        vm   = np.sqrt(vr**2+vt**2); vm[vm==0]=1
+        vrn  = np.where(mask, vr/vm*fd, np.nan)
+        vtn  = np.where(mask, vt/vm*fd, np.nan)
+        return vrn*np.cos(TH)-vtn*np.sin(TH), vrn*np.sin(TH)+vtn*np.cos(TH), mask
+
+
+# ── CLASE CME ─────────────────────────────────────────────────────────────────
+class CME(_Morfo):
+    def __init__(self, nombre, tr, td, ar, ad, v0, x0, R0, semilla, color, t0=0.0):
+        self.nombre, self.tr, self.td = nombre, tr, td
+        self.ar, self.ad, self.v0, self.x0 = ar, ad, v0, x0
+        self.R0, self.semilla, self.color, self.t0 = R0, semilla, color, t0
         rng = np.random.default_rng(seed=semilla)
-        N_MODOS = 7
-        self.amp_ext   = rng.uniform(0.03, 0.08, N_MODOS)
-        self.fase_ext  = rng.uniform(0, 2*np.pi, N_MODOS)
-        self.amp_gros  = rng.uniform(0.02, 0.07, N_MODOS)
-        self.fase_gros = rng.uniform(0, 2*np.pi, N_MODOS)
+        N = 7
+        self.amp_ext,  self.fase_ext  = rng.uniform(0.03,0.08,N), rng.uniform(0,2*np.pi,N)
+        self.amp_gros, self.fase_gros = rng.uniform(0.02,0.07,N), rng.uniform(0,2*np.pi,N)
         self.asimetria = rng.uniform(0.85, 1.15)
-        N_FIL = rng.integers(2, 5)
-        self.ang_fil   = rng.uniform(-np.pi/2, np.pi/2, N_FIL)
-        self.amp_fil   = rng.uniform(0.10, 0.20, N_FIL)
-        self.ancho_fil = rng.uniform(0.30, 0.45, N_FIL)
-
-    # ── Cinemática ────────────────────────────────────────────────────────────
+        NF = rng.integers(2, 5)
+        self.ang_fil   = rng.uniform(-np.pi/2, np.pi/2, NF)
+        self.amp_fil   = rng.uniform(0.10, 0.20, NF)
+        self.ancho_fil = rng.uniform(0.30, 0.45, NF)
 
     def aceleracion(self, s):
-        """Aceleración como función del tiempo PROPIO de la CME (s >= 0)."""
-        return (self.ar * self.ad) / (
-            self.ad * np.exp(-s / self.tr) + self.ar * np.exp(s / self.td)
-        )
+        return (self.ar*self.ad)/(self.ad*np.exp(-s/self.tr)+self.ar*np.exp(s/self.td))
 
-    def velocidad(self, t):
-        """Velocidad en tiempo GLOBAL t (segundos)."""
-        s = t - self.t_inicio_s          # tiempo propio
-        if s <= 0:
-            return 0.0                   # CME aún no existe
-        return self.v0 + quad(self.aceleracion, 0, s)[0]
+    def densidad(self, TH, R, r_cme, t, fi=1.0, r_ext_ov=None):
+        if t < self.t0:
+            return np.full(R.shape, np.nan), np.zeros(R.shape, dtype=bool)
+        rex,rin = self.forma(TH, r_cme, r_ext_ov)
+        mask = (R>rin) & (R<=rex)
+        da   = np.clip((1+np.cos(TH))**5, 0, None)
+        dr   = np.exp(-8*(R/(r_cme+0.1)-1)**2)
+        dd   = 100/((r_cme/self.R0)**0.5) / np.sqrt(np.maximum(1., (t-self.t0)/600))
+        dens = DENSIDAD_FONDO * dd * da * (0.3+dr) * fi
+        c    = np.where(mask, dens, np.nan)
+        if np.any(mask):
+            c = np.where(mask, np.clip(c, DENSIDAD_FONDO, np.nanmax(c)), np.nan)
+        return c, mask
 
-    def posicion(self, t):
-        """Posición del centro en tiempo GLOBAL t (km)."""
-        s = t - self.t_inicio_s
-        if s < 0:
-            return None                  # CME aún no existe
-        if s == 0:
-            return self.x0
-        tiempos_int = np.linspace(0, s, 100)
-        vels        = np.array([self.v0 + (quad(self.aceleracion, 0, ti)[0] if ti > 0 else 0)
-                                for ti in tiempos_int])
-        return self.x0 + np.trapz(vels, tiempos_int)
-
-    # ── Morfología (coordenadas polares) ─────────────────────────────────────
-
-    def _ruido_fourier(self, theta_arr):
-        ruido = np.zeros_like(theta_arr)
-        for k, (a, ph) in enumerate(zip(self.amp_ext, self.fase_ext), start=2):
-            ruido += a * np.cos(k * theta_arr + ph)
-        return ruido
-
-    def _ruido_fourier_gros(self, theta_arr):
-        ruido = np.zeros_like(theta_arr)
-        for k, (a, ph) in enumerate(zip(self.amp_gros, self.fase_gros), start=2):
-            ruido += a * np.cos(k * theta_arr + ph)
-        return ruido
-
-    def _filamentos(self, theta_arr):
-        fil = np.zeros_like(theta_arr)
-        for ang, amp, ancho in zip(self.ang_fil, self.amp_fil, self.ancho_fil):
-            fil += amp * np.exp(-((theta_arr - ang)**2) / (2 * ancho**2))
-        return fil
-
-    def forma(self, theta_arr, r_cme):
-        """
-        Devuelve (r_exterior, r_interior) para la morfología de la CME
-        centrada en r_cme (en unidades de R_sol).
-        """
-        apertura   = np.pi * 0.56
-        ventana    = np.clip(np.cos(theta_arr / apertura * (np.pi/2)), 0, 1)**2
-        theta_asim = theta_arr * np.where(theta_arr >= 0,
-                                          self.asimetria, 2 - self.asimetria)
-        r_ext_base  = r_cme * (0.75 + 0.45 * np.cos(theta_asim))
-        r_ext_ruido = r_cme * self._ruido_fourier(theta_arr)
-        r_ext_fil   = r_cme * self._filamentos(theta_arr)
-        r_exterior  = (r_ext_base + r_ext_ruido + r_ext_fil) * ventana
-
-        grosor_base  = 0.28 + 0.10 * np.cos(theta_asim)
-        grosor_ruido = self._ruido_fourier_gros(theta_arr)
-        grosor       = np.clip(grosor_base + grosor_ruido, 0.10, 0.50)
-        r_interior   = r_exterior * (1.0 - grosor) * ventana
-        r_interior   = np.maximum(r_interior, r_cme * 0.15 * ventana)
-        return r_exterior, r_interior
-
-    def densidad_campo(self, THETA, R, r_cme, t_frame):
-        """
-        Devuelve el campo de densidad (NaN fuera de la CME).
-        """
-        r_ext_2d, r_int_2d = self.forma(THETA, r_cme)
-        mascara = (R > r_int_2d) & (R <= r_ext_2d)
-
-        dens_angular     = np.clip((1.0 + np.cos(THETA))**5, 0, None)
-        r_norm           = R / (r_cme + 0.1)
-        dens_radial      = np.exp(-8.0 * (r_norm - 1.0)**2)
-        expansion_factor = (r_cme / self.R_CME_INICIAL)**0.5
-        t_norm           = np.maximum(1.0, (t_frame - self.t_inicio_s) / 600.0)
-        time_factor      = 1.0 / np.sqrt(t_norm)
-        densidad_diluida = 100.0 / expansion_factor * time_factor
-        dens_cme = DENSIDAD_FONDO * densidad_diluida * dens_angular * (0.3 + dens_radial)
-
-        campo = np.where(mascara, dens_cme, np.nan)
-        campo = np.where(mascara, np.clip(campo, DENSIDAD_FONDO, np.nanmax(campo)
-                                          if np.any(mascara) else DENSIDAD_FONDO),
-                         np.nan)
-        return campo, mascara
-
-    def campo_velocidad(self, THETA_vec, R_vec, r_cme, v_t):
-        """
-        Devuelve (U, V, mascara_vec) para el campo vectorial de velocidad.
-        """
-        r_ext_vec, r_int_vec = self.forma(THETA_vec, r_cme)
-        mascara_vec = (R_vec > r_int_vec) & (R_vec <= r_ext_vec)
-
-        factor_dens  = np.clip((1.0 + np.cos(THETA_vec))**2.5, 0, 1)
-        v_radial     = v_t * factor_dens * (1.0 + 0.3 * np.cos(THETA_vec)**2)
-        v_tangencial = 0.05 * v_t * np.sin(2*THETA_vec) * factor_dens
-
-        v_mag = np.sqrt(v_radial**2 + v_tangencial**2)
-        v_mag[v_mag == 0] = 1
-        v_rad_n  = v_radial  / v_mag
-        v_tang_n = v_tangencial / v_mag
-
-        v_rad_m  = np.where(mascara_vec, v_rad_n  * factor_dens, np.nan)
-        v_tang_m = np.where(mascara_vec, v_tang_n * factor_dens, np.nan)
-
-        U = v_rad_m * np.cos(THETA_vec) - v_tang_m * np.sin(THETA_vec)
-        V = v_rad_m * np.sin(THETA_vec) + v_tang_m * np.cos(THETA_vec)
-        return U, V, mascara_vec
+    def vel_vec(self, TH, R, r_cme, v_t, r_ext_ov=None):
+        return self._vel_vec_base(TH, R, r_cme, v_t, r_ext_ov)
 
 
-# ──────────────────────────────────────────────────────────────────────────────
-# INSTANCIAS DE CADA CME
-# ──────────────────────────────────────────────────────────────────────────────
-RETRASO_CME2 = 3600.0   # CME-2 sale 1.17 horas después que CME-1
+# ── CLASE CME NUEVA ───────────────────────────────────────────────────────────
+class CMENueva(_Morfo):
+    """
+    CME nacida de zona solapada.
+    - Morfología fija basada en la geometría del solapamiento al nacer.
+    - Se propaga libremente con velocidad heredada.
+    - NO vacía densidad de otras CMEs: solo añade la suya.
+    - Se restringe únicamente por proximidad de radio al nacer.
+    """
+    _contador = 0
 
-semilla1=435
-semilla2=210
+    def __init__(self, t_nac, r_nac, v_nac, d_nac,
+                 theta_centro, apertura_angular, grosor_frac, asimetria):
+        CMENueva._contador += 1
+        self.id               = CMENueva._contador
+        self.t_nac            = t_nac
+        self.r_nac            = r_nac
+        self.v_nac            = v_nac
+        self.d_nac            = d_nac
+        self.theta_centro     = theta_centro
+        self.apertura_angular = max(apertura_angular, 0.08)
+        self.grosor_frac      = np.clip(grosor_frac, 0.12, 0.55)
+        self.asimetria        = asimetria
 
-cme1 = CME(
-    nombre='CME-1',
-    ar=0.0012, tr=120, ad=1.745, td=620,
-    v0=35,  x0=19000,
-    R_CME_INICIAL=5.2, 
-    semilla=semilla1,
-    color_cine='steelblue',
-    t_inicio_s=0.0,
-)
+        # Parámetros Fourier nulos: forma viene de apertura angular
+        N = 7
+        self.amp_ext   = np.zeros(N); self.fase_ext  = np.zeros(N)
+        self.amp_gros  = np.zeros(N); self.fase_gros = np.zeros(N)
+        self.ang_fil   = np.array([0.0])
+        self.amp_fil   = np.array([0.0])
+        self.ancho_fil = np.array([1.0])
 
-cme2 = CME(
-    nombre='CME-2',
-    ar=0.002, tr=210, ad=4.700, td=675,
-    v0=75,  x0=21000,
-    R_CME_INICIAL=1.5, 
-    semilla=semilla2,
-    color_cine='red',
-    t_inicio_s=RETRASO_CME2,
-)
+    def radio(self, t):
+        if t < self.t_nac: return None
+        return self.r_nac + self.v_nac*(t-self.t_nac)/FACTOR_ESCALA
 
-# ──────────────────────────────────────────────────────────────────────────────
-# 1. GRÁFICAS CINEMÁTICAS CONJUNTAS
-# ──────────────────────────────────────────────────────────────────────────────
-print("\n" + "="*80)
-print("CINEMÁTICA CONJUNTA: CME-1 y CME-2")
-print("="*80)
+    def forma(self, th, r_cme, r_ext_ov=None):
+        # Ventana angular centrada en theta_centro
+        dth = (th - self.theta_centro + np.pi) % (2*np.pi) - np.pi
+        ven = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
+        rex = r_cme * (0.75 + 0.45) * ven
+        rin = np.maximum(rex*(1-self.grosor_frac), r_cme*0.10)
+        return rex, rin
 
-tiempos   = np.linspace(0, T_HORAS * 3600, 500)
-tiempos_h = tiempos / 3600
+    def densidad(self, TH, R, t):
+        r = self.radio(t)
+        if r is None or r <= 0:
+            return np.zeros_like(R, dtype=float), np.zeros(R.shape, dtype=bool)
+        rex, rin = self.forma(TH, r)
+        mask = (R > rin) & (R <= rex)
+        dth  = (TH - self.theta_centro + np.pi) % (2*np.pi) - np.pi
+        ven  = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
+        fe   = max(r/self.r_nac, 1e-6)
+        # Densidad decae por expansión geométrica 1/r²
+        return np.where(mask, self.d_nac/(fe**2)*ven, 0.0), mask
 
-print("Calculando cinemática CME-1...")
-_p1   = [cme1.posicion(t) for t in tiempos]
-pos1  = np.array([p if p is not None else cme1.x0 for p in _p1], dtype=float)
-vel1  = np.array([cme1.velocidad(t) for t in tiempos], dtype=float)
-acel1 = np.array([cme1.aceleracion(max(0.0, t - cme1.t_inicio_s)) for t in tiempos], dtype=float) * 1000.0  # km/s² → m/s²
-
-print("Calculando cinemática CME-2...")
-_p2   = [cme2.posicion(t) if t >= cme2.t_inicio_s else None for t in tiempos]
-pos2  = np.array([p if p is not None else np.nan for p in _p2], dtype=float)
-vel2  = np.array([cme2.velocidad(t) if t >= cme2.t_inicio_s else np.nan
-                  for t in tiempos], dtype=float)
-acel2 = np.array([cme2.aceleracion(max(0.0, t - cme2.t_inicio_s))
-                  if t >= cme2.t_inicio_s else np.nan for t in tiempos], dtype=float) * 1000.0  # km/s² → m/s²
-
-pos1_rs = pos1 / R_SOL_KM
-pos2_rs = pos2 / R_SOL_KM
-
-# Etapas CME-1
-idx_amax1 = np.argmax(acel1)
-t_inic1   = tiempos_h[idx_amax1]
-v_umbral1 = 0.95 * np.nanmax(vel1)
-t_acel1   = tiempos_h[np.argmax(vel1 >= v_umbral1)]
-
-# Etapas CME-2
-acel2_clean = np.where(np.isnan(acel2), -np.inf, acel2)
-idx_amax2   = np.argmax(acel2_clean)
-t_inic2     = tiempos_h[idx_amax2]
-v_umbral2   = 0.95 * np.nanmax(vel2)
-valid_vel2  = np.where(~np.isnan(vel2) & (vel2 >= v_umbral2))
-t_acel2     = tiempos_h[valid_vel2[0][0]] if len(valid_vel2[0]) > 0 else T_HORAS
-
-print(f"\nCME-1 | Fin iniciación: {t_inic1:.2f} h  |  Fin aceleración: {t_acel1:.2f} h")
-print(f"CME-2 | Fin iniciación: {t_inic2:.2f} h  |  Fin aceleración: {t_acel2:.2f} h")
-
-fig, axes = plt.subplots(3, 1, figsize=(14, 11),
-                          sharex=True, gridspec_kw={'hspace': 0})
-fig.suptitle('Cinemática conjunta: CME-1 y CME-2', fontsize=20, y=0.98)
-fig.text(0.5, 0.935, f'{T_HORAS} horas de propagación',
-         ha='center', fontsize=13, style='italic', color='#444444')
-
-ax_pos, ax_vel, ax_acel = axes
-
-# ── Colores de fondo en escala de grises ─────────────────────────────────────
-# Iniciación y Propagación: blanco | Aceleración (ambas CMEs): gris claro
-C_BLANCO = '#FFFFFF'
-C_GRIS   = '#CCCCCC'
-
-def sombrear_etapas_ambas(ax, t_i1, t_a1, t_i2, t_a2):
-    """Pinta el fondo del panel: blanco base, gris en las zonas de
-    aceleración de CME-1 y CME-2. Las líneas divisorias se dibujan
-    para cada CME por separado."""
-    # Fondo blanco base
-    ax.axvspan(0, T_HORAS, color=C_BLANCO, alpha=1.0, zorder=0)
-    # Zona de aceleración CME-1
-    ax.axvspan(t_i1, t_a1, color=C_GRIS, alpha=0.5, zorder=0)
-    # Zona de aceleración CME-2
-    ax.axvspan(t_i2, t_a2, color=C_GRIS, alpha=0.5, zorder=0)
-    # Líneas CME-1: discontinua ini/acel, punteada acel/prop
-    ax.axvline(x=t_i1, color='k', linestyle='--', linewidth=0.8, alpha=0.5, zorder=2)
-    ax.axvline(x=t_a1, color='k', linestyle=':',  linewidth=0.8, alpha=0.5, zorder=2)
-    # Líneas CME-2
-    ax.axvline(x=t_i2, color='k', linestyle='--', linewidth=0.8, alpha=0.5, zorder=2)
-    ax.axvline(x=t_a2, color='k', linestyle=':',  linewidth=0.8, alpha=0.5, zorder=2)
-
-# — Posición —
-sombrear_etapas_ambas(ax_pos, t_inic1, t_acel1, t_inic2, t_acel2)
-ax_pos.plot(tiempos_h, pos1_rs, color=cme1.color_cine, linewidth=2.5,
-            label=cme1.nombre, zorder=3)
-ax_pos.plot(tiempos_h, pos2_rs, color=cme2.color_cine, linewidth=2.5,
-            label=cme2.nombre, zorder=3)
-ax_pos.set_ylabel(f'Posición ({R_SOL_STR})', fontsize=16)
-ax_pos.set_xlim(0, T_HORAS)
-ax_pos.grid(True, alpha=0.3, linestyle='--', zorder=1)
-ax_pos.tick_params(bottom=False)
-ax_pos.legend(fontsize=13, loc='upper right')
-
-# — Velocidad —
-sombrear_etapas_ambas(ax_vel, t_inic1, t_acel1, t_inic2, t_acel2)
-ax_vel.plot(tiempos_h, vel1, color=cme1.color_cine, linewidth=2.5, zorder=3)
-ax_vel.plot(tiempos_h, vel2, color=cme2.color_cine, linewidth=2.5, zorder=3)
-ax_vel.set_ylabel('Velocidad (km/s)', fontsize=16)
-ax_vel.set_xlim(0, T_HORAS)
-ax_vel.grid(True, alpha=0.3, linestyle='--', zorder=1)
-ax_vel.tick_params(bottom=False)
-
-# — Aceleración —
-sombrear_etapas_ambas(ax_acel, t_inic1, t_acel1, t_inic2, t_acel2)
-ax_acel.plot(tiempos_h, acel1, color=cme1.color_cine, linewidth=2.5, zorder=3)
-ax_acel.plot(tiempos_h, acel2, color=cme2.color_cine, linewidth=2.5, zorder=3)
-ax_acel.axhline(y=0, color='k', linestyle='-', alpha=0.3, linewidth=0.5, zorder=2)
-ax_acel.set_xlabel('Tiempo (h)', fontsize=16)
-ax_acel.set_ylabel(r'Aceleración (m/s$^2$)', fontsize=16)
-ax_acel.set_xlim(0, T_HORAS)
-ax_acel.set_xticks(np.arange(0, T_HORAS + 1, 1))
-ax_acel.grid(True, alpha=0.3, linestyle='--', zorder=1)
-
-# Etiquetas de fases — CME-1 arriba, CME-2 abajo para no solaparse
-for ax in axes:
-    ylim  = ax.get_ylim()
-    rango = ylim[1] - ylim[0]
-    y1 = ylim[0] + rango * 0.82
-    y2 = ylim[0] + rango * 0.68
-    for t_mid, label in [((0 + t_inic1)/2,       'Ini-1'),
-                          ((t_inic1 + t_acel1)/2, 'Acel-1'),
-                          ((t_acel1 + T_HORAS)/2, 'Prop-1')]:
-        ax.text(t_mid, y1, label, ha='center', fontsize=12,
-                color='#444444', zorder=4, rotation=90, va='center')
-    for t_mid, label in [((cme2.t_inicio_s/3600 + t_inic2)/2, 'Ini-2'),
-                          ((t_inic2 + t_acel2)/2,              'Acel-2'),
-                          ((t_acel2 + T_HORAS)/2,              'Prop-2')]:
-        ax.text(t_mid, y2, label, ha='center', fontsize=12,
-                color='#444444', zorder=4, rotation=90, va='center')
-
-plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf", dpi=300, bbox_inches='tight')
-print(f"✓ Gráfica cinemática guardada: cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf")
-plt.show()
+    def vel_vec(self, TH, R, t):
+        r = self.radio(t)
+        if r is None or r <= 0:
+            nan = np.full(R.shape, np.nan)
+            return nan, nan, np.zeros(R.shape, dtype=bool)
+        rex, rin = self.forma(TH, r)
+        mask = (R > rin) & (R <= rex)
+        fd   = np.clip((1+np.cos(TH-self.theta_centro))**2.5, 0, 1)
+        vr   = self.v_nac*fd*(1+0.3*np.cos(TH)**2)
+        vt   = 0.05*self.v_nac*np.sin(2*TH)*fd
+        vm   = np.sqrt(vr**2+vt**2); vm[vm==0]=1
+        vrn  = np.where(mask, vr/vm*fd, np.nan)
+        vtn  = np.where(mask, vt/vm*fd, np.nan)
+        return vrn*np.cos(TH)-vtn*np.sin(TH), vrn*np.sin(TH)+vtn*np.cos(TH), mask
 
 
-# ──────────────────────────────────────────────────────────────────────────────
-# 2. PROPAGACIÓN POLAR CONJUNTA (8 FRAMES)
-#    CME-1 lanza en t=0, CME-2 lanza en t=1 h
-# ──────────────────────────────────────────────────────────────────────────────
-print("\n" + "="*80)
-print("VISUALIZACIÓN POLAR CONJUNTA: CME-1 y CME-2")
-print("="*80)
+# ── FUNCIONES AUXILIARES ──────────────────────────────────────────────────────
+def radio_inter(r1,r2,v1,v2,dt=600.):
+    return (r1+r2)/2 + (v1+v2)*dt/FACTOR_ESCALA
 
-ESTADOS_TIEMPO = 8
-ETIQUETAS      = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+def fi_inter(v1,v2):
+    return ((v1+v2)/max((v1+v2)/2,1.))**0.5
 
-# Frames distribuidos de 1 h a 10 h (tiempo global)
-tiempos_frames = np.linspace(3600, T_HORAS * 3600, ESTADOS_TIEMPO)
+def v_pond(d1, d2, v1, v2):
+    d1m = float(np.nanmean(np.nan_to_num(d1))) if np.any(~np.isnan(d1)) else 1.
+    d2m = float(np.nanmean(np.nan_to_num(d2))) if np.any(~np.isnan(d2)) else 1.
+    return (d1m*v1 + d2m*v2) / max(d1m+d2m, 1e-10)
 
-# Radio máximo global para escalar los últimos frames
-pos_final_c1    = cme1.posicion(tiempos_frames[-1]) / FACTOR_ESCALA
-pos_final_c2    = cme2.posicion(tiempos_frames[-1]) / FACTOR_ESCALA
-LIMITE_RADIO_MAX = max(pos_final_c1, pos_final_c2) * 1.4
+def densidad_solapada(ci1, ci2, sol):
+    d1 = np.nan_to_num(ci1); d2 = np.nan_to_num(ci2)
+    total = d1 + d2
+    peso  = np.where(total > 0, total, 1.0)
+    return np.where(sol, (d1**2 + d2**2)/peso * FACTOR_COMPRESION, 0.0)
 
-# Malla polar global — alta resolución para bordes suaves
-theta    = np.linspace(-np.pi, np.pi, 800)
-r        = np.linspace(0, LIMITE_RADIO_MAX, 400)
-THETA, R = np.meshgrid(theta, r)
+def geometria_sol(sol_mask, TH, R, r_ref):
+    """Extrae geometría de la zona solapada."""
+    if not np.any(sol_mask):
+        return 0.0, 0.3, 0.28
+    th_s = TH[sol_mask]; r_s = R[sol_mask]
+    th_c  = float(np.mean(th_s))
+    ap    = max(float(np.ptp(th_s))/2, 0.08)
+    grosor = float(np.ptp(r_s)) / max(r_ref, 0.1)
+    return th_c, ap, np.clip(grosor, 0.12, 0.55)
 
-# Malla para vectores de velocidad — mayor densidad
-theta_vec          = np.linspace(-np.pi, np.pi, 30)
-r_vec              = np.linspace(0.5, LIMITE_RADIO_MAX, 8)
-THETA_vec, R_vec   = np.meshgrid(theta_vec, r_vec)
+def umbral(r):
+    return max(r*0.12, 0.15)
 
-# ── Pre-cálculo del máximo global de densidad (incluyendo solapamiento) ──────
-print("  Pre-calculando máximo global de densidad...")
-dens_max_global = DENSIDAD_FONDO  # valor mínimo de referencia
+def ya_existe(r_nuevo, lista_a, lista_b):
+    return any(abs(cn.r_nac-r_nuevo) < umbral(r_nuevo)
+               for cn in lista_a+lista_b)
 
-for t_pre in tiempos_frames:
-    r_pre1 = cme1.posicion(t_pre) / FACTOR_ESCALA
-    c_pre1, m_pre1 = cme1.densidad_campo(THETA, R, r_pre1, t_pre)
-
-    activa_pre2 = t_pre >= cme2.t_inicio_s
-    if activa_pre2:
-        r_pre2 = cme2.posicion(t_pre) / FACTOR_ESCALA
-        c_pre2, m_pre2 = cme2.densidad_campo(THETA, R, r_pre2, t_pre)
+def calc_campos(ca, cb, TH, R, t, ra, rb, va, vb, ri, fi):
+    c1,m1 = ca.densidad(TH,R,ra,t)
+    c2,m2 = cb.densidad(TH,R,rb,t)
+    sol=m1&m2; sa=m1&~m2; sb=~m1&m2
+    if np.any(sol):
+        ci1,_ = ca.densidad(TH,R,ra,t,fi=fi,r_ext_ov=ri)
+        ci2,_ = cb.densidad(TH,R,rb,t,fi=fi,r_ext_ov=ri)
+        ds = densidad_solapada(ci1, ci2, sol)
     else:
-        c_pre2 = np.full(R.shape, np.nan)
-        m_pre2 = np.zeros(R.shape, dtype=bool)
+        ci1=ci2=np.full(R.shape,np.nan); ds=np.zeros(R.shape)
+    d = np.where(sa,np.nan_to_num(c1),np.where(sb,np.nan_to_num(c2),np.where(sol,ds,0.)))
+    return d, m1, m2, sol, c1, c2, ci1, ci2
 
-    solapado_pre = m_pre1 & m_pre2
-    solo1_pre    = m_pre1 & ~m_pre2
-    solo2_pre    = ~m_pre1 & m_pre2
 
-    d_pre = np.full(R.shape, np.nan)
-    d_pre = np.where(solo1_pre,    c_pre1,            d_pre)
-    d_pre = np.where(solo2_pre,    c_pre2,            d_pre)
-    d_pre = np.where(solapado_pre, c_pre1 + c_pre2,   d_pre)
+def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
+                          r_nuevo, asim, TH, R, t,
+                          cmes_nuevas, nuevas_frame):
+    """
+    Si hay solapamiento, detecta geometría y registra nueva CME.
+    No vacía ni modifica df — solo registra.
+    """
+    if not np.any(sol_mask): return
+    if ya_existe(r_nuevo, cmes_nuevas, nuevas_frame): return
 
-    frame_max = float(np.nanmax(d_pre)) if np.any(~np.isnan(d_pre)) else DENSIDAD_FONDO
-    if frame_max > dens_max_global:
-        dens_max_global = frame_max
+    th_c, ap, gro = geometria_sol(sol_mask, TH, R, r_nuevo)
+    d1 = np.nan_to_num(campo_a); d2 = np.nan_to_num(campo_b)
+    total = d1 + d2
+    peso  = np.where(total > 0, total, 1.0)
+    ds_zona = np.where(sol_mask, (d1**2+d2**2)/peso*FACTOR_COMPRESION, 0.0)
+    ds = float(np.nanmean(ds_zona[sol_mask])) if np.any(sol_mask) else 0.
+    if ds <= 0: return
 
-DENS_MIN_GLOBAL = float(np.log10(DENSIDAD_FONDO))
-DENS_MAX_GLOBAL = max(float(np.log10(dens_max_global)), DENS_MIN_GLOBAL + 0.1)
-print(f"  Rango de densidad global: [{DENS_MIN_GLOBAL:.3f}, {DENS_MAX_GLOBAL:.3f}] log10")
+    vs = v_pond(campo_a, campo_b, v_a, v_b)
+    nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim))
 
-fig = plt.figure(figsize=(20, 12))
-fig.suptitle('Propagación conjunta: CME-1 y CME-2',
-             fontsize=18, fontweight='normal', y=0.99)
-fig.text(0.5, 0.935, f'{T_HORAS} horas de propagación',
-         ha='center', fontsize=13, style='italic', color='#444444')
 
-for idx, t_frame in enumerate(tiempos_frames):
-    print(f"  Frame {idx+1}/{ESTADOS_TIEMPO}: t = {t_frame/3600:.1f} h", end=" ... ")
+# ── INSTANCIAS ────────────────────────────────────────────────────────────────
+cme1 = CME('CME-1',tr=120,td=620,ar=0.0012,ad=1.745,v0=35,x0=19000,R0=5.2,
+           semilla=semilla1,color='steelblue',t0=0.0)
+cme2 = CME('CME-2',tr=320,td=775,ar=0.002, ad=5.200,v0=100,x0=20000,R0=4.0,
+           semilla=semilla2,color='red',t0=RETRASO_CME2)
+cmes_nuevas = []
 
-    ax = plt.subplot(2, 4, idx + 1, projection='polar')
-    ax.text(0.05, 0.97, f'{ETIQUETAS[idx]})',
-            transform=ax.transAxes, fontsize=12, fontweight='normal',
-            va='top', ha='left', color='black', fontstyle='italic')
 
-    # ── Malla local adaptativa para frames pequeños (primeros 4) ───────────────
-    r_cme1 = cme1.posicion(t_frame) / FACTOR_ESCALA
-    v_cme1 = cme1.velocidad(t_frame)
-    activa_cme2 = t_frame >= cme2.t_inicio_s
-    if activa_cme2:
-        r_cme2 = cme2.posicion(t_frame) / FACTOR_ESCALA
-        v_cme2 = cme2.velocidad(t_frame)
+# ── CINEMÁTICA ────────────────────────────────────────────────────────────────
+tiempos   = np.linspace(0, T_HORAS*3600, 500)
+tiempos_h = tiempos/3600
+
+def cinematica(cme, t_arr):
+    s   = t_arr - cme.t0; act = s >= 0
+    ac  = np.where(act, [cme.aceleracion(max(0.,si)) for si in s], np.nan)
+    vel = np.where(act, cme.v0+cumulative_trapezoid(np.where(act,ac,0.),t_arr,initial=0.), np.nan)
+    pos = np.where(act, cme.x0+cumulative_trapezoid(np.where(act,vel,0.),t_arr,initial=0.), np.nan)
+    return pos, vel, ac*1000.
+
+print("Calculando cinemática...")
+pos1,vel1,acel1 = cinematica(cme1, tiempos)
+pos2,vel2,acel2 = cinematica(cme2, tiempos)
+pos1 = np.where(np.isnan(pos1), cme1.x0, pos1)
+pos1_rs, pos2_rs = pos1/R_SOL_KM, pos2/R_SOL_KM
+
+def etapas(ac, vel, th):
+    return th[np.nanargmax(ac)], th[np.argmax(np.nan_to_num(vel)>=0.95*np.nanmax(vel))]
+
+t_inic1,t_acel1 = etapas(acel1,vel1,tiempos_h)
+t_inic2,t_acel2 = etapas(acel2,vel2,tiempos_h)
+print(f"CME-1: ini={t_inic1:.2f}h  acel={t_acel1:.2f}h")
+print(f"CME-2: ini={t_inic2:.2f}h  acel={t_acel2:.2f}h")
+
+_idx_cache = {}
+def _idx(t):
+    if t not in _idx_cache: _idx_cache[t]=int(np.argmin(np.abs(tiempos-t)))
+    return _idx_cache[t]
+
+def pos_rs_en(cme, t):
+    p = pos1[_idx(t)] if cme is cme1 else pos2[_idx(t)]
+    return None if np.isnan(p) else p/R_SOL_KM
+
+def vel_en(cme, t):
+    v = vel1[_idx(t)] if cme is cme1 else vel2[_idx(t)]
+    return 0. if np.isnan(v) else float(v)
+
+
+# ── FRENTE Y RETAGUARDIA ──────────────────────────────────────────────────────
+def frente_retaguardia(cme, pos_arr):
+    rex_arr = np.full_like(pos_arr, np.nan)
+    rin_arr = np.full_like(pos_arr, np.nan)
+    th0 = np.array([0.0])
+    for i,p in enumerate(pos_arr):
+        if not np.isnan(p):
+            rex,rin = cme.forma(th0, p/R_SOL_KM)
+            rex_arr[i], rin_arr[i] = float(rex[0]), float(rin[0])
+    return rex_arr, rin_arr
+
+print("Calculando frente y retaguardia...")
+rex1,rin1 = frente_retaguardia(cme1, pos1)
+rex2,rin2 = frente_retaguardia(cme2, pos2)
+
+
+# ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
+def sombrear(ax,ti1,ta1,ti2,ta2):
+    ax.axvspan(0,T_HORAS,color='#FFF',alpha=1.,zorder=0)
+    for a,b in [(ti1,ta1),(ti2,ta2)]: ax.axvspan(a,b,color='#CCC',alpha=.5,zorder=0)
+    for x,ls in [(ti1,'--'),(ta1,':'),(ti2,'--'),(ta2,':')]:
+        ax.axvline(x=x,color='k',ls=ls,lw=.8,alpha=.5,zorder=2)
+
+def etiquetar(axes,ti1,ta1,ti2,ta2):
+    for ax in axes:
+        yl=ax.get_ylim(); rng=yl[1]-yl[0]; y1,y2=yl[0]+rng*.82,yl[0]+rng*.68
+        for tm,lb,y in [((0+ti1)/2,'Ini-1',y1),((ti1+ta1)/2,'Acel-1',y1),
+                         ((ta1+T_HORAS)/2,'Prop-1',y1),
+                         ((cme2.t0/3600+t_inic2)/2,'Ini-2',y2),
+                         ((ti2+ta2)/2,'Acel-2',y2),((ta2+T_HORAS)/2,'Prop-2',y2)]:
+            ax.text(tm,y,lb,ha='center',fontsize=11,color='#444',zorder=4,rotation=90,va='center')
+
+fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
+fig.suptitle('Cinemática conjunta: CME-1 y CME-2',fontsize=20,y=.98)
+fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=13,style='italic',color='#444')
+ax_p,ax_v,ax_a = axes; kw=dict(linewidth=2.5,zorder=3)
+for ax in axes: sombrear(ax,t_inic1,t_acel1,t_inic2,t_acel2)
+ax_p.plot(tiempos_h,pos1_rs,color=cme1.color,label='CME-1',**kw)
+ax_p.plot(tiempos_h,pos2_rs,color=cme2.color,label='CME-2',**kw)
+ax_p.fill_between(tiempos_h,rin1,rex1,color=cme1.color,alpha=.15,label='Extensión CME-1')
+ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensión CME-2')
+ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16); ax_p.tick_params(bottom=False)
+ax_v.plot(tiempos_h,vel1,color=cme1.color,**kw); ax_v.plot(tiempos_h,vel2,color=cme2.color,**kw)
+ax_v.set_ylabel('Velocidad (km/s)',fontsize=16); ax_v.tick_params(bottom=False)
+ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
+ax_a.axhline(0,color='k',ls='-',alpha=.3,lw=.5,zorder=2)
+ax_a.set_xlabel('Tiempo (h)',fontsize=16); ax_a.set_ylabel(r'Aceleración (m/s$^2$)',fontsize=16)
+ax_a.set_xticks(np.arange(0,T_HORAS+1,1))
+for ax in axes: ax.set_xlim(0,T_HORAS); ax.grid(True,alpha=.3,ls='--',zorder=1)
+etiquetar(axes,t_inic1,t_acel1,t_inic2,t_acel2)
+ax_a.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
+plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf",
+            dpi=300,bbox_inches='tight',pad_inches=0.3)
+print("✓ Cinemática guardada"); plt.show()
+
+
+# ── 2. PROPAGACIÓN POLAR ──────────────────────────────────────────────────────
+print("\n"+"="*60+"\nVISUALIZACIÓN POLAR\n"+"="*60)
+ESTADOS  = 8
+t_frames = np.linspace(3600, T_HORAS*3600, ESTADOS)
+RMAX = max(pos1[-1], pos2[~np.isnan(pos2)][-1]) / R_SOL_KM * 1.4
+
+TH_G,R_G   = np.meshgrid(np.linspace(-np.pi,np.pi,800), np.linspace(0,RMAX,400))
+THv_G,Rv_G = np.meshgrid(np.linspace(-np.pi,np.pi,40),  np.linspace(1,RMAX,12))
+
+print("  Pre-calculando rango densidad...")
+dmax = DENSIDAD_FONDO
+for t_pre in t_frames:
+    r1=pos_rs_en(cme1,t_pre); v1=vel_en(cme1,t_pre)
+    if t_pre>=cme2.t0 and pos_rs_en(cme2,t_pre):
+        r2=pos_rs_en(cme2,t_pre); v2=vel_en(cme2,t_pre)
+        fi=fi_inter(v1,v2); ri=radio_inter(r1,r2,v1,v2)
+        d,*_=calc_campos(cme1,cme2,TH_G,R_G,t_pre,r1,r2,v1,v2,ri,fi)
     else:
-        r_cme2 = None
-        v_cme2 = 0.0
+        c1,m1=cme1.densidad(TH_G,R_G,r1,t_pre); d=np.where(m1,np.nan_to_num(c1),0.)
+    # CMEs nuevas solo añaden, no vacían
+    for cn in cmes_nuevas:
+        dcn,_=cn.densidad(TH_G,R_G,t_pre); d=d+dcn
+    dmax=max(dmax, float(np.nanmax(d)) if np.any(d>0) else DENSIDAD_FONDO)
+
+DMIN=float(np.log10(DENSIDAD_FONDO))
+DMAX=float(DMAX_OVERRIDE) if DMAX_OVERRIDE else max(float(np.log10(dmax)),DMIN+0.5)
+print(f"  Rango: [{DMIN:.2f}, {DMAX:.2f}]")
+
+fig=plt.figure(figsize=(20,12))
+fig.suptitle('Propagación conjunta: CME-1 y CME-2',fontsize=18,fontweight='normal',y=.99)
+fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=13,style='italic',color='#444')
+
+for idx,t_fr in enumerate(t_frames):
+    print(f"  Frame {idx+1}/{ESTADOS}: t={t_fr/3600:.1f}h",end=" ... ")
+    ax=plt.subplot(2,4,idx+1,projection='polar')
+    ax.text(.05,.97,f"{'abcdefgh'[idx]})",transform=ax.transAxes,fontsize=12,
+            va='top',ha='left',color='black',fontstyle='italic')
+
+    r1=pos_rs_en(cme1,t_fr); v1=vel_en(cme1,t_fr)
+    act2=t_fr>=cme2.t0 and pos_rs_en(cme2,t_fr) is not None
+    if act2: r2=pos_rs_en(cme2,t_fr); v2=vel_en(cme2,t_fr); fi=fi_inter(v1,v2); ri=radio_inter(r1,r2,v1,v2)
+    else:    r2=v2=0.; fi=1.; ri=None
 
     if idx < 4:
-        r_max_local = max(r_cme1, r_cme2 if r_cme2 else 0) * 2.7
-        r_max_local = max(r_max_local, 1.0)
-        th_loc = np.linspace(-np.pi, np.pi, 800)
-        r_loc  = np.linspace(0, r_max_local, 400)
-        TH_loc, R_loc = np.meshgrid(th_loc, r_loc)
-        tv_loc = np.linspace(-np.pi, np.pi, 30)
-        rv_loc = np.linspace(0.1, r_max_local, 8)
-        THv_loc, Rv_loc = np.meshgrid(tv_loc, rv_loc)
+        r_refs=[r1,r2 if act2 else 0,ri if ri else 0]+[cn.radio(t_fr) or 0 for cn in cmes_nuevas]
+        rl=max(max(r_refs)*2.7, 1.)
+        TH_L,R_L   = np.meshgrid(np.linspace(-np.pi,np.pi,800), np.linspace(0,rl,400))
+        THv_L,Rv_L = np.meshgrid(np.linspace(-np.pi,np.pi,40),  np.linspace(1,rl,12))
     else:
-        TH_loc, R_loc   = THETA, R
-        THv_loc, Rv_loc = THETA_vec, R_vec
+        TH_L,R_L,THv_L,Rv_L = TH_G,R_G,THv_G,Rv_G
 
-    # ── Fondo azul claro ─────────────────────────────────────────────────────
-    ax.contourf(TH_loc, R_loc,
-                np.ones_like(R_loc),
-                levels=[0.5, 1.5], colors=['#D6EAF8'], alpha=0.8)
+    ax.contourf(TH_L,R_L,np.ones_like(R_L),levels=[.5,1.5],colors=['#D6EAF8'],alpha=.8)
 
-    # ── Campos de densidad por CME ────────────────────────────────────────────
-    dens_total = np.full(R_loc.shape, np.nan)
-
-    campo1, mask1 = cme1.densidad_campo(TH_loc, R_loc, r_cme1, t_frame)
-
-    # CME-2 (existe solo si t_frame >= t_inicio)
-    if activa_cme2:
-        campo2, mask2 = cme2.densidad_campo(TH_loc, R_loc, r_cme2, t_frame)
+    # ── Densidad base de CMEs originales ──────────────────────────────────────
+    if act2:
+        df,m1f,m2f,sol,c1f,c2f,ci1,ci2 = calc_campos(cme1,cme2,TH_L,R_L,t_fr,r1,r2,v1,v2,ri,fi)
+        vs = v_pond(ci1,ci2,v1,v2)
     else:
-        campo2 = np.full(R_loc.shape, np.nan)
-        mask2  = np.zeros(R_loc.shape, dtype=bool)
+        c1f,m1f=cme1.densidad(TH_L,R_L,r1,t_fr)
+        m2f=sol=np.zeros(R_L.shape,dtype=bool)
+        ci1=ci2=np.full(R_L.shape,np.nan)
+        df=np.where(m1f,np.nan_to_num(c1f),0.); vs=v1
 
-    # Suma de densidad donde se solapan
-    solo1    = mask1 & ~mask2
-    solo2    = ~mask1 & mask2
-    solapado = mask1 & mask2
+    # ── CMEs nuevas: solo suman su densidad, sin vaciar nada ─────────────────
+    mask_cn  = np.zeros(R_L.shape, dtype=bool)
+    vel_cn_map = np.zeros(R_L.shape)
+    for cn in cmes_nuevas:
+        dcn, mcn = cn.densidad(TH_L, R_L, t_fr)
+        df = df + dcn                                      # solo suma
+        vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+        mask_cn = mask_cn | mcn
 
-    dens_total = np.where(solo1,    campo1,           dens_total)
-    dens_total = np.where(solo2,    campo2,           dens_total)
-    dens_total = np.where(solapado, campo1 + campo2,  dens_total)
+    # ── Detectar solapamientos y registrar nuevas CMEs ────────────────────────
+    nuevas_frame = []
+    if act2:
+        # Pre-calcular campos de CMEs nuevas existentes una sola vez
+        campos_cn = [(cn, *cn.densidad(TH_L,R_L,t_fr)) for cn in cmes_nuevas]
 
-    # Escala logarítmica con rango global fijo
-    dens_log = np.log10(np.where(~np.isnan(dens_total),
-                                  np.maximum(dens_total, DENSIDAD_FONDO / 10.0),
-                                  np.nan))
+        # 1) CME1 vs CME2 originales
+        detectar_y_registrar(m1f&m2f, ci1, ci2, v1, v2,
+                              ri or 0., cme1.asimetria,
+                              TH_L, R_L, t_fr, cmes_nuevas, nuevas_frame)
 
-    levels_dens = np.linspace(DENS_MIN_GLOBAL, DENS_MAX_GLOBAL, 100)
-    ax.contourf(TH_loc, R_loc, dens_log, levels=levels_dens, cmap='viridis', alpha=0.9)
+        # 2) CMEs originales vs CMEs nuevas
+        for cn,dcn,mcn in campos_cn:
+            r_cn = cn.radio(t_fr)
+            if r_cn is None: continue
+            # CME1 vs nueva
+            detectar_y_registrar(m1f&mcn, ci1, dcn, v1, cn.v_nac,
+                                  (r_cn+(r1 or r_cn))/2, cme1.asimetria,
+                                  TH_L, R_L, t_fr, cmes_nuevas, nuevas_frame)
+            # CME2 vs nueva
+            detectar_y_registrar(m2f&mcn, ci2, dcn, v2, cn.v_nac,
+                                  (r_cn+(r2 or r_cn))/2, cme2.asimetria,
+                                  TH_L, R_L, t_fr, cmes_nuevas, nuevas_frame)
 
-    # ── Vectores de velocidad ─────────────────────────────────────────────────
-    # CME-1
-    U1, V1, mv1 = cme1.campo_velocidad(THv_loc, Rv_loc, r_cme1, v_cme1)
+        # 3) CMEs nuevas entre sí
+        for i,(cn_a,da,ma) in enumerate(campos_cn):
+            for cn_b,db,mb in campos_cn[i+1:]:
+                ra=cn_a.radio(t_fr); rb=cn_b.radio(t_fr)
+                if ra is None or rb is None: continue
+                detectar_y_registrar(ma&mb, da, db, cn_a.v_nac, cn_b.v_nac,
+                                      (ra+rb)/2, cn_a.asimetria,
+                                      TH_L, R_L, t_fr, cmes_nuevas, nuevas_frame)
 
-    # CME-2
-    if activa_cme2:
-        U2, V2, mv2 = cme2.campo_velocidad(THv_loc, Rv_loc, r_cme2, v_cme2)
+    if nuevas_frame:
+        print(f"\n    ★ {len(nuevas_frame)} nueva(s) t={t_fr/3600:.2f}h", end=" ")
+        cmes_nuevas.extend(nuevas_frame)
+        # Añadir densidad de las recién nacidas (solo suma)
+        for cn in nuevas_frame:
+            dcn,mcn = cn.densidad(TH_L,R_L,t_fr)
+            df = df + dcn
+            vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+            mask_cn = mask_cn | mcn
+
+    ax.contourf(TH_L,R_L,np.log10(np.where(df>0,df,DENSIDAD_FONDO/10)),
+                levels=np.linspace(DMIN,DMAX,100),cmap='viridis',alpha=.9,extend='max')
+
+    # ── Vectores ──────────────────────────────────────────────────────────────
+    U1,V1,mv1=cme1.vel_vec(THv_L,Rv_L,r1,v1)
+    if act2:
+        U2,V2,mv2=cme2.vel_vec(THv_L,Rv_L,r2,v2)
+        Ui1,Vi1,_=cme1.vel_vec(THv_L,Rv_L,r1,vs,r_ext_ov=ri)
+        Ui2,Vi2,_=cme2.vel_vec(THv_L,Rv_L,r2,vs,r_ext_ov=ri)
     else:
-        U2  = np.full(THv_loc.shape, np.nan)
-        V2  = np.full(THv_loc.shape, np.nan)
-        mv2 = np.zeros(THv_loc.shape, dtype=bool)
+        U2=V2=np.full(THv_L.shape,np.nan); mv2=np.zeros(THv_L.shape,dtype=bool)
+        Ui1,Vi1,Ui2,Vi2=U1,V1,U2,V2
 
-    solo_v1    = mv1 & ~mv2
-    solo_v2    = ~mv1 & mv2
-    solapado_v = mv1 & mv2
+    sv1=mv1&~mv2; sv2=~mv1&mv2; svs=mv1&mv2
+    Up=np.where(sv1,U1,np.where(sv2,U2,np.where(svs,Ui1+Ui2,np.nan)))
+    Vp=np.where(sv1,V1,np.where(sv2,V2,np.where(svs,Vi1+Vi2,np.nan)))
+    for cn in cmes_nuevas:
+        Ucn,Vcn,mvcn=cn.vel_vec(THv_L,Rv_L,t_fr)
+        Up=np.where(mvcn,Ucn,Up); Vp=np.where(mvcn,Vcn,Vp)
 
-    # En zonas solapadas: suma vectorial de velocidades (normalizada al plotear)
-    U_plot = np.where(solo_v1,    U1,
-             np.where(solo_v2,    U2,
-             np.where(solapado_v, U1 + U2, np.nan)))
-    V_plot = np.where(solo_v1,    V1,
-             np.where(solo_v2,    V2,
-             np.where(solapado_v, V1 + V2, np.nan)))
+    mag=np.sqrt(np.nan_to_num(Up)**2+np.nan_to_num(Vp)**2)
+    mm=float(np.nanmax(mag)) if np.any(~np.isnan(Up)) else 1.
+    if mm>0: Up,Vp=Up/mm*.3,Vp/mm*.3
+    ax.quiver(THv_L,Rv_L,Up,Vp,scale=8,width=.002,headwidth=2,
+              headlength=2,headaxislength=2.5,color='red',alpha=.9)
 
-    ax.quiver(THv_loc, Rv_loc, U_plot, V_plot,
-              scale=20, width=0.004, color='red', alpha=0.9)
+    tit=(f"t={t_fr/3600:.1f}h  r₁={r1:.1f}  r₂={r2:.1f} {R_SOL_STR}  "
+         f"v_sol={vs:.0f} km/s  N={len(cmes_nuevas)}"
+         if act2 else f"t={t_fr/3600:.1f}h  r₁={r1:.1f} {R_SOL_STR}  v={v1:.0f} km/s")
+    ax.set_title(tit,fontsize=6,fontweight='normal',pad=10)
+    r_refs=[r1,r2 if act2 else 0,ri if ri else 0]+[cn.radio(t_fr) or 0 for cn in cmes_nuevas]
+    ax.set_ylim([0,max(max(r_refs)*2.7,1.) if idx<4 else RMAX])
+    ax.set_rlabel_position(135); ax.grid(True,alpha=.3,ls='--',lw=.7)
+    print(f"r₁={r1:.2f}"+(f"  r₂={r2:.2f}  N={len(cmes_nuevas)}" if act2 else "")+" ✓")
 
-    # ── Título del frame ──────────────────────────────────────────────────────
-    if activa_cme2:
-        titulo = (f"t = {t_frame/3600:.1f} h  |  "
-                  f"r₁={r_cme1:.1f} {R_SOL_STR}  r₂={r_cme2:.1f} {R_SOL_STR}")
+plt.tight_layout(rect=[0,0,.92,.97])
+cbar_ax=fig.add_axes([.94,.12,.015,.75])
+sm=plt.cm.ScalarMappable(cmap='viridis',norm=plt.Normalize(vmin=DMIN,vmax=DMAX)); sm.set_array([])
+fig.colorbar(sm,cax=cbar_ax).set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
+                                         rotation=270,labelpad=25,fontsize=11)
+plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf",dpi=300,bbox_inches='tight')
+print(f"\n✓ Polar guardado | CMEs nuevas: {len(cmes_nuevas)}"); plt.show()
+
+
+# ── 3. SERIES TEMPORALES ──────────────────────────────────────────────────────
+print("\n"+"="*60+f"\nSERIES TEMPORALES — {len(PUNTOS_OBS)} puntos\n"+"="*60)
+th_loc=np.linspace(-np.pi,np.pi,200); r_loc=np.linspace(0,RMAX,250)
+TH_loc,R_loc=np.meshgrid(th_loc,r_loc)
+dens_ser={p: np.full(len(tiempos),DENSIDAD_FONDO) for p in PUNTOS_OBS}
+vel_ser ={p: np.full(len(tiempos),V_VIENTO_SOLAR)  for p in PUNTOS_OBS}
+idx_pts ={(ro,to): (np.argmin(np.abs(r_loc-ro)), np.argmin(np.abs(th_loc-np.radians(to))))
+          for ro,to in PUNTOS_OBS}
+
+print("  Calculando series temporales...")
+for i,t in enumerate(tiempos):
+    if i%50==0: print(f"    t={t/3600:.2f}h",end="... ")
+    r1t=pos_rs_en(cme1,t); v1t=vel_en(cme1,t)
+    act2=t>=cme2.t0 and pos_rs_en(cme2,t) is not None
+    if act2:
+        r2t=pos_rs_en(cme2,t); v2t=vel_en(cme2,t)
+        fi_t=fi_inter(v1t,v2t); ri_t=radio_inter(r1t,r2t,v1t,v2t)
+        dt,m1t,m2t,sol_t,_,_,ci1t,ci2t=calc_campos(cme1,cme2,TH_loc,R_loc,t,
+                                                      r1t,r2t,v1t,v2t,ri_t,fi_t)
+        vs_t=v_pond(ci1t,ci2t,v1t,v2t)
     else:
-        titulo = f"t = {t_frame/3600:.1f} h  |  r₁={r_cme1:.1f} {R_SOL_STR}  (CME-2 aún no)"
-    ax.set_title(titulo, fontsize=8, fontweight='normal', pad=10)
+        c1t,m1t=cme1.densidad(TH_loc,R_loc,r1t,t)
+        m2t=sol_t=np.zeros(R_loc.shape,dtype=bool)
+        dt=np.where(m1t,np.nan_to_num(c1t),0.); v2t=vs_t=0.
 
-    # ── Escala radial ─────────────────────────────────────────────────────────
-    if idx < 4:
-        limite_frame = max(r_cme1,
-                           r_cme2 if activa_cme2 and r_cme2 else 0) * 2.7
-        ax.set_ylim([0, max(limite_frame, 1.0)])
-    else:
-        ax.set_ylim([0, LIMITE_RADIO_MAX])
+    # CMEs nuevas: solo suma, sin vaciar
+    mask_cn=np.zeros(R_loc.shape,dtype=bool)
+    vel_cn_map=np.zeros(R_loc.shape)
+    for cn in cmes_nuevas:
+        dcn,mcn=cn.densidad(TH_loc,R_loc,t)
+        dt=dt+dcn
+        vel_cn_map=np.where(mcn&~mask_cn, cn.v_nac, vel_cn_map)
+        mask_cn=mask_cn|mcn
 
-    ax.set_rlabel_position(135)
-    ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.7)
+    for ro,to in PUNTOS_OBS:
+        ir,it_=idx_pts[(ro,to)]; dv=dt[ir,it_]
+        if dv>0: dens_ser[(ro,to)][i]=dv
+        if   mask_cn[ir,it_]:       vel_ser[(ro,to)][i]=vel_cn_map[ir,it_]
+        elif sol_t[ir,it_]:         vel_ser[(ro,to)][i]=vs_t
+        elif m1t[ir,it_]:           vel_ser[(ro,to)][i]=v1t
+        elif act2 and m2t[ir,it_]:  vel_ser[(ro,to)][i]=v2t
+    if i%50==0: print("✓")
+print("  ✓ Series calculadas")
 
-    status = f"r₁={r_cme1:.2f}"
-    if activa_cme2:
-        status += f"  r₂={r_cme2:.2f} R_sol"
-    print(status + " ✓")
+CMAP_OBS='gist_rainbow'; cmap_obs=plt.cm.get_cmap(CMAP_OBS)
+norm_obs=plt.Normalize(vmin=min(r for r,_ in PUNTOS_OBS),vmax=max(r for r,_ in PUNTOS_OBS))
+fig,(ax_d,ax_v)=plt.subplots(2,1,figsize=(14,9),sharex=True,gridspec_kw={'hspace':0})
+fig.suptitle(rf'Evolución temporal — {len(PUNTOS_OBS)} puntos',fontsize=15,fontweight='normal',y=.98)
+fig.text(.5,.945,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+for ro,to in PUNTOS_OBS:
+    c=cmap_obs(norm_obs(ro)); k=(ro,to)
+    ax_d.plot(tiempos_h,gaussian_filter1d(dens_ser[k],sigma=VENTANA_SUAV),color=c,lw=1.8,alpha=.6,zorder=3)
+    ax_v.plot(tiempos_h,gaussian_filter1d(vel_ser[k], sigma=VENTANA_SUAV),color=c,lw=1.8,alpha=.6,zorder=3)
+kwr=dict(lw=1.,alpha=.8,zorder=4)
+ax_d.axhline(DENSIDAD_FONDO,color='gray',ls='--',label='Fondo',**kwr)
+ax_d.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-2',**kwr)
+ax_v.axhline(V_VIENTO_SOLAR,color='gray',ls='--',label=f'Viento solar ({V_VIENTO_SOLAR:.0f} km/s)',**kwr)
+ax_v.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-2',**kwr)
+ax_d.set(ylabel='Densidad (protones/cm³)',yscale='log',xlim=(0,T_HORAS))
+ax_d.grid(True,alpha=.3,ls='--',zorder=1); ax_d.tick_params(bottom=False)
+ax_d.legend(fontsize=10,loc='upper right')
+ax_v.set(ylabel='Velocidad radial (km/s)',xlabel='Tiempo (h)',
+         xlim=(0,T_HORAS),ylim=(V_VIENTO_SOLAR*.9,None))
+ax_v.set_xticks(np.arange(0,T_HORAS+1,1)); ax_v.grid(True,alpha=.3,ls='--',zorder=1)
+ax_v.legend(fontsize=10,loc='upper right')
+sm_o=plt.cm.ScalarMappable(cmap=CMAP_OBS,norm=norm_obs); sm_o.set_array([])
+fig.colorbar(sm_o,ax=[ax_d,ax_v],orientation='vertical',fraction=.02,pad=.02).set_label(
+    f'Distancia al Sol ({R_SOL_STR})',rotation=270,labelpad=20,fontsize=12)
+plt.savefig(f"serie_temporal_multipunto_s1_{semilla1}_s2_{semilla2}.pdf",dpi=300,bbox_inches='tight')
+print("✓ Serie temporal guardada"); plt.show()
 
-plt.tight_layout(rect=[0, 0, 0.92, 0.97])
 
-# Barra de color
-cbar_ax = fig.add_axes([0.94, 0.12, 0.015, 0.75])
-sm = plt.cm.ScalarMappable(cmap='viridis',
-                            norm=plt.Normalize(vmin=DENS_MIN_GLOBAL, vmax=DENS_MAX_GLOBAL))
-sm.set_array([])
-cbar = fig.colorbar(sm, cax=cbar_ax)
-cbar.set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
-               rotation=270, labelpad=25, fontsize=11)
-
-plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf", dpi=300, bbox_inches='tight')
-print(f"\n✓ Visualización polar guardada: cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf")
-plt.show()
-
-
-# ──────────────────────────────────────────────────────────────────────────────
-# 3. RESUMEN FINAL
-# ──────────────────────────────────────────────────────────────────────────────
-print("\n" + "="*80)
-print("RESUMEN FINAL")
-print("="*80)
-
-for cme, vels, acels, poss in [
-    (cme1, vel1, acel1, pos1),
-    (cme2, vel2, acel2, pos2),
-]:
-    print(f"\n  {cme.nombre}  (lanzamiento en t = {cme.t_inicio_s/3600:.1f} h):")
-    print(f"    Semilla:             {cme.semilla}")
-    print(f"    Radio inicial:         {cme.R_CME_INICIAL:.2f} {R_SOL_STR}")
-    print(f"    Velocidad inicial:    {cme.v0:.2f} km/s")
-    print(f"    Velocidad máxima:     {np.nanmax(vels):.2f} km/s")
-    print(f"    Velocidad final:      {vels[~np.isnan(vels)][-1]:.2f} km/s")
-    print(f"    Aceleración máxima:   {np.nanmax(acels):.4f} m/s²")
-    print(f"    Posición inicial:     {cme.x0 / R_SOL_KM:.4f} R_sol")
-    pos_fin = poss[~np.isnan(poss)][-1]
-    print(f"    Posición final:       {pos_fin / R_SOL_KM:.4f} R_sol")
-    print(f"    Distancia recorrida:  {(pos_fin - cme.x0) / R_SOL_KM:.4f} R_sol")
-
-print("\n" + "="*80)
-print("✓ SIMULACIÓN CONJUNTA COMPLETADA")
-print("="*80)
+# ── 4. RESUMEN FINAL ──────────────────────────────────────────────────────────
+print("\n"+"="*60+"\nRESUMEN FINAL\n"+"="*60)
+for cme,vl,al,pl in [(cme1,vel1,acel1,pos1),(cme2,vel2,acel2,pos2)]:
+    pf=pl[~np.isnan(pl)][-1]
+    print(f"\n  {cme.nombre} (t={cme.t0/3600:.1f}h) | semilla={cme.semilla} | R0={cme.R0:.1f} R☉")
+    print(f"    v0={cme.v0:.1f}  vmax={np.nanmax(vl):.1f}  vf={vl[~np.isnan(vl)][-1]:.1f} km/s")
+    print(f"    amax={np.nanmax(al):.4f} m/s²  |  {cme.x0/R_SOL_KM:.3f}→{pf/R_SOL_KM:.3f} R☉")
+if cmes_nuevas:
+    print(f"\n  CMEs nuevas: {len(cmes_nuevas)} | FACTOR_COMPRESION={FACTOR_COMPRESION}")
+    for j,cn in enumerate(cmes_nuevas):
+        rf=cn.radio(tiempos[-1])
+        print(f"    [N{cn.id}] t={cn.t_nac/3600:.2f}h  r={cn.r_nac:.2f}→{rf:.2f} R☉  "
+              f"v={cn.v_nac:.1f} km/s  θ={np.degrees(cn.theta_centro):.1f}°  "
+              f"ap={np.degrees(cn.apertura_angular):.1f}°  d={cn.d_nac:.1f}")
+print(f"\n  Puntos obs: {len(PUNTOS_OBS)}")
+print("="*60+"\n✓ SIMULACIÓN COMPLETADA")
