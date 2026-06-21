@@ -5,7 +5,7 @@
 \raggedleft  % Justifica el texto dentro de la minipage a la derecha
 \footnotesize\itshape
 \setlength{\baselineskip}{12pt} 
-\vspace{0.7cm} 
+\vspace{0.3cm} 
 ''El sol era como una gran lámpara de policía en el cielo, interrogándome sin piedad.''
 
 \medskip
@@ -15,254 +15,112 @@
 \end{flushright}
 \vspace{1cm}
 
-%Hablar sobre el origen, las propiedades, clasificación, su propagación en el medio interplanetario, como se detectan y se miden, el impacto en el clima espacial.
-Las \acp{CME}\index{Coronal Mass Ejection} fueron descubiertas a inicios de la década de los 70s \parencite[e.g.,][]{hansen-1971, tousey1973solar}, con ayuda de la creación del coronógrafo en 1931 por Bernard Lyot y su posterior desarrollo, además de la implementación de un disco que bloqueaba la luz de la fotosfera denominado disco de ocultación \parencite[e.g.][]{2014swcm.book.....H}. La primera CME registrada fue el 18 de julio de 1860 por Ernst Wilhelm Leberecht Tempel, mostrada en la Figura \ref{fig:PrimeraCME}, a pesar de que en ese entonces no se sabía que era una CME \parencite[e.g.,][]{FotógrafiaCME-2021}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{imag/Primera_CME.png}
-    \caption[Dibujo del eclipse de 1860 con la primera observación de una Eyección de Masa Coronal]{Dibujo del eclipse de 1860 registrado por Ernst Wilhelm Leberecht Tempel. Se piensa que esta es la primera observación de una eyección de masa coronal. Tomada de \textcite[][]{1879MmRAS..41..483.}.}
-    \label{fig:PrimeraCME}
-\end{figure}
-
-Las eyecciones de masa coronal son desprendimientos de nubes de plasma a gran escala que pueden envolver múltiples sistemas de flujo de campo magnético de la superficie del Sol y se propagan a través de la heliosfera. Pueden salir eyectadas a grandes velocidades, por lo que si la CME se propaga a una velocidad supersónica hará que se rompa la barrera magnetosónica en el viento solar generando una onda de choque en su frente \parencite[e.g.,][]{gosling-1976, sonett-1964, gosling-1993}, en donde el campo magnético se comprime y aumenta la temperatura del material. Además, la onda de choque acelera partículas de plasma y produce eventos \ac{SEP} muy eficientemente \parencite[e.g.,][]{kahler-1978, kahler-1983, mewaldt-2007}. Las SEPs son relevantes en la exploración espacial puesto que representan un riesgo para los exploradores humanos que viven y trabajan más allá de la orbita terrestre así como los aparatos electrónicos presentes en esas regiones.
-
-Por consiguiente, las eyecciones de masa coronal son el principal método de aceleración de partículas energéticas solares junto con las \acp{SF}, pero con la diferencia de que éstas últimas ocurren en un lapso de tiempo mucho más corto en comparación con las \acp{CME}. Por lo que, las partículas alcanzarán una mayor energía al generarse a través de las eyecciones de masa coronal debido a que están bajo una aceleración durante más tiempo en comparación con el tiempo de aceleración de las partículas en una Llamarada Solar.
-
-Las CMEs arrastran consigo campos magnéticos, que comprimen el viento solar y el campo magnético interplanetario \parencite[e.g.,][]{vrsnak-2012, subramanian-2016, gopalswamy-2000, lugaz-2017}, por lo que su impacto se extiende desde la heliosfera interna hasta los confines del Sistema Solar; además, pueden llegar a afectar a la Tierra, donde pueden desencadenar auroras intensas, alterar sistemas de navegación e interferir con comunicaciones \parencite[e.g.,][]{2014swcm.book.....H, nhess-2018-92}, de ahí la importancia del estudio del origen y evolución de las CMEs.
-
-En 1939, \textcite[][]{lyman-1939} demostró que el material eyectado desde el Sol en forma de filamento, tendría una temperatura tan alta que no se condensaría en materia sólida en el medio interplanetario, si no que se expandiría en forma de un gas tenue ya que una vez que los gases han alcanzado la velocidad de escape del filamento, ninguna porción grande del filamento puede condensarse, independientemente de la temperatura a la que pueda descender. Por lo que se creará una atmósfera al rededor del Sol, que hoy denominamos heliosfera.
+Las eyecciones de masa coronal son expulsiones violentas de plasma a gran escala desde la corona solar hacia la heliosfera llevando consigo campo magnético perturbando el viento solar y el \ac{IMF} \parencite[e.g.,][]{vrsnak-2012, subramanian-2016, gopalswamy-2000, lugaz-2017}; y afectando a la Tierra \parencite[e.g.,][]{2014swcm.book.....H, nhess-2018-92}. Pueden propagarse velocidades supersónicas, lo que hará que se rompa la barrera magnetosónica en el viento solar, comprimiendo el campo magnético y generando una onda de choque en su frente que calienta el material \parencite[e.g.,][]{gosling-1976, sonett-1964, gosling-1993}. Además, la onda de choque aumenta la población de \acp{SEP} \parencite[e.g.,][]{kahler-1978, kahler-1983, mewaldt-2007}, representando un riesgo para la exploración espacial. En general, las \acp{CME} son el principal método de aceleración de partículas --también lo son las \acp{SF}-- debido a que se aceleran durante más tiempo en comparación a las partículas en una \ac{SF}. Además, el material eyectado desde el Sol presenta una temperatura tan alta que no se condensa en materia sólida, si no que se expande en forma de un gas tenue \parencite[][]{lyman-1939}.
 
 \section{Origen}
 
-La explicación más aceptada actualmente para la causa de las CMEs consiste en la perdida de estabilidad o equilibrio en el campo magnético coronal \parencite[e.g.,][]{forbes-2000, low-1996} debido a la acumulación de tensión magnética en cuerdas de flujo magnético. Por lo que su origen está íntimamente ligado a la reconfiguración a gran escala del campo magnético en regiones en las que se presenta una topología magnética compleja. Se cree que este campo magnético se origina en la tacoclina \parencite[e.g.,][]{glatzmaier-1985} y que asciende gracias a la flotabilidad magnética \parencite[e.g.,][]{low-1996, browning-1986}.
+El origen de las \acp{CME} parte de la perdida de estabilidad en el campo magnético coronal \parencite[e.g.,][]{low-1996} debido a la acumulación de tensión y presión magnética en cuerdas de flujo magnético, reconfigurando el campo magnético, en regiones con una alta complejidad magnética. El flujo magnético se origina en la tacoclina y emerge de la zona convectiva, acomulando principalmente energía magnética para luego ser liberada a través de \acp{CME}, \acp{SF} y \acp{SEP} ocurridas en \acp{AR}, como se mencionó en el Capítulo \ref{Dinamo solar}. La densidad de energía necesaria para producir una \ac{CME} es del orden de $\sim100$ ergs cm$^{-3}$, menor a la presente en la coronal solar ($\sim400$ ergs cm$^{-3}$ considerando un campo magnético de $\sim100$ G, según \textcite[e.g.,][]{forbes-2000}), siendo el excedente de energía ($E_{\text{libre}}$) el impulsor de la CME.
 
-La erupción comienza con una expansión lenta de las estructuras de bucles o loops, aumentando la inestabilidad magnética y probocando un evento de CME que involucra una reconexión magnética. Por ello, el campo magnético entra en erupción liberando la energía acomulada en forma de energía cinética y radiación.
-
-\begin{table}[htbp]
-\centering
-\caption{Estimaciones de las fuentes de energía en la corona solar reportadas en  \textcite[e.g.,][]{forbes-2000}}
-\label{tab:fuentes-energia-corona}
-\begin{tabular}{lcc}
-\toprule
- &  & Densidad de \\
-Forma de energía & Valores promedio observados & energía (ergs cm$^{-3}$) \\
-\midrule
-Cinética $\left( \frac{1}{2} m_p n V^2 \right)$ & $n = 10^9$ cm$^{-3}$, $V = 1$ km s$^{-1}$ & $10^{-5}$ \\
-Térmica $\left( n k T \right)$ & $T = 10^6$ K & $0.1$ \\
-Gravitacional $\left( m_p n g h \right)$ & $h = 10^5$ km & $0.5$ \\
-Magnética $\left( B^2 / 8\pi \right)$ & $B = 100$ G & $400$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-Por un lado, la densidad de energía necesaria en la fuente de una CME para impulsarla es del orden de $100$ ergs cm$^{-3}$ \parencite[e.g.,][]{forbes-2000}, ya que esa es la densidad energética con la que se produce; por otro lado la densidad de energía presente en la coronal solar tiene contribuciones cinéticas, térmicas, gravitacionales y magnéticas, mostradas en la Tabla \ref{tab:fuentes-energia-corona} adaptada de \textcite[e.g.,][]{forbes-2000}, superando la energía necesaria para generar una CME. 
-
-Las densidades de energía se determinan teniendo en cuenta el volumen de la corona, tomado como $10^{30}$ cm$^{3}$, además de considerar una densidad $n$ en la corona de $\sim 10^{9}$ cm$^{-3}$ así como una velocidad $V\sim 1$ km s$^{-1}$ de las estructuras convectivas. También se toma una temperatura $T$ de $\sim 10^{6}$ K junto con una gravedad superficial de $2.47\times10^{4}$ cm s$^{-2}$ y una altura $h$ de $\sim10^{10}$ cm, para la densidad de energía magnética se toma un campo magnético de $100$ G. Por ese motivo, se evidencia que la extracción de solo una cuarta parte de la densidad de energía almacenada es suficiente incluso para impulsar las CMEs más intensas. También, la energía almacenada se puede liberar a través de \acp{SF} y \acp{SEP}, además de la reconfiguración del campo magnético.
-
-\textcite[e.g.,][]{lugaz-2005} asume que el medio de la corona solar y heliosfera está compuesto por plasma magnetizado que se comporta como un gas ideal, de constante adiabática de $\gamma=5/3$ inmerso en un campo magnético congelado, por lo que no se suaviza ni desaparece; además se considera como un caso ideal donde el plasma tiene una conductividad infinita, lo que significa que se puede despreciar la difusión resistiva. Esta difusión es un proceso en el cual el campo magnético se suaviza o disminuye debido a que los iones en el plasma se ven frenados por la resistividad del medio, lo que terminaría con iones estáticos que pierden energía por efecto Joule y, por lo tanto, no poseerán la velocidad necesaria para generar el campo magnético interno. 
- 
-Para conseguir erupciones es necesario que se consigan las siguientes condiciones:
-\begin{itemize}
-    \item Suficiente Energía magnética libre y Helicidad. La energía libre magnética hace referencia al exceso de energía necesaria para sostener una estructura de material en la corona solar, por lo tanto se tiene que la energía total es la suma de la energía potencial de la estructura más la energía libre, dada por
-\begin{equation*}
-    E_{free}=E_{T}-E_{Potencial}.
-\end{equation*}
-Por lo que ese exceso de energía es el que se puede liberar al medio interplanetario a través de las eyecciones de masa coronal, cuando las líneas de campo magnético, también llamadas bucles magnéticos activos, que almacenan dicha energía y se vuelven inestables, indicando una proporcionalidad entre la inestabilidad y la energía almacenada. La energía libre almacenada en las \acp{AR} a menudo excede la energía requerida para una erupción incrementando la inestabilidad de la complejidad magnética en la región. 
-Por otro lado la helicidad es la que mide cuán retorcidas, trenzadas o entrelazadas están las líneas de campo magnético dentro de una región, se define como
+Las condiciones para producir e impulsar una \ac{CME} son: (\textit{i}) La acomuladación de energía magnética libre en las \acp{AR} y \ac{Sunspots}, dada por $E_{\text{libre}}=E_{\text{T}}-E_{\text{Potencial}}$, donde $E_{\text{T}}$ es la energía total; y $E_{\text{Potencial}}$ es la energía potencial, necesaria para sostener una estructura de material en la corona solar. (\textit{ii}) La acomulación de helicidad ($\mathcal{H}$), la cual mide cuán retorcidas, trenzadas o entrelazadas están las líneas de campo magnético ($\mathbf{B}$) dentro de un volumen $V$, por lo que está asociada con la reconexión magnética; ésta se define como
 \begin{equation*}
     \mathcal{H} = \int_V \mathbf{A}\cdot \mathbf{B}\,\mathrm{d}V,
 \qquad
 \mathbf{B} = \nabla \times \mathbf{A},
 \end{equation*}
-donde $\mathbf{A}$ es el potencial vector del campo magnético y $\mathbf{B}$ es el campo magnético. Si se tiene un tubo de flujo magnético, como una cuerda o lazo, la helicidad mide si está enroscado como una espiral o si hay trenzado entre varios tubos.
-Esta energía libre magnética y helicidad se genera por: 
-    \begin{itemize}
-    \item Flujo emergente, refiriéndose al proceso donde campos magnéticos generados en el interior del Sol gracias al dinamo solar ascienden a la superficie atravesando la zona convectiva y emergen en la fotosfera generando manchas solares, para luego penetrar en la atmósfera solar.
-    
-    \item Movimiento de cizallamiento y rotación, indicando movimientos en la superficie del Sol que deforman y retuercen las líneas del campo magnético coronal, permitiendo almacenar energía magnética libre y helicidad. Ocurre cuando se tienen dos regiones con líneas de campo magnético perpendiculares a la superficie del Sol que se desplazan en direcciones opuestas, provocando que las líneas de campo se estiren y deformen aumentando la energía magnética almacenada y por ende la tensión magnética, esta última dada por
-    \begin{equation*}
-        T=\frac{1}{\mu_{0}}(B\cdot \Delta)B.
-    \end{equation*}
-La tensión magnética busca reducir la torsión o curvatura de una línea de campo magnético, esto hace que ayude a generar estabilidad en las diferentes estructuras solares. Cuando hay demasiada tensión magnética en una línea de campo magnético, esta será inestable y se producirá una erupción como medida para liberar energía acumulada. Además, puede presentar torsión si una de las regiones presenta una rotación sobre su propio eje, lo que generaría una estructura helicoidal.
-    \end{itemize}
-\item Desencadenantes y procesos eficientes de conversión de energía, liberando la energía magnética libre y helicidad en poco tiempo.
+donde $\mathbf{A}$ es el potencial vector del campo magnético. La helicidad surge del cizallamiento y rotación entre dos \ac{Sunspots}, que incrementan la tensión magnética dada por $T=\frac{1}{\mu_{0}}(B\cdot \Delta)B$, así como la torsión al rededor del eje de rotación y por ende la inestabilidad en la línea de campo. Cuando $\mathcal{H}>0$ ($\mathcal{H}<0$) la cuerda de flujo presentará un enrollamiento dextrógiro (levógiro), pero cuando $\mathcal{H}=0$ no hay retorcimiento. 
 
-Se presentan dos tipos de mecanismos desencadenantes:
-\begin{itemize}
-    \item El primero es bajo un proceso no lineal asociado con la reconexión magnética, como lo muestran modelos como el Corte de ataduras o "The tether-cutting model", así como el modelo de Ruptura magnética o "Magnetic breakout model"
-\item El segundo es por la perdida de equilibrio debido a inestabilidades en las diferentes estructuras, inestabilidades como la de Kink o la Inestabilidad Toro (torus instability).
-\end{itemize}
-\end{itemize}
+Una aproximación analítica de la $E_{\text{libre}}$ fue desarrollada por \textcite[][]{aschwanden-2012a, aschwanden-2012b, aschwanden-2012c}, de donde se toma la Figura \ref{fig:helicidad}, en la que se puede ver la estructura del campo magnético entre dos \ac{Sunspots}, mostrando un patrón helicoidal caracteristico de núcleos magnéticos de \acp{CME}, donde las líneas en rojo y azul representan la polaridad magnética opuesta en diferentes puntos del dominio, además su enrollamiento uniforme alrededor del núcleo central ilustra la torsión vertical que almacena la energía libre.
 
-\section{Propiedades}
-
-La tasa de eventos de CMEs es de 2 a 3 CMEs por semana en el mínimo solar y de 5 a 6 CMEs por día en el máximo solar, indicando una estrecha relación con el ciclo solar, además sus tiempos de propagación desde el Sol hasta la Tierra son entre 3 y 4 días \parencite[e.g.,][]{lugaz-2017}. Una CME lleva consigo $10^{21}$ Maxwells ($10^{13}$ Wb) de flujo de campo magnético en promedio, por lo que la asocia con la reconfiguración de los campos magnéticos de la corona solar. Además, puede tener una masa entre $10^{8} - 10^{14}$ con un promedio de $3.9\times10^{11}$ kg según \textcite[e.g.,][]{vourlidas-2010}, el cual estudia una muestra de $7668$ CMEs registradas desde el 22 de febrero de 1996 hasta el 31 de julio de 2009, comprendiendo un ciclo solar completo. Por otro lado, \textcite[][]{2002ESASP.506...91V} reporta un rango de energía cinética de $10^{27}-10^{32}$ erg para una muestra de 2446 CMEs observadas por \ac{LASCO} entre 1996 y 2000, presentando una media de $4.3\times10^{30}$ erg.
-
-Se estimó un límite de $\sim 10^{36}$ erg en energía cinética para la máxima liberación de energía por medio de CMEs, lo que implica un límite en la velocidad máxima de la CME de $\sim 4000$ km s$^{-1}$ \parencite[e.g.,][]{gopalswamy2010catalog}; se sugiere que este límite se debe a la máxima energía libre disponible en las regiones solares activas. El evento con mayor energía cinética fue registrado el 28 de Octubre de 2003, siendo de tipo Halo con $1.2\times10^{33}$ erg y una velocidad de $2459$ km s$^{-1}$, además generó un \ac{DST} de $-363$ nT \parencite[e.g,][]{gopalswamy-2005}.
-
-Una CME tiene tres partes importantes \parencite[e.g.,][]{fisher-1981}, siendo el filamento la parte interna que hace alusión a una bombilla y es la parte en la que se arrastra material relativamente más frío. En seguida se presenta una cavidad central envuelta por un borde delantero en donde se arrastra material coronal y viento solar ubicado delante del campo central de la CME o Core, en donde va la nube magnética, presentando una estructura de campo magnético espiral altamente estructurada \textcite[e.g.,][]{2014swcm.book.....H}.
-
-Una característica importante de las \acp{CME}\index{Coronal Mass Ejection} es su velocidad, la cual tiene una contribución dada por la influencia electromagnética del medio y una contribución dada por la influencia de la densidad del viento solar. Las CMEs pueden alcanzar velocidades entre 300 y 1000 Km s$^{-1}$, \parencite[e.g.,][]{2014swcm.book.....H}, sin embargo \textcite[e.g.,][]{zhang-2006} reporta un rango de velocidades entre 50 y 3000 km s$^{-1}$, con una velocidad media de 350 km s$^{-1}$ fuera de la corona solar. Por su parte, \textcite[e.g.,][]{gopalswamy-2004} indica que la velocidad promedio de la población general es de $\sim 450$ km s$^{-1}$. También, \textcite[e.g.,][]{webb-2012} reporta en la Figura \ref{fig:Vmedia y mediana} las velocidades medias y medianas anuales de las CMEs desde 1996 hasta 2010, indicando una correlación con la actividad solar en el ciclo solar 23.
-
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-    \includegraphics[width=0.9\linewidth]{imag/VelocidadesvsAños.png}
-    \caption[Velocidades medias y medianas anuales de las CMEs desde 1996 hasta 2010]{Velocidades medias y medianas anuales de las CMEs de LASCO desde 1996 hasta 2010 \parencite[][]{webb-2012}}
-    \label{fig:Vmedia y mediana}
+    \includegraphics[width=0.5\linewidth]{imag/helicidad cuerda de flujo.png}
+    \caption[Topología del campo magnético helicoidal en una cuerda de flujo]{Estructura del campo magnético entre dos \ac{Sunspots}, mostrando un patrón helicoidal caracteristico de núcleos magnéticos de \acp{CME}. Las líneas en rojo y azul representan la polaridad magnética opuesta en diferentes puntos del dominio. Su enrollamiento uniforme alrededor del núcleo central ilustra la torsión vertical que almacena la energía libre. \textit{Nota:} Tomado de \textcite[][]{aschwanden-2012c}}
+    \label{fig:helicidad}
 \end{figure}
 
-La velocidad depende de la magnitud de la aceleración y su duración, la cual va desde los 6 minutos hasta los 1200 minutos, con una media de 54 minutos y un promedio de 180 minutos. Mientras que la magnitud de la aceleración está centrada en cero, con un rango de $\pm 30$ m s$^{-2}$. También, se encontró que la aceleración principal media de una muestra de 50 \acp{CME}\index{Coronal Mass Ejection} es de 170 m s$^{-2}$, con un promedio de 330.9 m s$^{-2}$, un valor máximo de 4464.9 m s$^{-2}$ y un valor mínimo de 2.8 m s$^{-2}$. Por otro lado, la aceleración residual tiene una media de 3.1 m s$^{-2}$ y un promedio de 1 m s$^{-2}$, además tiene un máximo de 52 m s$^{-2}$ y un mínimo de $-131$ m s$^{-2}$.
+\section{Propiedades y morfología}
 
-Otras propiedades de las \acp{CME}\index{Coronal Mass Ejection} son su tamaño, su campo magnético, su tasa de expansión, su dirección de propagación, su tiempo de llegada y la probabilidad de impacto con la Tierra. 
-%profundizar en estas propiedades.
+La tasa de ocurrencia de CMEs es de 2 a 3 CMEs por semana en el mínimo solar y de 5 a 6 CMEs por día en el máximo solar. Pueden llegar a presentar tiempos de propagación desde el Sol hasta la Tierra  de $\sim3$ y 4 días \parencite[e.g.,][]{lugaz-2017}. Por otro lado, una CME lleva consigo $\sim10^{21}$ Maxwells ($\sim10^{13}$ Wb) de flujo magnético en promedio, así como una masa de $\sim10^{8} - 10^{14}$ kg con un promedio de $\sim3.9\times10^{11}$ kg \parencite[e.g.,][]{vourlidas-2010}. Además, llevan una energía cinética de $\sim10^{27}-10^{32}$ erg con una media de $\sim4.3\times10^{30}$ erg \parencite[][]{2002ESASP.506...91V}, sin embargo, se estima un límite de $\sim 10^{36}$ erg en energía cinética para la máxima liberación de energía, representando una velocidad de $\sim 4000$ km s$^{-1}$ \parencite[e.g.,][]{gopalswamy2010catalog}.
 
-La tasa de expansión se toma como esférica debido a la convección isotrópica con el viento solar, según \textcite[][]{riley-2004} un conjunto de puntos ubicados de forma esférica mantendrán su latitud pero variarán su distancia al centro a través de la forma: $\Delta R=v_{R}\Delta t$; $\Delta R$ es la variación de la componente radial del vector posición del punto, $v_R$ es la velocidad del viento solar y $\Delta t$ es el cambio en el tiempo. También, hay otra contribución a la expansión debido a un gradiente de presión uniforme entre la CME y el viento solar, donde la presión en el medio circundante es menor que la presión de la CME, de tal forma que se expande y no colapsa, teniendo $-\Delta P$. Entonces, se tiene la Figura \ref{fig:expansión} que representa estas dos contricuiones a la expansión.
+Las CMEs tienen una tasa de expansión esférica debido a la convección isotrópica con el viento solar, siguiendo la forma $\Delta R=v_{R}\Delta t$ \parencite[][]{riley-2004}, donde $\Delta R$ es la variación radial del vector posición, $v_R$ es la velocidad del \ac{SW} y $\Delta t$ es el cambio en el tiempo. También, hay una expansión debido a un gradiente de presión uniforme ($\Delta P$) entre la \ac{CME} y el \ac{SW}. En general, la expansión de la CME se puede representar como se muestra en la Figura \ref{fig:expansión}, donde los circulos concentricos ilustran la CME y las flechas la dirección de expansión, la cual es radial con respecto al Sol (a) y al centro de la CME (b). Al considerar ambas expansiones, la CME presentará una deformación que la aplasta y expande, paralela y perpendicularmente a su dirección de propagación, respectivamente \parencite[e.g.,][]{odstrcil-2002}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
     \includegraphics[width=0.9\linewidth]{imag/expansión.png}
-    \caption[Evolución morfológica de la CME debida a efectos convectivos y gradientes de presión]{Efectos cinematicos en la evolución de la CME. En a) se muestra la evolución convectiva o expansión esférica; y en b) se muestra la expansión de la CME causada por un gradiente de presión entre ella y el viento solar ambiental \parencite[][]{riley-2004}}
+    \caption[Evolución morfológica de la CME debida a efectos convectivos y gradientes de presión]{Efectos cinematicos en la evolución de la CME. En a) se muestra la evolución convectiva o expansión desde el Sol; y en b) se muestra la expansión desde el centro de la CME, causada por un gradiente de presión entre ella y el viento solar. \textit{Nota:} Tomado de \textcite[][]{riley-2004}}
     \label{fig:expansión}
 \end{figure}
 
-Entonces, al considerar ambas contribuciones en la expansión de la CME se puede llegar a encontrar algo similar a lo mostrado por la simulación MHD de \textcite[][]{odstrcil-2002}, la cual se muestra en la Figura \ref{fig:expansiónMHD}, en donde se puede ver como la CME presenta una deformación que la aplasta en la dirección de su propagación y la expande perpendicularmente a su dirección de propagación. El panel izquierdo de la Figura \ref{fig:expansiónMHD} muestra la evolución de la CME 42 horas después de su generación en el origen.
-\begin{figure}[H]
+Las partes de una CME se ilustran en la Figura \ref{fig:partesCME}, comprendiendo (\textit{i}) el filamento: la parte interna que arrastra material relativamente más frío; seguida por (\textit{ii}) una cavidad central de baja densidad envuelta por (\textit{iii}) un borde delantero en donde se arrastra material coronal y viento solar, perturbando el \ac{IMF}, gracias al campo magnético altamente estructurado presente en esa zona \parencite[e.g.,][]{2014swcm.book.....H, fisher-1981, kilpua-2017, vourlidas-2012}.
+
+\begin{figure}[h]
 \centering
-    \includegraphics[width=1\linewidth]{imag/expansión MHD.png}
-    \caption[Resultados de velocidad, campo magnético y densidad del viento solar generados por la simulación hecha por \textcite{odstrcil-2002}]{Propagación de una CME en la heliosfera, en donde la escala de colores muestra el mapa de velocidades, la densidad del plasma se muestra en relación a la densidad de líneas negras y el campo magnetico en relación a la densidad de líneas rojas. Se muestra la evolución de la CME en 4 tiempos: 292, 304, 320 y 350 horas después de empezar a correr la simulación \parencite[][]{odstrcil-2002}}
-    \label{fig:expansiónMHD}
+    \includegraphics[width=0.88\linewidth]{imag/Partes CME.png}
+    \caption[Partes de una CME junto con su complejidad magnética]{Estructura interna de una CME. Se muestra la parte más interna: el filamento, seguido por una cavidad y un frente brillante que arrastra material de la corona y del viento solar. Además, se muestran líneas de campo magnético describiendo el IMF y la complejidad magnética interna de la CME.  \textit{Nota:} Figura de elaboración propia.}
+    \label{fig:partesCME}
 \end{figure}
 
 
-Por otro lado, las propiedades de las \acp{CME}\index{Coronal Mass Ejection} se pueden ver influenciadas por la interacción con el \ac{SW} y con el \ac{IMF}. Una primera consecuencia de esta interacción es la aceleración de CMEs lentas y la desaceleración de las CMEs rápidas, homogeneizando la velocidad en el viento solar \parencite[e.g.,][]{yashiro-2004}. \textcite[][]{sheeley-1999} sugiere la existencia de dos tipos de dinámica de CMEs: las graduales, que son lentas ($400–600$ km s$^{-1}$)y están asociadas con prominencias; y las impulsivas, más rápidas ($>750$ km s$^{-1}$) y están asociadas con \ac{SF}.
+\section{Propagación}
+Las CMEs pueden alcanzar velocidades entre $\sim300-1000$ km s$^{-1}$, pero con casos límites entre $\sim50-3000$ km s$^{-1}$, con una velocidad media de $\sim350-450$ km s$^{-1}$ \parencite[e.g.,][]{2014swcm.book.....H, gopalswamy-2004, webb-2012}. Por otra parte, la aceleración las \acp{CME} presenta tres etapas, representadas en la Figura \ref{fig:perfilaceleración}: (\textit{i}) iniciación con aceleración casi nula, seguida de una fase de (\textit{ii}) aceleración. Finalmente, una etapa de (\textit{iii}) propagación en donde la aceleración disminuye hasta convertirse en residual debido a la interacción con el \ac{SW} \parencite[e.g.][]{gallagher-2003, zhang-2006, zhang-2001, singh-2025, mayank-2023}.
 
-La aceleración de propagación de las \acp{CME}\index{Coronal Mass Ejection} se ha estudiado de forma estadística, por lo que \textcite[e.g.][]{gallagher-2003, zhang-2006, zhang-2001} describen la cinemática de una CME a partir de observaciones de \ac{TRACE}, el \ac{UVCS} y el \ac{LASCO}. Se reporta el perfil de la aceleración de una CME como el mostrado en la Figura \ref{fig:perfilaceleración}, donde se presenta una primera etapa de (i) \textit{iniciación} con aceleración casi nula, luego una etapa de (ii) \textit{aceleración} dependiente del tiempo puesto que la velocidad no es lineal con respecto a la altura, seguida de una etapa de (iii) \textit{propagación} en donde la aceleración se convierte en residual, disminuyendo hasta generar una velocidad casi constante de propagación. \textcite[][]{bein-2011} estudia una población de 95 CMEs y encuentra rangos de velocidad máxima, aceleración máxima y su duración, así como un rango para la altura inicial de las CMEs y la altura en la que ocurren la velocidad y aceleración máxima; lo anterior reportado en la Tabla \ref{tab:CME_params}. Además, \textcite[][]{bein-2011} encuentra que la aceleración máxima presenta una correlación negativa con el tiempo de su duración, por lo que a mayor aceleración menor será el tiempo en el que actúe.
+La aceleración principal se encuentra en un rango de $2.8-4464.9$ m s$^{-2}$, con una mediana (promedio) de $170.1$ m s$^{-2}$ ($330.9$ m s$^{-2}$) y una duración en un rango de $\sim6-1200$ minutos, con una mediana (promedio) de $54$ minutos ($180$ minutos); mientras que la aceleración residual está en un rango de $-131.0-52.0$ m s$^{-2}$, con una mediana (promedio) de $3.1$ m s$^{-2}$ ($0.9$ m s$^{-2}$), \parencite[][]{zhang-2006}. Sin embargo, se reporta una velocidad máxima que oscila entre $\sim56-1279$ km s$^{-1}$ a una altura entre $\sim0.17-9.5$ $R_\odot$, bajo una aceleración máxima de $\sim19-6781$ m s$^{-2}$ que ocurre a $\sim0.04-2.90$ $R_\odot$, con una duración entre $\sim4.5-516$ minutos, teniendo que a mayor aceleración el tiempo de acción será menor \parencite[e.g.,][]{bein-2011}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-    \includegraphics[width=0.9\linewidth]{imag/perfil de aceleración.png}
-    \caption[Gráfica de velocidad de propagación de la CME en función del tiempo, con sus diferentes etapas]{Perfil de aceleración de una CME y de su Flare asociada, mostrados como sus velocidades en función del tiempo. Se muestran las tres fases de la dinámica de la CME y de la Flare \parencite[e.g.,][]{zhang-2006}.}
+    \includegraphics[width=0.95\linewidth]{imag/Perfil_aceleración_CME.png}
+    \caption[Perfil de aceleración de una CME]{Etapas de aceleración a lo largo de la propagación de una CME. Iniciación (azul), aceleración (rojo) y propagación (amarillo). \textit{Nota:} Figura de elaboración propia.}
     \label{fig:perfilaceleración}
-\end{figure}
+\end{figure} 
 
+Un ejemplo fue el estudiado por \textcite[][]{gallagher-2003}, mostrado en la Figura \ref{fig:ejemploperfilaceleración}, observado el 21 de abril de 2002 por \ac{TRACE}, \ac{UVCS} y \ac{LASCO}. El panel (a) muestra el perfil de altura observado, alcanzando 
+$\sim10^{4}$ Mm tras $\sim4$ horas de propagación. El panel (b) presenta la compilación de observaciones y derivaciones del perfil de velocidad de la CME, donde se evidencia un incremento abrupto de $\sim40$ km s$^{-1}$ a $\sim2000$ km s$^{-1}$ en apenas $\sim30$ minutos. Además, el panel (d) registra el flujo de rayos X asociado a la \ac{SF} relacionada con la CME, confirmando que se trata de uno de los eventos más energéticos al presentar un flujo mayor a $10^{-4}$ W$/$ m$^{-2}$.
 
-\begin{table}[ht]
-\centering
-\caption{Parámetros Estadísticos de CME Derivados}
-\label{tab:CME_params}
-\begin{tabular}{lccccc}
-\toprule
-Parámetro & Mínimo & Máximo & Media Aritmética & Mediana \\
-\midrule
-$v_{\text{max}}$ (km s$^{-1}$) & 56 & 1279 & 526 & 460 \\
-$a_{\text{max}}$ (m s$^{-2}$) & 19 & 6781 & 757 & 414 \\
-$t_{\text{acc}}$ (minuto) & 4.5 & 516 & 44.6 & 29.0 \\
-$h_0$ ($R_\odot$) & 0.01 & 1.76 & 0.24 & 0.14 \\
-$h_{\text{vmax}}$ ($R_\odot$) & 0.17 & 9.5 & 1.56 & 0.78 \\
-$h_{\text{amax}}$ ($R_\odot$) & 0.04 & 2.90 & 0.53 & 0.26 \\
-\bottomrule
-\end{tabular}\par
-\vspace{2mm}
-\footnotesize
-\begin{minipage}{\textwidth}
-\justifying
-\textit{Notas.} Los parámetros son: Velocidad máxima $v_{\text{max}}$, aceleración máxima $a_{\text{max}}$, duración de la fase de aceleración $t_{\text{acc}}$, altura $h_0$ donde el borde frontal de la CME pudo identificarse por primera vez, altura en la velocidad máxima $h_{\text{vmax}}$, y altura en la aceleración máxima $h_{\text{amax}}$. El valor mínimo, valor máximo, media aritmética y mediana se derivan del conjunto completo de 95 eventos \parencite[][]{bein-2011}.
-\end{minipage}
-\end{table}
-
-\textcite[][]{gallagher-2003} estudia el evento de CME ocurrido el 21 de abril de 2002, generado en NOAA 9906 a las 00:43 UT; se observó su iniciación y propagación. Tomando como punto de referencia su frente, se generó la gráfica mostrada en la Figura \ref{fig:ejemploperfilaceleración}.
-
-\begin{figure}[H]
-centering
-    \includegraphics[width=0.9\linewidth]{imag/ejemploperfilaceleración.png}
-    \caption[Gráficas experimentales de altura, velocidad de propagación y aceleración de la CME en función del tiempo]{Perfil de altura, velocidad y aceleración de la CME del 21 de abril de 2002 a las 00:43 UT, en función del tiempo. Así mismo, el flujo de rayos X debido a su Flare asociada, en función del tiempo. Los círculos rellenos son valores derivados de la gráfica de altura vs tiempo, los demás simbolos señalan las observaciones del TRACE, UVCS y del LASCO. La linea continua indica la curva con el mejor ajuste para los datos. \parencite[][]{gallagher-2003}.}
-    \label{fig:ejemploperfilaceleración}
-\end{figure}
-
-En la Figura \ref{fig:ejemploperfilaceleración} se muestra el perfil de velocidad esperado, coincidiendo con la Figura \ref{fig:perfilaceleración}. Además, se puede identificar las fases de la cinemática de la CME, quedando en evidencia el comportamiento de la fase de propagación, en donde la aceleración se reduce y la velocidad se mantiene casi constante, después de presentar la fase de iniciación y aceleración. Además, \textcite[][]{gallagher-2003} reporta el perfil de la aceleración del frente de la CME a través de la función 
-
+El perfil de aceleración se muestra en el panel (c), del cual se identifican las etapas de aceleración descritas en la Figura \ref{fig:perfilaceleración}, alcanzando una aceleración máxima de $\sim1500$ m s$^{-2}$ en $\sim10$ minutos, evidenciando la naturaleza explosiva del evento. Por lo tanto, la aceleración sigue la función
 \begin{equation}
 a(t)=\left[ \frac{1}{a_r\exp(\frac{t}{\tau_r})}+\frac{1}{a_d\exp(\frac{-t}{\tau_d})}\right]^{-1},
 \label{ecuaceleración}
 \end{equation}
+donde $a_r$ y $a_d$ son las aceleraciones iniciales pico y de decaimiento, respectivamente, mientras que $\tau_r$ y $\tau_d$ son los tiempos que tarda la aceleración en aumentar o disminuir en una potencia de $e$ su aceleración inicial. En general, estos parámetros permiten ajustar la curva a lo observado.
 
-donde $a_r$ y $a_d$ son las aceleraciones iniciales pico (rise) y de decaimiento (decay), respectivamente, mientras que los tiempos para las fases de aumento ($\tau_r$) y decaimiento ($\tau_d$) de la aceleración indican los tiempos que tarda la aceleración en aumentar o disminuir en un factor de $e$ ($\approx 2.718$).
+\begin{figure}[h]
+\centering
+    \includegraphics[width=0.86\linewidth]{imag/ejemploperfilaceleración.png}
+    \caption[Perfiles de altura, velocidad y aceleración de la CME del 21 de abril de 2002]{Perfil de altura (a), velocidad (b) y aceleración (c) de la CME del 21 de abril de 2002 a las 00:43 UT. También se muestra el flujo de rayos X (d) debido a su \ac{SF} asociada. Los simbolos señalan las observaciones del TRACE (cruz), UVCS (rombo) y del LASCO (triángulo para C2 y cuadrado para C3); además, los círculos rellenos son valores derivados del perfil de altura. La linea continua indica la curva con el mejor ajuste. \textit{Nota:} Tomado de \textcite[][]{gallagher-2003}.}
+    \label{fig:ejemploperfilaceleración}
+\end{figure}
 
 \section{Clasificación}
-Una forma de clasificar las CMEs es a través de su lugar de origen en la superficie solar, así como del intervalo de tiempo que hay entre dos \acp{CME}\index{Coronal Mass Ejection} consecutivas, por lo que se encuentran las erupciones simultáneas, homólogas y gemelas. Las CMEs simultáneas se les considera a aquellas que ocurren en diferentes regiones activas del Sol pero aproximadamente al mismo tiempo, además de ello tienen propiedades similares. En el artículo \textcite[][]{Pevtsov_2000} se realizó un estudio estadístico basado en datos de octubre de 1991 a diciembre de 1998, en el que se reporta que un tercio de todas las \acp{AR} presentan bucles transecuatoriales, lo que sugiere que las regiones activas de la superficie solar pueden estar interconectadas magnéticamente. Aunque se encuentren en hemisferios opuestos del Sol se pueden presentar inestabilidades que se propaguen entre regiones activas. 
 
-Las CMEs homólogas se clasifican como las ocurridas consecutivamente y ocurren en unas misma región activa pero con una diferencia de tiempo, que según \textcite[][~p.10]{lugaz-2017} es de al rededor de 15 horas. Además, se mencionan las \acp{CME}\index{Coronal Mass Ejection} cuasi-homólogas que tienen un intervalo de ocurrencia de 15 a 18 horas entre la primera y la segunda CME. Además, hay casos en los que se registraron \acp{CME}\index{Coronal Mass Ejection} gemelas, es decir, se produjeron en el mismo lugar pero con minutos de diferencia \parencite[e.g.,][]{lugaz-2017}.
+Una clasificación de \acp{CME} se basa en su origen en la superficie solar y el tiempo de retraso entre eventos consecutivos, distinguiéndose entre simultáneas, 
+homólogas y gemelas. Las \acp{CME} simultáneas ocurren en diferentes regiones activas pero aproximadamente al mismo tiempo, presentando propiedades similares, lo que sugiere que las \acp{AR} de la superficie solar pueden estar interconectadas magnéticamente \parencite[e.g.,][]{Pevtsov_2000}, permitiendo que inestabilidades se propaguen entre ellas. Las \acp{CME} homólogas, por su parte, ocurren consecutivamente en una misma \ac{AR} con tiempos de retraso de $\sim15$ horas, propagándose en la misma dirección lo que favorece su interacción \parencite[][p.~10]{lugaz-2017, lugaz-2005}. Las CMEs gemelas se produjeron en el mismo lugar pero con minutos de diferencia, por lo que tienen una altísima probabilidad de interactuar rápidamente.
 
+Otra clasificación se establece a partir del tamaño aparente de la \ac{CME}, medido mediante su amplitud angular observada en los coronografos, teniendo: estrechas ($<20^{\circ}$), normales ($20^{\circ}-120^{\circ}$), de Halo Parcial ($120^{\circ}-359^{\circ}$) y de Halo Total ($360^{\circ}$), siendo estas últimas de especial interés por implicar una propagación hacia la Tierra o en dirección opuesta \parencite[e.g.,][]{howard-1982, lamy-2019, webb-2012}. Además, las \acp{CME} pueden clasificarse por su velocidad en lentas, con velocidades menores a la del viento solar; y rápidas o super-Alfvénicas, capaces de generar ondas de choque. Por otro lado, las \acp{CME} se clasifican por su geoefectividad mediante el índice \ac{DST} -medido en nT- que cuantifica las perturbaciones en la corriente anular (Ring Current) de la magnetosfera terrestre. Según el nivel de energización de dicha corriente, las tormentas geomagnéticas -abordadas en detalle más adelante- asociadas se clasifican en débiles (0 a $-30$ nT), leves ($-30$ a $-50$ nT), moderadas ($-50$ a $-100$ nT), intensas ($-100$ a $-200$ nT) y extremas ($<$ $-200$ nT), \parencite[e.g.,][]{nhess-2018-92}. Un caso particular fue el evento Carrington (1859), con un \ac{DST} de $-1600$ a $-850$ nT \parencite[e.g.,][]{2014swcm.book.....H, carrington-1859, hodgson-1859, cliver-1994}. En general, valores más negativos de \ac{DST} indican tormentas geomagnéticas de mayor intensidad.
 
-Las regiones activas presentan una rotación aproximada de $3.5\degree$ en 6 horas, lo que llevaría a creer que las erupciones homólogas no ocurrirían en el intervalo de tiempo que hay, ya que la región activa se encuentra desplazada después de esas 6 horas. Pero debido a la escala espacial de las \acp{CME}\index{Coronal Mass Ejection} la probabilidad de interacción aumenta, debido a que se puede considerar que las dos CMEs se propagan en la misma dirección \parencite[e.g.,][]{lugaz-2005}.
+\section{Comportamiento en el medio interplanetario e influencia en el clima espacil}
 
-Las CMEs gemelas ...
-%profundizar en sus características y demás
+Las propiedades de las \acp{CME} son influenciadas por la interacción con el \ac{SW} y con el \ac{IMF}. Las CMEs lentas (rápidas), con velocidades de $\sim400–600$ km s$^{-1}$ ($>750$ km s$^{-1}$) y asociadas con prominencias (\ac{SF}), se ven aceleradas (desaceleradas) durante su interacción con el \ac{SW}, homogeneizandose al rededor de la velocidad del viento solar \parencite[e.g.,][]{yashiro-2004, sheeley-1999, mayank-2023}. Las \acp{CME} pueden además sufrir deflexiones en su trayectoria, moduladas por el \ac{IMF}, alejándose de regiones de campo magnético abierto como los \acp{CH}, con una tasa de deflexión proporcional al gradiente de la densidad de energía magnética \parencite[e.g.,][]{gopalswamy-2009, gui-2011}. También, una CME puede presentar rotación, impulsada por la desconexión de un punto de anclaje de la cuerda de flujo en las etapas iniciales de la erupción \parencite[e.g.,][]{vourlidas-2011}, o bien por asimetrías en el campo magnético heliosférico \parencite[e.g.,][]{yurchyshyn-2009}. En general, la interacción con el \ac{SW} modula propiedades clave de la \ac{CME} como su velocidad, trayectoria, morfología y tiempo de llegada a la Tierra; de manera análoga, la interacción entre \acp{CME} constituye un factor igualmente determinante, abordado en detalle más adelante.
 
-\section{Comportamiento en el medio interplanetario}
-Las \acp{CME}\index{Coronal Mass Ejection} en el medio interplanetario generan una modificación drástica de las características del viento solar y por ende del clima espacial, al arrastrar lineas de campo magnético a través de las superficies de Alfvén, las cuales son superficies tridimensionales en donde la velocidad del flujo de plasma es igual a la velocidad de Alfvén, ecuación \eqref{Valfvenica}. 
+En el medio interplanetario, la dinámica del plasma está gobernada por la relación entre la presión térmica y la presión magnética, cuantificada a través del parámetro $\beta = P_{\text{térmica}}/P_B$, donde $P_B = B^2/2\mu_0$. A diferencia de la corona solar, donde $\beta \ll 1$ y el campo magnético se encuentra "congelado", en el viento solar a $\sim1$ AU predomina la presión térmica ($\beta \gg 1$), permitiendo que el plasma arrastre y deforme las líneas de campo magnético interplanetario. Otro parámetro para medir la intensidad de las perturbaciones geomagnéticas es el índice $K_p$, el cual cuantifica la variación del campo magnético terrestre en intervalos de 3 horas al rededor de todo el mundo, causada principalmente por el viento solar y las \acp{CME}. Sus valores clasifican el estado geomagnético desde muy tranquilo ($0$-$1$) y tranquilo ($2$-$3$), pasando por activo ($4$) y tormenta menor ($5$), hasta tormentas moderada ($6$), fuerte ($7$), severa ($8$) y extrema ($9$) \parencite[e.g.,][]{nhess-2018-92}.
 
-Diferentes estudios han utilizado cuerdas de flujo para estudiar el comportamiendo de una CME en el viento solar, por ejemplo \textcite[][]{singh-2025} indica un modelo que se basa en una cuerda de flujo que se propaga desde el Sol, llegando a concluir que el viento solar ambiente es el factor dominante que controla su velocidad y evolución cinemática en la heliosfera interna. 
+La influencia de una \ac{CME} sobre la magnetosfera terrestre puede prolongarse durante varias horas, dado que tarda $\sim1$ día en atravesar la Tierra \parencite[e.g.,][]{lugaz-2017}. No obstante, el tránsito de una \ac{CME} resultante de una interacción suele ser más prolongado, representando un evento de mayor impacto. Por lo tanto, la interacción entre una \ac{CME} y la magnetosfera terrestre puede inducir la aparición de auroras, manifestación visible asociada a las tormentas geomagnéticas, resultado de la inyección de energía por parte de la \ac{CME}. Estas tormentas resultan de la distorsión del campo magnético planetario, causada por la reconexión entre el campo geomagnético (sur-norte) y el componente norte-sur de la \ac{ICME}, lo que incrementa las líneas de campo abiertas y facilita el ingreso de plasma a la atmósfera terrestre. Por ende, la componente sur del campo magnético en las \acp{ICME} interplanetarias, cuantificada a través del índice \ac{DST}, es la principal responsable de la generación de tormentas geomagnéticas \parencite[e.g.,][]{wilson-1987, 2014swcm.book.....H}.
 
-Otro trabajo es el de \textcite[][]{mayank-2023}, en el que se utiliza el modelo de simulación SWASTi-CME que considera la interacción de una CME con el viento solar y con otras CMEs, dando información sobre sus velocidades así como de su comportamiento a lo largo de su propagación y expansión en el medio interplanetario. Se siguen parámetros del viento solar rápido en la simulación, tales como la velocidad de $v_{fsw}=650$ km s$^{-1}$, con una densidad de $n_{fsw}=200$ cm$^{-3}$ y un campo magnético de $B_{fsw}=300$ nT. Además, menciona los parámetros utilizados para simular la \ac{CME}\index{Coronal Mass Ejection}, la cual lleva una densidad  de $\rho_{CME}=10^{-18}$ kg m$^{-3}$, una temperatura de $T_{CME}=0.8$ MegaKelvin y un flujo de campo magnético de $\phi_{Mag}=10^{12}$ Wb. También analiza el comportamiento de CMEs consecutivas simuladas con base en parámetros medidos experimentalmente en eventos específicos, por lo que muestra cómo sería el comportamiento de la interacción entre CMEs. En el mismo paper se menciona que la velocidad del viento solar influye en el comportamiento de la densidad de la CME y se estabilizará más rápido a medida que la irregularidad del viento solar aumente.
-
-Además, \textcite[][]{mayank-2023} señala que cuando una CME se propaga  expandiéndose en un medio no uniforme y denso, su volumen resultante será menor en comparación al caso en el que se propaga en un medio menos denso y uniforme. En consecuencia, entre más irregular sea el viento solar, más rápido la CME llegará a su estado estacionario.
-
-También, una \ac{CME}\index{Coronal Mass Ejection} puede enfrentarse a una fuerza de arrastre que bien puede ser negativa o positiva \textcite[][]{mayank-2023}. La negativa es debida a que la CME empuja el viento solar presente en su camino, mientras que la positiva es debida a una fuerza de atracción por parte del viento solar sobre el frente de la CME, consecuencia de la diferencia de velocidades entre la CME y el viento solar. Por lo que, la fuerza de arrastre afecta la distribución de las propiedades de la CME, tales como su velocidad, su densidad, así como su tiempo de llegada a la Tierra, además de su morfología y dinámica.
-
-Adicionalmete, las CMEs pueden presenar deflexión, interacción y rotación en el medio interplanetario. La deflexión consiste en una desviación sistemática en la propagación de la CME, siguiendo el gradiente de la densidad de energía magnética. De este modo, la deflexión está controlada por el campo magnético de fondo de tal forma que las CMEs se alejan de regiones con campo magnético abierto como el generado por los \acp{CH}, como lo reporta \textcite[e.g.,][]{gopalswamy-2009}. La tasa de deflexión está correlacionada positivamente con la fuerza del gradiente de densidad de energía magnética, pero con una anticorrelación débil con la velocidad de la CME \parencite[e.g.,][]{gui-2011}. En consecuencia, la geoefectividad de la CME puede aumentar si la deflexión es en dirección a la línea Sol-Tierra o disminuir si es en dirección opuesta. La interacción entre CMEs se tratará con más detalle en la Sección \ref{InteracciónCMECME}.
-
-La rotación de la CME puede estar impulsada por la desconexión de uno de los puntos de apoyo de la cuerda de flujo al principio de la erupción \parencite[e.g,][]{vourlidas-2011}, aunque también se puede dar por la presencia de un campo magnético heliosférico \parencite[e.g.,][]{yurchyshyn-2009}.
+%==================================================================
 
 \section{Detección y observación de CMEs}
-La observación y estudio de estos fenómenos es gracias a mediciones in situ, observaciones remotas y a simulaciones numéricas. Las \acp{CME}\index{Coronal Mass Ejection} observadas se han recopilado en catálogos de CMEs tales como el \ac{CDAW} o el \ac{HELCATS}.
-El \ac{SMEI} fue lanzado en 2003, siendo el primero de una nueva clase de instrumentos llamados Generadores de imágenes heliosféricas. El \ac{SMEI} puede observar las diferentes etapas de evolución de una CME, desde su origen hasta su propagación a 1 AU.
 
-%profundizar en estos instrumentos y misiones
-SOLAR PROBE PLUS
-SOHO con el intrumento CDS
-HINODE con el instrumento EIS
-SDO con el instrumento EVE
+Con la creación del coronógrafo en 1931 por Bernard Lyot, fue posible observar directamente la corona solar y las \acp{CME} \parencite[e.g.,][]{hansen-1971, tousey1973solar, 2014swcm.book.....H, FotógrafiaCME-2021, 1879MmRAS..41..483.}, dando lugar al desarrollo de catálogos como el \ac{CDAW} y el \ac{HELCATS}, que recopilan sistemáticamente estos eventos. En la Figura \ref{fig:ejemploCME} se muestra uno de los eventos con mayor energía cinética, fue registrado el 28 de Octubre de 2003 por el coronógrafo \ac{LASCO}-C3, donde se representa el frente de la eyección (blanco) y la cavidad que deja detrás conforme se aleja del Sol (negro); caracterizada como de tipo Halo con $1.2\times10^{33}$ erg y una velocidad de $2459$ km s$^{-1}$, generando un \ac{DST} de $-363$ nT \parencite[e.g,][]{gopalswamy-2005}. Estas observaciones remotas se complementan con mediciones in situ realizadas por naves espaciales, como el \ac{SMEI}, lanzado en 2003 y pionero de una nueva clase de instrumentos denominados generadores de imágenes heliosféricas, capaz de observar las distintas etapas de evolución de una \ac{CME}; así como con instrumentos a bordo de otras misiones espaciales. 
 
-\textcite[][]{mayank-2023} muestra una simulación de una \ac{CME}\index{Coronal Mass Ejection} cuando interactúa con el viento solar, evidenciando el impacto de las condiciones del viento solar en la propagación y evolución de la CME, siguiendo parámetros dados por \textcite[][]{mayank-2022}. Utiliza dos geometrías, una es un cono elíptico con origen el el Sol y la otra es a través de una linea de flujo magnético. Para el cono elíptico, se aproxima la forma de una CME como un tubo hueco que se expande, compuesto por dos conos truncados unidos por una sección central cilíndrica. Para una cuerda de flujo, se utiliza el modelo FRi3D para modelar la cuerda, la cual incorpora el campo magnético tridimensional relacionado a la CME siguiento la forma de un croissant.
+%hablar del LASCO y sus coronografos.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-    \includegraphics[width=1\linewidth]{imag/SWASTI_CME.png}
-    \caption[Resultados del modelo usado por \textcite{mayank-2023} en la cinemática de la CME, comparado con datos experimentales]{Imágenes de los coronografos LASCO-C2 (a1) y C3 (b1), del 18 de junio de 2015 en CR2165. Las imágenes a2 y b2 presentan los resultados de utilizar el modelo de cono elíptico (en azul), sobre la misma imagen a1 y b1. En el panel derecho se muestra la evolución de la altura ($h$), velocidad ($V$) y aceleración ($a$) de la CME en función del tiempo (puntos negros), además del ancho ($R$), la velocidad de expansión ($v_e$) y la aceleración de expansión ($a_e$) en función del tiempo \parencite[][]{mayank-2023}.}
-    \label{fig:SWASTi-CME compa}
+    \includegraphics[width=0.7\linewidth]{imag/Imagen LASCO.png}
+    \caption[Observación del evento CME del 28 de Octubre de 2003 por parte del LASCO-C3]{\ac{CME} de Halo observada por el coronógrafo C3 de \ac{LASCO}/\ac{SOHO} el 28 de octubre de 2003. El círculo blanco indica la posición del disco solar, ocultado por el ocultador del coronógrafo. \textit{Nota:} Tomado del \href{https://cdaw.gsfc.nasa.gov/CME_list/daily_movies/2003/10/28/}{CDAW}.}
+    \label{fig:ejemploCME}
 \end{figure}
 
-De la Figura \ref{fig:SWASTi-CME compa} se puede ver que la velocidad de expansión ($V_e$) se mantiene al rededor de los $400$ km s$^{-1}$ durante toda la propagación, además se muestra que la aceleración de expansión disminuye una vez se haya superado la etapa de aceleración de la CME. Ahora bien, en la Figura \ref{fig:ResultadoscomparadosSWASTI} se muestran los datos medidos in situ comparados con los datos recopilados por la simulación de una CME, evidenciando que la evolución de una CME a una distancia de 1 AU coincide en buena medida con los modelos utilizados.
-\begin{figure}[H]
-\centering
-    \includegraphics[width=1\linewidth]{imag/ResultadoscomparadosSWASTI.png}
-    \caption[Gráficas de velocidad radial, densidad, temperatura y campo magnético radial tomados por OMNI comparados con la simualción de \textcite{mayank-2023}]{Gráficas de velocidad radial ($V_R$), densidad, temperatura y campo magnético radial ($B_r$), tomados de OMNI (linea naranja) y de las simulaciones: Cono elíptico (linea verde) y Cuerda de flujo (linea azul). También, la línea punteada indica la llegada de la CME, que en el paper llaman CME6. \parencite[][]{mayank-2023}}
-    \label{fig:ResultadoscomparadosSWASTI}
-\end{figure}
+Por un lado está la \ac{PSP}, que cuenta con cuatro suites de instrumentos: \ac{SWEAP} y \ac{FIELDS}, que miden in situ la densidad, velocidad y temperatura del viento solar, y los campos eléctrico y magnético, respectivamente; \ac{ISOIS} partículas energéticas; y \ac{WISPR}, el único instrumento de imágenes a bordo. Por otro lado, el \ac{SOHO} incluye el \ac{CDS}, que mide la \ac{EUV} para determinar temperatura, densidad y flujos de plasma en la corona baja. También, Hinode cuenta con el \ac{EIS}, que mide densidad electrónica, temperatura y velocidades Doppler del plasma coronal mediante espectroscopía de líneas de emisión. Además, el \ac{SDO} incluye el \ac{EVE}, que mide la irradiancia espectral solar en \ac{EUV} con alta cadencia temporal, permitiendo monitorear la variabilidad de la emisión solar asociada a fenómenos eruptivos. Adisionalmente, las simulaciones numéricas permiten estudiar la evolución de interacciones de \ac{CME}-\ac{SW} y \ac{CME}-\ac{CME}, así como su impacto en el clima espacial \parencite[e.g.,][]{mayank-2023, mayank-2022, lugaz-2017}. 
 
-
-Otro trabajo de simulación de interacción de \acp{CME}\index{Coronal Mass Ejection} fue realizado por \textcite[][]{lugaz-2017}, en donde simula la interacción de dos CMEs que en principio son idénticas, llevando velocidades iguales. Entonces, el CME secundario alcanza y sobre pasa al primer CME producido, debido a la interacción con el viento solar, el cual brinda una desaceleración al primer CME y una aceleración al segundo. Esta influencia en las aceleraciones es debida a los gradientes de presión que hay justo detrás del primer CME y al frente del segundo CME.
-
-Se han observado CMEs de halo \parencite[e.g.,][]{howard-1982, lamy-2019}, que consisten en un halo de brillo excedente que rodea completamente el disco ocultador de un coronógrafo, pareciendo propagarse hacia afuera en todas las direcciones radiales desde el Sol. Lo que significa que la eyección se propaga a lo largo o cerca de la línea de visión del observador, dirigiéndose directamente hacia la Tierra o alejándose de ella. Las CMEs que se dirigen hacia la Tierra son críticas para el clima espacial, ya que suelen ser geoefectivas y están vinculadas a tormentas geomagnéticas y ondas de choque interplanetarias. Además, tienen velocidades que suelen oscilar entre 500 y 1100 km s$^{-1}$, superando el promedio de los eventos normales, junto con una tasa de ocurrencia del $\sim 4\%$ de todas las CMEs, según \textcite[e.g.,][]{lamy-2019, webb-2012}
-
-\section{Influencia en el clima espacial}
-Las eyecciones de masa coronal perturban las condiciones del viento solar en el momento en que se generan en la corona solar hasta llegar a interactuar con los campos magnéticos de los planetas. \textcite[e.g.,][]{lugaz-2017} menciona que el paso de las CME individuales a una distancia de 1 AU  tarda al rededor de un día, lo que indica que las perturbaciones de campo magnético pueden durar varias horas. Mientras que el paso de \acp{CME}\index{Coronal Mass Ejection} que interactúan tarda más tiempo, lo que indicaría que la magnetosfera se enfrentaría, durante más tiempo, al fuerte viento solar arrastrado por el producto de la interacción de las CMEs.
-
-La interacción de las CMEs con la magnetósfera de los planetas produce auroras boreales que son un indicativo de las tormentas geomagnéticas, por lo que es fácil ver que las CMEs son la causa de dichas tormentas. \textcite[][]{carrington-1859, hodgson-1859} reporta un repentino aumento del brillo del Sol el 1 de septiembre de 1859 seguido de una tormenta geomagnética 17 horas después; \textcite[][]{cliver-1994} discute sobre su correlación, llegando a verificar la conexión entre ambos eventos.
-Las tormentas geomagnéticas corresponden a una distorsión del campo magnético de un planeta debido a un gran ingreso de energía y partículas energéticas provenientes del medio interplanetario hacia su magnetósfera a través de la interacción con una CME \parencite[e.g,][]{2014swcm.book.....H}.
-
-%qué es la magnetósfera?
-
-El flujo de campo magnético terrestre es de sur a norte, por lo que si una nube magnética con un flujo de campo magnético de norte a sur interactúa con la magnetósfera, se presentarán diferentes reconexiones magnéticas. Ésto influiría en la cantidad de líneas de campo magnético abiertas, por lo que habría lineas de campo expuestas que facilitarían el ingreso de plasma a la atmósfera terrestre y la generación de tormentas geomagnéticas. Por ende, el compomente hacia el sur de las nubes magnéticas o CMEs interplanetarias es responsable de las tormentas \parencite[e.g.,][]{wilson-1987}.
-
-
-Las tormentas magnéticas pueden ser caracterizadas por el parámetro \ac{DST} medido nanoTeslas (nT). Este parámetro permite determinar la intensidad de una tormenta geomagnética a través de la intensidad de la corriente anular (en inglés \textit{Ring Current}), ésta es una corriente de partículas cargadas que circula en dirección oeste a una altura de entre 2 y 7 radios terrestres. La Ring Current es energizada por las tormentas geomagnéticas, lo cual permite clasificar dichas tormentas según el nivel de energización que le den a la Ring Current. Por esa razón, se puede clasificar, según \textcite[e.g.,][]{nhess-2018-92}, en: Condiciones tranquilas o ambiente (0 a $-30$ nT), tormenta leve con poca actividad ($-30$ a $-50$ nT), tormenta moderada con posibles perturbaciones ($-50$ a $-100$ nT), tormenta intensa generando posibles daños a sistemas electrónicos ($<$ $-100$ nT) y tormenta severa o extrema con un riesgo alto en la integridad de la electrónica en la superficie terrestre ($<$ $-200$ nT). Según \textcite[e.g.,][]{2014swcm.book.....H}, el evento Carrington en 1859 fue el evento de tormenta geomagnética más intenso registrado en la historia, teniendo un rango de \ac{DST} de entre $-1600$ a $-850$ nT. De ahí que, entre más negativa sea el DST, mayor es la tormenta geomagnética asociada, indicando al mismo tiempo la intensidad de la CME que generó dicha tormenta.
-
-Otro parámetro para medir la intensidad de las perturbaciones geomagnéticas es el índice Kp, el cual cuantifica las perturbaciones en el campo magnético terrestre causadas principalmente por el viento solar y CMEs. El Kp se refiere a la variabilidad geomagnética medida en intervalos de 3 horas, los rangos en los que clasifica las tormentas geomagnéticas que, según \textcite[e.g.,][]{nhess-2018-92}, son de $0-1$ es muy tranquila, $2-3$ es tranquila, $4$ es activa, $5$ es una tormenta geomagnética menor, $6$ es una tormenta moderada, $7$ es una tormenta fuerte, $8$ es una tormenta severa y $9$ es una tormenta extrema.
-
-
-%explicar que es una tormenta geomagnética, que es clima espacial, dar ejemplos de las diferentes categorías de las tormentas geomagnéticas. Hablar más del índice Kp.
-
+%hablar de observación de interacción de CMEs

@@ -335,3 +335,121 @@ El boseto de la interacción para este caso se muestra en la Figura \ref{Caso2},
     \label{Caso2}
 \end{figure}
 
+\section{Selección de parámetros}
+
+En la Tabla \ref{tab:parametros-cme} y \ref{tab:caracteristicas-cme} se enlistan diferentes CMEs candidatas para el desarrollo del proyecto. 
+
+\begin{table}[H]
+    \centering
+    \begin{threeparttable}
+        \caption[Parámetros cinemáticos y de simulación para diferentes CMEs]{Parámetros cinemáticos y de simulación para diferentes CMEs candidatas}
+        \label{tab:parametros-cme}
+        \small
+        \begin{tabular}{lcccccccc}
+            \toprule
+            & Semilla & $R_{\text{ini}}$ ($R_{\odot}$)$^a$ & $\tau_r$ (s) & $\tau_d$ (s) & $a_r$ (km/s$^2$) & $a_d$ (km/s$^2$) & $v_0$ (km/s) & $x_0$ (km)$^b$ \\
+            \midrule
+            CME-1  & 26   & 2.2  & 138  & 1249 & 0.001  & 4.950 & 40  & 25000 \\
+            CME-2  & 15   & 1.1  & 100  & 1050 & 0.002  & 5.150 & 50  & 21000 \\
+            CME-3  & 314  & 3.2  & 138  & 1249 & 0.001  & 2.150 & 40  & 20000 \\
+            CME-4  & 151  & 1.4  & 100  & 750  & 0.002  & 5.000 & 50  & 18000 \\
+            CME-5  & 250  & 4.1  & 138  & 900  & 0.001  & 2.150 & 85  & 22500 \\
+            CME-6  & 836  & 1.9  & 100  & 650  & 0.004  & 3.400 & 50  & 19000 \\
+            CME-7  & 1930 & 3.6  & 76   & 520  & 0.0012 & 1.745 & 35  & 19000 \\
+            CME-8  & 1962 & 4.0  & 320  & 775  & 0.002  & 5.200 & 100 & 20000 \\
+            CME-9  & 445  & 5.2  & 120  & 620  & 0.0012 & 1.745 & 35  & 19000 \\
+            CME-10 & 210  & 1.5  & 210  & 675  & 0.002  & 4.700 & 75  & 21000 \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[$^a$] Radio inicial de la CME.
+            \item[$^b$] Altura inicial de la CME.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{threeparttable}
+        \caption[Características cinemáticas alcanzadas por las diferentes CMEs]{Características cinemáticas alcanzadas por las diferentes CMEs a lo largo de 10 horas de tiempo simulado, según los parámetros de la Tabla \ref{tab:parametros-cme}}
+        \label{tab:caracteristicas-cme}
+        \small
+        \begin{tabular}{lccc}
+            \toprule
+            CME & Altura final ($R_{\odot}$)$^a$ & $v_{\text{máx}}$ (km/s)$^b$ & $a_{\text{máx}}$ (m/s$^2$) \\
+            \midrule
+            CME-1  & 132.812  & 2735.53 & 1530.7284 \\
+            CME-2  & 138.8056 & 2815.61 & 1935.6834 \\
+            CME-3  & 63.9675  & 1312.00 & 724.7296 \\
+            CME-4  & 69.5240  & 1578.09 & 1374.7408 \\
+            CME-5  & 39.7736  & 803.22  & 523.5238 \\
+            CME-6  & 49.5871  & 975.53  & 933.9926 \\
+            CME-7  & 20.3756  & 403.20  & 463.3426 \\
+            CME-8  & 24.3935  & 567.25  & 285.2207 \\
+            CME-9  & 19.1376  & 381.82  & 341.4541 \\
+            CME-10 & 27.8225  & 627.27  & 430.1600 \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[$^a$] La altura final es la misma altura máxima.
+            \item[$^b$] La velocidad máxima es la misma velocidad final.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+Debido a la multiplicidad de posibles variables experimentales es necesario establecer algunas como constantes. Por lo tanto, los parámetros ($\tau_r$,$\tau_d$,a$_r$,a$_d$,v$_0$,x$_0$) de la CME-1 (precursora) se fijan, así como algunos parámetros ($\tau_r$,a$_r$,v$_0$,x$_0$) de la CME-2 (sucesora), seleccionados según estudios estadisticos de CMEs observadas \parencite[e.g.,][]{aschwanden-2019, ravishankar-2020}; por lo general, los parámetros seleccionados son los valores de la mediana reportados. Por consiguiente, se buscan CMEs candidatas a CME precursora y se crea la Tabla \ref{tab:parametros-cmes-precursoras}.
+
+\begin{table}[H]
+    \centering
+    \begin{threeparttable}
+        \caption[Parámetros cinemáticos CMEs candidatas a CME precursora]{Parámetros cinemáticos CMEs candidatas a CME precursora}
+        \label{tab:parametros-cmes-precursoras}
+        \small
+        \begin{tabular}{lcccccccc}
+            \toprule
+            & $R_{\text{ini}}$ ($R_{\odot}$)$^a$ & $\tau_r$ (s) & $\tau_d$ (s) & $a_r$ (km/s$^2$) & $a_d$ (km/s$^2$) & $v_0$ (km/s) & $x_0$ (km)$^b$ \\
+            \midrule
+            CME-común (ll) & -- & 6900 & 86400 & 0.034 & 0.017 & 100 & 100000 \\
+            CME-común2 (ll) & -- & 9000 & 9500 & 0.057 & 0.034 & 100 & 100000 \\
+            CME-Gallagher (rr) & -- & 138 & 1249 & 0.001 & 4.95 & 40 & 25000 \\
+            CME-8 (rr) & -- & 320 & 775 & 0.002 & 5.2 & 100 & 20000 \\
+            CMEnueva (rr) & -- & 280 & 850 & 0.0012 & 5.2 & 100 & 100000 \\
+            CMEfinal (ll) & -- & 6900 & 55600 & 0.034 & 0.01 & 100 & 100000\\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[$^a$] Radio inicial de la CME.
+            \item[$^b$] Altura inicial de la CME.
+            \item (ll) es lenta-lenta, etapa de aceleración y propagación extensas; (rr) es rápida-rápida, etapa de aceleración y propagación cortas.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+Para la CME sucesora se toman los parámetros $\tau_r=3500$ s, a$_r=0.03$ km s$^{-2}$, v$_0=200$ km s$^{-1}$ y x$_0=140000$ km. Los otros parámetros cinemáticos ($\tau_d$,a$_d$) serán las variables experimentales. Además, se tomará un tiempo de retardo entre CMEs de 7 horas \parencite[e.g.,][]{wang-2013}, pero con la condición de que es para regiones superactivas, es decir, donde la complejidad magnética es mucho más grande a otras regiones. El tiempo de retardo puede ser mayor (menor), indicando la dificultad (facilidad) con la que la energía acomulada aumenta, se necesita más (menos) tiempo para volver a cargar la región activa.
+
+\subsection*{Metodología para la búsqueda de parámetros}
+
+Una vez con la CME precursora simulada, se incluye la CME sucesora con sus parámetros previamente establecidos, permitiendo variar $\tau_d$ y a$_d$. La idea, desde este punto de la investigación, será variarlos para encontrar sus valores en los cuales las curvas de posición se crucen. Para facilitar la búsqueda se desarrolla un código que permite la visualización simultanea de los perfiles cinéticos (aceleración, velocidad y posición) de las dos CMEs a estudiar. Un ejemplo de esto se muestra en la Figura \ref{ejemplosimulación}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{imag/Ejemplo interfaz CMEs perfiles.png}
+    \caption[Interfaz de programa para visualizar perfiles cinemáticos]{Interfaz de programa para visualizar perfiles cinemáticos. Se muestran la CME-común (línea sólida) y la CMEnueva (línea discontinua), así como su punto de interacción (estrella). Además se reportan aceleraciones y velocidades iniciales, además del valor en el que se alcanza el 95$\%$ de la velocidad máxima y el momento en el que se logra.}
+    \label{ejemplosimulación}
+\end{figure}
+
+Algo muy importante a tener en cuenta con respecto al comportamiento del perfil de aceleración según el cambio en los parámetros, es que el valor de a$_r$ (a$_d$) es inversamente proporcional al valor de $\tau_r$ ($\tau_d$). Esto significa que si el tiempo ($\tau_r$, $\tau_d$) es pequeño, las aceleraciones respectivas aumentarán exponencialmente con más frecuencia, llegando a producir un perfil de velocidad con valores más grandes. En otras palabras, el tiempo $\tau_r$ ($\tau_d$) indica cada cuanto tiempo las aceleraciones a$_r$ (a$_d$) se multiplican (dividen) por una potencia de $e$.
+
+Ahora bien, la busqueda se dividirá en 4 partes: (\textit{i}) usando una CME sucesora con un perfil de aceleración rápido-rápido, (\textit{ii}) otra con un perfil rápido-lento, (\textit{iii}) lento-rápido y finalmente (\textit{iv}) lento-lento. 
+
+\section{Resultados}
+
+Teniendo un tiempo de retraso de 7 horas y como CME precursora la CME-....., la cual presenta un 95$\%$ de la velocidad máxima de .... , como se muestra en la Figura \ref{}.
+
+Se encontraron rangos de $\tau_d$ y a$_d$ de la CME sucesora para los cuales se desarrolla un perfil de posición y velocidad que conllevan a la interacción con la CME precursora. Estos rangos se reportan en la Tabla \ref{}, junto con el valor del 95$\%$ de la velocidad máxima alcanzada, la altura y tiempo de la interacción.
+
+
+

@@ -12,7 +12,7 @@ matplotlib.rcParams.update({
 R_SOL_KM, R_SOL_STR   = 695700, r'$R_\odot$'
 DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 10, 695700
 V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
-semilla1, semilla2, RETRASO_CME2 = 435, 1962, 7200.0
+semilla1, semilla2, RETRASO_CME2 = 435, 1962, 3600.0
 FACTOR_COMPRESION = 1.15
 DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
 
