@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  21 JUN 2026 01:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.4)  7 JUL 2026 23:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1874,11 +1874,7 @@ Package pdftex.def Info: Imágenes/escudo.png  used on input line 71.
 
 
 (./Capítulos/Resumen.tex
-Package acronym Info: Label `acro:CME' newly defined as it shall be overridden
-although it is yet undefined on input line 3.
-Package acronym Info: Label `acro:SEP' newly defined as it shall be overridden
-although it is yet undefined on input line 3.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1886,7 +1882,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1903,7 +1899,12 @@ LaTeX Info: Redefining \% on input line 1.
 [8
 
 
-])
+]
+Overfull \hbox (2.03697pt too wide) detected at line 33
+ \T1/cmr/bx/n/12 101
+ []
+
+)
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
 
@@ -2035,19 +2036,21 @@ Overfull \vbox (0.11858pt too high) has occurred while \output is active []
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <40> not available
 (Font)              size <35.83> substituted on input line 1.
 
-<Densidad_temperatura_vs_radio_Modelo_solar.png, id=468, 787.5021pt x 390.258pt
+<Densidad_temperatura_vs_radio_Modelo_solar.png, id=479, 787.5021pt x 390.258pt
 >
 File: Densidad_temperatura_vs_radio_Modelo_solar.png Graphic file (type png)
 <use Densidad_temperatura_vs_radio_Modelo_solar.png>
 Package pdftex.def Info: Densidad_temperatura_vs_radio_Modelo_solar.png  used o
 n input line 28.
-(pdftex.def)             Requested size: 383.3974pt x 189.99542pt.
+(pdftex.def)             Requested size: 340.8013pt x 168.88548pt.
 [15
 
 
 
 
 ]
+Package acronym Info: Label `acro:CME' newly defined as it shall be overridden
+although it is yet undefined on input line 36.
 Package acronym Info: Label `acro:CH' newly defined as it shall be overridden
 although it is yet undefined on input line 36.
 Package acronym Info: Label `acro:Sunspots' newly defined as it shall be overri
@@ -2056,20 +2059,20 @@ although it is yet undefined on input line 36.
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
  [16 <./Densidad_temperatura_vs_radio_Modelo_solar.png>]
-<imag/Capas_del_Sol.png, id=499, 478.78876pt x 354.99292pt>
+<imag/Capas_del_Sol.png, id=511, 478.78876pt x 354.99292pt>
 File: imag/Capas_del_Sol.png Graphic file (type png)
 <use imag/Capas_del_Sol.png>
 Package pdftex.def Info: imag/Capas_del_Sol.png  used on input line 40.
 (pdftex.def)             Requested size: 426.0pt x 315.85602pt.
-LaTeX Info: Redefining \. on input line 46.
-LaTeX Info: Redefining \% on input line 46.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
  [17 <./imag/Capas_del_Sol.png>]
-<imag/rotacióninterna.png, id=514, 1120.185pt x 977.6525pt>
+<imag/rotacióninterna.png, id=527, 1120.185pt x 977.6525pt>
 File: imag/rotacióninterna.png Graphic file (type png)
 <use imag/rotacióninterna.png>
 Package pdftex.def Info: imag/rotacióninterna.png  used on input line 62.
 (pdftex.def)             Requested size: 180.62427pt x 157.63593pt.
-<imag/granulación.png, id=515, 189.3474pt x 189.8292pt>
+<imag/granulación.png, id=528, 189.3474pt x 189.8292pt>
 File: imag/granulación.png Graphic file (type png)
 <use imag/granulación.png>
 Package pdftex.def Info: imag/granulación.png  used on input line 67.
@@ -2084,94 +2087,103 @@ LaTeX Info: Redefining \% on input line 75.
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
  [19 <./imag/rotacióninterna.png> <./imag/granulación.png (PNG copy)>]
-Package acronym Info: Label `acro:AR' newly defined as it shall be overridden
-although it is yet undefined on input line 82.
 LaTeX Info: Redefining \. on input line 83.
 LaTeX Info: Redefining \% on input line 83.
 
 [20]
+Package acronym Info: Label `acro:AR' newly defined as it shall be overridden
+although it is yet undefined on input line 91.
 Package acronym Info: Label `acro:SF' newly defined as it shall be overridden
-although it is yet undefined on input line 85.
-LaTeX Info: Redefining \. on input line 90.
-LaTeX Info: Redefining \% on input line 90.
+although it is yet undefined on input line 94.
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
  [21]
 Package acronym Info: Label `acro:MHD' newly defined as it shall be overridden
-although it is yet undefined on input line 96.
-<imag/CampoPoloidalToroidal.png, id=624, 769.87625pt x 333.91417pt>
+although it is yet undefined on input line 105.
+<imag/CampoPoloidalToroidal.png, id=638, 769.87625pt x 333.91417pt>
 File: imag/CampoPoloidalToroidal.png Graphic file (type png)
 <use imag/CampoPoloidalToroidal.png>
-Package pdftex.def Info: imag/CampoPoloidalToroidal.png  used on input line 100
+Package pdftex.def Info: imag/CampoPoloidalToroidal.png  used on input line 109
 .
 (pdftex.def)             Requested size: 426.0pt x 184.76918pt.
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
- [22 <./imag/CampoPoloidalToroidal.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+[22]
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+ [23 <./imag/CampoPoloidalToroidal.png>]
 Package acronym Info: Label `acro:AU' newly defined as it shall be overridden
-although it is yet undefined on input line 113.
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
- [23]
+although it is yet undefined on input line 122.
+
 
 Package biblatex Warning: Package option 'sortcites' enabled.
-(biblatex)                Verify postnote placement on input line 115.
+(biblatex)                Verify postnote placement on input line 124.
 
-<SSN_y_CMEs.png, id=699, 794.97pt x 578.16pt>
+<SSN_y_CMEs.png, id=708, 794.97pt x 578.16pt>
 File: SSN_y_CMEs.png Graphic file (type png)
 <use SSN_y_CMEs.png>
-Package pdftex.def Info: SSN_y_CMEs.png  used on input line 119.
+Package pdftex.def Info: SSN_y_CMEs.png  used on input line 128.
 (pdftex.def)             Requested size: 383.3974pt x 278.83694pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 133.
-LaTeX Info: Redefining \% on input line 133.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
 [24
 pdfTeX warning (ext4): destination with the same identifier (name{Hfootnote.4})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.133 
+l.138 
       ]
-<Imagenes Mein/viento solar.png, id=769, 870.25125pt x 592.2125pt>
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
+ [25 <./SSN_y_CMEs.png>]
+<Imagenes Mein/viento solar.png, id=792, 870.25125pt x 592.2125pt>
 File: Imagenes Mein/viento solar.png Graphic file (type png)
 <use Imagenes Mein/viento solar.png>
-Package pdftex.def Info: Imagenes Mein/viento solar.png  used on input line 136
+Package pdftex.def Info: Imagenes Mein/viento solar.png  used on input line 145
 .
-(pdftex.def)             Requested size: 255.6026pt x 173.94211pt.
+(pdftex.def)             Requested size: 234.3013pt x 159.43864pt.
+Package acronym Info: Label `acro:IMF' newly defined as it shall be overridden
+although it is yet undefined on input line 152.
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
+ [26 <./Imagenes Mein/viento solar.png>]
+<imag/densidadyvelocidadUly.png, id=825, 754.31813pt x 596.98032pt>
+File: imag/densidadyvelocidadUly.png Graphic file (type png)
+<use imag/densidadyvelocidadUly.png>
+Package pdftex.def Info: imag/densidadyvelocidadUly.png  used on input line 157
+.
+(pdftex.def)             Requested size: 340.8013pt x 269.71353pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
-[25 <./SSN_y_CMEs.png>]
-Package acronym Info: Label `acro:IMF' newly defined as it shall be overridden
-although it is yet undefined on input line 143.
-LaTeX Info: Redefining \. on input line 144.
-LaTeX Info: Redefining \% on input line 144.
- [26 <./Imagenes Mein/viento solar.png>]
-<imag/densidadyvelocidadUly.png, id=811, 754.31813pt x 596.98032pt>
-File: imag/densidadyvelocidadUly.png Graphic file (type png)
-<use imag/densidadyvelocidadUly.png>
-Package pdftex.def Info: imag/densidadyvelocidadUly.png  used on input line 148
-.
-(pdftex.def)             Requested size: 426.0pt x 337.13965pt.
 )
 LaTeX Info: Redefining \. on input line 108.
 LaTeX Info: Redefining \% on input line 108.
- [27 <./imag/densidadyvelocidadUly.png (PNG copy)>]
+ [27]
 LaTeX Info: Redefining \. on input line 108.
 LaTeX Info: Redefining \% on input line 108.
- [28]
+ [28 <./imag/densidadyvelocidadUly.png (PNG copy)>]
 \openout2 = `Capítulos/CMEs.aux'.
 
- (./Capítulos/CMEs.tex [29
+
+(./Capítulos/CMEs.tex
+Package acronym Info: Label `acro:SEP' newly defined as it shall be overridden
+although it is yet undefined on input line 19.
+ [29
 
 
 
 
 ]
-<imag/helicidad cuerda de flujo.png, id=885, 759.83875pt x 624.3325pt>
+<imag/helicidad cuerda de flujo.png, id=901, 759.83875pt x 624.3325pt>
 File: imag/helicidad cuerda de flujo.png Graphic file (type png)
 <use imag/helicidad cuerda de flujo.png>
 Package pdftex.def Info: imag/helicidad cuerda de flujo.png  used on input line
@@ -2184,31 +2196,30 @@ Package acronym Info: Label `acro:SW' newly defined as it shall be overridden
 although it is yet undefined on input line 46.
 LaTeX Info: Redefining \. on input line 47.
 LaTeX Info: Redefining \% on input line 47.
-
-[31 <./imag/helicidad cuerda de flujo.png>]
-<imag/expansión.png, id=923, 1064.97874pt x 533.995pt>
+ [31 <./imag/helicidad cuerda de flujo.png>]
+<imag/expansión.png, id=938, 1064.97874pt x 533.995pt>
 File: imag/expansión.png Graphic file (type png)
 <use imag/expansión.png>
 Package pdftex.def Info: imag/expansión.png  used on input line 50.
-(pdftex.def)             Requested size: 383.3974pt x 192.23805pt.
-<imag/Partes CME.png, id=932, 539.01375pt x 257.29459pt>
+(pdftex.def)             Requested size: 349.32312pt x 175.15149pt.
+<imag/Partes CME.png, id=947, 539.01375pt x 257.29459pt>
 File: imag/Partes CME.png Graphic file (type png)
 <use imag/Partes CME.png>
 Package pdftex.def Info: imag/Partes CME.png  used on input line 59.
-(pdftex.def)             Requested size: 374.88208pt x 178.95073pt.
+(pdftex.def)             Requested size: 391.91922pt x 187.08147pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
 [32 <./imag/expansión.png>]
-<imag/Perfil_aceleración_CME.png, id=957, 494.84875pt x 206.10333pt>
+<imag/Perfil_aceleración_CME.png, id=971, 494.84875pt x 206.10333pt>
 File: imag/Perfil_aceleración_CME.png Graphic file (type png)
 <use imag/Perfil_aceleración_CME.png>
 Package pdftex.def Info: imag/Perfil_aceleración_CME.png  used on input line 7
 2.
-(pdftex.def)             Requested size: 404.6987pt x 168.55609pt.
+(pdftex.def)             Requested size: 362.1026pt x 150.81583pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2222,12 +2233,12 @@ although it is yet undefined on input line 77.
 LaTeX Info: Redefining \. on input line 79.
 LaTeX Info: Redefining \% on input line 79.
 [33 <./imag/Partes CME.png>]
-<imag/ejemploperfilaceleración.png, id=975, 666.49pt x 856.19875pt>
+<imag/ejemploperfilaceleración.png, id=989, 666.49pt x 856.19875pt>
 File: imag/ejemploperfilaceleración.png Graphic file (type png)
 <use imag/ejemploperfilaceleración.png>
 Package pdftex.def Info: imag/ejemploperfilaceleración.png  used on input line
  89.
-(pdftex.def)             Requested size: 366.36026pt x 470.64948pt.
+(pdftex.def)             Requested size: 345.05896pt x 443.2793pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -2253,51 +2264,52 @@ LaTeX Info: Redefining \% on input line 104.
 Package acronym Info: Label `acro:ICME' newly defined as it shall be overridden
 
 although it is yet undefined on input line 107.
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [37]
 Package acronym Info: Label `acro:HELCATS' newly defined as it shall be overrid
 den
-although it is yet undefined on input line 113.
+although it is yet undefined on input line 111.
 Package acronym Info: Label `acro:SMEI' newly defined as it shall be overridden
 
-although it is yet undefined on input line 113.
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
- [37]
-<imag/Imagen LASCO.png, id=1080, 519.9425pt x 515.9275pt>
+although it is yet undefined on input line 111.
+<imag/Imagen LASCO.png, id=1097, 519.9425pt x 515.9275pt>
 File: imag/Imagen LASCO.png Graphic file (type png)
 <use imag/Imagen LASCO.png>
-Package pdftex.def Info: imag/Imagen LASCO.png  used on input line 119.
-(pdftex.def)             Requested size: 298.1987pt x 295.89238pt.
+Package pdftex.def Info: imag/Imagen LASCO.png  used on input line 115.
+(pdftex.def)             Requested size: 234.3013pt x 232.48799pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package acronym Info: Label `acro:PSP' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:SWEAP' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:FIELDS' newly defined as it shall be overridd
 en
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:ISOIS' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:WISPR' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:CDS' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:EUV' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:EIS' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:SDO' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
+although it is yet undefined on input line 120.
 Package acronym Info: Label `acro:EVE' newly defined as it shall be overridden
-although it is yet undefined on input line 124.
-LaTeX Info: Redefining \. on input line 125.
-LaTeX Info: Redefining \% on input line 125.
-[38])
+although it is yet undefined on input line 120.
+)
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+ [38]
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
  [39 <./imag/Imagen LASCO.png>]
@@ -2310,74 +2322,74 @@ LaTeX Info: Redefining \% on input line 111.
 
 
 ]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 53.
+LaTeX Info: Redefining \% on input line 53.
  [41]
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
  [42{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
  [43]
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
  [44]
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
  [45]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
  [46]
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
+LaTeX Info: Redefining \. on input line 126.
+LaTeX Info: Redefining \% on input line 126.
  [47]
 
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 124.
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 127.
 
 
 
-LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 124.
+LaTeX Warning: Command \texttwosuperior invalid in math mode on input line 127.
 
 
 Missing character: There is no � in font cmr8!
 
-LaTeX Warning: Command \guillemotright invalid in math mode on input line 129.
+LaTeX Warning: Command \guillemotright invalid in math mode on input line 132.
 
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 [48]
-LaTeX Info: Redefining \. on input line 167.
-LaTeX Info: Redefining \% on input line 167.
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
  [49]
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
+LaTeX Info: Redefining \. on input line 182.
+LaTeX Info: Redefining \% on input line 182.
  [50]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<imag/1D.png, id=1256, 1427.3325pt x 852.18375pt>
+<imag/1D.png, id=1274, 1427.3325pt x 852.18375pt>
 File: imag/1D.png Graphic file (type png)
 <use imag/1D.png>
-Package pdftex.def Info: imag/1D.png  used on input line 220.
+Package pdftex.def Info: imag/1D.png  used on input line 223.
 (pdftex.def)             Requested size: 340.8013pt x 203.475pt.
-LaTeX Info: Redefining \. on input line 224.
-LaTeX Info: Redefining \% on input line 224.
+LaTeX Info: Redefining \. on input line 227.
+LaTeX Info: Redefining \% on input line 227.
 [51]
-<imag/2D1.png, id=1268, 771.88374pt x 801.99625pt>
+<imag/2D1.png, id=1286, 771.88374pt x 801.99625pt>
 File: imag/2D1.png Graphic file (type png)
 <use imag/2D1.png>
-Package pdftex.def Info: imag/2D1.png  used on input line 246.
+Package pdftex.def Info: imag/2D1.png  used on input line 249.
 (pdftex.def)             Requested size: 340.8013pt x 354.09094pt.
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
+LaTeX Info: Redefining \. on input line 253.
+LaTeX Info: Redefining \% on input line 253.
  [52 <./imag/1D.png>]
-<imag/2D2.png, id=1275, 771.88374pt x 801.99625pt>
+<imag/2D2.png, id=1293, 771.88374pt x 801.99625pt>
 File: imag/2D2.png Graphic file (type png)
 <use imag/2D2.png>
-Package pdftex.def Info: imag/2D2.png  used on input line 253.
+Package pdftex.def Info: imag/2D2.png  used on input line 256.
 (pdftex.def)             Requested size: 340.8013pt x 354.09094pt.
-LaTeX Info: Redefining \. on input line 257.
-LaTeX Info: Redefining \% on input line 257.
+LaTeX Info: Redefining \. on input line 260.
+LaTeX Info: Redefining \% on input line 260.
  [53 <./imag/2D1.png>])
 LaTeX Info: Redefining \. on input line 113.
 LaTeX Info: Redefining \% on input line 113.
@@ -2391,7 +2403,7 @@ LaTeX Info: Redefining \% on input line 113.
 
 
 ]
-<imag/_Diagrama de flujo.png, id=1296, 1884.03876pt x 3050.39626pt>
+<imag/_Diagrama de flujo.png, id=1314, 1884.03876pt x 3050.39626pt>
 File: imag/_Diagrama de flujo.png Graphic file (type png)
 <use imag/_Diagrama de flujo.png>
 Package pdftex.def Info: imag/_Diagrama de flujo.png  used on input line 29.
@@ -2421,7 +2433,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Info: Redefining \. on input line 103.
 LaTeX Info: Redefining \% on input line 103.
  [60]
-<cinematica_original.pdf, id=1354, 858.60458pt x 742.36974pt>
+<cinematica_original.pdf, id=1372, 858.60458pt x 742.36974pt>
 File: cinematica_original.pdf Graphic file (type pdf)
 <use cinematica_original.pdf>
 Package pdftex.def Info: cinematica_original.pdf  used on input line 108.
@@ -2442,7 +2454,7 @@ LaTeX Info: Redefining \% on input line 226.
 LaTeX Info: Redefining \. on input line 238.
 LaTeX Info: Redefining \% on input line 238.
  [65]
-<cme_evolucion_polar.pdf, id=1527, 1431.99016pt x 823.77182pt>
+<cme_evolucion_polar.pdf, id=1545, 1431.99016pt x 823.77182pt>
 File: cme_evolucion_polar.pdf Graphic file (type pdf)
 <use cme_evolucion_polar.pdf>
 Package pdftex.def Info: cme_evolucion_polar.pdf  used on input line 241.
@@ -2454,12 +2466,12 @@ LaTeX Warning: Float too large for page by 17.54694pt on input line 244.
 LaTeX Info: Redefining \. on input line 245.
 LaTeX Info: Redefining \% on input line 245.
 [66 <./cme_evolucion_polar.pdf>]
-<imag/VectoresCME.png, id=1623, 172.97958pt x 136.84459pt>
+<imag/VectoresCME.png, id=1641, 172.97958pt x 136.84459pt>
 File: imag/VectoresCME.png Graphic file (type png)
 <use imag/VectoresCME.png>
 Package pdftex.def Info: imag/VectoresCME.png  used on input line 251.
 (pdftex.def)             Requested size: 255.6026pt x 202.21986pt.
-<cinematica_original_CME2.pdf, id=1625, 858.60458pt x 742.36974pt>
+<cinematica_original_CME2.pdf, id=1643, 858.60458pt x 742.36974pt>
 File: cinematica_original_CME2.pdf Graphic file (type pdf)
 <use cinematica_original_CME2.pdf>
 Package pdftex.def Info: cinematica_original_CME2.pdf  used on input line 273.
@@ -2476,7 +2488,7 @@ LaTeX Info: Redefining \% on input line 281.
 LaTeX Info: Redefining \. on input line 282.
 LaTeX Info: Redefining \% on input line 282.
  [69]
-<cme_evolucion_polar_CME2.pdf, id=1732, 1431.99016pt x 823.77182pt>
+<cme_evolucion_polar_CME2.pdf, id=1750, 1431.99016pt x 823.77182pt>
 File: cme_evolucion_polar_CME2.pdf Graphic file (type pdf)
 <use cme_evolucion_polar_CME2.pdf>
 Package pdftex.def Info: cme_evolucion_polar_CME2.pdf  used on input line 285.
@@ -2504,7 +2516,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 294.
 
-<imag/caso1.png, id=1827, 465.74pt x 291.75667pt>
+<imag/caso1.png, id=1845, 465.74pt x 291.75667pt>
 File: imag/caso1.png Graphic file (type png)
 <use imag/caso1.png>
 Package pdftex.def Info: imag/caso1.png  used on input line 301.
@@ -2515,7 +2527,7 @@ LaTeX Info: Redefining \% on input line 305.
 
 
 ]
-<cinematica_conjunta.pdf, id=1833, 858.60458pt x 742.36974pt>
+<cinematica_conjunta.pdf, id=1851, 858.60458pt x 742.36974pt>
 File: cinematica_conjunta.pdf Graphic file (type pdf)
 <use cinematica_conjunta.pdf>
 Package pdftex.def Info: cinematica_conjunta.pdf  used on input line 310.
@@ -2529,7 +2541,7 @@ LaTeX Info: Redefining \% on input line 319.
 LaTeX Info: Redefining \. on input line 320.
 LaTeX Info: Redefining \% on input line 320.
  [74]
-<cme_conjunta_polar.pdf, id=1938, 1431.99016pt x 823.22975pt>
+<cme_conjunta_polar.pdf, id=1956, 1431.99016pt x 823.22975pt>
 File: cme_conjunta_polar.pdf Graphic file (type pdf)
 <use cme_conjunta_polar.pdf>
 Package pdftex.def Info: cme_conjunta_polar.pdf  used on input line 323.
@@ -2561,7 +2573,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 329.
 
-<imag/caso2.png, id=2039, 462.39417pt x 315.1775pt>
+<imag/caso2.png, id=2057, 462.39417pt x 315.1775pt>
 File: imag/caso2.png Graphic file (type png)
 <use imag/caso2.png>
 Package pdftex.def Info: imag/caso2.png  used on input line 333.
@@ -2584,7 +2596,7 @@ Overfull \hbox (61.87581pt too wide) in paragraph at lines 407--429
 LaTeX Info: Redefining \. on input line 430.
 LaTeX Info: Redefining \% on input line 430.
 [77]
-<imag/Ejemplo interfaz CMEs perfiles.png, id=2062, 1462.46375pt x 962.59625pt>
+<imag/Ejemplo interfaz CMEs perfiles.png, id=2080, 1462.46375pt x 962.59625pt>
 File: imag/Ejemplo interfaz CMEs perfiles.png Graphic file (type png)
 <use imag/Ejemplo interfaz CMEs perfiles.png>
 Package pdftex.def Info: imag/Ejemplo interfaz CMEs perfiles.png  used on input
@@ -2597,19 +2609,53 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Info: Redefining \. on input line 446.
 LaTeX Info: Redefining \% on input line 446.
 [78]
+LaTeX Info: Redefining \. on input line 451.
+LaTeX Info: Redefining \% on input line 451.
+ [79 <./imag/Ejemplo interfaz CMEs perfiles.png>]
+Overfull \hbox (3.94073pt too wide) in paragraph at lines 455--486
+ [] 
+ []
 
-LaTeX Warning: Reference `' on page 79 undefined on input line 450.
+<resultados/fig_ad_vs_td.png, id=2097, 494.3268pt x 349.7868pt>
+File: resultados/fig_ad_vs_td.png Graphic file (type png)
+<use resultados/fig_ad_vs_td.png>
+Package pdftex.def Info: resultados/fig_ad_vs_td.png  used on input line 490.
+(pdftex.def)             Requested size: 340.8013pt x 241.15567pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Warning: Reference `' on page 79 undefined on input line 452.
+<resultados/fig_ad_relaciones.png, id=2098, 855.31544pt x 638.8668pt>
+File: resultados/fig_ad_relaciones.png Graphic file (type png)
+<use resultados/fig_ad_relaciones.png>
+Package pdftex.def Info: resultados/fig_ad_relaciones.png  used on input line 4
+97.
+(pdftex.def)             Requested size: 383.3974pt x 286.36635pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<resultados/fig_td_relaciones.png, id=2099, 855.31544pt x 638.8668pt>
+File: resultados/fig_td_relaciones.png Graphic file (type png)
+<use resultados/fig_td_relaciones.png>
+Package pdftex.def Info: resultados/fig_td_relaciones.png  used on input line 5
+04.
+(pdftex.def)             Requested size: 383.3974pt x 286.36635pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
 LaTeX Info: Redefining \. on input line 116.
 LaTeX Info: Redefining \% on input line 116.
- [79 <./imag/Ejemplo interfaz CMEs perfiles.png>]
+ [80]
+LaTeX Info: Redefining \. on input line 116.
+LaTeX Info: Redefining \% on input line 116.
+ [81 <./resultados/fig_ad_vs_td.png> <./resultados/fig_ad_relaciones.png>]
+LaTeX Info: Redefining \. on input line 116.
+LaTeX Info: Redefining \% on input line 116.
+ [82 <./resultados/fig_td_relaciones.png>]
 \openout2 = `Capítulos/Análisis.aux'.
 
- (./Capítulos/Análisis.tex) [80
+ (./Capítulos/Análisis.tex)
+[83
 
 
 
@@ -2617,7 +2663,7 @@ LaTeX Info: Redefining \% on input line 116.
 ]
 \openout2 = `Capítulos/Discusión.aux'.
 
- (./Capítulos/Discusión.tex) [81
+ (./Capítulos/Discusión.tex) [84
 
 
 
@@ -2626,26 +2672,17 @@ LaTeX Info: Redefining \% on input line 116.
 \openout2 = `Capítulos/Conclusiones.aux'.
 
  (./Capítulos/Conclusiones.tex)
-[82
+[85
 
 
 
 
-] [83
+] [86
 
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
- [84]
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
- [85]
-LaTeX Info: Redefining \. on input line 127.
-LaTeX Info: Redefining \% on input line 127.
- [86]
 LaTeX Info: Redefining \. on input line 127.
 LaTeX Info: Redefining \% on input line 127.
  [87]
@@ -2676,10 +2713,19 @@ LaTeX Info: Redefining \% on input line 127.
 LaTeX Info: Redefining \. on input line 127.
 LaTeX Info: Redefining \% on input line 127.
  [96]
+LaTeX Info: Redefining \. on input line 127.
+LaTeX Info: Redefining \% on input line 127.
+ [97]
+LaTeX Info: Redefining \. on input line 127.
+LaTeX Info: Redefining \% on input line 127.
+ [98]
+LaTeX Info: Redefining \. on input line 127.
+LaTeX Info: Redefining \% on input line 127.
+ [99]
 LaTeX Info: Redefining \. on input line 129.
 LaTeX Info: Redefining \% on input line 129.
 
-[97]
+[100]
 runsystem(makeindex main.idx)...executed safely (allowed).
 
  (./main.ind)
@@ -2689,7 +2735,7 @@ Class memoir Warning: The material used in the headers is too large
 either increase the head height or redesign the header
 (in both cases you will find help in the memoir manual). on input line 131.
 
-[98
+[101
 
 
 ]
@@ -2706,8 +2752,8 @@ either increase the head height or redesign the header
 LaTeX Info: Redefining \sptext on input line 16.
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
- (./Capítulos/Agradecimientos.aux) (./Capítulos/Resumen.aux)
-(./Acrónimos.aux) (./Capítulos/Introducción.aux) (./Capítulos/CMEs.aux)
+ (./Capítulos/Agradecimientos.aux) (./Capítulos/Resumen.aux) (./Acrónimos.au
+x) (./Capítulos/Introducción.aux) (./Capítulos/CMEs.aux)
 (./Capítulos/Interacción de CME - CME.aux) (./Capítulos/Problema.aux)
 (./Capítulos/Análisis.aux) (./Capítulos/Discusión.aux)
 (./Capítulos/Conclusiones.aux))
@@ -2724,55 +2770,55 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 20D0C5C7C07B41016FA496CEDFD1814E;5453.
+(rerunfilecheck)             Checksum: 42176B80BC06D1C66745A32FD504CF3A;5453.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48239 strings out of 474222
- 905195 string characters out of 5748734
+ 48289 strings out of 474222
+ 906693 string characters out of 5748734
  2250975 words of memory out of 5000000
- 68852 multiletter control sequences out of 15000+600000
- 600848 words of font info for 301 fonts, out of 8000000 for 9000
+ 68888 multiletter control sequences out of 15000+600000
+ 600966 words of font info for 303 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,20n,98p,2025b,3925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,20n,98p,1964b,3925s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1
-440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfbx3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm07
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm120
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.
-pfb>
-Output written on main.pdf (98 pages, 12702032 bytes).
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfbx3583.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfsl1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (101 pages, 13184265 bytes).
 PDF statistics:
- 2633 PDF objects out of 2984 (max. 8388607)
- 1975 compressed objects within 20 object streams
- 490 named destinations out of 1000 (max. 500000)
- 79267 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 2684 PDF objects out of 2984 (max. 8388607)
+ 2014 compressed objects within 21 object streams
+ 500 named destinations out of 1000 (max. 500000)
+ 79282 words of extra memory for PDF output out of 89155 (max. 10000000)
 

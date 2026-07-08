@@ -1,12 +1,12 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{Agradecimientos}{5}{chapter*.1}%
 \contentsline {chapter}{Resumen}{7}{chapter*.2}%
-\contentsline {chapter}{Índice de Tablas}{10}{section*.6}%
-\contentsline {chapter}{Índice de Figuras}{11}{section*.7}%
+\contentsline {chapter}{Índice de Tablas}{10}{section*.4}%
+\contentsline {chapter}{Índice de Figuras}{11}{section*.5}%
 \contentsline {chapter}{\chapternumberline {1}Introducción}{15}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Estructura del Sol}{16}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Actividad solar}{21}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Viento solar}{25}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Viento solar}{26}{section.1.3}%
 \contentsline {chapter}{\chapternumberline {2}Eyecciones de masa coronal (CMEs)}{29}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Origen}{30}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Propiedades y morfología}{31}{section.2.2}%
@@ -26,8 +26,8 @@
 \contentsline {section}{\numberline {4.5}Interacción: $V_{\text {CME--1}} \ll V_{\text {CME--2}}$}{76}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Selección de parámetros}{76}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Resultados}{79}{section.4.7}%
-\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{80}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Discusión}{81}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{82}{chapter.7}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{83}{section*.70}%
-\contentsline {chapter}{Índice Alfabético}{98}{section*.71}%
+\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{83}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Discusión}{84}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{85}{chapter.7}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{86}{section*.75}%
+\contentsline {chapter}{Índice Alfabético}{101}{section*.76}%

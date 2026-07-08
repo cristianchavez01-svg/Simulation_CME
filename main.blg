@@ -1,21 +1,21 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
-[1] Config.pm:310> INFO - Logfile is 'main.blg'
-[178] biber:340> INFO - === sáb jun 20, 2026, 00:05:23
-[220] Biber.pm:419> INFO - Reading 'main.bcf'
-[480] Biber.pm:979> INFO - Found 148 citekeys in bib section 0
-[527] Biber.pm:4419> INFO - Processing section 0
-[549] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[565] bibtex.pm:1713> INFO - LaTeX decoding ...
-[974] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[3702] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[3702] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[3702] Biber.pm:4239> INFO - Sorting list 'ynt/apasortcite//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
-[4364] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[4364] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[4364] Biber.pm:4239> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
-[4755] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[5099] bbl.pm:763> INFO - Output to main.bbl
-[5100] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
-[5100] Biber.pm:131> WARN - Duplicate entry key: 'korolkov-2022' in file 'bibliografia.bib', skipping ...
-[5100] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_laM6/499af1e6906591d6961f19d66c065a09_5304.utf8, line 1888, warning: 1 characters of junk seen at toplevel
-[5100] Biber.pm:133> INFO - WARNINGS: 3
+[0] Config.pm:310> INFO - Logfile is 'main.blg'
+[117] biber:340> INFO - === mié jul  1, 2026, 09:07:42
+[145] Biber.pm:419> INFO - Reading 'main.bcf'
+[314] Biber.pm:979> INFO - Found 150 citekeys in bib section 0
+[347] Biber.pm:4419> INFO - Processing section 0
+[366] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[377] bibtex.pm:1713> INFO - LaTeX decoding ...
+[646] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[1893] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1893] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1893] Biber.pm:4239> INFO - Sorting list 'ynt/apasortcite//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
+[2123] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2123] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2123] Biber.pm:4239> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
+[2259] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[2374] bbl.pm:763> INFO - Output to main.bbl
+[2375] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
+[2375] Biber.pm:131> WARN - Duplicate entry key: 'korolkov-2022' in file 'bibliografia.bib', skipping ...
+[2375] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_IK70/499af1e6906591d6961f19d66c065a09_6595.utf8, line 1888, warning: 1 characters of junk seen at toplevel
+[2375] Biber.pm:133> INFO - WARNINGS: 3

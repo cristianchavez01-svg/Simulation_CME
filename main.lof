@@ -1,12 +1,12 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Distribución interna de densidad y temperatura en función de $R_\odot $}}{16}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Representación gráfica de las capas del Sol, sus estructuras y fenómenos.}}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Rotación interna y granulación en la superficie del Sol}}{19}{figure.caption.13}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Comportamiento poloidal y toroidal del campo magnético del Sol}}{22}{figure.caption.17}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Número de sunspots y CMEs anuales}}{25}{figure.caption.19}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Distribución del viento solar al rededor del Sol}}{26}{figure.caption.20}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Perfil de densidad y velocidad del viento solar entre el ciclo 22 y 23}}{27}{figure.caption.22}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Distribución interna de densidad y temperatura en función de $R_\odot $}}{16}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Representación gráfica de las capas del Sol, sus estructuras y fenómenos.}}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Rotación interna y granulación en la superficie del Sol}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Comportamiento poloidal y toroidal del campo magnético del Sol}}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Número de sunspots y CMEs anuales}}{25}{figure.caption.18}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Distribución del viento solar al rededor del Sol}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Perfil de densidad y velocidad del viento solar entre el ciclo 22 y 23}}{28}{figure.caption.21}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Topología del campo magnético helicoidal en una cuerda de flujo}}{31}{figure.caption.23}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Evolución morfológica de la CME debida a efectos convectivos y gradientes de presión}}{32}{figure.caption.25}%
@@ -30,6 +30,9 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Evolución conjunta de densidad y velocidad de las CMEs en el plano polar}}{75}{figure.caption.60}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Caso de interacción con velocidades significativamente diferentes}}{76}{figure.caption.61}%
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Interfaz de programa para visualizar perfiles cinemáticos}}{79}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Gráfica de $a_d$ vs $\tau _d$}}{81}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Gráficas de $a_d$ vs parámetros de interacción}}{81}{figure.caption.72}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Gráfica de $\tau _d$ vs parámetros de interacción}}{82}{figure.caption.73}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

@@ -684,6 +684,83 @@
       \verb https://doi.org/10.1146/annurev.aa.01.090163.000315
       \endverb
     \endentry
+    \entry{pottasch-1963}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=4b21e5252c33a87fc21beafc9b330306}{%
+           family={Pottasch},
+           familyi={P\bibinitperiod},
+           given={Stuart\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{fullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{bibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorbibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authornamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorfullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{4}
+      \field{title}{{The lower solar Corona: Interpretation of the ultraviolet spectrum.}}
+      \field{volume}{137}
+      \field{year}{1963}
+      \field{pages}{945}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/147569
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/147569
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/147569
+      \endverb
+    \endentry
+    \entry{pottasch-1964}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=4b21e5252c33a87fc21beafc9b330306}{%
+           family={Pottasch},
+           familyi={P\bibinitperiod},
+           given={StuartR.},
+           giveni={S\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{fullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{bibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorbibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authornamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorfullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{12}
+      \field{number}{5-6}
+      \field{title}{{On the interpretation of the solar ultraviolet emission line spectrum}}
+      \field{volume}{3}
+      \field{year}{1964}
+      \verb{doi}
+      \verb 10.1007/bf00177958
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf00177958
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf00177958
+      \endverb
+    \endentry
     \entry{sonett-1964}{article}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=63f04f7f25c85d104539611de78fb781}{%
@@ -8456,6 +8533,83 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1146/annurev.aa.01.090163.000315
+      \endverb
+    \endentry
+    \entry{pottasch-1963}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=4b21e5252c33a87fc21beafc9b330306}{%
+           family={Pottasch},
+           familyi={P\bibinitperiod},
+           given={Stuart\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{fullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{bibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorbibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authornamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorfullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Astrophysical Journal}
+      \field{month}{4}
+      \field{title}{{The lower solar Corona: Interpretation of the ultraviolet spectrum.}}
+      \field{volume}{137}
+      \field{year}{1963}
+      \field{pages}{945}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1086/147569
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1086/147569
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1086/147569
+      \endverb
+    \endentry
+    \entry{pottasch-1964}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=4b21e5252c33a87fc21beafc9b330306}{%
+           family={Pottasch},
+           familyi={P\bibinitperiod},
+           given={StuartR.},
+           giveni={S\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{fullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{bibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorbibnamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authornamehash}{4b21e5252c33a87fc21beafc9b330306}
+      \strng{authorfullhash}{4b21e5252c33a87fc21beafc9b330306}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Space Science Reviews}
+      \field{month}{12}
+      \field{number}{5-6}
+      \field{title}{{On the interpretation of the solar ultraviolet emission line spectrum}}
+      \field{volume}{3}
+      \field{year}{1964}
+      \verb{doi}
+      \verb 10.1007/bf00177958
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf00177958
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf00177958
       \endverb
     \endentry
     \entry{sonett-1964}{article}{}

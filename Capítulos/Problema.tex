@@ -447,9 +447,61 @@ Ahora bien, la busqueda se dividirá en 4 partes: (\textit{i}) usando una CME su
 
 \section{Resultados}
 
-Teniendo un tiempo de retraso de 7 horas y como CME precursora la CME-....., la cual presenta un 95$\%$ de la velocidad máxima de .... , como se muestra en la Figura \ref{}.
+Teniendo un tiempo de retraso de 7 horas y con una velocidad para la CME precursora de $\sim620$ km s$^{-1}$, se encuentran rangos de $\tau_d$ y a$_d$ de la CME sucesora para los cuales se desarrolla un perfil de posición y velocidad que conllevan a la interacción con la CME precursora. Estos valores se reportan en la Tabla \ref{tab:parametros_decaimiento}, junto con el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) y el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción. Es posible analizar el comportamiento de estos parámetros de interacción con los parámetros cinemáticos de la CME sucesora ($a_d$ y $\tau_d$) a través de gráficas, curvas de ajuste y coeficientes de correlación, como se muestra en las Figuras \ref{fig:advstd}, \ref{fig:advstodo} y \ref{fig:tdvstodo}.
 
-Se encontraron rangos de $\tau_d$ y a$_d$ de la CME sucesora para los cuales se desarrolla un perfil de posición y velocidad que conllevan a la interacción con la CME precursora. Estos rangos se reportan en la Tabla \ref{}, junto con el valor del 95$\%$ de la velocidad máxima alcanzada, la altura y tiempo de la interacción.
+\begin{table}[h]
+    \centering
+    \begin{threeparttable}
+        \caption{Valores mínimos de los parámetros $a_d$ y $t_d$ de decaimiento bajo los cuales hay interacción en una región $<1$ AU. La CME-1 tarda $\sim 77$ horas $\sim 3,2$ días en llegar a 1,2 AU.}
+        \label{tab:parametros_decaimiento}
+        \begin{tabular}{@{}c c c c c c c@{}}
+            \toprule
+            \multirow{2}{*}{\#} & $a_d$ & $\tau_d$ & $V_{\text{max}}^{95\%}$ & T interacción & Altura interacción & Tiempo $V_{\text{max}}^{95\%}$ \\
+             & (km/s$^2$) & (s) & (km/s) & (h) & (AU) & (h) \\
+            \midrule
+            1  & 0,01 & 57050 & 663,66 & 89,49 & 1,17  & 49,9  \\
+            2  & 0,02 & 26346 & 607,26 & 78,6  & 1,01  & 27,5  \\
+            3  & 0,03 & 17418 & 583,5  & 45,0  & 0,50  & 20,7  \\
+            4  & 0,04 & 13721 & 564,9  & 32,6  & 0,39  & 17,57 \\
+            5  & 0,05 & 10837 & 554,41 & 34,2  & 0,34  & 15,8  \\
+            6  & 0,06 & 9305  & 547,52 & 32,66 & 0,32  & 14,69 \\
+            7  & 0,07 & 8238  & 542,52 & 31,29 & 0,30  & 13,92 \\
+            8  & 0,08 & 7450  & 538,21 & 30,77 & 0,29  & 13,3  \\
+            9  & 0,09 & 6844  & 535,17 & 29,69 & 0,28 & 12,86 \\
+            10 & 0,10 & 6362  & 533,02 & 29,0  & 0,27  & 12,5  \\
+            11 & 0,11 & 5968  & 531,13 & 28,75 & 0,27  & 12,26 \\
+            12 & 0,12 & 5640  & 529,71 & 28,46 & 0,266 & 12,03 \\
+            13 & 0,13 & 5362  & 527,89 & 28,27 & 0,264 & 11,81 \\
+            14 & 0,14 & 5123  & 526,73 & 28,18 & 0,263 & 11,65 \\
+            15 & 0,15 & 4916  & 525,36 & 27,55 & 0,254 & 11,48 \\
+            16 & 0,16 & 4733  & 524,78 & 27,56 & 0,255 & 11,37 \\
+            17 $^{a}$ & 0,17 & 4571  & 524,03 & 27,43 & 0,253 & 11,26\\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \small
+            \item[a] Valores límite, en donde el cambio en el tiempo de interacción se hace mínimo.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{resultados/fig_ad_vs_td.png}
+    \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja) y su ecuación característica, la cual delimita una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlacón.}
+    \label{fig:advstd}
+\end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{resultados/fig_ad_relaciones.png}
+    \caption[Gráficas de $a_d$ vs parámetros de interacción]{Gráficas de $a_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes y sus ecuaciones características. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlacón.}
+    \label{fig:advstodo}
+\end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{resultados/fig_td_relaciones.png}
+    \caption[Gráfica de $\tau_d$ vs parámetros de interacción]{Gráficas de $\tau_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes y sus ecuaciones características. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlacón.}
+    \label{fig:tdvstodo}
+\end{figure}
