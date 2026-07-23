@@ -1,0 +1,127 @@
+
+\chapter{Ecuación de arrastre}
+\label{apendicearrastre}
+
+La fuerza de arrastre experimentada por una CME está dada por
+\begin{equation}
+\frac{dv}{dt}=-\gamma(v-\omega)|v-\omega|,
+\label{arrastre}
+\end{equation}
+donde $\omega$ es la velocidad del \ac{SW} ambiente, $v$ la velocidad de propagación de la CME y $\gamma$ es el parámetro de arrastre definido como
+\begin{equation}
+\gamma=\frac{c_d}{L}\frac{\rho_\text{sw}}{\rho_\text{CME}},
+\end{equation}
+acá $\rho_\text{CME}$ es la densidad interna promedio de la CME, $\rho_\text{sw}$ la densidad del \ac{SW}, $c_d$ el coeficiente de arrastre aerodinámico que depende de la geometría de la CME; y $L$ es el espesor característico de la CME, dado por
+\begin{equation}
+L=\frac{M_\text{CME}}{A\rho_\text{CME}}
+\end{equation}
+donde $M_\text{CME}$ es la masa total de la CME y $A$ su área efectiva transversal a la dirección de propagación. Ahora, observese de la Ecuación \eqref{arrastre} que si $v>\omega$, el arrastre desacelera la CME ($\frac{dv}{dt}<0$), mientras que si $v<\omega$ se verá acelerada ($\frac{dv}{dt}>0$), empujada por el \ac{SW} que la alcanza por detrás. Además, si $v=\omega$, no habrá arrastre, por lo que la CME estará acoplada con el medio.
+
+\chapter{Número de Mach magnetosónico}
+\label{Mach}
+La creación de un choque por parte de la CME sucesora viene dada por el número de Mach magnetosónico definido como
+\begin{equation}
+M_\text{ms}=\frac{v_{\text{rel}}}{v_{\text{ms}}}
+\label{ecu:mach}
+\end{equation}
+donde $v_{\text{rel}}$ es la velocidad de la CME ($v_{\text{CME}}$) relativa a la del viento solar ($v_{\text{sw}}$) en la región de propagación, definida como
+\begin{equation}
+v_{\text{rel}}=v_{\text{CME}}-v_{\text{sw}}.
+\label{ecu1}
+\end{equation}
+Además, $v_{\text{ms}}$ es la velocidad magnetosónica, definida como 
+\begin{equation}
+v_{\text{ms}}=\sqrt{v_\text{A}^{2}+c^{2}_\text{s}},
+\label{ecu2}
+\end{equation}
+que consiste en la suma cuadrática de dos modos de propagación de ondas MHD: la velocidad Alfvén $v_\text{A}$, misma velocidad a la que se propagan las ondas de Alfvén a lo largo de las líneas de campo magnético en un plasma; está dada por
+\begin{equation}
+    v_A=\frac{B}{\sqrt{\mu_0 \rho}},
+    \label{Valfvenica}
+\end{equation}
+en donde $B$ es el campo magnético, $\rho$ la densidad másica del plasma y $\mu_0$ la permeabilidad del vacío. También, $c_\text{s}$ es la velocidad del sonido en el medio, definida como
+\begin{equation}
+c_\text{s}=\sqrt{\frac{\gamma k_B T}{m_p}},
+\label{ecu3}
+\end{equation}
+donde $\gamma$ es el índice adiabático ($5/3$ para plasma monoatómico), $k_B$ la constante de Boltzmann, $T$ la temperatura del plasma y $m_p$ la masa del protón; presenta valores típicos a 1 AU de $\sim 40-60$ km s$^{-1}$. Ahora, si reunimos las Ecuaciones \eqref{ecu:mach}, \eqref{ecu1}, \eqref{ecu2}, \eqref{Valfvenica} y \eqref{ecu3}, se encuentra que
+\begin{equation}
+M_\text{ms}= \frac{v_{\text{CME}}-v_{\text{sw}}}{\sqrt{\frac{B^{2}}{\mu_0 \rho}+ \frac{\gamma k_B T}{m_p}}},
+\end{equation}
+con lo que finalmente se tiene que si la densidad aumenta, el número Macha también lo hará. Además, el número Mach aumentará linealmente con la diferencia de velocidades de la CME y el viento solar.
+
+Ahora bien, si $c_s$ es despreciable, se tiene el parámetro Mach de Alfvén, definido como
+\begin{equation*}
+M_{A}=\frac{v_{\text{rel}}}{v_{A}}.
+\end{equation*}
+
+\section{Velocidad del choque}
+\label{velocidaddelchoque}
+La velocidad del choque está dada por las relaciones de Rankine-Hugoniot, expresadas como
+\begin{equation}
+    \rho_{0}U_{0}=\rho_{1}U_{1},
+    \label{RH_masa}
+\end{equation}
+\begin{equation}
+    \rho_{0}U_{0}^{2}+P_{0}=\rho_{1}U_{1}^{2}+P_{1},
+    \label{RH_momento}
+\end{equation}
+\begin{equation}
+    \frac{1}{2}U_{0}^{2}+\frac{\gamma}{\gamma-1}\frac{P_{0}}{\rho_{0}}=\frac{1}{2}U_{1}^{2}+\frac{\gamma}{\gamma-1}\frac{P_{1}}{\rho_{1}},
+    \label{RH_energia}
+\end{equation}
+las cuales expresan, respectivamente, la continuidad del flujo de masa, momento y energía a través del frente de choque, evaluadas en el marco de referencia en el cual el choque se encuentra en reposo. En estas ecuaciones, $\rho_{0}$ y $\rho_{1}$ son las densidades de masa del plasma aguas arriba (frente) y aguas abajo (detrás) del choque, respectivamente; $P_{0}$ y $P_{1}$ son las presiones térmicas correspondientes; además, $U_{0}$ y $U_{1}$ son las componentes de velocidad del plasma normales al frente de choque, medidas en el marco de referencia del propio choque. 
+
+Dado que un observador no se encuentra, en general, en reposo respecto al choque, es necesario transformar las velocidades $U_{0}$ y $U_{1}$ al marco de referencia del observador. Esta transformación galileana está dada por
+\begin{equation}
+    U_{0} = u_{0} - V_{shock}, \qquad U_{1} = u_{1} - V_{shock},
+    \label{transf_galileana}
+\end{equation}
+donde $u_{0}$ y $u_{1}$ son las velocidades del plasma medidas en el marco de referencia del observador, y $V_{shock}$ es la velocidad del frente de choque en ese mismo marco. Sustituyendo la Ecuación \eqref{transf_galileana} en la condición de conservación de masa (Ecuación \ref{RH_masa}), se obtiene
+\begin{equation*}
+    \rho_{0}\left(u_{0}-V_{shock}\right)=\rho_{1}\left(u_{1}-V_{shock}\right).
+\end{equation*}
+Expandiendo, se tiene
+\begin{equation*}
+    \rho_{0}u_{0}-\rho_{0}V_{shock}=\rho_{1}u_{1}-\rho_{1}V_{shock},
+\end{equation*}
+despejando $V_{shock}$, se llega a
+\begin{equation*}
+    V_{shock}=\frac{\rho_{1}u_{1}-\rho_{0}u_{0}}{\rho_{1}-\rho_{0}},
+    \label{Vshock}
+\end{equation*}
+
+
+\section{Relación de compresión}
+\label{relacióncompresión}
+Combinando la conservación de masa y momento (Ecuaciones \ref{RH_masa} y \ref{RH_momento}), y definiendo el flujo másico constante $j\equiv\rho_{0}U_{0}=\rho_{1}U_{1}$, se obtiene
+\begin{equation}
+    P_{1}-P_{0}=\rho_{0}U_{0}(U_{0}-U_{1}).
+    \label{compres}
+\end{equation}
+Se introduce la razón de compresión $X\equiv\rho_{1}/\rho_{0}=U_{0}/U_{1}$ y la velocidad del sonido delante (upstream) del choque $c_{s,0}^{2}=\gamma_{ad}P_{0}/\rho_{0}$, con la cual el número de Mach sónico upstream se define como $M_{0}\equiv U_{0}/c_{s,0}$. La Ecuación \eqref{compres} se reescribe como
+\begin{equation*}
+    \frac{P_{1}}{P_{0}}=1+\gamma_{ad}M_{0}^{2}\left(1-\frac{1}{X}\right).
+    \label{RH_paso1}
+\end{equation*}
+
+De forma análoga, haciendo uso de la Ecuación \eqref{RH_energia}) y expresandola en términos de $X$ y $M_{0}$, se tiene
+\begin{equation}
+    \frac{P_{1}}{P_{0}}=X+\frac{(\gamma_{ad}-1)M_{0}^{2}}{2}\left(X-\frac{1}{X}\right).
+    \label{RH_paso2}
+\end{equation}
+Ahora, igualando las Ecuaciones \eqref{RH_paso1} y \eqref{RH_paso2}, y multiplicando por $2X$ para eliminar los denominadores, se obtiene la ecuación cuadrática
+\begin{equation*}
+    \left[2+(\gamma_{ad}-1)M_{0}^{2}\right]X^{2}-\left[2+2\gamma_{ad}M_{0}^{2}\right]X
+    +(\gamma_{ad}+1)M_{0}^{2}=0,
+\end{equation*}
+cuya raíz físicamente relevante es la razón de compresión en función del número de Mach:
+\begin{equation*}
+    X=\frac{\rho_{1}}{\rho_{0}}=\frac{(\gamma_{ad}+1)M_{0}^{2}}{(\gamma_{ad}-1)M_{0}^{2}+2}.
+    \label{Xcompresion}
+\end{equation*}
+Sin embargo, es posible expresar $X$ en función de densidades, siendo
+\begin{equation}
+X=\frac{\rho_1}{\rho_0},
+\end{equation}
+donde $\rho_0$ y $\rho_1$ son las densidades del plasma delante y detrás del choque.

@@ -82,13 +82,31 @@ def ajustar_lineal(x, y):
 def ajustar_potencial(x, y):
     if np.any(x <= 0) or np.any(y <= 0):
         return None
-    b, log_a = np.polyfit(np.log(x), np.log(y), 1)
-    a = np.exp(log_a)
+    
+    def potencial(x, a, b):
+        with np.errstate(over='ignore', invalid='ignore'):
+            return a * np.power(x, b)
+    
+    try:
+        popt, _ = curve_fit(potencial, x, y, p0=[np.max(y), -1], maxfev=100000)
+        a, b = popt
+    except Exception:
+        # Fallback a polyfit si curve_fit falla
+        b, log_a = np.polyfit(np.log(x), np.log(y), 1)
+        a = np.exp(log_a)
+    
     y_pred = a * np.power(x, b)
     r2 = r2_score(y, y_pred)
     eq = f"$y = {a:.6g}\\,x^{{{b:.6g}}}$"
+    
+    def func_potencial(xv, a=a, b=b):
+        with np.errstate(over='ignore', invalid='ignore'):
+            result = a * np.power(xv, b)
+            result = np.where(np.isfinite(result), result, np.nan)
+        return result
+    
     return dict(nombre="Potencial", params=(a, b), r2=r2, eq=eq,
-                func=lambda xv, a=a, b=b: a * np.power(xv, b))
+                func=func_potencial)
 
 
 def ajustar_exponencial(x, y):
@@ -101,34 +119,51 @@ def ajustar_exponencial(x, y):
     if x.size < 2:
         return None
 
-    scale = np.max(np.abs(x))
-    if scale == 0:
-        scale = 1.0
-
-    x_scaled = x / scale
-
-    def modelo(x_scaled, a, b):
-        return a * np.exp(b * x_scaled)
+    def modelo(x, a, b):
+        with np.errstate(over='ignore', invalid='ignore'):
+            return a * np.exp(b * x)
 
     try:
-        params, _ = curve_fit(modelo, x_scaled, y, p0=[np.max(y), -1e-3], maxfev=100000)
-        a, b_scaled = params
-        b = b_scaled / scale
+        # Estimar valores iniciales con polyfit en log
+        b_init, log_a_init = np.polyfit(x, np.log(y), 1)
+        a_init = np.exp(log_a_init)
+        params, _ = curve_fit(modelo, x, y, p0=[a_init, b_init], maxfev=100000)
+        a, b = params
     except Exception:
+        # Fallback a polyfit si curve_fit falla
         b, log_a = np.polyfit(x, np.log(y), 1)
         a = np.exp(log_a)
 
     y_pred = a * np.exp(b * x)
     r2 = r2_score(y, y_pred)
     eq = f"$y = {a:.6g}\\,e^{{{b:.6g}\\,x}}$"
+    
+    def func_exponencial(xv, a=a, b=b):
+        with np.errstate(over='ignore', invalid='ignore'):
+            result = a * np.exp(b * xv)
+            result = np.where(np.isfinite(result), result, np.nan)
+        return result
+    
     return dict(nombre="Exponencial", params=(a, b), r2=r2, eq=eq,
-                func=lambda xv, a=a, b=b: a * np.exp(b * xv))
+                func=func_exponencial)
 
 
 def ajustar_logaritmico(x, y):
     if np.any(x <= 0):
         return None
-    a, b = np.polyfit(np.log(x), y, 1)
+    
+    def modelo(x, a, b):
+        return a * np.log(x) + b
+    
+    try:
+        # Estimar valores iniciales con polyfit
+        a_init, b_init = np.polyfit(np.log(x), y, 1)
+        params, _ = curve_fit(modelo, x, y, p0=[a_init, b_init], maxfev=100000)
+        a, b = params
+    except Exception:
+        # Fallback a polyfit si curve_fit falla
+        a, b = np.polyfit(np.log(x), y, 1)
+    
     y_pred = a * np.log(x) + b
     r2 = r2_score(y, y_pred)
     eq = f"$y = {a:.6g}\\,\\ln(x) + {b:.6g}$"
@@ -157,7 +192,7 @@ def mejor_ajuste(x, y):
 # 3. FUNCIÓN DE SUBPANEL
 # ------------------------------------------------------------------
 
-def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False):
+def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False, legend_loc="upper right"):
     resultados = mejor_ajuste(x, y)
     if not resultados:
         ax.set_title(rf"{titulo}\n[sin ajuste]", fontsize=10)
@@ -208,7 +243,7 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False):
                label=rf"$R^2$ = {mejor['r2']:.4f}"),
     ])
 
-    ax.legend(handles=legend_handles, fontsize=11, loc="upper right",
+    ax.legend(handles=legend_handles, fontsize=11, loc=legend_loc,
               ncol=1, borderaxespad=0.4, handlelength=1.5,
               frameon=True, framealpha=0.95)
 
@@ -257,7 +292,7 @@ def main():
     for i, (y_data, y_label, y_tag) in enumerate(variables_y):
         titulo = f"$\\tau_d$ vs {y_label}"
         r = poblar_subpanel(axes2[i], t_d, y_data,
-                            r"$\tau_d$ [$10^3$ s]", y_label, titulo)
+                            r"$\tau_d$ [$10^3$ s]", y_label, titulo, legend_loc="lower right")
         axes2[i].xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f"{x/1000:.1f}"))
         if r:
             r["relacion"] = f"td_vs_{y_tag}"

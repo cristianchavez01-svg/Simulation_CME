@@ -1,21 +1,25 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'main.blg'
-[117] biber:340> INFO - === mié jul  1, 2026, 09:07:42
-[145] Biber.pm:419> INFO - Reading 'main.bcf'
-[314] Biber.pm:979> INFO - Found 150 citekeys in bib section 0
-[347] Biber.pm:4419> INFO - Processing section 0
-[366] Biber.pm:4610> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[377] bibtex.pm:1713> INFO - LaTeX decoding ...
-[646] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[1893] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1893] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1893] Biber.pm:4239> INFO - Sorting list 'ynt/apasortcite//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
-[2123] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[2123] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[2123] Biber.pm:4239> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
-[2259] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[2374] bbl.pm:763> INFO - Output to main.bbl
-[2375] Biber.pm:131> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
-[2375] Biber.pm:131> WARN - Duplicate entry key: 'korolkov-2022' in file 'bibliografia.bib', skipping ...
-[2375] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_IK70/499af1e6906591d6961f19d66c065a09_6595.utf8, line 1888, warning: 1 characters of junk seen at toplevel
-[2375] Biber.pm:133> INFO - WARNINGS: 3
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'main.blg'
+[3689] biber-MSWIN64:342> INFO - === 
+[6726] Biber.pm:421> INFO - Reading 'main.bcf'
+[7236] Biber.pm:1002> INFO - Found 208 citekeys in bib section 0
+[7303] Biber.pm:4487> INFO - Processing section 0
+[7550] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[8424] bibtex.pm:1713> INFO - LaTeX decoding ...
+[9811] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[16108] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[16108] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[16109] Biber.pm:4307> INFO - Sorting list 'ynt/apasortcite//global/global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
+[17362] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[17362] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[17362] Biber.pm:4307> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
+[18432] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[19426] bbl.pm:779> INFO - Output to main.bbl
+[19426] Biber.pm:132> WARN - Duplicate entry key: 'gopalswamy-2004' in file 'bibliografia.bib', skipping ...
+[19426] Biber.pm:132> WARN - Duplicate entry key: 'korolkov-2022' in file 'bibliografia.bib', skipping ...
+[19426] Biber.pm:132> WARN - Duplicate entry key: 'gopalswamy-2000' in file 'bibliografia.bib', skipping ...
+[19427] Biber.pm:132> WARN - Duplicate entry key: 'yashiro-2004' in file 'bibliografia.bib', skipping ...
+[19427] Biber.pm:132> WARN - Duplicate entry key: 'shen-2013' in file 'bibliografia.bib', skipping ...
+[19427] Biber.pm:132> WARN - Duplicate entry key: 'li-2012' in file 'bibliografia.bib', skipping ...
+[19427] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\CRISTI~1\AppData\Local\Temp\biber_tmp_B93z\499af1e6906591d6961f19d66c065a09_10976.utf8, line 1901, warning: 1 characters of junk seen at toplevel
+[19427] Biber.pm:134> INFO - WARNINGS: 7
