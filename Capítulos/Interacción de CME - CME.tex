@@ -16,7 +16,7 @@
 \end{flushright}
 \vspace{1cm}
 
-El estudio de la interacción entre CMEs representa un caso de particular importancia para el clima espacial, puesto que puede producir una intensificación del parámetro \ac{DST} (ver \autoref{clasificación}) depositando su energía en la magnetosfera terrestre produciendo tormentas geomagnéticas \parencite[e.g.,][]{lugaz-2014, farrugia-2004}, así como un aumento en la aceleración y el transporte de partículas, las cuales pueden quedar atrapadas dentro del campo magnético de la CME o ser liberadas hacia el medio interplanetario. 
+El estudio de la interacción entre CMEs representa un caso de particular importancia para el clima espacial, puesto que puede producir una intensificación del parámetro \ac{DST} (ver \autoref{clasificación}) depositando su energía en la magnetosfera terrestre produciendo tormentas geomagnéticas \parencite[e.g.,][]{lugaz-2014, farrugia-2004}, así como un aumento en la aceleración y el transporte de partículas, las cuales pueden quedar atrapadas dentro del campo magnético de la CME o ser liberadas hacia el medio interplanetario. En consecuencia, es de gran importancia entender cómo la velocidad y aceleración de cada CME, así como el intervalo de tiempo entre erupciones, rigen su interacción, por lo que el establecimiento de umbrales físicos asociados representan una investigación de especial importancia en física solar.
 
 Un caso de CMEs homólogas bien estudiado es el registrado el $24-25$ de Noviembre de 2000 en la \ac{AR} 9236, donde se reporta la expulsión de cuatro \ac{SF} asocidadas con CMEs de velocidades $\sim700-2000$ km s$^{-1}$, las cuales se originaron sucesivamente. La causa de estas CMEs es el flujo magnético emergente y su helicidad, lo que permite una repetición continua del almacenamiento y la descarga de energía libre entre erupciones, hasta agotar la energía de la \ac{AR} \parencite[e.g.,][]{nitta-2001, zhang-2002, moon-2003a}. Estas cuatro CMEs interactuaron en el espacio interplanetario, formando una estructura compleja o \ac{MC} a una distancia de $1$ AU \parencite[e.g.,][]{wang-2002}. Por otro lado, un caso particular de CMEs homólogas, son las CMEs gemelas las cuales presentan tiempos de retraso del orden de minutos e influyen en la generación de \acp{SEP} \parencite[e.g.,][]{shen-2013, li-2012}. Por otra parte, las CMEs homólogas se pueden estudiar a través de simulaciones numéricas \parencite[e.g.,][]{chatterjee-2013, soenen-2009, torok-2011, bemporad-2012}.
 
@@ -43,7 +43,20 @@ Una simulación hidrodinámica de la interacción entre una CME-1 (precursora) y
 \end{figure}
 
 \section{Casos de interacción}
+%===========================================
+Un escenario de interacción típico involucra CMEs homólogas, en el que la velocidad de la CME precursora es superada por la de una CME sucesora, la cual es emitida con el tiempo de retraso necesario para permitir su interacción antes de que la precursora esté fuera del alcanse de la sucesora. Además, la CME precursora experimenta una fuerza de arrastre al desplazar material del viento solar, lo que posteriormente reduce la fuerza de arrastre experimentada por la CME sucesiva, mejorando su probabilidad de interacción con la precursora. 
 
+Sin embargo, puede no presentarse interacción entre CMEs homólogas si la CME primaria presenta una velocidad significativamente mayor a causa de una aceleración inicial más intensa o de un tiempo de acción de dicha aceleración más prolongado. Cabe señalar que la producción de dos CMEs en un intervalo de tiempo relativamente corto no implica necesariamente su interacción, puesto que pueden originarse en diferentes regiones activas —es decir, tratarse de CMEs simultáneas— y propagarse en direcciones distintas.
+
+Otro evento de interacción puede ocurrir gracias a CMEs super-Alfvénicas, es decir, con velocidades mayores a la velocidad magnetosónica, generando ondas de choque en sus frentes, lo que en su interacción se manifiesta como una superposición de choques. La superposición intensifica tanto su geoefectividad como la producción de SEPs, representando un evento con un impacto mucho más importante en comparación con la interacción de CMEs sin choque. Por consiguiente, la CME resultante de una interacción con o sin presencia de choques, presentará características con mayor influencia en el clima espacial en comparación con las presentadas por las CMEs individualmente. Todo esto se resume en el diagrama mostrado en la Figura \ref{Diagramadeflujo}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[angle=0, width=0.78\linewidth]{imag/_Diagrama de flujo.png}
+\caption[Diagrama de flujo de la interacción de CMEs.]{Diagrama de flujo de la interacción de CMEs, sus condiciones y consecuencias. El diagrama parte de clasificar las CMEs en simultáneas, homólogas y gemelas para luego seleccionar aquellas con la condición necesaria para que interactuen ($V_1<V_2$), donde $V_1$ es la velocidad de la CME--1 y $V_2$ de la CME--2. Luego se indica la interacción si hay presencia de ondas de choque asociadas a las CMEs para luego indicar la producción de SEPs como resultado de la interacción.}
+\label{Diagramadeflujo}
+\end{figure}
+%===========================================
 Cuando una CME precursora es emitida se enfrenta a una fuerza de arrastre generada por su interacción con el \ac{SW}. Dicha fuerza está dada por
 \begin{equation}
 \frac{dv}{dt}=-\gamma(v-\omega)|v-\omega|,

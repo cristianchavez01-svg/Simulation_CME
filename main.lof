@@ -1,38 +1,38 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Distribución interna de densidad y temperatura en función de $R_\odot $}}{16}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Representación gráfica de las capas del Sol, sus estructuras y fenómenos.}}{17}{figure.caption.14}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Rotación interna y granulación en la superficie del Sol}}{19}{figure.caption.15}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Comportamiento poloidal y toroidal del campo magnético del Sol}}{23}{figure.caption.28}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Número de sunspots y CMEs anuales}}{25}{figure.caption.30}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Distribución del viento solar al rededor del Sol}}{26}{figure.caption.39}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Perfil de densidad y velocidad del viento solar entre el ciclo 22 y 23}}{28}{figure.caption.41}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Distribución interna de densidad y temperatura en función de $R_\odot $}}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Representación gráfica de las capas del Sol, sus estructuras y fenómenos.}}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Rotación interna y granulación en la superficie del Sol}}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Comportamiento poloidal y toroidal del campo magnético del Sol}}{24}{figure.caption.28}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Número de sunspots y CMEs anuales}}{26}{figure.caption.30}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Distribución del viento solar al rededor del Sol}}{27}{figure.caption.39}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Perfil de densidad y velocidad del viento solar entre el ciclo 22 y 23}}{29}{figure.caption.41}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Topología del campo magnético helicoidal en una cuerda de flujo}}{33}{figure.caption.46}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Representación gráfica supuesta de la eyección de CMEs homólogas}}{34}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Evolución morfológica de la CME debida a efectos convectivos y gradientes de presión}}{35}{figure.caption.50}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Partes de una CME junto con su complejidad magnética}}{35}{figure.caption.51}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Perfil de aceleración de una CME}}{36}{figure.caption.52}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Perfiles de altura, velocidad y aceleración de la CME del 21 de abril de 2002}}{38}{figure.caption.55}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Observación del evento CME del 28 de Octubre de 2003 por parte del LASCO-C3}}{41}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Topología del campo magnético helicoidal en una cuerda de flujo}}{34}{figure.caption.46}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Representación gráfica supuesta de la eyección de CMEs homólogas}}{35}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Evolución morfológica de la CME debida a efectos convectivos y gradientes de presión}}{36}{figure.caption.50}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Partes de una CME junto con su complejidad magnética}}{36}{figure.caption.51}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Perfil de aceleración de una CME}}{37}{figure.caption.52}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Perfiles de altura, velocidad y aceleración de la CME del 21 de abril de 2002}}{39}{figure.caption.55}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Observación del evento CME del 28 de Octubre de 2003 por parte del LASCO-C3}}{42}{figure.caption.60}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Distancia, dirección de propagación y velocidad del evento de interacción del $13-15$ de Febrero de 2011}}{45}{figure.caption.74}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Resultados de la simulación de una CME a 1D hecha por \blx@tocontentsinit {0}\cite {gonzalez-esparza-2004}}}{46}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Distancia, dirección de propagación y velocidad del evento de interacción del $13-15$ de Febrero de 2011}}{46}{figure.caption.74}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Resultados de la simulación de una CME a 1D hecha por \blx@tocontentsinit {0}\cite {gonzalez-esparza-2004}}}{47}{figure.caption.75}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de flujo de la interacción de CMEs.}}{49}{figure.caption.76}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagrama de flujo de la interacción de CMEs.}}{53}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial}}{57}{figure.caption.77}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Evolución en 2D de la CME--1}}{62}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Esquema de la evolución en 2D de la primera CME}}{63}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria}}{64}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Evolución en 2D de la CME--2}}{66}{figure.caption.81}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Caso de interacción con velocidades similares}}{68}{figure.caption.82}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Perfiles cinemáticos de las dos CMEs sin considerar interacción}}{69}{figure.caption.83}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Evolución conjunta de densidad y velocidad de las CMEs en el plano polar}}{71}{figure.caption.84}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Caso de interacción con velocidades significativamente diferentes}}{72}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Interfaz de programa para visualizar perfiles cinemáticos}}{75}{figure.caption.92}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Gráfica de $a_d$ vs $\tau _d$}}{77}{figure.caption.95}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Gráficas de $a_d$ vs parámetros de interacción}}{77}{figure.caption.96}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Gráfica de $\tau _d$ vs parámetros de interacción}}{78}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial}}{58}{figure.caption.77}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Evolución en 2D de la CME--1}}{63}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Esquema de la evolución en 2D de la primera CME}}{64}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria}}{65}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Evolución en 2D de la CME--2}}{67}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Caso de interacción con velocidades similares}}{69}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Perfiles cinemáticos de las dos CMEs sin considerar interacción}}{70}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Evolución conjunta de densidad y velocidad de las CMEs en el plano polar}}{72}{figure.caption.84}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Caso de interacción con velocidades significativamente diferentes}}{73}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Interfaz de programa para visualizar perfiles cinemáticos}}{76}{figure.caption.92}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Gráfica de $a_d$ vs $\tau _d$}}{78}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Gráficas de $a_d$ vs parámetros de interacción}}{78}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Gráfica de $\tau _d$ vs parámetros de interacción}}{79}{figure.caption.97}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

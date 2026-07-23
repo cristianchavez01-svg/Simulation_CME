@@ -1,0 +1,16 @@
+parametro,valor
+T_max_usuario_s,36000.0
+offset_s,3600.0
+offset_on,1
+c1_ar,0.034
+c1_tr,6900.0
+c1_ad,0.017
+c1_td,86400.0
+c1_v0,100.0
+c1_x0,100000.0
+c2_ar,0.002
+c2_tr,320.0
+c2_ad,5.2
+c2_td,775.0
+c2_v0,100.0
+c2_x0,20000.0
