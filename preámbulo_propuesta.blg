@@ -1,5 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'preÃ¡mbulo_propuesta.blg'
-[116] biber:340> INFO - === vie nov 14, 2025, 12:53:34
-[323] Utils.pm:399> ERROR - Cannot find 'preÃ¡mbulo_propuesta.bcf'!
-[323] Biber.pm:136> INFO - ERRORS: 1
