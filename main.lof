@@ -19,20 +19,20 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Distancia, dirección de propagación y velocidad del evento de interacción del $13-15$ de Febrero de 2011}}{46}{figure.caption.74}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Resultados de la simulación de una CME a 1D hecha por \blx@tocontentsinit {0}\cite {gonzalez-esparza-2004}}}{47}{figure.caption.75}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de flujo de la interacción de CMEs.}}{49}{figure.caption.76}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Caso de interacción con velocidades similares}}{51}{figure.caption.77}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Caso de interacción con velocidades significativamente diferentes}}{52}{figure.caption.78}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial}}{58}{figure.caption.77}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Evolución en 2D de la CME--1}}{63}{figure.caption.78}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Esquema de la evolución en 2D de la primera CME}}{64}{figure.caption.79}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria}}{65}{figure.caption.80}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Evolución en 2D de la CME--2}}{67}{figure.caption.81}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Caso de interacción con velocidades similares}}{69}{figure.caption.82}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Perfiles cinemáticos de las dos CMEs sin considerar interacción}}{70}{figure.caption.83}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Evolución conjunta de densidad y velocidad de las CMEs en el plano polar}}{72}{figure.caption.84}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Caso de interacción con velocidades significativamente diferentes}}{73}{figure.caption.85}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Interfaz de programa para visualizar perfiles cinemáticos}}{76}{figure.caption.92}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Gráfica de $a_d$ vs $\tau _d$}}{78}{figure.caption.95}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Gráficas de $a_d$ vs parámetros de interacción}}{78}{figure.caption.96}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Gráfica de $\tau _d$ vs parámetros de interacción}}{79}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Esquema de la evolución en 2D de la primera CME}}{56}{figure.caption.79}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME inicial}}{60}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Evolución en 2D de la CME--1}}{64}{figure.caption.81}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria}}{66}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Evolución en 2D de la CME--2}}{67}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Perfiles cinemáticos de las dos CMEs sin considerar interacción}}{69}{figure.caption.84}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Evolución conjunta de densidad y velocidad de las CMEs en el plano polar}}{70}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Interfaz de programa para visualizar perfiles cinemáticos}}{73}{figure.caption.92}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Gráfica de $a_d$ vs $\tau _d$}}{75}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Gráficas de $a_d$ vs parámetros de interacción}}{75}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Gráfica de $\tau _d$ vs parámetros de interacción}}{76}{figure.caption.97}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

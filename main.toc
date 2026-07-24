@@ -17,22 +17,24 @@
 \contentsline {section}{\numberline {2.6}Detección y observación de CMEs}{41}{section.2.6}%
 \contentsline {chapter}{\chapternumberline {3}Interacción CME - CME: Teoría}{44}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Casos de interacción}{48}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Cambio en las propiedades y estructuras resultantes}{51}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Interacción CME-CME y los eventos de SEPs}{53}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}Interacción CME - CME: Fenómeno}{54}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Aspectos generales}{54}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Modelo CME--1}{56}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Modelo CME--2}{64}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Interacción: $V_{\text {CME--1}} < V_{\text {CME--2}}$}{68}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Interacción: $V_{\text {CME--1}} \ll V_{\text {CME--2}}$}{73}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Selección de parámetros}{73}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Resultados}{76}{section.4.7}%
-\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{80}{chapter.5}%
-\contentsline {chapter}{\chapternumberline {6}Discusión}{81}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{82}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Ecuación de arrastre}{83}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}Número de Mach magnetosónico}{84}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Velocidad del choque}{85}{appendix.B.1}%
-\contentsline {section}{\numberline {B.2}Relación de compresión}{86}{appendix.B.2}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{87}{section*.100}%
-\contentsline {chapter}{Índice Alfabético}{108}{section*.101}%
+\contentsline {subsection}{Interacción: $V_{\text {CME--1}} < V_{\text {CME--2}}$}{51}{equation.3.1}%
+\contentsline {subsection}{Interacción: $V_{\text {CME--1}} \ll V_{\text {CME--2}}$}{51}{figure.caption.77}%
+\contentsline {section}{\numberline {3.2}Cambio en las propiedades y estructuras resultantes}{52}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Interacción CME-CME y los eventos de SEPs}{54}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}Interacción CME - CME: Fenómeno}{55}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Aspectos generales}{55}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Modelo CME--1}{57}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Modelo CME--2}{65}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Resultados interacción: $V_{\text {CME--1}} < V_{\text {CME--2}}$}{68}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Resultados interacción: $V_{\text {CME--1}} \ll V_{\text {CME--2}}$}{71}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Selección de parámetros}{71}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Resultados}{73}{section.4.7}%
+\contentsline {chapter}{\chapternumberline {5}Análisis de resultados}{77}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {6}Discusión}{78}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Conclusiones y perspectivas}{79}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Ecuación de arrastre}{80}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}Número de Mach magnetosónico}{81}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Velocidad del choque}{82}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Relación de compresión}{83}{appendix.B.2}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{84}{section*.100}%
+\contentsline {chapter}{Índice Alfabético}{105}{section*.101}%
