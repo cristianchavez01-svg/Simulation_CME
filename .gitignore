@@ -1,0 +1,16 @@
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.bak
+__pycache__/
