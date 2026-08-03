@@ -176,8 +176,8 @@ def etiquetas_etapas(ax):
 
 fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(14, 11),
                                      sharex=True, gridspec_kw={'hspace': 0})
-fig.suptitle('Cinemática de la CME - 1', fontsize=20, y=0.98)
-fig.text(0.5, 0.935, f'{T_HORAS} horas de propagación',
+fig.suptitle('Cinemática CME de prueba', fontsize=20, y=0.96)
+fig.text(0.5, 0.90, f'{T_HORAS} horas de propagación',
          ha='center', fontsize=13, style='italic', color='#444444')
 
 sombrear_etapas(ax1)
@@ -257,7 +257,7 @@ print(f"  Rango de densidad: [{DENS_MIN_GLOBAL:.3f}, {DENS_MAX_GLOBAL:.3f}] log1
 
 fig = plt.figure(figsize=(20, 12))
 fig.suptitle('Propagación de CME - 1', fontsize=18, fontweight='normal', y=0.99)
-fig.text(0.5, 0.935, f'{T_HORAS} horas de propagación',
+fig.text(0.5, 0.94, f'{T_HORAS} horas de propagación',
          ha='center', fontsize=13, style='italic', color='#444444')
 
 for idx, t_frame in enumerate(tiempos_frames):
