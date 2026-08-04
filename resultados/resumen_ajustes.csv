@@ -1,10 +1,10 @@
 Relacion,Mejor_modelo,Ecuacion,R2
-ad_vs_Vmax95,Potencial,"$y = 444.909\,x^{-0.080138}$",0.9434
-ad_vs_T_interaccion,Potencial,"$y = 9.22774\,x^{-0.493756}$",0.8879
-ad_vs_Altura_interaccion,Potencial,"$y = 0.0611397\,x^{-0.648459}$",0.9118
-ad_vs_T95_Vmin,Potencial,"$y = 3.08123\,x^{-0.586039}$",0.9488
-td_vs_Vmax95,Potencial,"$y = 236.94\,x^{0.0927194}$",0.9825
-td_vs_T_interaccion,Potencial,"$y = 0.28479\,x^{0.528265}$",0.9058
-td_vs_Altura_interaccion,Potencial,"$y = 0.000752774\,x^{0.676407}$",0.9142
-td_vs_T95_Vmin,Lineal,"$y = 0.000729537\,x + 7.89866$",0.9998
-ad_vs_td,Potencial,"$y = 592.965\,x^{-0.987431}$",0.9944
+ad_vs_Vmax95,Potencial,"$y = 443.905\,x^{-0.0810086}$",0.9380
+ad_vs_T_interaccion,Potencial,"$y = 9.67855\,x^{-0.484242}$",0.8911
+ad_vs_Altura_interaccion,Potencial,"$y = 0.0647984\,x^{-0.634599}$",0.8918
+ad_vs_T95_Vmin,Potencial,"$y = 2.96564\,x^{-0.599778}$",0.9455
+td_vs_Vmax95,Potencial,"$y = 234.3\,x^{0.0939792}$",0.9811
+td_vs_T_interaccion,Potencial,"$y = 0.32368\,x^{0.516776}$",0.9047
+td_vs_Altura_interaccion,Potencial,"$y = 0.000887633\,x^{0.660741}$",0.8936
+td_vs_T95_Vmin,Lineal,"$y = 0.000751698\,x + 7.74381$",1.0000
+ad_vs_td,Potencial,"$y = 582.022\,x^{-0.991987}$",0.9941
