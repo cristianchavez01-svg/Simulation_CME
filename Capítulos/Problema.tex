@@ -110,7 +110,7 @@ Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{resultados/fig_ad_vs_td.png}
+    \includegraphics[width=\linewidth]{resultados/fig_ad_vs_td.png}
     \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja) y su ecuación característica, la cual delimita una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlación.}
     \label{fig:advstd}
 \end{figure}
@@ -131,24 +131,8 @@ Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km 
 
 %============================================================
 
-\section{Modelo CME--2}
-
-Por lo tanto, al ejecutar el código obtenemos los perfiles de posición, velocidad y aceleración para la CME secundaria, mostrados en la Figura \ref{CME2cinemática}. Era de esperar que su comportamiento fuese similar al de la CME inicial, puesto que los cambios en los parámetros fueron mínimos.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{cinematica_original_CME2.pdf}
-    \caption[Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria]{Perfiles de posición, velocidad y aceleración para la simulación de la CME secundaria. Las diferentes etapas en la evolución de la CME se identifican con regiones delimitadas; la región de iniciación se indica en blanco hasta la línea discontinua, la etapa de aceleración se muestra en gris desde la línea discontinua hasta la punteada, la región de propagación en blanco va desde la línea punteada hasta el final de la gráfica. La línea discontinua indica el momento en el que la aceleración es máxima, mientras que la línea punteada señala el momento en el que la velocidad alcanza el $95\%$ de su velocidad máxima. Cabe señalar que el punto que se toma para determinar la cinemática de la CME es en su centro.}
-    \label{CME2cinemática}
-\end{figure}
-
-En comparación de la Figura \ref{CME2cinemática} con la Figura \ref{CME1cinemática}, se puede evidenciar la diferencia en los tamaños de las etapas, ésto debido a los cambios en los parámetros cinemáticos. Para esta CME se presenta una velocidad máxima de $\sim2700$ km s$^{-1}$ y una aceleración pico de $\sim1800$ km s$^{-2}$, así como una distancia de $\sim140$ $R_\odot$ después de 10 horas de propagación.
-
-
 \section{Resultados interacción: $V_{\text{CME--1}} < V_{\text{CME--2}}$}
-Una vez con las dos CMEs simuladas, se busca integrar en un único código su evolución con el fin de simular a una interacción. Para esta parte, las densidades deben afectarse mutuamente, de tal forma que se superpongan así como los campos de velocidad. Se buscará determinar las propiedades físicas de la CME resultante de la interacción. Para este escenario la CME--1 presenta una velocidad menor pero similar a la CME--2.
-
-Se desarrolla el código que permite la evolución de las dos CMEs en un mismo entorno, generando así una interacción al controlar los parámetros cinemáticos de cada una, así como el intervalo de tiempo entre CMEs. Para este caso tenemos los perfiles de posición, velocidad y aceleración mostrados en la Figura \ref{cinematicaconjunta}, en donde se reportan los perfiles de ambas CMEs, con una diferencia temporal entre sus producciones. Se evidencia cómo ambas CMEs llegan a una velocidad máxima similar, pero con una velocidad mayor en la CME--2 respecto a la CME--1; sin embargo los perfiles de posición no presentan ninguna intersección, lo que indicaría una ausencia de interacción. 
+Una vez con la cinemática de las CMEs simulada, se estudia en conjunto sus densidades y velocidades, para determinar las propiedades físicas de la CME resultante de la interacción. Por consiguiente, se desarrolla el código complementario a la simulación que permite la evolución en 2D de las CMEs en un mismo entorno, permitiendo el estudio de su interacción a través de mapas de densidad y velocidad. La Figura \ref{cinematicaconjunta} muestra los perfiles de posición, velocidad y aceleración para la CME precursora () y sucesora ().
 
 \begin{figure}[h]
     \centering

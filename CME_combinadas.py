@@ -10,14 +10,16 @@ matplotlib.rcParams.update({
 
 # ── PARÁMETROS GLOBALES ───────────────────────────────────────────────────────
 R_SOL_KM, R_SOL_STR   = 695700, r'$R_\odot$'
-DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 10, 695700
+DIST_TIERRA_KM = 149597870.7
+DIST_TIERRA_RS = DIST_TIERRA_KM / R_SOL_KM
+DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 85, 695700
 V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
-semilla1, semilla2, RETRASO_CME2 = 435, 1962, 3600.0
+semilla1, semilla2, RETRASO_CME2 = 435, 1962, 25200.0 #7 horas
 FACTOR_COMPRESION = 1.15
 DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
 
-PUNTOS_OBS = [(round(r,4), 0.0) for r in np.linspace(3, 20.0, 4)]
-print(f"Puntos de observación: {len(PUNTOS_OBS)}")
+N_PUNTOS_OBS = 5
+print(f"Puntos de observación: {N_PUNTOS_OBS}")
 
 
 # ── MORFOLOGÍA COMPARTIDA ─────────────────────────────────────────────────────
@@ -239,9 +241,9 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
 
 
 # ── INSTANCIAS ────────────────────────────────────────────────────────────────
-cme1 = CME('CME-1',tr=120,td=620,ar=0.0012,ad=1.745,v0=35,x0=19000,R0=5.2,
+cme1 = CME('CME-1',tr=6900,td=55600,ar=0.034,ad=0.01,v0=100,x0=100000,R0=5.2,
            semilla=semilla1,color='steelblue',t0=0.0)
-cme2 = CME('CME-2',tr=320,td=775,ar=0.002, ad=5.200,v0=100,x0=20000,R0=4.0,
+cme2 = CME('CME-2',tr=3500,td=17418.44,ar=0.03, ad=0.03,v0=140,x0=140000,R0=4.0,
            semilla=semilla2,color='red',t0=RETRASO_CME2)
 cmes_nuevas = []
 
@@ -304,38 +306,77 @@ rex2,rin2 = frente_retaguardia(cme2, pos2)
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
 def sombrear(ax,ti1,ta1,ti2,ta2):
     ax.axvspan(0,T_HORAS,color='#FFF',alpha=1.,zorder=0)
-    for a,b in [(ti1,ta1),(ti2,ta2)]: ax.axvspan(a,b,color='#CCC',alpha=.5,zorder=0)
+    ax.axvspan(ti1,ta1,color="#00976C",alpha=.15,zorder=0)
+    ax.axvspan(ti2,ta2,color="#870127",alpha=.15,zorder=0)
     for x,ls in [(ti1,'--'),(ta1,':'),(ti2,'--'),(ta2,':')]:
         ax.axvline(x=x,color='k',ls=ls,lw=.8,alpha=.5,zorder=2)
 
 def etiquetar(axes,ti1,ta1,ti2,ta2):
     for ax in axes:
-        yl=ax.get_ylim(); rng=yl[1]-yl[0]; y1,y2=yl[0]+rng*.82,yl[0]+rng*.68
-        for tm,lb,y in [((0+ti1)/2,'Ini-1',y1),((ti1+ta1)/2,'Acel-1',y1),
-                         ((ta1+T_HORAS)/2,'Prop-1',y1),
-                         ((cme2.t0/3600+t_inic2)/2,'Ini-2',y2),
-                         ((ti2+ta2)/2,'Acel-2',y2),((ta2+T_HORAS)/2,'Prop-2',y2)]:
-            ax.text(tm,y,lb,ha='center',fontsize=11,color='#444',zorder=4,rotation=90,va='center')
+        yl = ax.get_ylim(); rng = yl[1] - yl[0]
+        y_top = yl[1] - rng*0.05
+        y_bot = yl[0] + rng*0.05
+        step = rng*0.045
+        labels = [
+            (0, ti1, 'Ini-1', y_top, 'top', 0),
+            (ti1, ta1, 'Acel-1', y_top, 'top', 1),
+            (ta1, T_HORAS, 'Prop-1', y_top, 'top', None),
+            (cme2.t0/3600, t_inic2, 'Ini-2', y_bot, 'bottom', 0),
+            (ti2, ta2, 'Acel-2', y_bot, 'bottom', 1),
+            (ta2, T_HORAS, 'Prop-2', y_bot, 'bottom', None)]
+        for start, end, lb, y0, va, idx in labels:
+            span = max(end - start, 0.0)
+            x = start + min(max(span * 0.03, 0.05), 0.2) if span > 0 else start
+            if idx is None:
+                y = y0
+            else:
+                y = y0 - idx*step if va == 'top' else y0 + idx*step
+            ax.text(x, y, lb, ha='left', va=va, fontsize=11,
+                    color='#444', zorder=4, rotation=0)
 
 fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
-fig.suptitle('Cinemática conjunta: CME-1 y CME-2',fontsize=20,y=.98)
-fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=13,style='italic',color='#444')
-ax_p,ax_v,ax_a = axes; kw=dict(linewidth=2.5,zorder=3)
+fig.suptitle('Cinemática conjunta: CME-1 y CME-2',fontsize=20,y=.985)
+subtitle = (
+    rf'$\mathrm{{CME}}_1:\ a_r={cme1.ar:.2f},\ a_d={cme1.ad:.2f},\ \tau_r={cme1.tr:.0f},\ \tau_d={cme1.td:.0f}$'
+    + '\n'
+    rf'$\mathrm{{CME}}_2:\ a_r={cme2.ar:.2f},\ a_d={cme2.ad:.2f},\ \tau_r={cme2.tr:.0f},\ \tau_d={cme2.td:.0f}$'
+)
+fig.text(.5,.955,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444')
+fig.text(.5,.92,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
 for ax in axes: sombrear(ax,t_inic1,t_acel1,t_inic2,t_acel2)
+ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
+ax_a.axhline(0,color='k',ls='-',alpha=.3,lw=.5,zorder=2)
+ax_a.set_ylabel(r'Aceleración (m/s$^2$)',fontsize=16)
+ax_v.plot(tiempos_h,vel1,color=cme1.color,**kw); ax_v.plot(tiempos_h,vel2,color=cme2.color,**kw)
+ax_v.set_ylabel('Velocidad (km/s)',fontsize=16)
 ax_p.plot(tiempos_h,pos1_rs,color=cme1.color,label='CME-1',**kw)
 ax_p.plot(tiempos_h,pos2_rs,color=cme2.color,label='CME-2',**kw)
 ax_p.fill_between(tiempos_h,rin1,rex1,color=cme1.color,alpha=.15,label='Extensión CME-1')
 ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensión CME-2')
-ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16); ax_p.tick_params(bottom=False)
-ax_v.plot(tiempos_h,vel1,color=cme1.color,**kw); ax_v.plot(tiempos_h,vel2,color=cme2.color,**kw)
-ax_v.set_ylabel('Velocidad (km/s)',fontsize=16); ax_v.tick_params(bottom=False)
-ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
-ax_a.axhline(0,color='k',ls='-',alpha=.3,lw=.5,zorder=2)
-ax_a.set_xlabel('Tiempo (h)',fontsize=16); ax_a.set_ylabel(r'Aceleración (m/s$^2$)',fontsize=16)
-ax_a.set_xticks(np.arange(0,T_HORAS+1,1))
-for ax in axes: ax.set_xlim(0,T_HORAS); ax.grid(True,alpha=.3,ls='--',zorder=1)
-etiquetar(axes,t_inic1,t_acel1,t_inic2,t_acel2)
-ax_a.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
+ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
+ax_p.set_xlabel('Tiempo (h)',fontsize=16)
+major_ticks = np.arange(0,T_HORAS+1,5)
+minor_ticks = np.arange(0,T_HORAS+1,1)
+for ax in axes:
+    ax.set_xlim(0,T_HORAS)
+    ax.grid(True,alpha=.3,ls='--',zorder=1)
+    ax.set_xticks(minor_ticks, minor=True)
+    ax.tick_params(axis='x', which='major', length=10, width=1.4, direction='in')
+    ax.tick_params(axis='x', which='minor', length=5, width=0.8, direction='in')
+    ax.tick_params(axis='y', which='major', direction='in', right=True)
+    ax.tick_params(axis='y', which='minor', direction='in', right=True)
+    ax.yaxis.set_ticks_position('both')
+    ax.grid(which='minor', axis='x', alpha=0.15, ls='--')
+    ax.grid(which='major', axis='x', alpha=0.35, ls='--')
+ax_a.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=False)
+ax_v.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=False)
+ax_p.set_xticks(major_ticks)
+ax_p.set_xticklabels([str(int(x)) for x in major_ticks])
+etiquetar([ax_a],t_inic1,t_acel1,t_inic2,t_acel2)
+ax_p.axhline(y=DIST_TIERRA_RS, color='k', linestyle='--', linewidth=1.2, alpha=0.7, zorder=2)
+ax_p.text(T_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
+ax_p.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
 plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf",
             dpi=300,bbox_inches='tight',pad_inches=0.3)
 print("✓ Cinemática guardada"); plt.show()
@@ -501,6 +542,7 @@ print(f"\n✓ Polar guardado | CMEs nuevas: {len(cmes_nuevas)}"); plt.show()
 
 
 # ── 3. SERIES TEMPORALES ──────────────────────────────────────────────────────
+PUNTOS_OBS = [(round(r,4), 0.0) for r in np.linspace(0, RMAX, N_PUNTOS_OBS)]
 print("\n"+"="*60+f"\nSERIES TEMPORALES — {len(PUNTOS_OBS)} puntos\n"+"="*60)
 th_loc=np.linspace(-np.pi,np.pi,200); r_loc=np.linspace(0,RMAX,250)
 TH_loc,R_loc=np.meshgrid(th_loc,r_loc)
@@ -559,11 +601,24 @@ ax_d.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-2',**kwr)
 ax_v.axhline(V_VIENTO_SOLAR,color='gray',ls='--',label=f'Viento solar ({V_VIENTO_SOLAR:.0f} km/s)',**kwr)
 ax_v.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-2',**kwr)
 ax_d.set(ylabel='Densidad (protones/cm³)',yscale='log',xlim=(0,T_HORAS))
-ax_d.grid(True,alpha=.3,ls='--',zorder=1); ax_d.tick_params(bottom=False)
+ax_d.grid(True,alpha=.3,ls='--',zorder=1)
 ax_d.legend(fontsize=10,loc='upper right')
 ax_v.set(ylabel='Velocidad radial (km/s)',xlabel='Tiempo (h)',
          xlim=(0,T_HORAS),ylim=(V_VIENTO_SOLAR*.9,None))
-ax_v.set_xticks(np.arange(0,T_HORAS+1,1)); ax_v.grid(True,alpha=.3,ls='--',zorder=1)
+major_ticks = np.arange(0, T_HORAS+1, 5)
+minor_ticks = np.arange(0, T_HORAS+1, 1)
+for ax in (ax_d, ax_v):
+    ax.set_xticks(major_ticks)
+    ax.set_xticklabels([str(int(x)) for x in major_ticks])
+    ax.set_xticks(minor_ticks, minor=True)
+    ax.tick_params(axis='x', which='major', length=10, width=1.4, direction='in')
+    ax.tick_params(axis='x', which='minor', length=5, width=0.8, direction='in')
+    ax.tick_params(axis='y', which='major', direction='in', right=True)
+    ax.tick_params(axis='y', which='minor', direction='in', right=True)
+    ax.yaxis.set_ticks_position('both')
+    ax.grid(which='minor', axis='x', alpha=0.15, ls='--')
+    ax.grid(which='major', axis='x', alpha=0.35, ls='--')
+    ax.grid(which='major', axis='y', alpha=0.15, ls='--')
 ax_v.legend(fontsize=10,loc='upper right')
 sm_o=plt.cm.ScalarMappable(cmap=CMAP_OBS,norm=norm_obs); sm_o.set_array([])
 fig.colorbar(sm_o,ax=[ax_d,ax_v],orientation='vertical',fraction=.02,pad=.02).set_label(
