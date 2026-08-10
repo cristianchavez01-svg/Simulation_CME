@@ -17,17 +17,18 @@ matplotlib.rcParams['axes.titleweight'] = 'normal'
 R_SOL_KM       = 695700
 R_SOL_STR      = r'$R_\odot$'
 DENSIDAD_FONDO = 100
-T_HORAS        = 10
+T_HORAS        = 85
 FACTOR_ESCALA  = R_SOL_KM
+DMAX_OVERRIDE     = 5.6 # límite superior para escala de colores (log10 de densidad)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PARÁMETROS FÍSICOS CME-2
 # ──────────────────────────────────────────────────────────────────────────────
-tr2, td2   = 100, 1050
-ar2, ad2   = 0.002, 5.150
-v02, x02   = 50, 21000
-R_CME_INIC = 1.1
-SEMILLA     = 15
+tr2, td2   = 3500, 17418.44
+ar2, ad2   = 0.03, 0.03
+v02, x02   = 140, 140000
+R_CME_INIC = 4.0
+SEMILLA     = 1962
 COLOR_CINE  = 'red'
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -252,7 +253,7 @@ for t_pre in tiempos_frames:
         dens_max_global = frame_max
 
 DENS_MIN_GLOBAL = float(np.log10(DENSIDAD_FONDO))
-DENS_MAX_GLOBAL = max(float(np.log10(dens_max_global)), DENS_MIN_GLOBAL + 0.1)
+DENS_MAX_GLOBAL = float(DMAX_OVERRIDE) if DMAX_OVERRIDE else max(float(np.log10(dens_max_global)), DENS_MIN_GLOBAL + 0.5)
 print(f"  Rango de densidad: [{DENS_MIN_GLOBAL:.3f}, {DENS_MAX_GLOBAL:.3f}] log10")
 
 fig = plt.figure(figsize=(20, 12))

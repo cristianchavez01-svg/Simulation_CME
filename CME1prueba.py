@@ -17,17 +17,17 @@ matplotlib.rcParams['axes.titleweight'] = 'normal'
 R_SOL_KM       = 695700
 R_SOL_STR      = r'$R_\odot$'
 DENSIDAD_FONDO = 100
-T_HORAS        = 10
+T_HORAS        = 85
 FACTOR_ESCALA  = R_SOL_KM
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PARÁMETROS FÍSICOS CME-1
 # ──────────────────────────────────────────────────────────────────────────────
-tr1, td1   = 138, 1249
-ar1, ad1   = 0.001, 4.950
-v01, x01   = 40, 25000
-R_CME_INIC = 2.2
-SEMILLA     = 26
+tr1, td1   = 6900, 55600
+ar1, ad1   = 0.034, 0.01
+v01, x01   = 100, 100000
+R_CME_INIC = 5.2
+SEMILLA     = 435
 COLOR_CINE  = 'steelblue'
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -204,8 +204,8 @@ ax3.set_xlim(0, T_HORAS)
 ax3.set_xticks(np.arange(0, T_HORAS + 1, 1))
 ax3.grid(True, alpha=0.3, linestyle='--', zorder=1)
 
-plt.savefig("cinematica_original.pdf", dpi=300, bbox_inches='tight')
-print("✓ Gráfica cinemática guardada: cinematica_original.pdf")
+plt.savefig("cinematica_original_precursora.pdf", dpi=300, bbox_inches='tight')
+print("✓ Gráfica cinemática guardada: cinematica_original_precursora.pdf")
 plt.show()
 
 print("\nRESUMEN CINEMÁTICO:")
@@ -324,8 +324,8 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
                rotation=270, labelpad=25, fontsize=11)
 
-plt.savefig("cme_evolucion_polar.pdf", dpi=300, bbox_inches='tight')
-print("\n✓ Visualización guardada: cme_evolucion_polar.pdf")
+plt.savefig("cme_evolucion_polar_precursora.pdf", dpi=300, bbox_inches='tight')
+print("\n✓ Visualización guardada: cme_evolucion_polar_precursora.pdf")
 plt.show()
 
 print("\n" + "="*80)

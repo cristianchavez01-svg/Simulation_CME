@@ -306,8 +306,8 @@ rex2,rin2 = frente_retaguardia(cme2, pos2)
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
 def sombrear(ax,ti1,ta1,ti2,ta2):
     ax.axvspan(0,T_HORAS,color='#FFF',alpha=1.,zorder=0)
-    ax.axvspan(ti1,ta1,color="#00976C",alpha=.15,zorder=0)
-    ax.axvspan(ti2,ta2,color="#870127",alpha=.15,zorder=0)
+    ax.axvspan(ti1,ta1,color="#A9C5E3",alpha=.25,zorder=0)
+    ax.axvspan(ti2,ta2,color="#E3B57A",alpha=.25,zorder=0)
     for x,ls in [(ti1,'--'),(ta1,':'),(ti2,'--'),(ta2,':')]:
         ax.axvline(x=x,color='k',ls=ls,lw=.8,alpha=.5,zorder=2)
 
@@ -331,18 +331,23 @@ def etiquetar(axes,ti1,ta1,ti2,ta2):
                 y = y0
             else:
                 y = y0 - idx*step if va == 'top' else y0 + idx*step
-            ax.text(x, y, lb, ha='left', va=va, fontsize=11,
-                    color='#444', zorder=4, rotation=0)
+            if lb == 'Prop-2':
+                y = y_top
+                va = 'top'
+            ax.text(x, y, lb, ha='left', va=va, fontsize=10.5,
+                    color='#444', zorder=4, rotation=0,
+                    bbox=dict(boxstyle='round,pad=0.2', fc='white', ec='0.7', alpha=0.9))
 
 fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
+fig.subplots_adjust(top=0.86,hspace=0.18)
 fig.suptitle('Cinemática conjunta: CME-1 y CME-2',fontsize=20,y=.985)
 subtitle = (
     rf'$\mathrm{{CME}}_1:\ a_r={cme1.ar:.2f},\ a_d={cme1.ad:.2f},\ \tau_r={cme1.tr:.0f},\ \tau_d={cme1.td:.0f}$'
     + '\n'
     rf'$\mathrm{{CME}}_2:\ a_r={cme2.ar:.2f},\ a_d={cme2.ad:.2f},\ \tau_r={cme2.tr:.0f},\ \tau_d={cme2.td:.0f}$'
 )
-fig.text(.5,.955,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444')
-fig.text(.5,.92,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444',linespacing=1.25)
+fig.text(.5,.875,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
 ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
 for ax in axes: sombrear(ax,t_inic1,t_acel1,t_inic2,t_acel2)
 ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
@@ -526,7 +531,7 @@ for idx,t_fr in enumerate(t_frames):
     tit=(f"t={t_fr/3600:.1f}h  r₁={r1:.1f}  r₂={r2:.1f} {R_SOL_STR}  "
          f"v_sol={vs:.0f} km/s  N={len(cmes_nuevas)}"
          if act2 else f"t={t_fr/3600:.1f}h  r₁={r1:.1f} {R_SOL_STR}  v={v1:.0f} km/s")
-    ax.set_title(tit,fontsize=6,fontweight='normal',pad=10)
+    ax.set_title(tit,fontsize=9,fontweight='normal',pad=10)
     r_refs=[r1,r2 if act2 else 0,ri if ri else 0]+[cn.radio(t_fr) or 0 for cn in cmes_nuevas]
     ax.set_ylim([0,max(max(r_refs)*2.7,1.) if idx<4 else RMAX])
     ax.set_rlabel_position(135); ax.grid(True,alpha=.3,ls='--',lw=.7)

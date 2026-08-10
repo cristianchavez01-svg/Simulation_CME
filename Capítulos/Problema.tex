@@ -110,117 +110,77 @@ Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{resultados/fig_ad_vs_td.png}
-    \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja) y su ecuación característica, la cual delimita una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlación.}
+    \includegraphics[width=0.75\linewidth]{resultados/fig_ad_vs_td.png}
+    \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja), ecuación característica y coeficiente de correlación, delimitando una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora donde ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
     \label{fig:advstd}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\linewidth]{resultados/fig_ad_relaciones.png}
-    \caption[Gráficas de $a_d$ vs parámetros de interacción]{Gráficas de $a_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes y sus ecuaciones características. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlación.}
+    \includegraphics[width=0.7\linewidth]{resultados/fig_ad_relaciones.png}
+    \caption[Gráficas de $a_d$ vs parámetros de interacción]{Gráficas de $a_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
     \label{fig:advstodo}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\linewidth]{resultados/fig_td_relaciones.png}
-    \caption[Gráfica de $\tau_d$ vs parámetros de interacción]{Gráficas de $\tau_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes y sus ecuaciones características. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. Además, se muestra su coeficiente de correlación.}
+    \includegraphics[width=0.7\linewidth]{resultados/fig_td_relaciones.png}
+    \caption[Gráfica de $\tau_d$ vs parámetros de interacción]{Gráficas de $\tau_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, sus ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
     \label{fig:tdvstodo}
 \end{figure}
 
-%============================================================
 
 \section{Resultados interacción: $V_{\text{CME--1}} < V_{\text{CME--2}}$}
-Una vez con la cinemática de las CMEs simulada, se estudia en conjunto sus densidades y velocidades, para determinar las propiedades físicas de la CME resultante de la interacción. Por consiguiente, se desarrolla el código complementario a la simulación que permite la evolución en 2D de las CMEs en un mismo entorno, permitiendo el estudio de su interacción a través de mapas de densidad y velocidad. La Figura \ref{cinematicaconjunta} muestra los perfiles de posición, velocidad y aceleración para la CME precursora () y sucesora ().
+Una vez con la cinemática de las CMEs simulada, se estudia en conjunto sus densidades y velocidades, para determinar las propiedades físicas de la CME resultante de la interacción. Por consiguiente, se desarrolla el código complementario a la simulación que permite la evolución en 2D de las CMEs en un mismo entorno con mapas de densidad y velocidad. Inicialmente, la Figura \ref{cinematicaconjunta} muestra los perfiles de posición, velocidad y aceleración para la CME precursora (azul) y sucesora (rojo) del caso $\#3$ de la Tabla \ref{tab:parametros_decaimiento}. Las regiones sombreadas en vertical indican las diferentes etapas en la cinemática de cada CME: iniciación (Ini), aceleración (Acel) y propagación (Prop), principalmente se muestra la etapa de aceleración para la CME precursora (azul claro) y sucesora (rojo claro). También, se indica la expansión de cada CME a través de las regiones sombreadas que envuelven sus curvas de posición, siendo el frente de la CME el extremo superior de la región, el cual se encuentra más alejado del centro con respecto al borde inferior, como consecuencia de la superposición de la propagación y expansión. Por último, se indica la posición de Tierra (línea discontinua horizontal) en el panel inferior, señalando un tiempo de llegada de $\sim60-65$ horas para el frente de las CMEs y de $\sim80$ horas para sus centros.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{cinematica_conjunta.pdf}
-    \caption[Perfiles cinemáticos de las dos CMEs sin considerar interacción]{Perfiles cinemáticos de las dos CMEs sin considerar interacción. En azul se muestra la cinemática de la CME--1 y en rojo la de la CME--2, además se señalan las regiones de iniciación (blanco), aceleración (gris) y propagación (blanco) de las CMEs, etiquetadas con Ini, Acel y Prop. También, las etapas de iniciación y aceleración están separadas por una línea discontinua, mientras que las etapas de aceleración y propagación lo están con una línea punteada.}
+    \includegraphics[width=\linewidth]{cinematica_conjunta_s1_435_s2_1962.pdf}
+    \caption[Perfiles cinemáticos de las dos CMEs sin interacción]{Perfiles cinemáticos de las dos CMEs sin considerar interacción. En azul se muestra la cinemática de la CME--1 y en rojo la de la CME--2, además se señalan las etapas de aceleración: iniciación (Ini), aceleración (Acel) y propagación (Prop) respectivamente para la CME--1 y 2. Además, las etapas de iniciación y aceleración están separadas por una línea discontinua, mientras que las etapas de aceleración y propagación lo están con una línea punteada. La expansión de las CMEs se muestra como la región sombreada que envuelve la curva de posición de su centro. La posición de la Tierra se muestra con una línea discontinua horizontal. \textit{Nota:} Figura de elaboración propia.}
     \label{cinematicaconjunta}
 \end{figure}
 
+\subsection{Cálculo de densidad y velocidad de la interacción}
 
-Ahora, sus evoluciones en el plano polar se muestran en la Figura \ref{cinematicapolarconjunta}, donde se evidencia que la CME posterior alcanza a la CME inicial pero no la sobrepasa, indicando una interacción. Ésto podría ser contradictorio con la Figura \ref{cinematicaconjunta}, puesto que en esta última no se evidencia una interacción. Sin embargo, esto se explica porque los perfiles cinemáticos se toman del comportamiento del centro de las CMEs, por lo que éstos nunca interactúan, pero sus contornos si podrían hacerlo como se muestra en la Figura \ref{cinematicapolarconjunta}. 
+Una vez comprobado el comportamiento de la cinemática a utilizar, se desarrolla el módulo del código necesario para la visualización en coordenadas polares de la densidad y velocidad de la CME. Inicialmente, se calcula la velocidad y posición de las CMEs para cada instante de tiempo preestablecido, mediante integración numérica de la aceleración (ver Ecuación \eqref{ecuaceleración}). Los radios exterior e interior de la CME incluyen las irregularidades de ruido de Fourier, filamentos y asimetría, fundamentales para generar una simulación mucho más realista. Por otro lado, la densidad de la CME tiene dos componentes: la angular, que concentra la densidad en el frente y la radial, que ubica la máxima densidad en el frente y decae hacia adentro de la CME; en consecuencia, su densidad cae a medida que la CME se expande, siguiendo el factor de expansión geométrica, proporcional a $\sqrt{r}$, y el factor temporal, proporcional a $1/\sqrt{t}$. Por otra parte, se añade una pequeña componente tangencial que representa los movimientos laterales del plasma dentro de la CME y poder representar la expansión de la misma.
 
-Las CMEs interactúan de tal manera que sus densidades y velocidades se superponen, llegando a producir una CME resultante que presenta una densidad mayor a lo que se esperaría de una CME individual, ver Figuras \ref{CME1evolución} y \ref{CME2evolución}. También, la velocidad de la CME resultante presenta una magnitud mayor a lo que se esperaría, puesto que se suma la velocidad de la CME precedente con la velocidad de la CME incidente. 
+La Figura \ref{CME1evolución} muestra la evolución de la CME precursora (CME--1), en donde se evidencia su evolución bajo la superposición de su propagación y expansión. Además, la densidad inicial es relativamente grande en el frente que en su parte trasera, y disminuye progresivamente en el tiempo. También, el campo de velocidades es radial, centrado en el Sol, señalando tanto la expansión como la propagación de cada parte de la CME.
+
+Para la CME sucesora (CME--2) se tiene el mismo módulo de código que la CME--1, produciendo una evolución mostrada en la Figura \ref{CME2evolución}, donde presenta una distribución de densidad y velocidad similares a la reportada para la CME--1, pero difiriendo en sus morfologías. Finalmente, la Figura \ref{cinematicapolarconjunta} muestra la evolución conjunta de las CMEs en el plano polar, donde sus densidades y velocidades se superponen, llegando a producir una CME resultante con una densidad mayor respecto a un caso de CME individual (ver Figuras \ref{CME1evolución} y \ref{CME2evolución}). 
+
+\begin{landscape}
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\linewidth]{cme_evolucion_polar_precursora.pdf}
+    \caption[Evolución polar de la CME precursora]{Evolución polar de la CME--1. La escala de colores representa los valores de densidad con mínimos (morado) y máximos (amarillo). La velocidad se indica a través del campo vectorial (rojo). En la parte superior de cada panel se indica el tiempo transcurrido y la posición del centro de la CME. \textit{Nota:} Figura de elaboración propia.}
+    \label{CME1evolución}
+    \end{figure}
+\end{landscape}
+
+\begin{landscape}
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\linewidth]{cme_evolucion_polar_CME2.pdf}
+    		\caption[Evolución en 2D de la CME sucesora]{Evolución polar de la CME--2. La escala de colores representa los valores de densidad con mínimos (morado) y máximos (amarillo). La velocidad se indica a través del campo vectorial (rojo). En la parte superior de cada panel se indica el tiempo transcurrido y la posición del centro de la CME. \textit{Nota:} Figura de elaboración propia.}
+    \label{CME2evolución}
+	\end{figure}
+\end{landscape}
 
 \begin{landscape}
     \begin{figure}[p]
     \centering
-    \includegraphics[width=0.95\linewidth]{cme_conjunta_polar.pdf}
-	\caption[Evolución conjunta de densidad y velocidad de las CMEs en el plano polar]{Evolución conjunta de densidad y velocidad de las CMEs en el plano polar durante 10 horas. La densidad de protones dentro de las CMEs se reporta en escala de colores, en donde el amarillo indica una mayor densidad en comparación con el morado. La velocidad de las CMEs se muestra a través de vectores en rojo, señalando la magnitud y dirección de la misma. En la parte superior de cada panel se indica el tiempo transcurrido desde la producción de la CME--1, junto con la posición del centro de cada CME. Las distancias radiales están en función del radio solar.}
+    \includegraphics[width=0.95\linewidth]{cme_conjunta_polar_s1_435_s2_1962.pdf}
+	\caption[Evolución conjunta de densidad y velocidad de las CMEs en el plano polar]{Evolución conjunta de densidad y velocidad de las CMEs en el plano polar. La escala de colores representa los valores de densidad con mínimos (morado) y máximos (amarillo). La magnitud y dirección de la velocidad de las CMEs se muestra a través del campo vectorial (rojo). En la parte superior de cada panel se indica el tiempo de simulación transcurrido junto con la posición del centro de cada CME en ese instante. \textit{Nota:} Figura de elaboración propia.}
     \label{cinematicapolarconjunta}
     \end{figure}
 \end{landscape}
+
+%============================================================
 
 \section{Resultados interacción: $V_{\text{CME--1}} \ll V_{\text{CME--2}}$}
 
 
 \section{Selección de parámetros}
-
-En la Tabla \ref{tab:parametros-cme} y \ref{tab:caracteristicas-cme} se listan diferentes CMEs candidatas para el desarrollo del proyecto. 
-
-\begin{table}[h]
-    \centering
-    \begin{threeparttable}
-        \caption[Parámetros cinemáticos y de simulación para diferentes CMEs]{Parámetros cinemáticos y de simulación para diferentes CMEs candidatas}
-        \label{tab:parametros-cme}
-        \small
-        \begin{tabular}{lcccccccc}
-            \toprule
-            & Semilla & $R_{\text{ini}}$ ($R_{\odot}$)$^a$ & $\tau_r$ (s) & $\tau_d$ (s) & $a_r$ (km/s$^2$) & $a_d$ (km/s$^2$) & $v_0$ (km/s) & $x_0$ (km)$^b$ \\
-            \midrule
-            CME-1  & 26   & 2.2  & 138  & 1249 & 0.001  & 4.950 & 40  & 25000 \\
-            CME-2  & 15   & 1.1  & 100  & 1050 & 0.002  & 5.150 & 50  & 21000 \\
-            CME-3  & 314  & 3.2  & 138  & 1249 & 0.001  & 2.150 & 40  & 20000 \\
-            CME-4  & 151  & 1.4  & 100  & 750  & 0.002  & 5.000 & 50  & 18000 \\
-            CME-5  & 250  & 4.1  & 138  & 900  & 0.001  & 2.150 & 85  & 22500 \\
-            CME-6  & 836  & 1.9  & 100  & 650  & 0.004  & 3.400 & 50  & 19000 \\
-            CME-7  & 1930 & 3.6  & 76   & 520  & 0.0012 & 1.745 & 35  & 19000 \\
-            CME-8  & 1962 & 4.0  & 320  & 775  & 0.002  & 5.200 & 100 & 20000 \\
-            CME-9  & 445  & 5.2  & 120  & 620  & 0.0012 & 1.745 & 35  & 19000 \\
-            CME-10 & 210  & 1.5  & 210  & 675  & 0.002  & 4.700 & 75  & 21000 \\
-            \bottomrule
-        \end{tabular}
-        \begin{tablenotes}
-            \small
-            \item[$^a$] Radio inicial de la CME.
-            \item[$^b$] Altura inicial de la CME.
-        \end{tablenotes}
-    \end{threeparttable}
-\end{table}
-
-\begin{table}[h]
-    \centering
-    \begin{threeparttable}
-        \caption[Características cinemáticas alcanzadas por las diferentes CMEs]{Características cinemáticas alcanzadas por las diferentes CMEs a lo largo de 10 horas de tiempo simulado, según los parámetros de la Tabla \ref{tab:parametros-cme}}
-        \label{tab:caracteristicas-cme}
-        \small
-        \begin{tabular}{lccc}
-            \toprule
-            CME & Altura final ($R_{\odot}$)$^a$ & $v_{\text{máx}}$ (km/s)$^b$ & $a_{\text{máx}}$ (m/s$^2$) \\
-            \midrule
-            CME-1  & 132.812  & 2735.53 & 1530.7284 \\
-            CME-2  & 138.8056 & 2815.61 & 1935.6834 \\
-            CME-3  & 63.9675  & 1312.00 & 724.7296 \\
-            CME-4  & 69.5240  & 1578.09 & 1374.7408 \\
-            CME-5  & 39.7736  & 803.22  & 523.5238 \\
-            CME-6  & 49.5871  & 975.53  & 933.9926 \\
-            CME-7  & 20.3756  & 403.20  & 463.3426 \\
-            CME-8  & 24.3935  & 567.25  & 285.2207 \\
-            CME-9  & 19.1376  & 381.82  & 341.4541 \\
-            CME-10 & 27.8225  & 627.27  & 430.1600 \\
-            \bottomrule
-        \end{tabular}
-        \begin{tablenotes}
-            \small
-            \item[$^a$] La altura final es la misma altura máxima.
-            \item[$^b$] La velocidad máxima es la misma velocidad final.
-        \end{tablenotes}
-    \end{threeparttable}
-\end{table}
 
 Por consiguiente, se buscan CMEs candidatas a CME precursora y se crea la Tabla \ref{tab:parametros-cmes-precursoras}.
 
@@ -253,151 +213,3 @@ Por consiguiente, se buscan CMEs candidatas a CME precursora y se crea la Tabla 
 
 
 
-\section{Cálculo y resultados de mapas de densidad y velocidad}
-
-Una vez comprobado el comportamiento de la cinemática a utilizar, se desarrolla el módulo del código necesario para la visualización en coordenadas polares 2D de la densidad y velocidad de la CME. Para ello se tiene el siguiente código.
-
-\begin{lstlisting}
-for idx, t_frame in enumerate(tiempos_frames):
-    print(f"  Frame {idx+1}/{ESTADOS_TIEMPO}: t = {t_frame:.0f} s ({t_frame/3600:.1f} h)", end="... ")
-\end{lstlisting}
-
-El bucle recorre los 8 instantes de tiempo definidos por \texttt{ESTADOS\_TIEMPO} (hora 1 a hora 8). En cada iteración \texttt{t\_frame} es el tiempo actual en segundos e \texttt{idx} es el índice del panel.
-
-\begin{lstlisting}
-    v_t   = velocidad(t_frame)
-    r_cme = desplazamiento_centro(t_frame) / FACTOR_ESCALA
-\end{lstlisting}
-
-Se calculan dos cantidades cinemáticas para ese instante: la velocidad $v(t)$ mediante integración numérica de la aceleración usando la función \texttt{velocidad(t)}, y el radio de la CME \texttt{r\_cme}, que es la posición real $x(t)$ convertida a unidades del gráfico polar dividiéndola por \texttt{FACTOR\_ESCALA}. Esto garantiza que la expansión visual de la CME siga fielmente la cinemática definida al inicio del código.
-
-\begin{lstlisting}
-    ax = plt.subplot(2, 4, idx + 1, projection='polar')
-\end{lstlisting}
-
-Crea el panel número \texttt{idx+1} dentro de la grilla $2\times4$ de la figura, con proyección polar, es decir, bajo ejes en $r$ y $\theta$.
-
-\begin{lstlisting}
-    r_ext_2d, r_int_2d = forma_cme(THETA, r_cme)
-    mascara_cme   = (R > r_int_2d) & (R <= r_ext_2d)
-    mascara_fondo = ~mascara_cme
-\end{lstlisting}
-
-Se llama a \texttt{forma\_cme()} para obtener los radios exterior e interior de la CME en cada punto de la malla polar, incluyendo todas las irregularidades de ruido de Fourier, filamentos y asimetría, fundamentales para generar una simulación mucho más coherente con la realidad. La \texttt{mascara\_cme} es \texttt{True} en los puntos que pertenecen a la CME entre los bordes interior y exterior, y \texttt{mascara\_fondo} es su complemento, es decir, todo lo que no es CME.
-
-\begin{lstlisting}
-    dens_angular = np.clip((1.0 + np.cos(THETA))**5, 0, None)
-    r_norm       = R / (r_cme + 0.1)
-    dens_radial  = np.exp(-8.0 * (r_norm - 1.0)**2)
-\end{lstlisting}
-
-La densidad de la CME tiene dos componentes. La distribución angular, dada por \texttt{dens\_angular}, concentra la densidad en el frente ($\theta = 0$) mediante una potencia del coseno: es máxima hacia adelante y cae a cero hacia los lados. La distribución radial, dada por \texttt{dens\_radial}, es una gaussiana centrada en el borde de la CME (\texttt{r\_norm}$=1$), de modo que la densidad es máxima en el frente de onda y decae hacia adentro y hacia afuera.
-
-\begin{lstlisting}
-    expansion_factor = (r_cme / R_CME_INICIAL)**0.5
-    t_norm       = np.maximum(1.0, t_frame / 600.0)
-    time_factor  = 1.0 / np.sqrt(t_norm)
-    densidad_diluida = 100.0 / expansion_factor * time_factor
-\end{lstlisting}
-
-A medida que la CME se expande, su densidad cae. Hay dos efectos: el factor de expansión geométrica, definido en \texttt{expansion\_factor}, proporcional a $\sqrt{r}$ y que diluye la densidad al aumentar el volumen; el factor temporal, definido como \texttt{time\_factor}, proporcional a $1/\sqrt{t}$ y que representa la dilución adicional con el tiempo. Ambos reducen \texttt{densidad\_diluida} conforme avanza la simulación.
-
-\begin{lstlisting}
-    dens_cme = DENSIDAD_FONDO * densidad_diluida * dens_angular * (0.3 + dens_radial)
-    dens_plot     = np.where(mascara_cme, dens_cme, np.nan)
-    dens_plot     = np.clip(dens_plot, DENSIDAD_FONDO, np.nanmax(dens_plot))
-    dens_plot_log = np.log10(np.maximum(dens_plot, DENSIDAD_FONDO / 10.0))
-\end{lstlisting}
-
-La densidad final de la CME combina todos los factores anteriores. Luego se aplica la máscara para que solo exista dentro de la CME (el resto es \texttt{nan}), se recorta al rango válido y se pasa a escala logarítmica en base 10.
-
-\begin{lstlisting}
-    dens_min = float(np.log10(DENSIDAD_FONDO))
-    dens_max = float(np.nanmax(dens_plot_log))
-    if dens_max <= dens_min:
-        dens_max = dens_min + 0.1
-\end{lstlisting}
-
-Se definen los límites del rango de color. Donde \texttt{dens\_min} corresponde a la densidad del fondo en escala logarítmica, y \texttt{dens\_max} al valor máximo encontrado en la CME. La condición de guarda evita un rango degenerado en caso de que la CME tenga densidad uniforme, sumando un pequeño margen.
-
-\begin{lstlisting}
-    ax.contourf(THETA, R,
-                np.where(mascara_fondo, 1.0, np.nan),
-                levels=[0.5, 1.5], colors=['#D6EAF8'], alpha=0.8)
-
-    levels_dens = np.linspace(dens_min, dens_max, 100)
-    ax.contourf(THETA, R, dens_plot_log, levels=levels_dens, cmap='ocean', alpha=0.9)
-\end{lstlisting}
-
-Ahora se pintan dos capas. Primero el fondo en azul claro uniforme (\texttt{\#D6EAF8}) usando la máscara inversa, representando el viento solar de densidad constante. Encima se dibuja la CME con 100 niveles de color del colormap \texttt{ocean}, mostrando los gradientes de densidad logarítmica.
-
-\begin{lstlisting}
-    theta_vec = np.linspace(-np.pi, np.pi, 22)
-    r_vec     = np.linspace(0.5, LIMITE_RADIO_MAX, 6)
-    THETA_vec, R_vec = np.meshgrid(theta_vec, r_vec)
-    r_ext_vec, r_int_vec = forma_cme(THETA_vec, r_cme)
-    mascara_vec = (R_vec > r_int_vec) & (R_vec <= r_ext_vec)
-\end{lstlisting}
-
-Ahora construimos el campo vectorial de velocidades que describe a la CME. Se define una malla más gruesa ($22\times6$ puntos) exclusiva para los vectores de velocidad, y se recalcula la máscara de la CME sobre esa malla para que las flechas aparezcan únicamente dentro de la estructura.
-
-\begin{lstlisting}
-    factor_dens       = np.clip((1.0 + np.cos(THETA_vec))**2.5, 0, 1)
-    v_radial          = v_t * factor_dens * (1.0 + 0.3 * np.cos(THETA_vec)**2)
-    v_tangencial      = 0.05 * v_t * np.sin(2*THETA_vec) * factor_dens
-\end{lstlisting}
-
-La velocidad radial, definida como \texttt{v\_radial}, es proporcional a $v(t)$ y es máxima en el frente. Se añade una pequeña componente tangencial, \texttt{v\_tangencial}, con el 5\% de $v(t)$ y un patrón sinusoidal para representar los movimientos laterales del plasma dentro de la CME y poder representar la expansión de la misma.
-
-\begin{lstlisting}
-    v_mag = np.sqrt(v_radial**2 + v_tangencial**2)
-    v_mag[v_mag == 0] = 1
-    v_radial_norm     = v_radial / v_mag
-    v_tangencial_norm = v_tangencial / v_mag
-    v_rad_m  = np.where(mascara_vec, v_radial_norm * factor_dens, np.nan)
-    v_tang_m = np.where(mascara_vec, v_tangencial_norm * factor_dens, np.nan)
-\end{lstlisting}
-
-Se normaliza el vector velocidad para que todas las flechas tengan longitud uniforme, modulada luego por \texttt{factor\_dens} para que sean más largas en el frente. La máscara asigna \texttt{nan} fuera de la CME para que \texttt{quiver} no dibuje flechas en el fondo.
-
-\begin{lstlisting}
-    U = v_rad_m * np.cos(THETA_vec) - v_tang_m * np.sin(THETA_vec)
-    V = v_rad_m * np.sin(THETA_vec) + v_tang_m * np.cos(THETA_vec)
-\end{lstlisting}
-
-Luego se hace la conversión de coordenadas polares $(r,\,\theta)$ a cartesianas $(U,\,V)$, que es lo que \texttt{quiver} necesita para dibujar las flechas correctamente.
-
-\begin{lstlisting}
-    ax.quiver(THETA_vec, R_vec, U, V, scale=20, width=0.004, color='lime', alpha=0.9)
-    titulo = f"t = {t_frame/3600:.1f} h"
-    ax.set_title(titulo, fontsize=10, fontweight='normal', pad=10)
-    ax.set_ylim([0, LIMITE_RADIO_MAX])
-    ax.set_rlabel_position(45)
-    ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.7)
-\end{lstlisting}
-
-Se dibujan las flechas, se coloca el título con el tiempo del frame, se fija el límite radial, se mueven las etiquetas del eje $r$ a $45\degree$ para que no se superpongan con los datos, y se activa la grilla. Finalmente al ejecutar el código se obtiene lo mostrado en la Figura \ref{CME1evolución}, en donde se evidencia la deformación que sufre la CME en su origen y evolución, siendo la superposición de su propagación y expansión. Es posible compararlo con la Figura \ref{CME1Boseto}, que consiste en un esquema del comportamiento que se espera, encontrando que la distribución de densidad y los vectores de velocidad total son similares.
-
-\begin{landscape}
-    \begin{figure}[p]
-        \centering
-        \includegraphics[width=\linewidth]{cme_evolucion_polar.pdf}
-    \caption[Evolución en 2D de la CME--1]{Evolución en 2D de la CME--1 durante 10 horas. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial en rojo. En la parte superior de cada panel se indica el tiempo transcurrido y la posición del centro de la CME.}
-    \label{CME1evolución}
-    \end{figure}
-\end{landscape}
-
-En la Figura \ref{CME1evolución} se muestra el comportamiento de la densidad y velocidad de la CME--1 a lo largo de su propagación. La densidad inicial es relativamente grande en el frente y menor en su parte trasera, progresivamente va disminuyendo según la CME se expanda y se propague. El campo de velocidades es radial, centrado en el Sol, señalando la expansión y propagación de cada parte de la CME.
-
-La parte de visualización en coordenadas polares de la CME--2 tiene el mismo módulo de código que la CME--1. Teniendo pues el perfil mostrado en la Figura \ref{CME2evolución}, donde presenta una distribución de densidad y velocidad similares a la reportada en la Figura \ref{CME1evolución}, sin embargo sus morfologías difieren entre sí.
-
-\begin{landscape}
-    \begin{figure}[p]
-        \centering
-        \includegraphics[width=\linewidth]{cme_evolucion_polar_CME2.pdf}
-    		\caption[Evolución en 2D de la CME--2]{Evolución en 2D de la CME--2 durante 10 horas. La densidad se describe en escala de colores y la velocidad a través de un campo vectorial en rojo. En la parte superior de cada panel se indica el tiempo trancurrido y la posición del centro de la CME.}
-    \label{CME2evolución}
-	\end{figure}
-\end{landscape}
-
-La manipulación de los parámetros de la CME secundaria es relevante para llegar a una interacción, por lo que se buscará que a velocidad e intervalo de tiempo de la CME--2 permitan una interacción en la evolución de las CMEs. Teniendo esto presente, podemos encontrar dos casos: por un lado que la CME secundaria sea de una velocidad mayor pero similar a la de la CME primaria y por otro lado que la CME--2 presente una velocidad mucho mayor a la de la CME--1, llegando a generar una onda de choque. Ésto se trata en el siguiente título.
