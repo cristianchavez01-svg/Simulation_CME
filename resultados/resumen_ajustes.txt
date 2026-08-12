@@ -3,91 +3,91 @@ RESUMEN DE AJUSTES — Interacción CME-CME
 
 Relación: ad_vs_Vmax95
   Mejor modelo : Potencial
-  Ecuación     : $y = 443.905\,x^{-0.0810086}$
-  R^2          : 0.9380
+  Ecuación     : $y = 425.831\,x^{-0.115311}$
+  R^2          : 0.9722
   Comparación:
-    - Potencial    R^2=0.9380   $y = 443.905\,x^{-0.0810086}$
-    - Logarítmico  R^2=0.9204   $y = -45.2968\,\ln(x) + 431.296$
-    - Exponencial  R^2=0.6631   $y = 607.902\,e^{-1.11674\,x}$
-    - Lineal       R^2=0.6440   $y = -597.098\,x + 604.359$
+    - Potencial    R^2=0.9722   $y = 425.831\,x^{-0.115311}$
+    - Logarítmico  R^2=0.9665   $y = -77.891\,\ln(x) + 364.278$
+    - Exponencial  R^2=0.9074   $y = 760.424\,e^{-6.16854\,x}$
+    - Lineal       R^2=0.8984   $y = -4120.34\,x + 755.02$
 
 Relación: ad_vs_T_interaccion
-  Mejor modelo : Potencial
-  Ecuación     : $y = 9.67855\,x^{-0.484242}$
-  R^2          : 0.8911
+  Mejor modelo : Logarítmico
+  Ecuación     : $y = 0.0256288\,\ln(x) + 89.8696$
+  R^2          : 0.0058
   Comparación:
-    - Potencial    R^2=0.8911   $y = 9.67855\,x^{-0.484242}$
-    - Logarítmico  R^2=0.7993   $y = -20.5721\,\ln(x) + -16.5051$
-    - Exponencial  R^2=0.6472   $y = 75.7255\,e^{-9.0328\,x}$
-    - Lineal       R^2=0.5052   $y = -257.723\,x + 60.8827$
+    - Logarítmico  R^2=0.0058   $y = 0.0256288\,\ln(x) + 89.8696$
+    - Potencial    R^2=0.0058   $y = 89.8696\,x^{0.000285373}$
+    - Lineal       R^2=0.0012   $y = 0.639098\,x + 89.755$
+    - Exponencial  R^2=0.0012   $y = 89.755\,e^{0.00711549\,x}$
 
 Relación: ad_vs_Altura_interaccion
-  Mejor modelo : Potencial
-  Ecuación     : $y = 0.0647984\,x^{-0.634599}$
-  R^2          : 0.8918
+  Mejor modelo : Logarítmico
+  Ecuación     : $y = 0.000725002\,\ln(x) + 1.18424$
+  R^2          : 0.0217
   Comparación:
-    - Potencial    R^2=0.8918   $y = 0.0647984\,x^{-0.634599}$
-    - Logarítmico  R^2=0.7805   $y = -0.301114\,\ln(x) + -0.393927$
-    - Exponencial  R^2=0.6963   $y = 1.1072\,e^{-14.8212\,x}$
-    - Lineal       R^2=0.4819   $y = -3.72843\,x + 0.734853$
+    - Logarítmico  R^2=0.0217   $y = 0.000725002\,\ln(x) + 1.18424$
+    - Potencial    R^2=0.0217   $y = 1.18424\,x^{0.00061349}$
+    - Lineal       R^2=0.0106   $y = 0.0278195\,x + 1.18081$
+    - Exponencial  R^2=0.0106   $y = 1.18081\,e^{0.0235396\,x}$
 
 Relación: ad_vs_T95_Vmin
   Mejor modelo : Potencial
-  Ecuación     : $y = 2.96564\,x^{-0.599778}$
-  R^2          : 0.9455
+  Ecuación     : $y = 5.09926\,x^{-0.553509}$
+  R^2          : 0.9960
   Comparación:
-    - Potencial    R^2=0.9455   $y = 2.96564\,x^{-0.599778}$
-    - Logarítmico  R^2=0.7857   $y = -10.8911\,\ln(x) + -12.1239$
-    - Exponencial  R^2=0.6363   $y = 38.5177\,e^{-11.4672\,x}$
-    - Lineal       R^2=0.4720   $y = -133.02\,x + 28.5382$
+    - Potencial    R^2=0.9960   $y = 5.09926\,x^{-0.553509}$
+    - Logarítmico  R^2=0.9831   $y = -26.5914\,\ln(x) + -58.9469$
+    - Exponencial  R^2=0.9638   $y = 85.1469\,e^{-31.3098\,x}$
+    - Lineal       R^2=0.9294   $y = -1418.61\,x + 74.6824$
 
 Relación: td_vs_Vmax95
-  Mejor modelo : Potencial
-  Ecuación     : $y = 234.3\,x^{0.0939792}$
-  R^2          : 0.9811
+  Mejor modelo : Lineal
+  Ecuación     : $y = 0.001974\,x + 582.626$
+  R^2          : 0.9981
   Comparación:
-    - Potencial    R^2=0.9811   $y = 234.3\,x^{0.0939792}$
-    - Logarítmico  R^2=0.9701   $y = 53.6134\,\ln(x) + 64.3524$
-    - Lineal       R^2=0.9572   $y = 0.00282624\,x + 517.449$
-    - Exponencial  R^2=0.9427   $y = 520.419\,e^{4.65382e-06\,x}$
+    - Lineal       R^2=0.9981   $y = 0.001974\,x + 582.626$
+    - Exponencial  R^2=0.9969   $y = 589.711\,e^{2.87209e-06\,x}$
+    - Potencial    R^2=0.9908   $y = 143.295\,x^{0.144512}$
+    - Logarítmico  R^2=0.9874   $y = 98.2335\,\ln(x) + -378.035$
 
 Relación: td_vs_T_interaccion
-  Mejor modelo : Potencial
-  Ecuación     : $y = 0.32368\,x^{0.516776}$
-  R^2          : 0.9047
+  Mejor modelo : Lineal
+  Ecuación     : $y = -1.16717e-06\,x + 89.8219$
+  R^2          : 0.0193
   Comparación:
-    - Potencial    R^2=0.9047   $y = 0.32368\,x^{0.516776}$
-    - Lineal       R^2=0.8687   $y = 0.00131213\,x + 22.2872$
-    - Logarítmico  R^2=0.8628   $y = 24.6413\,\ln(x) + -185.807$
-    - Exponencial  R^2=0.7792   $y = 28.2447\,e^{2.12412e-05\,x}$
+    - Lineal       R^2=0.0193   $y = -1.16717e-06\,x + 89.8219$
+    - Exponencial  R^2=0.0193   $y = 89.8219\,e^{-1.29979e-08\,x}$
+    - Logarítmico  R^2=0.0101   $y = -0.0421413\,\ln(x) + 90.2191$
+    - Potencial    R^2=0.0101   $y = 90.2201\,x^{-0.000469327}$
 
 Relación: td_vs_Altura_interaccion
-  Mejor modelo : Potencial
-  Ecuación     : $y = 0.000887633\,x^{0.660741}$
-  R^2          : 0.8936
+  Mejor modelo : Lineal
+  Ecuación     : $y = -2.58259e-08\,x + 1.18255$
+  R^2          : 0.0442
   Comparación:
-    - Potencial    R^2=0.8936   $y = 0.000887633\,x^{0.660741}$
-    - Lineal       R^2=0.8657   $y = 1.94008e-05\,x + 0.171587$
-    - Logarítmico  R^2=0.8474   $y = 0.361722\,\ln(x) + -2.88149$
-    - Exponencial  R^2=0.7562   $y = 0.276389\,e^{2.62712e-05\,x}$
+    - Lineal       R^2=0.0442   $y = -2.58259e-08\,x + 1.18255$
+    - Exponencial  R^2=0.0442   $y = 1.18255\,e^{-2.18558e-08\,x}$
+    - Logarítmico  R^2=0.0295   $y = -0.00105624\,\ln(x) + 1.19267$
+    - Potencial    R^2=0.0295   $y = 1.19272\,x^{-0.000893792}$
 
 Relación: td_vs_T95_Vmin
-  Mejor modelo : Lineal
-  Ecuación     : $y = 0.000751698\,x + 7.74381$
-  R^2          : 1.0000
+  Mejor modelo : Potencial
+  Ecuación     : $y = 0.033823\,x^{0.673941}$
+  R^2          : 0.9952
   Comparación:
-    - Lineal       R^2=1.0000   $y = 0.000751698\,x + 7.74381$
-    - Potencial    R^2=0.9819   $y = 0.045235\,x^{0.637719}$
-    - Exponencial  R^2=0.9691   $y = 11.2525\,e^{2.6749e-05\,x}$
-    - Logarítmico  R^2=0.8652   $y = 13.1761\,\ln(x) + -102.939$
+    - Potencial    R^2=0.9952   $y = 0.033823\,x^{0.673941}$
+    - Logarítmico  R^2=0.9951   $y = 33.3814\,\ln(x) + -310.709$
+    - Lineal       R^2=0.9901   $y = 0.000665554\,x + 15.9848$
+    - Exponencial  R^2=0.9687   $y = 25.551\,e^{1.27916e-05\,x}$
 
 Relación: ad_vs_td
   Mejor modelo : Potencial
-  Ecuación     : $y = 582.022\,x^{-0.991987}$
-  R^2          : 0.9941
+  Ecuación     : $y = 1660.79\,x^{-0.827872}$
+  R^2          : 0.9943
   Comparación:
-    - Potencial    R^2=0.9941   $y = 582.022\,x^{-0.991987}$
-    - Exponencial  R^2=0.8589   $y = 75736.8\,e^{-40.0808\,x}$
-    - Logarítmico  R^2=0.7904   $y = -14531.5\,\ln(x) + -26543.2$
-    - Lineal       R^2=0.4777   $y = -178031\,x + 27759.7$
+    - Potencial    R^2=0.9943   $y = 1660.79\,x^{-0.827872}$
+    - Logarítmico  R^2=0.9626   $y = -39339.8\,\ln(x) + -110139$
+    - Exponencial  R^2=0.9523   $y = 113605\,e^{-47.6852\,x}$
+    - Lineal       R^2=0.8927   $y = -2.0786e+06\,x + 87162.7$
 

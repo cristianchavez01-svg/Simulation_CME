@@ -240,7 +240,15 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim))
 
 
+def reset_simulation_state():
+    """Reinicia las variables globales para evitar contaminación entre ejecuciones."""
+    CMENueva._contador = 0
+    globals()["cmes_nuevas"] = []
+
+
 # ── INSTANCIAS ────────────────────────────────────────────────────────────────
+reset_simulation_state()
+
 cme1 = CME('CME-1',tr=6900,td=55600,ar=0.034,ad=0.01,v0=100,x0=100000,R0=5.2,
            semilla=semilla1,color='steelblue',t0=0.0)
 cme2 = CME('CME-2',tr=3500,td=17418.44,ar=0.03, ad=0.03,v0=140,x0=140000,R0=4.0,
