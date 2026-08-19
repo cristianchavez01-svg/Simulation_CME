@@ -26,7 +26,7 @@ FACTOR_ESCALA  = R_SOL_KM
 tr1, td1   = 6900, 55600
 ar1, ad1   = 0.034, 0.01
 v01, x01   = 100, 100000
-R_CME_INIC = 5.2
+R_CME_INICIAL = 5.2
 SEMILLA     = 435
 COLOR_CINE  = 'steelblue'
 
@@ -97,7 +97,7 @@ def densidad_campo(THETA, R, r_cme, t_frame):
     dens_angular     = np.clip((1.0 + np.cos(THETA))**5, 0, None)
     r_norm           = R / (r_cme + 0.1)
     dens_radial      = np.exp(-8.0 * (r_norm - 1.0)**2)
-    expansion_factor = (r_cme / R_CME_INIC)**0.5
+    expansion_factor = (r_cme / R_CME_INICIAL)**0.5
     t_norm           = np.maximum(1.0, t_frame / 600.0)
     time_factor      = 1.0 / np.sqrt(t_norm)
     densidad_diluida = 100.0 / expansion_factor * time_factor

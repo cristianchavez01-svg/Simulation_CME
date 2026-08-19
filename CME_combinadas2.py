@@ -14,7 +14,7 @@ DIST_TIERRA_KM = 149597870.7
 DIST_TIERRA_RS = DIST_TIERRA_KM / R_SOL_KM
 DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 95, 695700
 V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
-semilla1, semilla2, RETRASO_CME2 = 435, 256, 25200.0 #7 horas
+semilla1, semilla2, RETRASO_CME2 = 435, 1962, 25200.0 #7 horas
 FACTOR_COMPRESION = 1.15
 DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
 
@@ -102,14 +102,16 @@ class CMENueva(_Morfo):
     """
     CME nacida de zona solapada.
     - Morfología fija basada en la geometría del solapamiento al nacer.
-    - Se propaga libremente con velocidad heredada.
+    - Se propaga con frenado tipo DBM (relaja hacia V_VIENTO_SOLAR), evitando
+      crecimiento radial ilimitado.
     - NO vacía densidad de otras CMEs: solo añade la suya.
-    - Se restringe únicamente por proximidad de radio al nacer.
+    - Se restringe únicamente por proximidad de radio y ángulo al nacer.
     """
     _contador = 0
 
     def __init__(self, t_nac, r_nac, v_nac, d_nac,
-                 theta_centro, apertura_angular, grosor_frac, asimetria):
+                 theta_centro, apertura_angular, grosor_frac, asimetria,
+                 gamma_drag=1.5e-7):
         CMENueva._contador += 1
         self.id               = CMENueva._contador
         self.t_nac            = t_nac
@@ -117,9 +119,10 @@ class CMENueva(_Morfo):
         self.v_nac            = v_nac
         self.d_nac            = d_nac
         self.theta_centro     = theta_centro
-        self.apertura_angular = max(apertura_angular, 0.08)
+        self.apertura_angular = np.clip(apertura_angular, 0.15, 1.05)   # piso subido: 4.6°→8.6°, techo ~60°
         self.grosor_frac      = np.clip(grosor_frac, 0.12, 0.55)
         self.asimetria        = asimetria
+        self.gamma_drag       = gamma_drag   # km⁻¹, arrastre tipo DBM
 
         # Parámetros Fourier nulos: forma viene de apertura angular
         N = 7
@@ -131,7 +134,25 @@ class CMENueva(_Morfo):
 
     def radio(self, t):
         if t < self.t_nac: return None
-        return self.r_nac + self.v_nac*(t-self.t_nac)/FACTOR_ESCALA
+        dt = t - self.t_nac
+        dv = self.v_nac - V_VIENTO_SOLAR
+        if abs(dv) < 1e-6:
+            delta_km = V_VIENTO_SOLAR*dt
+        else:
+            s   = np.sign(dv)
+            arg = max(1 + s*self.gamma_drag*dv*dt, 1e-6)
+            delta_km = V_VIENTO_SOLAR*dt + (s/self.gamma_drag)*np.log(arg)
+        return self.r_nac + delta_km/FACTOR_ESCALA
+
+    def velocidad(self, t):
+        """Velocidad instantánea (modelo de arrastre, relaja a V_VIENTO_SOLAR)."""
+        if t < self.t_nac: return self.v_nac
+        dt = t - self.t_nac
+        dv = self.v_nac - V_VIENTO_SOLAR
+        if abs(dv) < 1e-6: return V_VIENTO_SOLAR
+        s   = np.sign(dv)
+        arg = max(1 + s*self.gamma_drag*dv*dt, 1e-6)
+        return V_VIENTO_SOLAR + dv/arg
 
     def forma(self, th, r_cme, r_ext_ov=None):
         # Ventana angular centrada en theta_centro
@@ -158,11 +179,12 @@ class CMENueva(_Morfo):
         if r is None or r <= 0:
             nan = np.full(R.shape, np.nan)
             return nan, nan, np.zeros(R.shape, dtype=bool)
+        v_inst = self.velocidad(t)
         rex, rin = self.forma(TH, r)
         mask = (R > rin) & (R <= rex)
         fd   = np.clip((1+np.cos(TH-self.theta_centro))**2.5, 0, 1)
-        vr   = self.v_nac*fd*(1+0.3*np.cos(TH)**2)
-        vt   = 0.05*self.v_nac*np.sin(2*TH)*fd
+        vr   = v_inst*fd*(1+0.3*np.cos(TH)**2)
+        vt   = 0.05*v_inst*np.sin(2*TH)*fd
         vm   = np.sqrt(vr**2+vt**2); vm[vm==0]=1
         vrn  = np.where(mask, vr/vm*fd, np.nan)
         vtn  = np.where(mask, vt/vm*fd, np.nan)
@@ -188,21 +210,21 @@ def densidad_solapada(ci1, ci2, sol):
     return np.where(sol, (d1**2 + d2**2)/peso * FACTOR_COMPRESION, 0.0)
 
 def geometria_sol(sol_mask, TH, R, r_ref):
-    """Extrae geometría de la zona solapada."""
+    """Extrae geometría de la zona solapada (robusta a ruido de grilla)."""
     if not np.any(sol_mask):
         return 0.0, 0.3, 0.28
     th_s = TH[sol_mask]; r_s = R[sol_mask]
-    th_c  = float(np.mean(th_s))
-    ap    = max(float(np.ptp(th_s))/2, 0.08)
+    th_c   = float(np.mean(th_s))
+    th_rel = (th_s - th_c + np.pi) % (2*np.pi) - np.pi
+    ap     = max(float(np.percentile(np.abs(th_rel), 90)), 0.15)
     grosor = float(np.ptp(r_s)) / max(r_ref, 0.1)
     return th_c, ap, np.clip(grosor, 0.12, 0.55)
 
 def umbral(r):
-    return max(r*0.12, 0.15)
+    return max(r*0.20, 0.25)
 
 def ya_existe(r_nuevo, lista_a, lista_b):
-    return any(abs(cn.r_nac-r_nuevo) < umbral(r_nuevo)
-               for cn in lista_a+lista_b)
+    return any(abs(cn.r_nac - r_nuevo) < umbral(r_nuevo) for cn in lista_a + lista_b)
 
 def calc_campos(ca, cb, TH, R, t, ra, rb, va, vb, ri, fi):
     c1,m1 = ca.densidad(TH,R,ra,t)
@@ -229,6 +251,7 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     if ya_existe(r_nuevo, cmes_nuevas, nuevas_frame): return
 
     th_c, ap, gro = geometria_sol(sol_mask, TH, R, r_nuevo)
+
     d1 = np.nan_to_num(campo_a); d2 = np.nan_to_num(campo_b)
     total = d1 + d2
     peso  = np.where(total > 0, total, 1.0)
@@ -390,7 +413,7 @@ etiquetar([ax_a],t_inic1,t_acel1,t_inic2,t_acel2)
 ax_p.axhline(y=DIST_TIERRA_RS, color='k', linestyle='--', linewidth=1.2, alpha=0.7, zorder=2)
 ax_p.text(T_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
 ax_p.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
-plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf",
+plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}_2.pdf",
             dpi=300,bbox_inches='tight',pad_inches=0.3)
 print("✓ Cinemática guardada"); plt.show()
 
@@ -464,7 +487,7 @@ for idx,t_fr in enumerate(t_frames):
     for cn in cmes_nuevas:
         dcn, mcn = cn.densidad(TH_L, R_L, t_fr)
         df = df + dcn                                      # solo suma
-        vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+        vel_cn_map = np.where(mcn & ~mask_cn, cn.velocidad(t_fr), vel_cn_map)
         mask_cn = mask_cn | mcn
 
     # ── Detectar solapamientos y registrar nuevas CMEs ────────────────────────
@@ -507,7 +530,7 @@ for idx,t_fr in enumerate(t_frames):
         for cn in nuevas_frame:
             dcn,mcn = cn.densidad(TH_L,R_L,t_fr)
             df = df + dcn
-            vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+            vel_cn_map = np.where(mcn & ~mask_cn, cn.velocidad(t_fr), vel_cn_map)
             mask_cn = mask_cn | mcn
 
     ax.contourf(TH_L,R_L,np.log10(np.where(df>0,df,DENSIDAD_FONDO/10)),
@@ -550,7 +573,7 @@ cbar_ax=fig.add_axes([.94,.12,.015,.75])
 sm=plt.cm.ScalarMappable(cmap='viridis',norm=plt.Normalize(vmin=DMIN,vmax=DMAX)); sm.set_array([])
 fig.colorbar(sm,cax=cbar_ax).set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
                                          rotation=270,labelpad=25,fontsize=11)
-plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf",dpi=300,bbox_inches='tight')
+plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}_2.pdf",dpi=300,bbox_inches='tight')
 print(f"\n✓ Polar guardado | CMEs nuevas: {len(cmes_nuevas)}"); plt.show()
 
 
@@ -586,7 +609,7 @@ for i,t in enumerate(tiempos):
     for cn in cmes_nuevas:
         dcn,mcn=cn.densidad(TH_loc,R_loc,t)
         dt=dt+dcn
-        vel_cn_map=np.where(mcn&~mask_cn, cn.v_nac, vel_cn_map)
+        vel_cn_map=np.where(mcn&~mask_cn, cn.velocidad(t), vel_cn_map)
         mask_cn=mask_cn|mcn
 
     for ro,to in PUNTOS_OBS:
@@ -636,7 +659,7 @@ ax_v.legend(fontsize=10,loc='upper right')
 sm_o=plt.cm.ScalarMappable(cmap=CMAP_OBS,norm=norm_obs); sm_o.set_array([])
 fig.colorbar(sm_o,ax=[ax_d,ax_v],orientation='vertical',fraction=.02,pad=.02).set_label(
     f'Distancia al Sol ({R_SOL_STR})',rotation=270,labelpad=20,fontsize=12)
-plt.savefig(f"serie_temporal_multipunto_s1_{semilla1}_s2_{semilla2}.pdf",dpi=300,bbox_inches='tight')
+plt.savefig(f"serie_temporal_multipunto_s1_{semilla1}_s2_{semilla2}_2.pdf",dpi=300,bbox_inches='tight')
 print("✓ Serie temporal guardada"); plt.show()
 
 
