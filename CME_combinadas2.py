@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import cumulative_trapezoid
 from scipy.ndimage import gaussian_filter1d
+from scipy.spatial import cKDTree
 import matplotlib
 
 matplotlib.rcParams.update({
@@ -12,9 +13,10 @@ matplotlib.rcParams.update({
 R_SOL_KM, R_SOL_STR   = 695700, r'$R_\odot$'
 DIST_TIERRA_KM = 149597870.7
 DIST_TIERRA_RS = DIST_TIERRA_KM / R_SOL_KM
-DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 95, 695700
+DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 85, 695700
+T_CALCULO_HORAS = max(T_HORAS, 95)
 V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
-semilla1, semilla2, RETRASO_CME2 = 435, 1962, 25200.0 #7 horas
+semilla1, semilla2, RETRASO_CME2 = 435, 256, 25200.0 #7 horas
 FACTOR_COMPRESION = 1.15
 DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
 
@@ -111,6 +113,7 @@ class CMENueva(_Morfo):
 
     def __init__(self, t_nac, r_nac, v_nac, d_nac,
                  theta_centro, apertura_angular, grosor_frac, asimetria,
+                 theta_puntos, r_puntos,
                  gamma_drag=1.5e-7):
         CMENueva._contador += 1
         self.id               = CMENueva._contador
@@ -122,6 +125,12 @@ class CMENueva(_Morfo):
         self.apertura_angular = np.clip(apertura_angular, 0.15, 1.05)   # piso subido: 4.6°→8.6°, techo ~60°
         self.grosor_frac      = np.clip(grosor_frac, 0.12, 0.55)
         self.asimetria        = asimetria
+        self.theta_puntos = np.asarray(theta_puntos, dtype=float)
+        self.r_puntos = np.asarray(r_puntos, dtype=float)
+        self._puntos_xy = np.column_stack((
+            self.r_puntos * np.cos(self.theta_puntos),
+            self.r_puntos * np.sin(self.theta_puntos)))
+        self._arbol_puntos = cKDTree(self._puntos_xy)
         self.gamma_drag       = gamma_drag   # km⁻¹, arrastre tipo DBM
 
         # Parámetros Fourier nulos: forma viene de apertura angular
@@ -155,24 +164,36 @@ class CMENueva(_Morfo):
         return V_VIENTO_SOLAR + dv/arg
 
     def forma(self, th, r_cme, r_ext_ov=None):
-        # Ventana angular centrada en theta_centro
-        dth = (th - self.theta_centro + np.pi) % (2*np.pi) - np.pi
-        ven = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
-        rex = r_cme * (0.75 + 0.45) * ven
-        rin = np.maximum(rex*(1-self.grosor_frac), r_cme*0.10)
-        return rex, rin
+        puntos = self.puntos(r_cme)
+        return puntos[1], puntos[1]
+
+    def puntos(self, r_cme):
+        """Devuelve los puntos originales trasladados radialmente, sin deformarlos."""
+        delta_r = r_cme - self.r_nac
+        radios = self.r_puntos + delta_r
+        return self.theta_puntos, radios
+
+    def mascara_puntos(self, TH, R, r_cme):
+        theta_p, radios_p = self.puntos(r_cme)
+        puntos_p = np.column_stack((radios_p * np.cos(theta_p),
+                                    radios_p * np.sin(theta_p)))
+        distancia, _ = cKDTree(puntos_p).query(
+            np.column_stack((R.ravel() * np.cos(TH.ravel()),
+                             R.ravel() * np.sin(TH.ravel())))
+        )
+        dr = float(np.median(np.abs(np.diff(R[:, 0]))))
+        dth = float(np.median(np.abs(np.diff(TH[0, :]))))
+        radio_celda = 0.6 * np.hypot(dr, max(r_cme, 1.0) * dth)
+        return (distancia <= radio_celda).reshape(R.shape)
 
     def densidad(self, TH, R, t):
         r = self.radio(t)
         if r is None or r <= 0:
             return np.zeros_like(R, dtype=float), np.zeros(R.shape, dtype=bool)
-        rex, rin = self.forma(TH, r)
-        mask = (R > rin) & (R <= rex)
-        dth  = (TH - self.theta_centro + np.pi) % (2*np.pi) - np.pi
-        ven  = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
+        mask = self.mascara_puntos(TH, R, r)
         fe   = max(r/self.r_nac, 1e-6)
         # Densidad decae por expansión geométrica 1/r²
-        return np.where(mask, self.d_nac/(fe**2)*ven, 0.0), mask
+        return np.where(mask, self.d_nac/(fe**2), 0.0), mask
 
     def vel_vec(self, TH, R, t):
         r = self.radio(t)
@@ -180,8 +201,7 @@ class CMENueva(_Morfo):
             nan = np.full(R.shape, np.nan)
             return nan, nan, np.zeros(R.shape, dtype=bool)
         v_inst = self.velocidad(t)
-        rex, rin = self.forma(TH, r)
-        mask = (R > rin) & (R <= rex)
+        mask = self.mascara_puntos(TH, R, r)
         fd   = np.clip((1+np.cos(TH-self.theta_centro))**2.5, 0, 1)
         vr   = v_inst*fd*(1+0.3*np.cos(TH)**2)
         vt   = 0.05*v_inst*np.sin(2*TH)*fd
@@ -212,13 +232,13 @@ def densidad_solapada(ci1, ci2, sol):
 def geometria_sol(sol_mask, TH, R, r_ref):
     """Extrae geometría de la zona solapada (robusta a ruido de grilla)."""
     if not np.any(sol_mask):
-        return 0.0, 0.3, 0.28
+        return (0.0, 0.3, 0.28, np.array([0.0]), np.array([r_ref]))
     th_s = TH[sol_mask]; r_s = R[sol_mask]
     th_c   = float(np.mean(th_s))
     th_rel = (th_s - th_c + np.pi) % (2*np.pi) - np.pi
     ap     = max(float(np.percentile(np.abs(th_rel), 90)), 0.15)
     grosor = float(np.ptp(r_s)) / max(r_ref, 0.1)
-    return th_c, ap, np.clip(grosor, 0.12, 0.55)
+    return th_c, ap, np.clip(grosor, 0.12, 0.55), TH[sol_mask], R[sol_mask]
 
 def umbral(r):
     return max(r*0.20, 0.25)
@@ -250,7 +270,8 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     if not np.any(sol_mask): return
     if ya_existe(r_nuevo, cmes_nuevas, nuevas_frame): return
 
-    th_c, ap, gro = geometria_sol(sol_mask, TH, R, r_nuevo)
+    th_c, ap, gro, theta_puntos, r_puntos = geometria_sol(
+        sol_mask, TH, R, r_nuevo)
 
     d1 = np.nan_to_num(campo_a); d2 = np.nan_to_num(campo_b)
     total = d1 + d2
@@ -260,7 +281,8 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     if ds <= 0: return
 
     vs = v_pond(campo_a, campo_b, v_a, v_b)
-    nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim))
+    nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim,
+                                  theta_puntos, r_puntos))
 
 
 def reset_simulation_state():
@@ -274,13 +296,13 @@ reset_simulation_state()
 
 cme1 = CME('CME-1',tr=6900,td=55600,ar=0.034,ad=0.01,v0=100,x0=100000,R0=5.2,
            semilla=semilla1,color='steelblue',t0=0.0)
-cme2 = CME('CME-2',tr=9560,td=70156,ar=0.002, ad=0.011,v0=140,x0=140000,R0=4.0,
+cme2 = CME('CME-2',tr=9560,td=8882.42,ar=0.002, ad=0.8,v0=140,x0=140000,R0=4.0,
            semilla=semilla2,color='red',t0=RETRASO_CME2)
 cmes_nuevas = []
 
 
 # ── CINEMÁTICA ────────────────────────────────────────────────────────────────
-tiempos   = np.linspace(0, T_HORAS*3600, 500)
+tiempos   = np.linspace(0, T_CALCULO_HORAS*3600, 500)
 tiempos_h = tiempos/3600
 
 def cinematica(cme, t_arr):
@@ -295,6 +317,29 @@ pos1,vel1,acel1 = cinematica(cme1, tiempos)
 pos2,vel2,acel2 = cinematica(cme2, tiempos)
 pos1 = np.where(np.isnan(pos1), cme1.x0, pos1)
 pos1_rs, pos2_rs = pos1/R_SOL_KM, pos2/R_SOL_KM
+
+def primera_interseccion(t_h, pos_a, pos_b):
+    validos = ~np.isnan(pos_a) & ~np.isnan(pos_b)
+    t_validos = t_h[validos]
+    diferencia = pos_a[validos] - pos_b[validos]
+    if len(diferencia) == 0:
+        return None, None
+
+    exactos = np.flatnonzero(diferencia == 0)
+    if len(exactos):
+        i = exactos[0]
+        return t_validos[i], pos_a[validos][i]
+
+    cruces = np.flatnonzero(diferencia[:-1] * diferencia[1:] < 0)
+    if len(cruces) == 0:
+        return None, None
+    i = cruces[0]
+    fraccion = -diferencia[i] / (diferencia[i + 1] - diferencia[i])
+    t_inter = t_validos[i] + fraccion * (t_validos[i + 1] - t_validos[i])
+    pos_inter = pos_a[validos][i] + fraccion * (pos_a[validos][i + 1] - pos_a[validos][i])
+    return t_inter, pos_inter
+
+t_centros, pos_centros = primera_interseccion(tiempos_h, pos1_rs, pos2_rs)
 
 def etapas(ac, vel, th):
     return th[np.nanargmax(ac)], th[np.argmax(np.nan_to_num(vel)>=0.95*np.nanmax(vel))]
@@ -332,6 +377,7 @@ def frente_retaguardia(cme, pos_arr):
 print("Calculando frente y retaguardia...")
 rex1,rin1 = frente_retaguardia(cme1, pos1)
 rex2,rin2 = frente_retaguardia(cme2, pos2)
+t_extensiones, pos_extensiones = primera_interseccion(tiempos_h, rex2, rin1)
 
 
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
@@ -342,35 +388,38 @@ def sombrear(ax,ti1,ta1,ti2,ta2):
     for x,ls in [(ti1,'--'),(ta1,':'),(ti2,'--'),(ta2,':')]:
         ax.axvline(x=x,color='k',ls=ls,lw=.8,alpha=.5,zorder=2)
 
-def etiquetar(axes,ti1,ta1,ti2,ta2):
-    for ax in axes:
-        yl = ax.get_ylim(); rng = yl[1] - yl[0]
-        y_top = yl[1] - rng*0.05
-        y_bot = yl[0] + rng*0.05
-        step = rng*0.045
-        labels = [
-            (0, ti1, 'Ini-1', y_top, 'top', 0),
-            (ti1, ta1, 'Acel-1', y_top, 'top', 1),
-            (ta1, T_HORAS, 'Prop-1', y_top, 'top', None),
-            (cme2.t0/3600, t_inic2, 'Ini-3', y_bot, 'bottom', 0),
-            (ti2, ta2, 'Acel-3', y_bot, 'bottom', 1),
-            (ta2, T_HORAS, 'Prop-3', y_bot, 'bottom', None)]
-        for start, end, lb, y0, va, idx in labels:
-            span = max(end - start, 0.0)
-            x = start + min(max(span * 0.03, 0.05), 0.2) if span > 0 else start
-            if idx is None:
-                y = y0
-            else:
-                y = y0 - idx*step if va == 'top' else y0 + idx*step
-            if lb == 'Prop-3':
-                y = y_top
-                va = 'top'
-            ax.text(x, y, lb, ha='left', va=va, fontsize=10.5,
-                    color='#444', zorder=4, rotation=0,
-                    bbox=dict(boxstyle='round,pad=0.2', fc='white', ec='0.7', alpha=0.9))
+def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2):
+    """Dibuja las fases fuera de los ejes de datos, como una línea de tiempo."""
+    posicion = ax_ref.get_position()
+    timeline = fig.add_axes([posicion.x0, .80, posicion.width, .055])
+    timeline.set_xlim(0, T_HORAS)
+    timeline.set_ylim(-.45, 1.45)
+    timeline.set_yticks([1, 0], ['CME-1', 'CME-2'])
+    timeline.set_xticks([])
+    timeline.tick_params(axis='both', length=0, labelsize=10, colors='black')
+    timeline.spines[:].set_visible(False)
+
+    fases = [
+        (1, [(0, ti1, 'Ini'), (ti1, ta1, 'Acel'), (ta1, T_HORAS, 'Prop')]),
+        (0, [(cme2.t0/3600, ti2, 'Ini'), (ti2, ta2, 'Acel'),
+             (ta2, T_HORAS, 'Prop')])]
+    for y, tramos in fases:
+        inicio_linea = tramos[0][0]
+        fin_linea = tramos[-1][1]
+        timeline.plot([inicio_linea, fin_linea], [y, y], color='black', lw=1.8,
+                      solid_capstyle='butt', zorder=2)
+        timeline.vlines([inicio_linea, fin_linea], y - .24, y + .24,
+                color='black', lw=1.2, zorder=3)
+        for inicio, fin, nombre in tramos:
+            if fin <= inicio:
+                continue
+            if inicio > inicio_linea:
+                timeline.vlines(inicio, y - .24, y + .24, color='black', lw=1.2, zorder=3)
+            timeline.text((inicio + fin) / 2, y + (.22 if y == 1 else -.22), nombre,
+                          ha='center', va='center', fontsize=9, color='black', zorder=3)
 
 fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
-fig.subplots_adjust(top=0.86,hspace=0.18)
+fig.subplots_adjust(top=0.76,hspace=0.18)
 fig.suptitle('Cinemática conjunta: CME-1 y CME-3',fontsize=20,y=.985)
 subtitle = (
     rf'$\mathrm{{CME}}_1:\ a_r={cme1.ar:.2f},\ a_d={cme1.ad:.2f},\ \tau_r={cme1.tr:.0f},\ \tau_d={cme1.td:.0f}$'
@@ -379,6 +428,7 @@ subtitle = (
 )
 fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444',linespacing=1.25)
 fig.text(.5,.875,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+dibujar_linea_tiempo(fig, axes[0], t_inic1, t_acel1, t_inic2, t_acel2)
 ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
 for ax in axes: sombrear(ax,t_inic1,t_acel1,t_inic2,t_acel2)
 ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
@@ -390,6 +440,14 @@ ax_p.plot(tiempos_h,pos1_rs,color=cme1.color,label='CME-1',**kw)
 ax_p.plot(tiempos_h,pos2_rs,color=cme2.color,label='CME-3',**kw)
 ax_p.fill_between(tiempos_h,rin1,rex1,color=cme1.color,alpha=.15,label='Extensión CME-1')
 ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensión CME-3')
+if t_centros is not None:
+    ax_p.scatter(t_centros, pos_centros, marker='o', s=110, color='white',
+                 edgecolors='black', linewidths=1.4, zorder=6,
+                 label='Interacción de centros')
+if t_extensiones is not None:
+    ax_p.scatter(t_extensiones, pos_extensiones, marker='X', s=130, color='black',
+                 edgecolors='white', linewidths=1.2, zorder=6,
+                 label='Interacción de extensiones')
 ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
 ax_p.set_xlabel('Tiempo (h)',fontsize=16)
 major_ticks = np.arange(0,T_HORAS+1,5)
@@ -409,10 +467,9 @@ ax_a.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=Fa
 ax_v.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=False)
 ax_p.set_xticks(major_ticks)
 ax_p.set_xticklabels([str(int(x)) for x in major_ticks])
-etiquetar([ax_a],t_inic1,t_acel1,t_inic2,t_acel2)
 ax_p.axhline(y=DIST_TIERRA_RS, color='k', linestyle='--', linewidth=1.2, alpha=0.7, zorder=2)
 ax_p.text(T_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
-ax_p.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
+ax_a.legend(*ax_p.get_legend_handles_labels(),loc='upper right',fontsize=11)
 plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}_2.pdf",
             dpi=300,bbox_inches='tight',pad_inches=0.3)
 print("✓ Cinemática guardada"); plt.show()

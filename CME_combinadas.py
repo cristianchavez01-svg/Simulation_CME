@@ -251,7 +251,7 @@ reset_simulation_state()
 
 cme1 = CME('CME-1',tr=6900,td=55600,ar=0.034,ad=0.01,v0=100,x0=100000,R0=5.2,
            semilla=semilla1,color='steelblue',t0=0.0)
-cme2 = CME('CME-2',tr=3500,td=17418.44,ar=0.03, ad=0.03,v0=140,x0=140000,R0=4.0,
+cme2 = CME('CME-2',tr=3500,td=4651.77,ar=0.03, ad=0.17,v0=140,x0=140000,R0=4.0,
            semilla=semilla2,color='red',t0=RETRASO_CME2)
 cmes_nuevas = []
 
@@ -272,6 +272,29 @@ pos1,vel1,acel1 = cinematica(cme1, tiempos)
 pos2,vel2,acel2 = cinematica(cme2, tiempos)
 pos1 = np.where(np.isnan(pos1), cme1.x0, pos1)
 pos1_rs, pos2_rs = pos1/R_SOL_KM, pos2/R_SOL_KM
+
+def primera_interseccion(t_h, pos_a, pos_b):
+    validos = ~np.isnan(pos_a) & ~np.isnan(pos_b)
+    t_validos = t_h[validos]
+    diferencia = pos_a[validos] - pos_b[validos]
+    if len(diferencia) == 0:
+        return None, None
+
+    exactos = np.flatnonzero(diferencia == 0)
+    if len(exactos):
+        i = exactos[0]
+        return t_validos[i], pos_a[validos][i]
+
+    cruces = np.flatnonzero(diferencia[:-1] * diferencia[1:] < 0)
+    if len(cruces) == 0:
+        return None, None
+    i = cruces[0]
+    fraccion = -diferencia[i] / (diferencia[i + 1] - diferencia[i])
+    t_inter = t_validos[i] + fraccion * (t_validos[i + 1] - t_validos[i])
+    pos_inter = pos_a[validos][i] + fraccion * (pos_a[validos][i + 1] - pos_a[validos][i])
+    return t_inter, pos_inter
+
+t_centros, pos_centros = primera_interseccion(tiempos_h, pos1_rs, pos2_rs)
 
 def etapas(ac, vel, th):
     return th[np.nanargmax(ac)], th[np.argmax(np.nan_to_num(vel)>=0.95*np.nanmax(vel))]
@@ -309,45 +332,49 @@ def frente_retaguardia(cme, pos_arr):
 print("Calculando frente y retaguardia...")
 rex1,rin1 = frente_retaguardia(cme1, pos1)
 rex2,rin2 = frente_retaguardia(cme2, pos2)
+t_extensiones, pos_extensiones = primera_interseccion(tiempos_h, rex2, rin1)
 
 
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
-def sombrear(ax,ti1,ta1,ti2,ta2):
-    ax.axvspan(0,T_HORAS,color='#FFF',alpha=1.,zorder=0)
-    ax.axvspan(ti1,ta1,color="#A9C5E3",alpha=.25,zorder=0)
-    ax.axvspan(ti2,ta2,color="#E3B57A",alpha=.25,zorder=0)
-    for x,ls in [(ti1,'--'),(ta1,':'),(ti2,'--'),(ta2,':')]:
-        ax.axvline(x=x,color='k',ls=ls,lw=.8,alpha=.5,zorder=2)
+def sombrear(ax, ti1, ta1, ti2, ta2):
+    ax.axvspan(0, T_HORAS, color='#FFF', alpha=1., zorder=0)
+    ax.axvspan(ti1, ta1, color='#A9C5E3', alpha=.25, zorder=0)
+    ax.axvspan(ti2, ta2, color='#E3B57A', alpha=.25, zorder=0)
+    for x, ls in [(ti1, '--'), (ta1, ':'), (ti2, '--'), (ta2, ':')]:
+        ax.axvline(x=x, color='black', ls=ls, lw=.8, alpha=.5, zorder=2)
 
-def etiquetar(axes,ti1,ta1,ti2,ta2):
-    for ax in axes:
-        yl = ax.get_ylim(); rng = yl[1] - yl[0]
-        y_top = yl[1] - rng*0.05
-        y_bot = yl[0] + rng*0.05
-        step = rng*0.045
-        labels = [
-            (0, ti1, 'Ini-1', y_top, 'top', 0),
-            (ti1, ta1, 'Acel-1', y_top, 'top', 1),
-            (ta1, T_HORAS, 'Prop-1', y_top, 'top', None),
-            (cme2.t0/3600, t_inic2, 'Ini-2', y_bot, 'bottom', 0),
-            (ti2, ta2, 'Acel-2', y_bot, 'bottom', 1),
-            (ta2, T_HORAS, 'Prop-2', y_bot, 'bottom', None)]
-        for start, end, lb, y0, va, idx in labels:
-            span = max(end - start, 0.0)
-            x = start + min(max(span * 0.03, 0.05), 0.2) if span > 0 else start
-            if idx is None:
-                y = y0
-            else:
-                y = y0 - idx*step if va == 'top' else y0 + idx*step
-            if lb == 'Prop-2':
-                y = y_top
-                va = 'top'
-            ax.text(x, y, lb, ha='left', va=va, fontsize=10.5,
-                    color='#444', zorder=4, rotation=0,
-                    bbox=dict(boxstyle='round,pad=0.2', fc='white', ec='0.7', alpha=0.9))
+def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2):
+    """Dibuja las fases fuera de los ejes de datos, como una línea de tiempo."""
+    posicion = ax_ref.get_position()
+    timeline = fig.add_axes([posicion.x0, .80, posicion.width, .055])
+    timeline.set_xlim(0, T_HORAS)
+    timeline.set_ylim(-.45, 1.45)
+    timeline.set_yticks([1, 0], ['CME-1', 'CME-2'])
+    timeline.set_xticks([])
+    timeline.tick_params(axis='both', length=0, labelsize=10, colors='black')
+    timeline.spines[:].set_visible(False)
+
+    fases = [
+        (1, [(0, ti1, 'Ini'), (ti1, ta1, 'Acel'), (ta1, T_HORAS, 'Prop')]),
+        (0, [(cme2.t0/3600, ti2, 'Ini'), (ti2, ta2, 'Acel'),
+             (ta2, T_HORAS, 'Prop')])]
+    for y, tramos in fases:
+        inicio_linea = tramos[0][0]
+        fin_linea = tramos[-1][1]
+        timeline.plot([inicio_linea, fin_linea], [y, y], color='black', lw=1.8,
+                      solid_capstyle='butt', zorder=2)
+        timeline.vlines([inicio_linea, fin_linea], y - .24, y + .24,
+                color='black', lw=1.2, zorder=3)
+        for inicio, fin, nombre in tramos:
+            if fin <= inicio:
+                continue
+            if inicio > inicio_linea:
+                timeline.vlines(inicio, y - .24, y + .24, color='black', lw=1.2, zorder=3)
+            timeline.text((inicio + fin) / 2, y + (.22 if y == 1 else -.22), nombre,
+                          ha='center', va='center', fontsize=9, color='black', zorder=3)
 
 fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
-fig.subplots_adjust(top=0.86,hspace=0.18)
+fig.subplots_adjust(top=0.76,hspace=0.18)
 fig.suptitle('Cinemática conjunta: CME-1 y CME-2',fontsize=20,y=.985)
 subtitle = (
     rf'$\mathrm{{CME}}_1:\ a_r={cme1.ar:.2f},\ a_d={cme1.ad:.2f},\ \tau_r={cme1.tr:.0f},\ \tau_d={cme1.td:.0f}$'
@@ -356,8 +383,10 @@ subtitle = (
 )
 fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444',linespacing=1.25)
 fig.text(.5,.875,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+dibujar_linea_tiempo(fig, axes[0], t_inic1, t_acel1, t_inic2, t_acel2)
 ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
-for ax in axes: sombrear(ax,t_inic1,t_acel1,t_inic2,t_acel2)
+for ax in axes:
+    sombrear(ax, t_inic1, t_acel1, t_inic2, t_acel2)
 ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
 ax_a.axhline(0,color='k',ls='-',alpha=.3,lw=.5,zorder=2)
 ax_a.set_ylabel(r'Aceleración (m/s$^2$)',fontsize=16)
@@ -367,6 +396,14 @@ ax_p.plot(tiempos_h,pos1_rs,color=cme1.color,label='CME-1',**kw)
 ax_p.plot(tiempos_h,pos2_rs,color=cme2.color,label='CME-2',**kw)
 ax_p.fill_between(tiempos_h,rin1,rex1,color=cme1.color,alpha=.15,label='Extensión CME-1')
 ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensión CME-2')
+if t_centros is not None:
+    ax_p.scatter(t_centros, pos_centros, marker='o', s=110, color='white',
+                 edgecolors='black', linewidths=1.4, zorder=6,
+                 label='Interacción de centros')
+if t_extensiones is not None:
+    ax_p.scatter(t_extensiones, pos_extensiones, marker='X', s=130, color='black',
+                 edgecolors='white', linewidths=1.2, zorder=6,
+                 label='Interacción de extensiones')
 ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
 ax_p.set_xlabel('Tiempo (h)',fontsize=16)
 major_ticks = np.arange(0,T_HORAS+1,5)
@@ -386,10 +423,9 @@ ax_a.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=Fa
 ax_v.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=False)
 ax_p.set_xticks(major_ticks)
 ax_p.set_xticklabels([str(int(x)) for x in major_ticks])
-etiquetar([ax_a],t_inic1,t_acel1,t_inic2,t_acel2)
 ax_p.axhline(y=DIST_TIERRA_RS, color='k', linestyle='--', linewidth=1.2, alpha=0.7, zorder=2)
 ax_p.text(T_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
-ax_p.legend(*ax_p.get_legend_handles_labels(),loc='lower right',fontsize=11)
+ax_a.legend(*ax_p.get_legend_handles_labels(),loc='upper right',fontsize=11)
 plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf",
             dpi=300,bbox_inches='tight',pad_inches=0.3)
 print("✓ Cinemática guardada"); plt.show()
