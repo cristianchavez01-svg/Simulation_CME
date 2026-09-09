@@ -45,14 +45,10 @@ La metodología para buscar los umbrales de los parámetros $\tau_d$ y a$_d$ de 
     \caption[Interfaz para visualizar perfiles cinemáticos de las CMEs]{Interfaz del programa para visualizar perfiles cinemáticos de las CMEs. Se muestra un ejemplo de CME precursora (línea sólida) y de CME sucesora (línea discontinua), así como su punto de interacción en la gráfica inferior. Los recuadros inferiores permiten la modulación de los parámetros de la aceleración, así como el tiempo de retraso y de simulación. Además se reportan aceleraciones y velocidades iniciales, además de la altura y tiempo en el que se alcanza el 95$\%$ de la velocidad máxima. \textit{Nota:} Figura de elaboración propia.}
     \label{ejemplosimulación}
 \end{figure}
- 
-%============================================================
-
-%HABLAR DE LA ACELERACIÓN Y VELOCIDAD DE **EXPANSIÓN**
-
-%============================================================
 
 Finalmente, en la última etapa de la simulación en dos dimensiones (2D), la propagación de las \acp{CME} se representa mediante mapas de densidad $\rho(r,\theta)$ y velocidad $v(r,\theta)$ sobre una malla polar. Cuando dos CMEs entran en contacto, la densidad y velocidad de las regiones de solapamiento se calculan como un promedio local de cada CME, mientras que lo que no interviene en la superposición, se redistribuye generando una nueva región de plasma. De esta manera, los mapas de densidad y velocidad se afectan mutuamente durante la interacción, dando lugar a una CME resultante física y numéricamente consistente. Adicionalmente, la morfología de cada \ac{CME} se genera con irregularidad angular mediante funciones de perturbación aleatoria aplicadas sobre los perfiles radiales de densidad y velocidad, lo que permite obtener distribuciones anisotrópicas que se aproximan de forma más realista a la asimetría observada en \acp{CME} reales, en contraste con los modelos puramente esféricos o axisimétricos. Por otro lado, los escenarios de interés consisten en la interacción de CMEs con velocidades similares y sub-Alfvénicas; y de CMEs con velocidades considerablemente diferentes.
+
+La expansión de las CMEs toma como referencia su propagación, por lo que su frente, retaguardia y grosor se estiran o encogen en la misma proporción que crece la distancia radial desde el Sol, manteniendo siempre su misma forma relativa. Esta forma base es un óvalo, ligeramente asimétrico, cuyos bordes se difuminan suavemente en vez de terminar de golpe. De este modo, simplemente se reescala completa a medida que avanza, conservando su morfología característica en cada instante; inspirado en lo mencionado por \textcite[e.g.,][]{savani-2011} para propagaciones de CMEs en la heliosfera interna.
 
 \begin{figure}[h]
     \centering
@@ -175,14 +171,22 @@ Para la CME sucesora (CME--2) se tiene el mismo módulo de código que la CME--1
     \end{figure}
 \end{landscape}
 
+Como último resultado de la simulación, se generan series de tiempo de densidad y velocidad para diferentes distancias radiales en el medio de propagación, como aproximación a naves espaciales virtuales. La Figura \ref{Serietiempocaso1} muestra las curvas de densidad (panel superior) y velocidad (panel inferior) registradas para puntos cercanos (morado) y lejanos (rojo) al Sol, mostrando incrementos durante el paso de las CMEs y su interacción, además se indica el inicio de la CME sucesora con una línea vertical punteada. Asimismo, en el panel de densidad se señala la densidad de fondo (10 protones cm$^{-3}$) con una línea discontinua horizontal, de igual manera en el panel de velocidad se señala la velocidad del viento solar utilizada (400 km s$^{-1}$).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{serie_temporal_multipunto_s1_435_s2_1962.pdf}
+    \caption[Series temporales de densidad y velocidad calculados a diferentes distancias para el Caso 1]{Series temporales de densidad (panel superior) y velocidad (panel inferior), calculadas cerca (morado) y lejos (rojo) del Sol, para el Caso 1 de interacción. \textit{Nota:} Figura de elaboración propia.}
+    \label{Serietiempocaso1}
+\end{figure}
+
+
 
 \section{Resultados interacción: Caso 2}
-
 En el Caso 2 se tiene la misma CME precursora (CME-1) que en el Caso 1, sin embargo se utiliza la CME-3 como sucesora, la cual presenta una etapa de aceleración suave durante un intervalo de tiempo largo relativo a la CME-2 del Caso 1, lo que conlleva a una lenta aceleración y desaceleración. Los perfiles cinemáticos permiten visualizar esto a continuación.
 
+
 \subsection{Cálculo de perfiles cinemáticos}
-
-
 Para un segundo experimento se toma la misma CME precursora (CME--1) y tiempo de retraso, pero con una CME sucesora diferente (CME--3), con los parámetros $\tau_r=9560$ s, $a_r=0.002$ km s$^{-2}$, $v_0=140$ km s$^{-1}$ y $x_0=140$ Mm. Por lo tanto, la metodología de las simulaciones se repite, buscando los puntos de interacción en la heliosfera interna ($\sim1$ AU) y produciendo la Tabla \ref{tab:parametros_decaimiento2}, donde se compila información de los parámetros $a_d$ y $\tau_d$, el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) junto con el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción, además de la aceleración inicial (a$_0$). De igual manera, en las Figuras \ref{fig:advstd2}, \ref{fig:advstodo2} y \ref{fig:tdvstodo2} se muestran las gráficas de los parámetros de interacción en función de los parámetros cinemáticos de la CME sucesora ($a_d$, $\tau_d$), junto a curvas de ajuste y coeficientes de correlación.
 
 \begin{table}[h]
@@ -258,8 +262,9 @@ De la misma manera que se generan los perfiles cinemáticos para las CMEs en la 
     \label{cinematicaconjunta2}
 \end{figure}
 
-\subsection{Cálculo de densidad y velocidad de la interacción}
 
+
+\subsection{Cálculo de densidad y velocidad de la interacción}
 Se utiliza la misma CME--1 mostrada en la Figura \ref{CME1evolución}, y de la misma manera, la evolución de la CME--3 se muestra en la Figura \ref{CME2evolución2}. Asimismo, la Figura \ref{cinematicapolarconjunta2} muestra la evolución conjunta de las CMEs en el plano polar. 
 
 \begin{landscape}
@@ -279,3 +284,12 @@ Se utiliza la misma CME--1 mostrada en la Figura \ref{CME1evolución}, y de la m
     \label{cinematicapolarconjunta2}
     \end{figure}
 \end{landscape}
+
+De igual manera que en el Caso 1, se calculan las series temporales de densidad y velocidad, las cuales se muestran en la Figura \ref{Serietiempocaso2}, usando la misma densidad y velocidad de fondo (10 protones cm$^{-3}$, 400 km s$^{-1}$).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{serie_temporal_multipunto_s1_435_s2_256_2.pdf}
+    \caption[Series temporales de densidad y velocidad calculados a diferentes distancias para el Caso 2]{Series temporales de densidad (panel superior) y velocidad (panel inferior), calculadas cerca (morado) y lejos (rojo) del Sol, para el Caso 2 de interacción. \textit{Nota:} Figura de elaboración propia.}
+    \label{Serietiempocaso2}
+\end{figure}

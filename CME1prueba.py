@@ -16,9 +16,11 @@ matplotlib.rcParams['axes.titleweight'] = 'normal'
 # ──────────────────────────────────────────────────────────────────────────────
 R_SOL_KM       = 695700
 R_SOL_STR      = r'$R_\odot$'
-DENSIDAD_FONDO = 100
+DENSIDAD_FONDO = 10
 T_HORAS        = 85
 FACTOR_ESCALA  = R_SOL_KM
+DMIN_OVERRIDE  = 0.9 # límite inferior: log10(densidad)
+DMAX_OVERRIDE  = 4 # límite superior: log10(densidad)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PARÁMETROS FÍSICOS CME-1
@@ -100,7 +102,7 @@ def densidad_campo(THETA, R, r_cme, t_frame):
     expansion_factor = (r_cme / R_CME_INICIAL)**0.5
     t_norm           = np.maximum(1.0, t_frame / 600.0)
     time_factor      = 1.0 / np.sqrt(t_norm)
-    densidad_diluida = 100.0 / expansion_factor * time_factor
+    densidad_diluida = 10/ expansion_factor * time_factor
     dens_cme = DENSIDAD_FONDO * densidad_diluida * dens_angular * (0.3 + dens_radial)
     campo = np.where(mascara, dens_cme, np.nan)
     campo = np.where(mascara, np.clip(campo, DENSIDAD_FONDO,
@@ -251,8 +253,10 @@ for t_pre in tiempos_frames:
     if frame_max > dens_max_global:
         dens_max_global = frame_max
 
-DENS_MIN_GLOBAL = float(np.log10(DENSIDAD_FONDO))
-DENS_MAX_GLOBAL = max(float(np.log10(dens_max_global)), DENS_MIN_GLOBAL + 0.1)
+DENS_MIN_GLOBAL = (float(DMIN_OVERRIDE) if DMIN_OVERRIDE is not None
+                   else float(np.log10(DENSIDAD_FONDO)))
+DENS_MAX_GLOBAL = (float(DMAX_OVERRIDE) if DMAX_OVERRIDE is not None
+                   else max(float(np.log10(dens_max_global)), DENS_MIN_GLOBAL + 0.1))
 print(f"  Rango de densidad: [{DENS_MIN_GLOBAL:.3f}, {DENS_MAX_GLOBAL:.3f}] log10")
 
 fig = plt.figure(figsize=(20, 12))

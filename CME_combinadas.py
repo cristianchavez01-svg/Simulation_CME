@@ -1,8 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 from scipy.integrate import cumulative_trapezoid
 from scipy.ndimage import gaussian_filter1d
+from scipy.spatial import cKDTree
 import matplotlib
+from matplotlib.transforms import Bbox
+
+inicio_simulacion = time.perf_counter()
 
 matplotlib.rcParams.update({
     'font.family': 'serif', 'font.serif': ['Computer Modern Roman', 'DejaVu Serif'],
@@ -12,13 +17,15 @@ matplotlib.rcParams.update({
 R_SOL_KM, R_SOL_STR   = 695700, r'$R_\odot$'
 DIST_TIERRA_KM = 149597870.7
 DIST_TIERRA_RS = DIST_TIERRA_KM / R_SOL_KM
-DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 100, 85, 695700
+DENSIDAD_FONDO, T_HORAS, FACTOR_ESCALA = 10, 85, 695700
+T_CALCULO_HORAS = max(T_HORAS, 95)
 V_VIENTO_SOLAR, VENTANA_SUAV = 400.0, 2
 semilla1, semilla2, RETRASO_CME2 = 435, 1962, 25200.0 #7 horas
 FACTOR_COMPRESION = 1.15
-DMAX_OVERRIDE     = 5.5 # límite superior para escala de colores (log10 de densidad)
+DMIN_OVERRIDE     = 0.9 # límite inferior para escala de colores (log10 de densidad)
+DMAX_OVERRIDE     = 4 # límite superior para escala de colores (log10 de densidad)
 
-N_PUNTOS_OBS = 5
+N_PUNTOS_OBS = 30
 print(f"Puntos de observación: {N_PUNTOS_OBS}")
 
 
@@ -86,7 +93,7 @@ class CME(_Morfo):
         mask = (R>rin) & (R<=rex)
         da   = np.clip((1+np.cos(TH))**5, 0, None)
         dr   = np.exp(-8*(R/(r_cme+0.1)-1)**2)
-        dd   = 100/((r_cme/self.R0)**0.5) / np.sqrt(np.maximum(1., (t-self.t0)/600))
+        dd   = 10/((r_cme/self.R0)**0.5) / np.sqrt(np.maximum(1., (t-self.t0)/600))
         dens = DENSIDAD_FONDO * dd * da * (0.3+dr) * fi
         c    = np.where(mask, dens, np.nan)
         if np.any(mask):
@@ -102,14 +109,16 @@ class CMENueva(_Morfo):
     """
     CME nacida de zona solapada.
     - Morfología fija basada en la geometría del solapamiento al nacer.
-    - Se propaga libremente con velocidad heredada.
+    - Se propaga con frenado tipo DBM (relaja hacia V_VIENTO_SOLAR).
     - NO vacía densidad de otras CMEs: solo añade la suya.
-    - Se restringe únicamente por proximidad de radio al nacer.
+    - Se restringe únicamente por proximidad de radio y ángulo al nacer.
     """
     _contador = 0
 
     def __init__(self, t_nac, r_nac, v_nac, d_nac,
-                 theta_centro, apertura_angular, grosor_frac, asimetria):
+                 theta_centro, apertura_angular, grosor_frac, asimetria,
+                 theta_puntos, r_puntos,
+                 gamma_drag=1.5e-7):
         CMENueva._contador += 1
         self.id               = CMENueva._contador
         self.t_nac            = t_nac
@@ -117,9 +126,16 @@ class CMENueva(_Morfo):
         self.v_nac            = v_nac
         self.d_nac            = d_nac
         self.theta_centro     = theta_centro
-        self.apertura_angular = max(apertura_angular, 0.08)
+        self.apertura_angular = np.clip(apertura_angular, 0.15, 1.05)
         self.grosor_frac      = np.clip(grosor_frac, 0.12, 0.55)
         self.asimetria        = asimetria
+        self.theta_puntos = np.asarray(theta_puntos, dtype=float)
+        self.r_puntos = np.asarray(r_puntos, dtype=float)
+        self._puntos_xy = np.column_stack((
+            self.r_puntos * np.cos(self.theta_puntos),
+            self.r_puntos * np.sin(self.theta_puntos)))
+        self._arbol_puntos = cKDTree(self._puntos_xy)
+        self.gamma_drag = gamma_drag
 
         # Parámetros Fourier nulos: forma viene de apertura angular
         N = 7
@@ -131,38 +147,63 @@ class CMENueva(_Morfo):
 
     def radio(self, t):
         if t < self.t_nac: return None
-        return self.r_nac + self.v_nac*(t-self.t_nac)/FACTOR_ESCALA
+        dt = t - self.t_nac
+        dv = self.v_nac - V_VIENTO_SOLAR
+        if abs(dv) < 1e-6:
+            delta_km = V_VIENTO_SOLAR*dt
+        else:
+            signo = np.sign(dv)
+            argumento = max(1 + signo*self.gamma_drag*dv*dt, 1e-6)
+            delta_km = V_VIENTO_SOLAR*dt + (signo/self.gamma_drag)*np.log(argumento)
+        return self.r_nac + delta_km/FACTOR_ESCALA
+
+    def velocidad(self, t):
+        if t < self.t_nac: return self.v_nac
+        dt = t - self.t_nac
+        dv = self.v_nac - V_VIENTO_SOLAR
+        if abs(dv) < 1e-6: return V_VIENTO_SOLAR
+        signo = np.sign(dv)
+        argumento = max(1 + signo*self.gamma_drag*dv*dt, 1e-6)
+        return V_VIENTO_SOLAR + dv/argumento
+
+    def puntos(self, r_cme):
+        delta_r = r_cme - self.r_nac
+        return self.theta_puntos, self.r_puntos + delta_r
 
     def forma(self, th, r_cme, r_ext_ov=None):
-        # Ventana angular centrada en theta_centro
-        dth = (th - self.theta_centro + np.pi) % (2*np.pi) - np.pi
-        ven = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
-        rex = r_cme * (0.75 + 0.45) * ven
-        rin = np.maximum(rex*(1-self.grosor_frac), r_cme*0.10)
-        return rex, rin
+        puntos = self.puntos(r_cme)
+        return puntos[1], puntos[1]
+
+    def mascara_puntos(self, TH, R, r_cme):
+        theta_p, radios_p = self.puntos(r_cme)
+        puntos_p = np.column_stack((radios_p*np.cos(theta_p), radios_p*np.sin(theta_p)))
+        distancia, _ = cKDTree(puntos_p).query(
+            np.column_stack((R.ravel()*np.cos(TH.ravel()), R.ravel()*np.sin(TH.ravel())))
+        )
+        dr = float(np.median(np.abs(np.diff(R[:, 0]))))
+        dth = float(np.median(np.abs(np.diff(TH[0, :]))))
+        radio_celda = 0.6*np.hypot(dr, max(r_cme, 1.0)*dth)
+        return (distancia <= radio_celda).reshape(R.shape)
 
     def densidad(self, TH, R, t):
         r = self.radio(t)
         if r is None or r <= 0:
             return np.zeros_like(R, dtype=float), np.zeros(R.shape, dtype=bool)
-        rex, rin = self.forma(TH, r)
-        mask = (R > rin) & (R <= rex)
-        dth  = (TH - self.theta_centro + np.pi) % (2*np.pi) - np.pi
-        ven  = np.clip(np.cos(dth/self.apertura_angular*(np.pi/2)), 0, 1)**2
+        mask = self.mascara_puntos(TH, R, r)
         fe   = max(r/self.r_nac, 1e-6)
         # Densidad decae por expansión geométrica 1/r²
-        return np.where(mask, self.d_nac/(fe**2)*ven, 0.0), mask
+        return np.where(mask, self.d_nac/(fe**2), 0.0), mask
 
     def vel_vec(self, TH, R, t):
         r = self.radio(t)
         if r is None or r <= 0:
             nan = np.full(R.shape, np.nan)
             return nan, nan, np.zeros(R.shape, dtype=bool)
-        rex, rin = self.forma(TH, r)
-        mask = (R > rin) & (R <= rex)
+        mask = self.mascara_puntos(TH, R, r)
+        v_inst = self.velocidad(t)
         fd   = np.clip((1+np.cos(TH-self.theta_centro))**2.5, 0, 1)
-        vr   = self.v_nac*fd*(1+0.3*np.cos(TH)**2)
-        vt   = 0.05*self.v_nac*np.sin(2*TH)*fd
+        vr   = v_inst*fd*(1+0.3*np.cos(TH)**2)
+        vt   = 0.05*v_inst*np.sin(2*TH)*fd
         vm   = np.sqrt(vr**2+vt**2); vm[vm==0]=1
         vrn  = np.where(mask, vr/vm*fd, np.nan)
         vtn  = np.where(mask, vt/vm*fd, np.nan)
@@ -188,21 +229,29 @@ def densidad_solapada(ci1, ci2, sol):
     return np.where(sol, (d1**2 + d2**2)/peso * FACTOR_COMPRESION, 0.0)
 
 def geometria_sol(sol_mask, TH, R, r_ref):
-    """Extrae geometría de la zona solapada."""
+    """Extrae la geometría del clúster real de interacción alrededor de r_ref."""
     if not np.any(sol_mask):
-        return 0.0, 0.3, 0.28
+        return 0.0, 0.3, 0.28, np.array([0.0]), np.array([r_ref])
     th_s = TH[sol_mask]; r_s = R[sol_mask]
+    ventana = max(r_ref*0.5, 1.0)
+    filtro = np.abs(r_s-r_ref) <= ventana
+    if np.count_nonzero(filtro) >= 3:
+        th_s, r_s = th_s[filtro], r_s[filtro]
     th_c  = float(np.mean(th_s))
-    ap    = max(float(np.ptp(th_s))/2, 0.08)
+    th_rel = (th_s-th_c+np.pi)%(2*np.pi)-np.pi
+    ap    = max(float(np.percentile(np.abs(th_rel), 90)), 0.15)
     grosor = float(np.ptp(r_s)) / max(r_ref, 0.1)
-    return th_c, ap, np.clip(grosor, 0.12, 0.55)
+    return th_c, ap, np.clip(grosor, 0.12, 0.55), th_s, r_s
 
 def umbral(r):
-    return max(r*0.12, 0.15)
+    return max(r*0.05, 0.12)
 
-def ya_existe(r_nuevo, lista_a, lista_b):
-    return any(abs(cn.r_nac-r_nuevo) < umbral(r_nuevo)
-               for cn in lista_a+lista_b)
+def ya_existe(r_nuevo, th_nuevo, lista_a, lista_b):
+    for cn in lista_a+lista_b:
+        dth = abs((cn.theta_centro-th_nuevo+np.pi)%(2*np.pi)-np.pi)
+        if abs(cn.r_nac-r_nuevo) < umbral(r_nuevo) and dth < 0.15:
+            return True
+    return False
 
 def calc_campos(ca, cb, TH, R, t, ra, rb, va, vb, ri, fi):
     c1,m1 = ca.densidad(TH,R,ra,t)
@@ -226,9 +275,8 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     No vacía ni modifica df — solo registra.
     """
     if not np.any(sol_mask): return
-    if ya_existe(r_nuevo, cmes_nuevas, nuevas_frame): return
-
-    th_c, ap, gro = geometria_sol(sol_mask, TH, R, r_nuevo)
+    th_c, ap, gro, theta_puntos, r_puntos = geometria_sol(sol_mask, TH, R, r_nuevo)
+    if ya_existe(r_nuevo, th_c, cmes_nuevas, nuevas_frame): return
     d1 = np.nan_to_num(campo_a); d2 = np.nan_to_num(campo_b)
     total = d1 + d2
     peso  = np.where(total > 0, total, 1.0)
@@ -237,7 +285,8 @@ def detectar_y_registrar(sol_mask, campo_a, campo_b, v_a, v_b,
     if ds <= 0: return
 
     vs = v_pond(campo_a, campo_b, v_a, v_b)
-    nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim))
+    nuevas_frame.append(CMENueva(t, r_nuevo, vs, ds, th_c, ap, gro, asim,
+                                  theta_puntos, r_puntos))
 
 
 def reset_simulation_state():
@@ -257,7 +306,7 @@ cmes_nuevas = []
 
 
 # ── CINEMÁTICA ────────────────────────────────────────────────────────────────
-tiempos   = np.linspace(0, T_HORAS*3600, 500)
+tiempos   = np.linspace(0, T_CALCULO_HORAS*3600, 500)
 tiempos_h = tiempos/3600
 
 def cinematica(cme, t_arr):
@@ -381,7 +430,7 @@ subtitle = (
     + '\n'
     rf'$\mathrm{{CME}}_2:\ a_r={cme2.ar:.2f},\ a_d={cme2.ad:.2f},\ \tau_r={cme2.tr:.0f},\ \tau_d={cme2.td:.0f}$'
 )
-fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=11,style='italic',color='#444',linespacing=1.25)
+fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=13,style='italic',color='#444',linespacing=1.25)
 fig.text(.5,.875,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
 dibujar_linea_tiempo(fig, axes[0], t_inic1, t_acel1, t_inic2, t_acel2)
 ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
@@ -397,11 +446,11 @@ ax_p.plot(tiempos_h,pos2_rs,color=cme2.color,label='CME-2',**kw)
 ax_p.fill_between(tiempos_h,rin1,rex1,color=cme1.color,alpha=.15,label='Extensión CME-1')
 ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensión CME-2')
 if t_centros is not None:
-    ax_p.scatter(t_centros, pos_centros, marker='o', s=110, color='white',
+    ax_p.scatter(t_centros, pos_centros, marker='o', s=260, color='white',
                  edgecolors='black', linewidths=1.4, zorder=6,
                  label='Interacción de centros')
 if t_extensiones is not None:
-    ax_p.scatter(t_extensiones, pos_extensiones, marker='X', s=130, color='black',
+    ax_p.scatter(t_extensiones, pos_extensiones, marker='X', s=300, color='black',
                  edgecolors='white', linewidths=1.2, zorder=6,
                  label='Interacción de extensiones')
 ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
@@ -412,7 +461,7 @@ for ax in axes:
     ax.set_xlim(0,T_HORAS)
     ax.grid(True,alpha=.3,ls='--',zorder=1)
     ax.set_xticks(minor_ticks, minor=True)
-    ax.tick_params(axis='x', which='major', length=10, width=1.4, direction='in')
+    ax.tick_params(axis='x', which='major', length=10, width=1.4, direction='in', labelsize=14)
     ax.tick_params(axis='x', which='minor', length=5, width=0.8, direction='in')
     ax.tick_params(axis='y', which='major', direction='in', right=True)
     ax.tick_params(axis='y', which='minor', direction='in', right=True)
@@ -433,12 +482,15 @@ print("✓ Cinemática guardada"); plt.show()
 
 # ── 2. PROPAGACIÓN POLAR ──────────────────────────────────────────────────────
 print("\n"+"="*60+"\nVISUALIZACIÓN POLAR\n"+"="*60)
-ESTADOS  = 8
-t_frames = np.linspace(3600, T_HORAS*3600, ESTADOS)
+ESTADOS = 8
+FRAMES_CALCULO = 80
+t_frames = np.linspace(3600, T_HORAS*3600, FRAMES_CALCULO)
+idx_mostrar = set(np.linspace(0, FRAMES_CALCULO-1, ESTADOS).round().astype(int).tolist())
 RMAX = max(pos1[-1], pos2[~np.isnan(pos2)][-1]) / R_SOL_KM * 1.4
 
 TH_G,R_G   = np.meshgrid(np.linspace(-np.pi,np.pi,800), np.linspace(0,RMAX,400))
 THv_G,Rv_G = np.meshgrid(np.linspace(-np.pi,np.pi,40),  np.linspace(1,RMAX,12))
+TH_D,R_D   = np.meshgrid(np.linspace(-np.pi,np.pi,600), np.linspace(0,RMAX,300))
 
 print("  Pre-calculando rango densidad...")
 dmax = DENSIDAD_FONDO
@@ -455,26 +507,61 @@ for t_pre in t_frames:
         dcn,_=cn.densidad(TH_G,R_G,t_pre); d=d+dcn
     dmax=max(dmax, float(np.nanmax(d)) if np.any(d>0) else DENSIDAD_FONDO)
 
-DMIN=float(np.log10(DENSIDAD_FONDO))
+DMIN=float(DMIN_OVERRIDE) if DMIN_OVERRIDE is not None else float(np.log10(DENSIDAD_FONDO))
 DMAX=float(DMAX_OVERRIDE) if DMAX_OVERRIDE else max(float(np.log10(dmax)),DMIN+0.5)
 print(f"  Rango: [{DMIN:.2f}, {DMAX:.2f}]")
 
 fig=plt.figure(figsize=(20,12))
 fig.suptitle('Propagación conjunta: CME-1 y CME-2',fontsize=18,fontweight='normal',y=.99)
 fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=13,style='italic',color='#444')
+ax_panel_final = None
+panel = 0
 
 for idx,t_fr in enumerate(t_frames):
-    print(f"  Frame {idx+1}/{ESTADOS}: t={t_fr/3600:.1f}h",end=" ... ")
-    ax=plt.subplot(2,4,idx+1,projection='polar')
-    ax.text(.05,.97,f"{'abcdefgh'[idx]})",transform=ax.transAxes,fontsize=12,
-            va='top',ha='left',color='black',fontstyle='italic')
+    mostrar = idx in idx_mostrar
+    if mostrar:
+        panel += 1
+        print(f"  Frame {panel}/{ESTADOS} (calc {idx+1}/{FRAMES_CALCULO}): t={t_fr/3600:.1f}h",end=" ... ")
 
     r1=pos_rs_en(cme1,t_fr); v1=vel_en(cme1,t_fr)
     act2=t_fr>=cme2.t0 and pos_rs_en(cme2,t_fr) is not None
     if act2: r2=pos_rs_en(cme2,t_fr); v2=vel_en(cme2,t_fr); fi=fi_inter(v1,v2); ri=radio_inter(r1,r2,v1,v2)
     else:    r2=v2=0.; fi=1.; ri=None
 
-    if idx < 4:
+    if not mostrar:
+        # Detectar también en los frames que no se muestran.
+        nuevas_frame = []
+        if act2:
+            _,m1d,m2d,_,_,_,ci1d,ci2d = calc_campos(
+                cme1,cme2,TH_D,R_D,t_fr,r1,r2,v1,v2,ri,fi)
+            campos_cn_d = [(cn, *cn.densidad(TH_D,R_D,t_fr))
+                           for cn in cmes_nuevas]
+            detectar_y_registrar(m1d&m2d, ci1d, ci2d, v1, v2,
+                                  ri or 0., cme1.asimetria,
+                                  TH_D, R_D, t_fr,
+                                  cmes_nuevas, nuevas_frame)
+            for cn,dcn,mcn in campos_cn_d:
+                r_cn = cn.radio(t_fr)
+                if r_cn is None: continue
+                detectar_y_registrar(m1d&mcn, ci1d, dcn, v1, cn.v_nac,
+                                      (r_cn+r1)/2, cme1.asimetria,
+                                      TH_D, R_D, t_fr,
+                                      cmes_nuevas, nuevas_frame)
+                detectar_y_registrar(m2d&mcn, ci2d, dcn, v2, cn.v_nac,
+                                      (r_cn+r2)/2, cme2.asimetria,
+                                      TH_D, R_D, t_fr,
+                                      cmes_nuevas, nuevas_frame)
+        if nuevas_frame:
+            cmes_nuevas.extend(nuevas_frame)
+        continue
+
+    ax=plt.subplot(2,4,panel,projection='polar')
+    if panel == ESTADOS:
+        ax_panel_final = ax
+    ax.text(.05,.97,f"{'abcdefgh'[panel-1]})",transform=ax.transAxes,fontsize=12,
+            va='top',ha='left',color='black',fontstyle='italic')
+
+    if panel <= 4:
         r_refs=[r1,r2 if act2 else 0,ri if ri else 0]+[cn.radio(t_fr) or 0 for cn in cmes_nuevas]
         rl=max(max(r_refs)*2.7, 1.)
         TH_L,R_L   = np.meshgrid(np.linspace(-np.pi,np.pi,800), np.linspace(0,rl,400))
@@ -500,7 +587,7 @@ for idx,t_fr in enumerate(t_frames):
     for cn in cmes_nuevas:
         dcn, mcn = cn.densidad(TH_L, R_L, t_fr)
         df = df + dcn                                      # solo suma
-        vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+        vel_cn_map = np.where(mcn & ~mask_cn, cn.velocidad(t_fr), vel_cn_map)
         mask_cn = mask_cn | mcn
 
     # ── Detectar solapamientos y registrar nuevas CMEs ────────────────────────
@@ -543,7 +630,7 @@ for idx,t_fr in enumerate(t_frames):
         for cn in nuevas_frame:
             dcn,mcn = cn.densidad(TH_L,R_L,t_fr)
             df = df + dcn
-            vel_cn_map = np.where(mcn & ~mask_cn, cn.v_nac, vel_cn_map)
+            vel_cn_map = np.where(mcn & ~mask_cn, cn.velocidad(t_fr), vel_cn_map)
             mask_cn = mask_cn | mcn
 
     ax.contourf(TH_L,R_L,np.log10(np.where(df>0,df,DENSIDAD_FONDO/10)),
@@ -565,19 +652,25 @@ for idx,t_fr in enumerate(t_frames):
     for cn in cmes_nuevas:
         Ucn,Vcn,mvcn=cn.vel_vec(THv_L,Rv_L,t_fr)
         Up=np.where(mvcn,Ucn,Up); Vp=np.where(mvcn,Vcn,Vp)
+    mascara_vel = mv1 | mv2
+    for cn in cmes_nuevas:
+        _,_,mvcn=cn.vel_vec(THv_L,Rv_L,t_fr)
+        mascara_vel |= mvcn
+    Up=np.where(mascara_vel,Up,np.nan)
+    Vp=np.where(mascara_vel,Vp,np.nan)
 
     mag=np.sqrt(np.nan_to_num(Up)**2+np.nan_to_num(Vp)**2)
     mm=float(np.nanmax(mag)) if np.any(~np.isnan(Up)) else 1.
     if mm>0: Up,Vp=Up/mm*.3,Vp/mm*.3
-    ax.quiver(THv_L,Rv_L,Up,Vp,scale=8,width=.002,headwidth=2,
-              headlength=2,headaxislength=2.5,color='red',alpha=.9)
+    ax.quiver(THv_L,Rv_L,Up,Vp,scale=8,width=.0025,headwidth=2.8,
+              headlength=2.8,headaxislength=3.2,color='red',alpha=.9)
 
     tit=(f"t={t_fr/3600:.1f}h  r₁={r1:.1f}  r₂={r2:.1f} {R_SOL_STR}  "
          f"v_sol={vs:.0f} km/s  N={len(cmes_nuevas)}"
          if act2 else f"t={t_fr/3600:.1f}h  r₁={r1:.1f} {R_SOL_STR}  v={v1:.0f} km/s")
     ax.set_title(tit,fontsize=9,fontweight='normal',pad=10)
     r_refs=[r1,r2 if act2 else 0,ri if ri else 0]+[cn.radio(t_fr) or 0 for cn in cmes_nuevas]
-    ax.set_ylim([0,max(max(r_refs)*2.7,1.) if idx<4 else RMAX])
+    ax.set_ylim([0,max(max(r_refs)*2.7,1.) if panel<=4 else RMAX])
     ax.set_rlabel_position(135); ax.grid(True,alpha=.3,ls='--',lw=.7)
     print(f"r₁={r1:.2f}"+(f"  r₂={r2:.2f}  N={len(cmes_nuevas)}" if act2 else "")+" ✓")
 
@@ -586,12 +679,32 @@ cbar_ax=fig.add_axes([.94,.12,.015,.75])
 sm=plt.cm.ScalarMappable(cmap='viridis',norm=plt.Normalize(vmin=DMIN,vmax=DMAX)); sm.set_array([])
 fig.colorbar(sm,cax=cbar_ax).set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
                                          rotation=270,labelpad=25,fontsize=11)
+fig.canvas.draw()
+if ax_panel_final is not None:
+    axes_visibles = {eje: eje.get_visible() for eje in fig.axes}
+    textos_visibles = {texto: texto.get_visible() for texto in fig.texts}
+    posicion_barra = cbar_ax.get_position()
+    for eje in fig.axes:
+        eje.set_visible(eje is ax_panel_final or eje is cbar_ax)
+    for texto in fig.texts:
+        texto.set_visible(False)
+    posicion_panel = ax_panel_final.get_position()
+    cbar_ax.set_position([posicion_panel.x1 + .035, posicion_panel.y0,
+                          .025, posicion_panel.height])
+    fig.savefig(f"cme_conjunta_polar_panel8_s1_{semilla1}_s2_{semilla2}.pdf",
+                dpi=300,bbox_inches='tight',pad_inches=.18)
+    for eje, visible in axes_visibles.items(): eje.set_visible(visible)
+    for texto, visible in textos_visibles.items(): texto.set_visible(visible)
+    cbar_ax.set_position(posicion_barra)
+    print("✓ Panel 8 polar independiente guardado")
 plt.savefig(f"cme_conjunta_polar_s1_{semilla1}_s2_{semilla2}.pdf",dpi=300,bbox_inches='tight')
 print(f"\n✓ Polar guardado | CMEs nuevas: {len(cmes_nuevas)}"); plt.show()
 
 
 # ── 3. SERIES TEMPORALES ──────────────────────────────────────────────────────
-PUNTOS_OBS = [(round(r,4), 0.0) for r in np.linspace(0, RMAX, N_PUNTOS_OBS)]
+R_OBS_MIN, R_OBS_MAX = 2.0, DIST_TIERRA_RS
+PUNTOS_OBS = [(round(r,4), 0.0)
+              for r in np.linspace(R_OBS_MIN, R_OBS_MAX, N_PUNTOS_OBS)]
 print("\n"+"="*60+f"\nSERIES TEMPORALES — {len(PUNTOS_OBS)} puntos\n"+"="*60)
 th_loc=np.linspace(-np.pi,np.pi,200); r_loc=np.linspace(0,RMAX,250)
 TH_loc,R_loc=np.meshgrid(th_loc,r_loc)
@@ -622,7 +735,7 @@ for i,t in enumerate(tiempos):
     for cn in cmes_nuevas:
         dcn,mcn=cn.densidad(TH_loc,R_loc,t)
         dt=dt+dcn
-        vel_cn_map=np.where(mcn&~mask_cn, cn.v_nac, vel_cn_map)
+        vel_cn_map=np.where(mcn&~mask_cn, cn.velocidad(t), vel_cn_map)
         mask_cn=mask_cn|mcn
 
     for ro,to in PUNTOS_OBS:
@@ -635,7 +748,7 @@ for i,t in enumerate(tiempos):
     if i%50==0: print("✓")
 print("  ✓ Series calculadas")
 
-CMAP_OBS='gist_rainbow'; cmap_obs=plt.cm.get_cmap(CMAP_OBS)
+CMAP_OBS='rainbow'; cmap_obs=plt.cm.get_cmap(CMAP_OBS)
 norm_obs=plt.Normalize(vmin=min(r for r,_ in PUNTOS_OBS),vmax=max(r for r,_ in PUNTOS_OBS))
 fig,(ax_d,ax_v)=plt.subplots(2,1,figsize=(14,9),sharex=True,gridspec_kw={'hspace':0})
 fig.suptitle(rf'Evolución temporal — {len(PUNTOS_OBS)} puntos',fontsize=15,fontweight='normal',y=.98)
@@ -691,4 +804,8 @@ if cmes_nuevas:
               f"v={cn.v_nac:.1f} km/s  θ={np.degrees(cn.theta_centro):.1f}°  "
               f"ap={np.degrees(cn.apertura_angular):.1f}°  d={cn.d_nac:.1f}")
 print(f"\n  Puntos obs: {len(PUNTOS_OBS)}")
+tiempo_total = time.perf_counter() - inicio_simulacion
+horas, resto = divmod(tiempo_total, 3600)
+minutos, segundos = divmod(resto, 60)
+print(f"  Tiempo total: {int(horas):02d} h {int(minutos):02d} min {segundos:05.2f} s")
 print("="*60+"\n✓ SIMULACIÓN COMPLETADA")
