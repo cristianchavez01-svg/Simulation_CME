@@ -542,8 +542,8 @@ DMAX=float(DMAX_OVERRIDE) if DMAX_OVERRIDE else max(float(np.log10(dmax)),DMIN+0
 print(f"  Rango: [{DMIN:.2f}, {DMAX:.2f}]")
 
 fig=plt.figure(figsize=(20,12))
-fig.suptitle('Propagación conjunta: CME-1 y CME-3',fontsize=18,fontweight='normal',y=.99)
-fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=13,style='italic',color='#444')
+fig.suptitle('Propagación conjunta: CME-1 y CME-3',fontsize=25.2,fontweight='normal',y=.99)
+fig.text(.5,.935,f'{T_HORAS} horas de propagación',ha='center',fontsize=18.2,style='italic',color='#444')
 
 panel = 0  # contador de paneles realmente dibujados (independiente de idx)
 ax_panel_final = None
@@ -677,7 +677,7 @@ plt.tight_layout(rect=[0,0,.92,.97])
 cbar_ax=fig.add_axes([.94,.12,.015,.75])
 sm=plt.cm.ScalarMappable(cmap='viridis',norm=plt.Normalize(vmin=DMIN,vmax=DMAX)); sm.set_array([])
 fig.colorbar(sm,cax=cbar_ax).set_label(r'log$_{10}$($\rho$) [protones/cm$^3$]',
-                                         rotation=270,labelpad=25,fontsize=11)
+                                         rotation=270,labelpad=25,fontsize=15.4)
 fig.canvas.draw()
 if ax_panel_final is not None:
     axes_visibles = {eje: eje.get_visible() for eje in fig.axes}
@@ -752,8 +752,8 @@ print("  ✓ Series calculadas")
 CMAP_OBS='rainbow'; cmap_obs=plt.cm.get_cmap(CMAP_OBS)
 norm_obs=plt.Normalize(vmin=min(r for r,_ in PUNTOS_OBS),vmax=max(r for r,_ in PUNTOS_OBS))
 fig,(ax_d,ax_v)=plt.subplots(2,1,figsize=(14,9),sharex=True,gridspec_kw={'hspace':0})
-fig.suptitle(rf'Evolución temporal — {len(PUNTOS_OBS)} puntos',fontsize=15,fontweight='normal',y=.98)
-fig.text(.5,.945,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
+fig.suptitle(rf'Evolución temporal — {len(PUNTOS_OBS)} puntos',fontsize=21,fontweight='normal',y=.98)
+fig.text(.5,.915,f'{T_HORAS} horas de propagación',ha='center',fontsize=16.8,style='italic',color='#444')
 for ro,to in PUNTOS_OBS:
     c=cmap_obs(norm_obs(ro)); k=(ro,to)
     ax_d.plot(tiempos_h,gaussian_filter1d(dens_ser[k],sigma=VENTANA_SUAV),color=c,lw=1.8,alpha=.6,zorder=3)
@@ -764,10 +764,13 @@ ax_d.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-3',**kwr)
 ax_v.axhline(V_VIENTO_SOLAR,color='gray',ls='--',label=f'Viento solar ({V_VIENTO_SOLAR:.0f} km/s)',**kwr)
 ax_v.axvline(cme2.t0/3600,color='black',ls=':',label='Inicio CME-3',**kwr)
 ax_d.set(ylabel='Densidad (protones/cm³)',yscale='log',xlim=(0,T_HORAS))
+ax_d.yaxis.label.set_size(14)
 ax_d.grid(True,alpha=.3,ls='--',zorder=1)
 ax_d.legend(fontsize=10,loc='upper right')
 ax_v.set(ylabel='Velocidad radial (km/s)',xlabel='Tiempo (h)',
          xlim=(0,T_HORAS),ylim=(V_VIENTO_SOLAR*.9,None))
+ax_v.yaxis.label.set_size(14)
+ax_v.xaxis.label.set_size(14)
 major_ticks = np.arange(0, T_HORAS+1, 5)
 minor_ticks = np.arange(0, T_HORAS+1, 1)
 for ax in (ax_d, ax_v):
@@ -785,7 +788,7 @@ for ax in (ax_d, ax_v):
 ax_v.legend(fontsize=10,loc='upper right')
 sm_o=plt.cm.ScalarMappable(cmap=CMAP_OBS,norm=norm_obs); sm_o.set_array([])
 fig.colorbar(sm_o,ax=[ax_d,ax_v],orientation='vertical',fraction=.02,pad=.02).set_label(
-    f'Distancia al Sol ({R_SOL_STR})',rotation=270,labelpad=20,fontsize=12)
+    f'Distancia al Sol ({R_SOL_STR})',rotation=270,labelpad=20,fontsize=16.8)
 plt.savefig(f"serie_temporal_multipunto_s1_{semilla1}_s2_{semilla2}_2.pdf",dpi=300,bbox_inches='tight')
 print("✓ Serie temporal guardada"); plt.show()
 
