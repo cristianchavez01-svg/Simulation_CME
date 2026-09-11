@@ -78,6 +78,14 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
+
+\defbibheading{bibliography}[\bibname]{%
+    \chapter*{#1}%
+    \markboth{#1}{#1}%
+}
+
+\renewcommand{\bibfont}{\footnotesize}
+
 \AtEveryBibitem{\clearfield{title}}
 \DeclareLanguageMapping{spanish}{spanish-apa}
 \addbibresource{bibliografia.bib}
