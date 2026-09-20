@@ -25,8 +25,8 @@ plt.rcParams.update({
     "font.size": 12,
     "axes.titlesize": 13,
     "axes.labelsize": 12,
-    "xtick.labelsize": 11,
-    "ytick.labelsize": 11,
+    "xtick.labelsize": 22,
+    "ytick.labelsize": 22,
     "legend.fontsize": 10,
 })
 PLOT_DPI = 200
@@ -192,7 +192,9 @@ def mejor_ajuste(x, y):
 # 3. FUNCIÓN DE SUBPANEL
 # ------------------------------------------------------------------
 
-def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False, legend_loc="upper right"):
+def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False,
+                    legend_loc="upper right", legend_fontsize=11,
+                    xlabel_fontsize=25, ylabel_fontsize=18):
     resultados = mejor_ajuste(x, y)
     if not resultados:
         ax.set_title(rf"{titulo}\n[sin ajuste]", fontsize=10)
@@ -209,16 +211,16 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False, legend
         ymin = np.min([np.min(y), np.min(y_fino)]) - margen_y
         ymax = np.max([np.max(y), np.max(y_fino)]) + margen_y
         ax.set_ylim(ymin, ymax)
-        ax.fill_between(x_fino, y_fino, ymax, color="#2f6fed", alpha=0.18,
+        ax.fill_between(x_fino, y_fino, ymax, color="#2f6fed", alpha=0.10,
                         zorder=1)
-        ax.fill_between(x_fino, ymin, y_fino, color="#d9534f", alpha=0.18,
+        ax.fill_between(x_fino, ymin, y_fino, color="#d9534f", alpha=0.10,
                         zorder=1)
 
     ax.plot(x_fino, y_fino, color="#c0392b", linewidth=1.8,
             zorder=2)
 
-    ax.set_xlabel(xlabel, fontsize=18)
-    ax.set_ylabel(ylabel, fontsize=18)
+    ax.set_xlabel(xlabel, fontsize=xlabel_fontsize)
+    ax.set_ylabel(ylabel, fontsize=ylabel_fontsize)
     ax.set_title(rf"{titulo}", fontsize=25)
     ax.grid(True, linestyle="--", alpha=0.4)
     ax.set_xlim(np.min(x), np.max(x))
@@ -230,9 +232,9 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False, legend
     ]
     if fill_regions:
         legend_handles.extend([
-            Patch(facecolor="#2f6fed", edgecolor="none", alpha=0.18,
+            Patch(facecolor="#2f6fed", edgecolor="none", alpha=0.10,
                   label="Interacción"),
-            Patch(facecolor="#d9534f", edgecolor="none", alpha=0.18,
+            Patch(facecolor="#d9534f", edgecolor="none", alpha=0.10,
                   label="Sin interacción"),
         ])
 
@@ -243,7 +245,7 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False, legend
                label=rf"$R^2$ = {mejor['r2']:.4f}"),
     ])
 
-    ax.legend(handles=legend_handles, fontsize=11, loc=legend_loc,
+    ax.legend(handles=legend_handles, fontsize=legend_fontsize, loc=legend_loc,
               ncol=1, borderaxespad=0.4, handlelength=1.5,
               frameon=True, framealpha=0.95)
 
@@ -272,13 +274,13 @@ def main():
     fig1, axes1 = plt.subplots(2, 2, figsize=(12, 9))
     axes1 = axes1.flatten()
     for i, (y_data, y_label, y_tag) in enumerate(variables_y):
-        titulo = f"$a_d$ vs {y_label}"
+        titulo = f"$a_d$ vs {y_label.split(' [')[0]}"
         r = poblar_subpanel(axes1[i], a_d, y_data,
                             r"$a_d$ [km/s$^2$]", y_label, titulo)
         if r:
             r["relacion"] = f"ad_vs_{y_tag}"
             resumen.append(r)
-    fig1.suptitle(r"Relaciones con el parámetro de decaimiento $a_d$",
+    fig1.suptitle(r"Relaciones con el parámetro de decaimiento $a_d$ en el Caso 1",
                   fontsize=25)
     fig1.tight_layout()
     fig1.savefig(os.path.join(OUTPUT_DIR, "fig_ad_relaciones.png"),
@@ -290,14 +292,14 @@ def main():
     fig2, axes2 = plt.subplots(2, 2, figsize=(12, 9))
     axes2 = axes2.flatten()
     for i, (y_data, y_label, y_tag) in enumerate(variables_y):
-        titulo = f"$\\tau_d$ vs {y_label}"
+        titulo = f"$\\tau_d$ vs {y_label.split(' [')[0]}"
         r = poblar_subpanel(axes2[i], t_d, y_data,
                             r"$\tau_d$ [$10^3$ s]", y_label, titulo, legend_loc="lower right")
         axes2[i].xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f"{x/1000:.1f}"))
         if r:
             r["relacion"] = f"td_vs_{y_tag}"
             resumen.append(r)
-    fig2.suptitle(r"Relaciones con el parámetro de decaimiento $\tau_d$",
+    fig2.suptitle(r"Relaciones con el parámetro de decaimiento $\tau_d$ en el Caso 1",
                   fontsize=25)
     fig2.tight_layout()
     fig2.savefig(os.path.join(OUTPUT_DIR, "fig_td_relaciones.png"),
@@ -306,10 +308,11 @@ def main():
 
     # ── Figura 3: a_d vs t_d (individual) ────────────────────────
     print("\n=== Figura 3: a_d vs t_d ===")
-    fig3, ax3 = plt.subplots(figsize=(7, 5))
+    fig3, ax3 = plt.subplots(figsize=(11, 7.14))
     r = poblar_subpanel(ax3, a_d, t_d,
-                        r"$a_d$ [km/s$^2$]", r"$\tau_d$ [s]", r"$a_d$ vs $\tau_d$",
-                        fill_regions=True)
+                        r"$a_d$ [km/s$^2$]", r"$\tau_d$ [s]", r"Relación entre la escala temporal $\tau_d$ y el parámetro de decaimiento $a_d$ del Caso 1",
+                        fill_regions=True, legend_fontsize=20,
+                        xlabel_fontsize=20, ylabel_fontsize=20)
     if r:
         r["relacion"] = "ad_vs_td"
         resumen.append(r)
