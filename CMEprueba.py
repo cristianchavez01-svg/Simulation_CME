@@ -28,7 +28,7 @@ tr1, td1 = 138, 1249          # Tiempos característicos (s)
 ar1, ad1 = 0.001, 4.950        # Amplitudes (km/s²)
 v01, x01 = 40, 25000          # Velocidad (km/s) y posición inicial (km)
 R_CME_INICIAL = 2.0           # Radio inicial de CME
-SEMILLA     = 436
+SEMILLA     = 502
 COLOR_CINE  = 'steelblue'
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -143,13 +143,14 @@ aceleraciones = np.array([aceleracion(t) for t in tiempos], dtype=float) * 1000.
 posiciones_rs = posiciones / R_SOL_KM
 
 # Etapas
+a_max = np.max(aceleraciones)
+idx_60 = np.flatnonzero(aceleraciones >= 0.1 * a_max)[0]
 idx_amax = np.argmax(aceleraciones)
-t_inic   = tiempos_h[idx_amax]
-v_umbral = 0.95 * np.max(velocidades)
-t_acel   = tiempos_h[np.argmax(velocidades >= v_umbral)]
+t_inic = tiempos_h[idx_60]
+t_acel = tiempos_h[idx_amax]
 
-print(f"  Fin iniciación  (a_max):      t = {t_inic:.2f} h")
-print(f"  Fin aceleración (95% v_max):  t = {t_acel:.2f} h")
+print(f"  Fin iniciación  (60% a_max):   t = {t_inic:.2f} h")
+print(f"  Fin aceleración (a_max):       t = {t_acel:.2f} h")
 
 # Colores de fondo en escala de grises
 C_BLANCO = '#FFFFFF'

@@ -367,11 +367,14 @@ def primera_interseccion(t_h, pos_a, pos_b):
 
 t_centros, pos_centros = primera_interseccion(tiempos_h, pos1_rs, pos2_rs)
 
-def etapas(ac, vel, th):
-    return th[np.nanargmax(ac)], th[np.argmax(np.nan_to_num(vel)>=0.95*np.nanmax(vel))]
+def etapas(ac, th):
+    a_max = np.nanmax(ac)
+    indice_60 = np.flatnonzero(np.isfinite(ac) & (ac >= 0.6*a_max))[0]
+    indice_max = np.nanargmax(ac)
+    return th[indice_60], th[indice_max]
 
-t_inic1,t_acel1 = etapas(acel1,vel1,tiempos_h)
-t_inic2,t_acel2 = etapas(acel2,vel2,tiempos_h)
+t_inic1,t_acel1 = etapas(acel1,tiempos_h)
+t_inic2,t_acel2 = etapas(acel2,tiempos_h)
 print(f"CME-1: ini={t_inic1:.2f}h  acel={t_acel1:.2f}h")
 print(f"CME-3: ini={t_inic2:.2f}h  acel={t_acel2:.2f}h")
 

@@ -345,11 +345,14 @@ def primera_interseccion(t_h, pos_a, pos_b):
 
 t_centros, pos_centros = primera_interseccion(tiempos_h, pos1_rs, pos2_rs)
 
-def etapas(ac, vel, th):
-    return th[np.nanargmax(ac)], th[np.argmax(np.nan_to_num(vel)>=0.95*np.nanmax(vel))]
+def etapas(ac, th):
+    a_max = np.nanmax(ac)
+    indice_60 = np.flatnonzero(np.isfinite(ac) & (ac >= 0.6*a_max))[0]
+    indice_max = np.nanargmax(ac)
+    return th[indice_60], th[indice_max]
 
-t_inic1,t_acel1 = etapas(acel1,vel1,tiempos_h)
-t_inic2,t_acel2 = etapas(acel2,vel2,tiempos_h)
+t_inic1,t_acel1 = etapas(acel1,tiempos_h)
+t_inic2,t_acel2 = etapas(acel2,tiempos_h)
 print(f"CME-1: ini={t_inic1:.2f}h  acel={t_acel1:.2f}h")
 print(f"CME-2: ini={t_inic2:.2f}h  acel={t_acel2:.2f}h")
 
@@ -385,18 +388,20 @@ t_extensiones, pos_extensiones = primera_interseccion(tiempos_h, rex2, rin1)
 
 
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
-def sombrear(ax, ti1, ta1, ti2, ta2):
-    ax.axvspan(0, T_HORAS, color='#FFF', alpha=1., zorder=0)
+T_GRAFICA_CINEMATICA_HORAS = 35
+
+def sombrear(ax, ti1, ta1, ti2, ta2, max_horas):
+    ax.axvspan(0, max_horas, color='#FFF', alpha=1., zorder=0)
     ax.axvspan(ti1, ta1, color='#A9C5E3', alpha=.25, zorder=0)
     ax.axvspan(ti2, ta2, color='#E3B57A', alpha=.25, zorder=0)
     for x, ls in [(ti1, '--'), (ta1, ':'), (ti2, '--'), (ta2, ':')]:
         ax.axvline(x=x, color='black', ls=ls, lw=.8, alpha=.5, zorder=2)
 
-def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2):
+def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2, max_horas):
     """Dibuja las fases fuera de los ejes de datos, como una línea de tiempo."""
     posicion = ax_ref.get_position()
     timeline = fig.add_axes([posicion.x0, .80, posicion.width, .055])
-    timeline.set_xlim(0, T_HORAS)
+    timeline.set_xlim(0, max_horas)
     timeline.set_ylim(-.45, 1.45)
     timeline.set_yticks([1, 0], ['CME-1', 'CME-2'])
     timeline.set_xticks([])
@@ -404,9 +409,9 @@ def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2):
     timeline.spines[:].set_visible(False)
 
     fases = [
-        (1, [(0, ti1, 'Ini'), (ti1, ta1, 'Acel'), (ta1, T_HORAS, 'Prop')]),
+           (1, [(0, ti1, 'Ini'), (ti1, ta1, 'Acel'), (ta1, max_horas, 'Prop')]),
         (0, [(cme2.t0/3600, ti2, 'Ini'), (ti2, ta2, 'Acel'),
-             (ta2, T_HORAS, 'Prop')])]
+               (ta2, max_horas, 'Prop')])]
     for y, tramos in fases:
         inicio_linea = tramos[0][0]
         fin_linea = tramos[-1][1]
@@ -432,10 +437,12 @@ subtitle = (
 )
 fig.text(.5,.935,subtitle,ha='center',va='top',fontsize=13,style='italic',color='#444',linespacing=1.25)
 fig.text(.5,.875,f'{T_HORAS} horas de propagación',ha='center',fontsize=12,style='italic',color='#444')
-dibujar_linea_tiempo(fig, axes[0], t_inic1, t_acel1, t_inic2, t_acel2)
+dibujar_linea_tiempo(fig, axes[0], t_inic1, t_acel1, t_inic2, t_acel2,
+                     T_GRAFICA_CINEMATICA_HORAS)
 ax_a,ax_v,ax_p = axes; kw=dict(linewidth=2.5,zorder=3)
 for ax in axes:
-    sombrear(ax, t_inic1, t_acel1, t_inic2, t_acel2)
+    sombrear(ax, t_inic1, t_acel1, t_inic2, t_acel2,
+             T_GRAFICA_CINEMATICA_HORAS)
 ax_a.plot(tiempos_h,acel1,color=cme1.color,**kw); ax_a.plot(tiempos_h,acel2,color=cme2.color,**kw)
 ax_a.axhline(0,color='k',ls='-',alpha=.3,lw=.5,zorder=2)
 ax_a.set_ylabel(r'Aceleración (m/s$^2$)',fontsize=16)
@@ -455,10 +462,10 @@ if t_extensiones is not None:
                  label='Interacción de extensiones')
 ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
 ax_p.set_xlabel('Tiempo (h)',fontsize=16)
-major_ticks = np.arange(0,T_HORAS+1,5)
-minor_ticks = np.arange(0,T_HORAS+1,1)
+major_ticks = np.arange(0,T_GRAFICA_CINEMATICA_HORAS+1,5)
+minor_ticks = np.arange(0,T_GRAFICA_CINEMATICA_HORAS+1,1)
 for ax in axes:
-    ax.set_xlim(0,T_HORAS)
+    ax.set_xlim(0,T_GRAFICA_CINEMATICA_HORAS)
     ax.grid(True,alpha=.3,ls='--',zorder=1)
     ax.set_xticks(minor_ticks, minor=True)
     ax.tick_params(axis='x', which='major', length=10, width=1.4, direction='in', labelsize=14)
@@ -473,7 +480,7 @@ ax_v.tick_params(axis='x', which='both', labelbottom=False, bottom=False, top=Fa
 ax_p.set_xticks(major_ticks)
 ax_p.set_xticklabels([str(int(x)) for x in major_ticks])
 ax_p.axhline(y=DIST_TIERRA_RS, color='k', linestyle='--', linewidth=1.2, alpha=0.7, zorder=2)
-ax_p.text(T_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
+ax_p.text(T_GRAFICA_CINEMATICA_HORAS*0.02, DIST_TIERRA_RS*1.02, 'Tierra', color='k', fontsize=11, va='bottom', ha='left')
 ax_a.legend(*ax_p.get_legend_handles_labels(),loc='upper right',fontsize=11)
 plt.savefig(f"cinematica_conjunta_s1_{semilla1}_s2_{semilla2}.pdf",
             dpi=300,bbox_inches='tight',pad_inches=0.3)
