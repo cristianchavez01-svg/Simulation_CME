@@ -15,16 +15,16 @@
 \vspace{1cm}
 
 
-Nuestra simulación busca estudiar el comportamiento de la densidad y la velocidad de las CMEs durante su interacción, incorporando una componente estocástica en la morfología de sus perfiles que reproduce la variabilidad natural observada en estas estructuras. Esto se sustenta, además, en el carácter recurrente y estocástico de las propias CMEs como fenómeno solar, al tratarse de eventos que ocurren repetidamente con parámetros cinemáticos y morfológicos variables, existe una probabilidad no nula de que dos o más eyecciones sucesivas lleguen a interactuar en el medio interplanetario. A través de los mapas de densidad y velocidad resultantes se facilita la comprensión y el estudio cualitativo de su evolución, al tiempo que dicha aleatoriedad controlada permite un tratamiento estadístico posterior, mediante la generación de múltiples simulaciones bajo distintas semillas, para caracterizar la distribución de los parámetros de interacción y su sensibilidad a la morfología inicial. 
+Nuestra simulación busca estudiar el comportamiento de la densidad y la velocidad de las CMEs durante su interacción, incorporando una componente estocástica en la morfología de sus perfiles que reproduce la variabilidad natural observada en estas estructuras. Esto se sustenta en el carácter recurrente y estocástico de las propias CMEs como fenómeno solar, al tratarse de eventos que ocurren repetidamente con parámetros cinemáticos y morfológicos variables, existe una probabilidad no nula de que dos o más eyecciones sucesivas lleguen a interactuar en el medio interplanetario. A través de los visualizadores de los perfiles cinemáticos y los mapas de densidad y velocidad resultantes se facilita la comprensión y el estudio cualitativo de la evolución de la interacción, al tiempo que dicha aleatoriedad controlada permite un tratamiento estadístico prospectivo, mediante la generación de múltiples simulaciones bajo distintas semillas, para caracterizar la distribución de los parámetros de interacción y su sensibilidad a la morfología inicial. 
 
 \begin{figure}[h]
     \centering
-	\includegraphics[width=0.5\linewidth]{imag/VectoresCME.png}
+	\includegraphics[width=0.65\linewidth]{imag/VectoresCME.png}
 	\caption[Esquema de la superposición de las velocidades de expansión y propagación en 2D de una CME]{Representación del frente de una CME junto con la velocidad de propagación $\vec{v}_{\text{Prop}}$ (azul oscuro) y de expansión $\vec{v}_{\text{Exp}}$ (azul claro) en puntos cualquiera de la CME. El vector $\vec{v}_{\text{Exp}}$ tiene dirección radial al centro de la CME, mientras que el vector $\vec{v}_{\text{Prop}}$ tiene una dirección de propagación hacia la derecha, en todo punto de la CME. Además, el vector resultante de la superposición es $\vec{v}_{CME}$ (verde) y cambia de dirección según el punto dentro de la CME. \textit{Nota:} Figura de elaboración propia.}
     \label{CME1Boseto}
 \end{figure}
 
-Primero, es necesario construir el perfil de velocidad total ($\vec{v}_{\text{CME}}(r,\theta)$) de la CME precursora (CME--1), como se muestra en la Figura \ref{CME1Boseto}, donde se considera tanto su propagación (flechas en azul oscuro) como su expansión (flechas en azul claro) en coordenadas polares ($r$, $\theta$) en cada punto dentro de la CME. Por lo que, $\vec{v}_{\text{Exp}}$ está en dirección hacia fuera del centro de la CME, mientras que el vector $\vec{v}_{\text{Prop}}$ apunta hacia la derecha, saliendo del Sol. Además, el vector resultante de la superposición del vector propagación y expansión, se muestra como $\vec{v}_{CME}$ (flechas en verde) y cambia de dirección según la velocidad de propagación y de expansión, de la forma
+Para construir el perfil de velocidad total ($\vec{v}_{\text{CME}}(r,\theta)$) de la CME precursora (CME--1), así como de la sucesora (CME--2 y 3), se debe considerar tanto su propagación (flechas en azul oscuro) como su expansión (flechas en azul claro) en coordenadas polares ($r$, $\theta$) en cada punto dentro de la CME, como lo muestra la Figura \ref{CME1Boseto}. Por lo que, $\vec{v}_{\text{Exp}}$ está en dirección radial hacia afuera del centro de la CME, mientras que el vector $\vec{v}_{\text{Prop}}$ apunta hacia la derecha, radial al Sol (fuera de la imagen, a la izquierda). Además, el vector resultante de la superposición del vector propagación y expansión, se muestra como $\vec{v}_{CME}$ (flechas en verde) y cambia de dirección según la velocidad de propagación y de expansión, de la forma
 \begin{equation*}
 \vec{v}_{\text{CME}}(r,\theta)=\vec{v}_{\text{Prop}}(r,\theta)+\vec{v}_{\text{Exp}}(r,\theta).
 \end{equation*}
@@ -33,25 +33,25 @@ Esta dependencia angular explícita facilita el control de perturbaciones anisot
 \vec{a}_{\text{CME}}(r,\theta)=\vec{a}_{\text{Prop}}(r,\theta)+\vec{a}_{\text{Exp}}(r,\theta).
 \end{equation*}
 
-En una segunda etapa se busca simular una CME sucesora (CME--2), de la misma manera en la que se hizo para la CME--1, pero buscando una velocidad de propagación relativamente mayor, que permita una interacción con la CME precursora. Por lo que, para encontrar los parámetros que permitan la interacción, se desarrolla un código en lenguaje de programación Python que resuelve la cinemática de propagación en una dimensión (1D) de las CMEs al integrar la aceleración en la Ecuación \eqref{ecuaceleración},
+En una segunda etapa se busca simular una CME sucesora (CME--2 y 3), de la misma manera en la que se hizo para la CME--1, pero buscando una velocidad de propagación relativamente mayor que permita una interacción con la CME precursora. Por lo que, para encontrar los parámetros que permitan la interacción, se desarrolla un código en lenguaje de programación Python que resuelve la cinemática de propagación en una dimensión (1D) de las CMEs al integrar la aceleración de la Ecuación \eqref{ecuaceleración},
 \begin{equation*}
 a(t)=\left[ \frac{1}{a_r\exp(\frac{t}{\tau_r})}+\frac{1}{a_d\exp(\frac{-t}{\tau_d})}\right]^{-1},
 \end{equation*}
-calculando la velocidad instantánea y posición del centro de la CME. Posteriormente, se determina el punto de intersección de las curvas de sus perfiles de propagación y se interpreta como una interacción. Por consiguiente, es posible determinar umbrales de valores de los parámetros de la aceleración, sin embargo debido a la multiplicidad de posibles variables experimentales es necesario establecer algunas como constantes. Por lo tanto, los parámetros de la CME--1 ($\tau_r$, $\tau_d$, $a_r$, $a_d$, $v_0$, $x_0$) se fijan, así como algunos parámetros de la CME--2 ($\tau_r$, $a_r$, $v_0$, $x_0$), los cuales se seleccionan según estudios estadísticos de CMEs observadas \parencite[e.g.,][]{aschwanden-2019, ravishankar-2020}.
+calculando la velocidad instantánea y posición del centro de la CME. Posteriormente, se determina el punto de intersección de las curvas de sus perfiles de posición y se interpreta como una interacción. Por consiguiente, es posible determinar umbrales de valores de los parámetros de la aceleración bajo los cuales la interacción es favorable. Sin embargo, debido a la multiplicidad de posibles variables experimentales es necesario establecer algunas como constantes, por lo que los parámetros de la CME--1 ($\tau_r$, $\tau_d$, $a_r$, $a_d$, $v_0$, $x_0$) se fijan, así como algunos parámetros de la CME--2 y 3 ($\tau_r$, $a_r$, $v_0$, $x_0$) y el tiempo de retraso entre CMEs, los cuales se seleccionan según estudios estadísticos de CMEs observadas \parencite[e.g.,][]{aschwanden-2019, ravishankar-2020}. Dado que la cinemática de la \ac{CME} precursora y el tiempo de retraso permanecerán constantes, la velocidad requerida por la sucesora para alcanzarla no variará, por lo que se espera que para lograr velocidades similares, $a_d$ sea inversamente proporcional a $\tau_d$.
 
-La metodología para determinar los umbrales de los parámetros $\tau_d$ y $a_d$ de la CME-2 consiste en variar sistemáticamente sus valores hasta lograr el cruce entre las curvas de posición de ambas CMEs, partiendo de una exploración inicial con perfiles aleatorios hasta converger en un comportamiento predecible, delimitado por dichos umbrales. La interfaz del código desarrollado para visualizar simultáneamente los perfiles cinéticos de las dos CMEs, se muestra en la Figura \ref{ejemplosimulación} usando curvas de prueba. Los perfiles de aceleración, velocidad y posición se ubican de arriba hacia abajo respectivamente, mientras que en la parte inferior se permite la manipulación de los parámetros de cada CME. Además, es posible modifica el tiempo de retraso y de simulación, así como importar y exportar archivos. Por otro lado, se espera que $a_r$ ($a_d$) sea inversamente proporcional a $\tau_r$ ($\tau_d$) para alcanzar velocidades similares. En particular, dado que la cinemática de la \ac{CME} precursora y el tiempo de retraso permanecen constantes, la velocidad requerida para alcanzarla no varía, por lo que las combinaciones de $a_d$ y $\tau_d$ conducen siempre hacia esa misma velocidad.
+La metodología diferencia dos casos de interacción, ver \autoref{Casosdeinteracción}, en los cuales se busca determinar los umbrales de los parámetros $\tau_d$ y $a_d$ de la CME--2 (Caso 1, $V_{\text{CME--1}} \ll V_{\text{CME--2}}$) y de la CME--3 (Caso 2, $V_{\text{CME--1}} < V_{\text{CME--3}}$) que favorecen la interacción, variando sistemáticamente sus valores hasta lograr el cruce entre las curvas de posición de ambas CMEs. La simulación parte de definir los parámetros que caracterizan la aceleración de las CMEs: $a_r$, $a_d$, $\tau_r$ y $\tau_d$, así como su velocidad inicial ($v_0$) y posición inicial ($x_0$). En seguida, se define la velocidad de las CMEs como la integral temporal de su aceleración correspondiente (ver Ecuación \eqref{ecuaceleración}), de igual manera la posición se define como la integral temporal de la velocidad. La Figura \ref{ejemplosimulación} muestra la interfaz del código desarrollado para visualizar simultáneamente los perfiles cinemáticos de las dos CMEs, teniendo los perfiles de aceleración, velocidad y posición ubicados de arriba hacia abajo, respectivamente; en la parte inferior se permite la manipulación de los parámetros de cada CME, así como el tiempo de retraso y de simulación, además de importar y exportar archivos de simulaciones. 
 
 \begin{figure}[h]
     \centering
     \text{\large Interfaz del visualizador de la cinemática}
     \includegraphics[width=\linewidth]{imag/Ejemplo interfaz CMEs perfiles.png}
-    \caption[Interfaz para visualizar perfiles cinemáticos de las CMEs]{Interfaz del programa para visualizar perfiles cinemáticos de las CMEs. Se muestra un ejemplo de CME precursora (línea sólida) y de CME sucesora (línea discontinua), así como su punto de interacción en la gráfica inferior. Los recuadros inferiores permiten la modulación de los parámetros de la aceleración, así como el tiempo de retraso y de simulación. Además se reportan aceleraciones y velocidades iniciales, además de la altura y tiempo en el que se alcanza el 95$\%$ de la velocidad máxima. \textit{Nota:} Figura de elaboración propia.}
+    \caption[Interfaz para visualizar perfiles cinemáticos de las CMEs]{Interfaz del programa para visualizar perfiles cinemáticos de las CMEs. Se muestra un ejemplo de CME precursora (línea sólida) y de CME sucesora (línea discontinua), así como su punto de interacción en la gráfica inferior. Los recuadros inferiores permiten la modulación de los parámetros de la aceleración, así como el tiempo de retraso y de simulación. Además se reportan aceleraciones y velocidades iniciales, además de la altura y tiempo en el que se alcanza el 95$\%$ de la velocidad máxima.}
     \label{ejemplosimulación}
 \end{figure}
 
-Finalmente, en la simulación en dos dimensiones (2D), la propagación de las \acp{CME}\index{Coronal Mass Ejection} se representa mediante mapas de densidad $\rho(r,\theta)$ y velocidad $v(r,\theta)$ sobre una malla polar, cuya morfología es generada a partir de semillas aleatorias y reproduce la variabilidad natural observada en estas estructuras. Cuando dos CMEs entran en contacto, la densidad de la región de solapamiento se calcula como un promedio ponderado de las densidades individuales siguiendo la conservación de la masa, mientras que la velocidad de dicha región se obtiene como un promedio ponderado por densidad, consistente con la conservación local de momento. Cuando esta región de solapamiento alcanza una densidad y persistencia suficientes, su geometría heredera la aleatoriedad morfológica de ambas CMEs progenitoras, lo que da origen a una nueva estructura de plasma, que a partir de ese instante se propaga de forma independiente dando lugar a una CME resultante física y numéricamente consistente. Adicionalmente, se generan series temporales de densidad y velocidad en distintas distancias radiales al Sol, que permiten hacer seguimiento a la evolución de la interacción entre las CMEs. Por otro lado, los escenarios de interés consisten en la interacción de CMEs con velocidades similares y sub-Alfvénicas (Caso 2 más adelante); y de CMEs con velocidades considerablemente diferentes (Caso 1).
+La propagación de las \acp{CME}\index{Coronal Mass Ejection} se representa mediante la simulación de mapas de densidad $\rho(r,\theta)$ y velocidad $v(r,\theta)$, sobre una malla polar en dos dimensiones (2D), cuya morfología es generada a partir de semillas aleatorias que alteran sus radios iniciales ($r_0$) y reproducen la variabilidad natural de las CMEs. La metodología parte de generar dos nubes de puntos randomicas que consideramos como las CMEs dentro de un \ac{SW} simulado, las cuales entran en contacto a través de una región de solapamiento, donde la densidad se calcula como un promedio ponderado de las densidades individuales siguiendo la conservación de la masa, mientras que la velocidad se obtiene como un promedio ponderado por densidad, consistente con la conservación local de momento. Cuando esta región de solapamiento alcanza una densidad y persistencia suficientes, su geometría hereda la aleatoriedad morfológica de las CMEs progenitoras, lo que da origen a una nueva nube de puntos o estructura de plasma, que a partir de ese instante se propaga de forma independiente dando lugar a una CME resultante, física y numéricamente consistente. 
 
-La expansión de las CMEs toma como referencia su propagación, por lo que su frente, retaguardia y grosor se estiran o encogen en la misma proporción que crece la distancia radial desde el Sol, manteniendo siempre su misma forma relativa. Esta forma base es un óvalo, ligeramente asimétrico, cuyos bordes se difuminan suavemente en vez de terminar de golpe. De este modo, simplemente se reescala completa a medida que avanza, conservando su morfología característica en cada instante; inspirado en lo mencionado por \textcite[e.g.,][]{savani-2011} para propagaciones de CMEs en la heliosfera\index{Heliosfera} interna.
+La expansión de las CMEs toma como referencia su propagación, por lo que su frente, retaguardia y grosor se estiran o encogen en la misma proporción que crece la distancia radial desde el Sol, manteniendo siempre su forma. La forma base es un óvalo, ligeramente asimétrico, cuyos bordes se difuminan suavemente en vez de terminar de golpe. De este modo, simplemente se reescala completa a medida que avanza, conservando su morfología característica en cada instante, siguiendo lo mencionado por \textcite[][]{savani-2011} para propagaciones de CMEs en la heliosfera\index{Heliosfera} interna. Adicionalmente, se generan series temporales de densidad y velocidad a distintas distancias radiales al Sol, que permiten hacer seguimiento a la evolución de la interacción en el medio interplanetario.
 
 \begin{figure}[h]
     \centering
@@ -60,24 +60,21 @@ La expansión de las CMEs toma como referencia su propagación, por lo que su fr
     \label{CME1cinemática}
 \end{figure}
 
-Para probar la fiabilidad del código, se utilizan los valores de los parámetros dados por \textcite[][]{gallagher-2003}\index{Gallagher}, lo cual produce los perfiles de aceleración, velocidad y posición mostrados en la Figura \ref{CME1cinemática} que coinciden con lo reportado en el artículo (ver Figura \ref{fig:ejemploperfilaceleración}). Además, la etapa de iniciación se indica desde el origen hasta la línea discontinua (blanco) caracterizada por bajas velocidades y aceleraciones, la etapa de aceleración desde la línea discontinua hasta la punteada (gris) alcanzando velocidades de $\sim2500$ km s$^{-1}$ y aceleraciones pico de $\sim1400$ km s$^{-2}$; y la etapa de propagación desde la línea punteada hasta el final de la gráfica (blanco), donde la velocidad se estabiliza y la CME alcanza distancias de $120$ $R_\odot$ en 10 horas de simulación. La línea discontinua indica el momento en el que la aceleración alcanza el 10$\%$ de su aceleración máxima, mientras que la línea punteada señala el momento en el que ésta es alcanzada. El código desarrollado para esta simulación está disponible públicamente\footnote{\url{https://github.com/cristianchavez01-svg/Aproximacion-cinematica-de-la-interaccion-entre-eyecciones-de-masa-coronal-homologas.git}}.
-
+Para probar la fiabilidad del código, se utilizan los valores de los parámetros dados por \textcite[][]{gallagher-2003}\index{Gallagher}, los cuales reproducen los perfiles de aceleración, velocidad y posición mostrados en la Figura \ref{CME1cinemática} que coinciden con lo reportado en el artículo (ver Figura \ref{fig:ejemploperfilaceleración}). La línea discontinua indica el momento en el que la aceleración alcanza el 10$\%$ de su aceleración máxima, mientras que la línea punteada señala el momento en el que la CME alcanza su máxima aceleración. Asimismo, la etapa de \textit{iniciación} se indica desde el origen hasta la línea discontinua caracterizada por bajas velocidades y aceleraciones casi nulas, la etapa de \textit{aceleración} desde la línea discontinua hasta la punteada (región gris) alcanzando velocidades de $\sim2500$ km s$^{-1}$ y aceleraciones pico de $\sim1400$ km s$^{-2}$, seguida por la etapa de \textit{propagación} desde la línea punteada hasta el final de la gráfica, donde la velocidad se estabiliza y la CME alcanza distancias de $120$ $R_\odot$ en 10 horas de simulación. El código desarrollado para esta simulación está disponible públicamente\footnote{\url{https://github.com/cristianchavez01-svg/Aproximacion-cinematica-de-la-interaccion-entre-eyecciones-de-masa-coronal-homologas.git}}, así como los códigos de las simulaciones a continuación.
 
 \section{Resultados interacción: Caso 1}
 \label{ResultadosCaso1}
-En el Caso 1 se tiene la CME-1 como precursora, la cual representa una población de CMEs con velocidades moderadas ($\sim600$ km s$^{-1}$), así como la CME-2, como sucesora, presentando una etapa de aceleración pronunciada e intensa durante un intervalo de tiempo corto con respecto a la CME-1, lo que conlleva a una rápida aceleración. Los perfiles cinemáticos permiten visualizar esto a continuación.
+Para el Caso 1 se utiliza la CME precursora \textit{CME--1}, la cual representa una población con velocidades moderadas ($\sim600$ km s$^{-1}$), además de la CME sucesora \textit{CME--2}, que se caracteriza por tener una etapa de aceleración pronunciada e intensa durante un intervalo de tiempo corto con respecto a la CME--1, lo que conlleva a una rápida aceleración. Los detalles de sus parámetros cinemáticos, así como los resultados encontrados, se discuten a continuación.
 
 \subsection{Cálculo de perfiles cinemáticos}
 
-La simulación, tanto en 1D como en 2D, parte de definir los parámetros que caracterizan la cinemática de la CME precursora: $a_r$, $a_d$, $\tau_r$ y $\tau_d$, así como velocidad inicial ($v_0$) y posición inicial ($x_0$). También, en la simulación 2D, se definen otros parámetros como la densidad de fondo o del \ac{SW}\index{Solar Wind}, y el radio inicial ($r_0$) de la CME. En seguida, se define la velocidad de propagación de la CME como la integral de la aceleración del centro de la CME (ver Ecuación \eqref{ecuaceleración}) respecto al tiempo. Asimismo, la posición se define como la integral de la velocidad. La cinemática seleccionada para la CME precursora se describe con los parámetros $\tau_r=6900$ s, $\tau_d=55600$ s, $a_r=0.034$ km s$^{-2}$, $a_d=0.01$ km s$^{-2}$, $v_0=100$ km s$^{-1}$ y $x_0=100$ Mm, tomados en referencia a la estadística mostrada en \textcite[e.g.,][]{aschwanden-2019, ravishankar-2020}. De las misma forma, para la CME sucesora los parámetros fijos se toman como $\tau_r=3500$ s, $a_r=0.03$ km s$^{-2}$, $v_0=140$ km s$^{-1}$ y $x_0=140$ Mm; recordando que $\tau_d$ y $a_d$ serán las variables experimentales. También, se toma un tiempo de retraso entre CMEs de 7 horas \parencite[e.g.,][]{wang-2013}.
-
-Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km s$^{-1}$, de la cual el 95$\%$ ($608.26$ km s$^{-1}$) se desarrolla en $\sim43$ horas, así como una aceleración inicial de $7.72$ m s$^{-2}$. Además, para la CME sucesora se encuentran rangos de $\tau_d$ y $a_d$ en los cuales se desarrolla un perfil de posición y velocidad que conllevan a su interacción con la CME precursora. Estos valores se reportan en la Tabla \ref{tab:parametros_decaimiento}, junto con el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) y el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción, además de la aceleración inicial (a$_0$). Asimismo, en las Figuras \ref{fig:advstd}, \ref{fig:advstodo} y \ref{fig:tdvstodo} se muestran las gráficas de los parámetros de interacción en función de los parámetros cinemáticos de la CME sucesora ($a_d$, $\tau_d$), junto a curvas de ajuste y coeficientes de correlación.
+La cinemática seleccionada para la CME--1 utiliza los parámetros $\tau_r=6900$ s, $\tau_d=55600$ s, $a_r=0.034$ km s$^{-2}$, $a_d=0.01$ km s$^{-2}$, $v_0=100$ km s$^{-1}$ y $x_0=100$ Mm, tomados según \textcite[e.g.,][]{aschwanden-2019, ravishankar-2020}. De las misma forma, para la CME--2 los parámetros fijos se toman como $\tau_r=3500$ s, $a_r=0.03$ km s$^{-2}$, $v_0=140$ km s$^{-1}$ y $x_0=140$ Mm, recordando que $\tau_d$ y $a_d$ serán las variables experimentales. Asimismo, se establece un tiempo de retraso entre CMEs de 7 horas \parencite[e.g.,][]{wang-2013}.
 
 \begin{table}[h]
     \centering
     \footnotesize
     \begin{threeparttable}
-        \caption[Valores mínimos de los parámetros $a_d$ y $t_d$ para la CME--2 bajo los cuales hay interacción]{Valores mínimos de los parámetros $a_d$ y $t_d$ para la CME--2 bajo los cuales hay interacción en una región $<1$ AU. La CME-1 tarda $\sim 77$ horas $\sim 3,2$ días en llegar a 1,2 AU.}
+        \caption[Valores mínimos de los parámetros $a_d$ y $\tau_d$ para la CME--2 bajo los cuales hay interacción]{Valores mínimos de los parámetros $a_d$ y $\tau_d$ para la CME--2 bajo los cuales hay interacción en una región $<1$ AU. La CME--1 tarda $\sim 77$ horas ($\sim 3,2$) días en llegar a 1,2 AU.}
         \label{tab:parametros_decaimiento}
         \begin{tabular}{@{}c c c c c c c c@{}}
             \toprule
@@ -105,33 +102,40 @@ Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km 
         \end{tabular}
         \begin{tablenotes}
             \small
-            \item[a] Valores límite, en donde el cambio en el tiempo de interacción se hace mínimo.
+            \item[a] Configuración en la que el tiempo de interacción converge.
         \end{tablenotes}
     \end{threeparttable}
 \end{table}
 
+Como resultado, la CME precursora alcanza una velocidad máxima de $\sim620$ km s$^{-1}$, de la cual el 95$\%$ ($608.26$ km s$^{-1}$) se desarrolla en $\sim43$ horas, así como una aceleración inicial de $7.72$ m s$^{-2}$. Además, para la CME--2 se encuentran rangos de $\tau_d$ y $a_d$ en los cuales se desarrolla un perfil de posición y velocidad que favorecen su interacción con la CME--1. Estos valores se reportan en la Tabla \ref{tab:parametros_decaimiento} junto con su aceleración inicial (a$_0$), el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) y el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción. La Figura \ref{fig:advstd} muestra la distribución de puntos de $a_d$ vs $\tau_d$, junto con su curva y ecuación de ajuste, indicando una relación inversamente proporcional con una excelente correlación ($R^{2}=0.99$), además se señalan las regiones de alta y baja probabilidad de interacción en azul y rojo, respectivamente. También, en la Figura \ref{fig:advstdvstodo} se muestran las gráficas de los parámetros de interacción anteriormente mencionados en función de los parámetros cinemáticos $a_d$ (a) y $\tau_d$ (b) de la CME--2, junto a curvas de ajuste y coeficientes de correlación, de donde se evidencia una alta correlación en la mayoría de las gráficas.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{resultados/fig_ad_vs_td.png}
-    \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja), ecuación característica y coeficiente de correlación, delimitando una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora donde ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
+    \caption[Gráfica de $a_d$ vs $\tau_d$ para el Caso 1]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja), ecuación característica y coeficiente de correlación, delimitando una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora donde ocurre la interacción.}
     \label{fig:advstd}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{resultados/fig_ad_relaciones.png}
-    \caption[Gráficas de $a_d$ vs parámetros de interacción]{Gráficas de $a_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
-    \label{fig:advstodo}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{resultados/fig_td_relaciones.png}
-    \caption[Gráfica de $\tau_d$ vs parámetros de interacción]{Gráficas de $\tau_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, sus ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
-    \label{fig:tdvstodo}
-\end{figure}
+%==========================================================================
 
 Una vez con la cinemática de las CMEs simulada, se estudia en conjunto sus densidades y velocidades, para determinar las propiedades físicas de la CME resultante de la interacción. Por consiguiente, se desarrolla el código complementario a la simulación que permite la evolución en 2D de las CMEs en un mismo entorno con mapas de densidad y velocidad. Inicialmente, la Figura \ref{cinematicaconjunta} muestra los perfiles de posición, velocidad y aceleración para la CME precursora (azul) y sucesora (rojo) del caso $\#17$ de la Tabla \ref{tab:parametros_decaimiento}. Las regiones sombreadas en vertical delimitan las diferentes etapas en la cinemática de cada CME: iniciación (Ini) desde la producción de la CME hasta cuando alcanza el $60\%$ de su aceleración máxima, aceleración (Acel) desde el fin de la fase de iniciación hasta el momento en el que alcanza la aceleración máxima y propagación (Prop) de este último punto en adelante. Principalmente se muestra la etapa de aceleración para la CME precursora (azul claro) y sucesora (rojo claro). Cabe señalar que la etapa de iniciación de las CMEs no es fácilmente apreciable, debido a su corta duración.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{resultados/fig_ad_relaciones.png}
+        \caption*{(a)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{resultados/fig_td_relaciones.png}
+        \caption*{(b)}
+    \end{subfigure}
+    \caption[Gráficas de $a_d$ y $\tau_d$ vs parámetros de interacción para el Caso 1]{Gráficas de $a_d$ (a) y $\tau_d$ (b) vs parámetros de interacción para el Caso 1, junto a las curvas de ajuste (línea roja) correspondientes, ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME--2 bajo los cuales ocurre la interacción.}
+    \label{fig:advstdvstodo}
+\end{figure}
 
 También, se indica la expansión de cada CME a través de las regiones sombreadas que envuelven sus curvas de posición, siendo el frente de la CME el extremo superior de la región, el cual se encuentra más alejado del centro con respecto al borde inferior, como consecuencia de la superposición de la propagación y expansión. Además, se indica (con una X) el punto de interacción de los extremos trasero y frontal de la CME precursora y sucesora, respectivamente, así como el punto de interacción entre sus centros (circulo). Por último, se indica la posición de Tierra (línea discontinua horizontal) en el panel inferior, señalando un tiempo de llegada de $\sim60-65$ horas para el frente de las CMEs y de $\sim80$ horas para sus centros.
 
@@ -188,12 +192,8 @@ Como último resultado de la simulación, se generan series de tiempo de densida
 \end{figure}
 
 
-
 \section{Resultados interacción: Caso 2}
 En el Caso 2 se tiene la misma CME precursora (CME-1) que en el Caso 1, sin embargo se utiliza la CME-3 como sucesora, la cual presenta una etapa de aceleración suave durante un intervalo de tiempo largo relativo a la CME-2 del Caso 1, lo que conlleva a una lenta aceleración y desaceleración. Los perfiles cinemáticos permiten visualizar esto a continuación.
-
-\subsection{Cálculo de perfiles cinemáticos}
-Para un segundo experimento se toma la misma CME precursora (CME--1) y tiempo de retraso, pero con una CME sucesora diferente (CME--3), con los parámetros $\tau_r=9560$ s, $a_r=0.002$ km s$^{-2}$, $v_0=140$ km s$^{-1}$ y $x_0=140$ Mm. Por lo tanto, la metodología de las simulaciones se repite, buscando los puntos de interacción en la heliosfera\index{Heliosfera} interna ($\sim1$ AU) y produciendo la Tabla \ref{tab:parametros_decaimiento2}, donde se compila información de los parámetros $a_d$ y $\tau_d$, el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) junto con el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción, además de la aceleración inicial (a$_0$). De igual manera, en las Figuras \ref{fig:advstd2}, \ref{fig:advstodo2} y \ref{fig:tdvstodo2} se muestran las gráficas de los parámetros de interacción en función de los parámetros cinemáticos de la CME sucesora ($a_d$, $\tau_d$), junto a curvas de ajuste y coeficientes de correlación.
 
 \begin{table}[h]
     \centering
@@ -239,25 +239,32 @@ Para un segundo experimento se toma la misma CME precursora (CME--1) y tiempo de
     \end{threeparttable}
 \end{table}
 
+\subsection{Cálculo de perfiles cinemáticos}
+Para un segundo experimento se toma la misma CME precursora (CME--1) y tiempo de retraso, pero con una CME sucesora diferente (CME--3), con los parámetros $\tau_r=9560$ s, $a_r=0.002$ km s$^{-2}$, $v_0=140$ km s$^{-1}$ y $x_0=140$ Mm. Por lo tanto, la metodología de las simulaciones se repite, buscando los puntos de interacción en la heliosfera\index{Heliosfera} interna ($\sim1$ AU) y produciendo la Tabla \ref{tab:parametros_decaimiento2}, donde se compila información de los parámetros $a_d$ y $\tau_d$, el valor del 95$\%$ de la velocidad máxima ($V_{\text{max}}^{95\%}$) junto con el tiempo en el que es alcanzada, así como la altura y tiempo de la interacción, además de la aceleración inicial (a$_0$). Asimismo, la Figura \ref{fig:advstd2} muestra la gráfica de $a_d$ vs $\tau_d$ para este caso, donde la relación no inversamente proporcional del todo aunque su correlación es muy buena ($R^{2}=0.97$). De igual manera, la Figura \ref{fig:advstdvstodo2} muestra las gráficas de los parámetros de interacción en función de los parámetros cinemáticos $a_d$ (a) y $\tau_d$ (b) de la CME--3, junto a sus curvas de ajuste y coeficientes de correlación, de donde se identifica una baja correlación en algunas gráficas.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{resultados/fig_ad_vs_td2.png}
-    \caption[Gráfica de $a_d$ vs $\tau_d$]{Gráfica de $a_d$ vs $\tau_d$, junto a la curva de ajuste (línea roja), ecuación característica y coeficiente de correlación, delimitando una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora donde ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
+    \caption[Gráfica de $a_d$ vs $\tau_d$ para el Caso 2]{Gráfica de $a_d$ vs $\tau_d$ para el Caso 2, junto a la curva de ajuste (línea roja), ecuación característica y coeficiente de correlación, delimitando una región de interacción (azul) de una región en donde no la hay (roja). Los puntos en azul son los datos de la CME sucesora donde ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
     \label{fig:advstd2}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{resultados/fig_ad_relaciones2.png}
-    \caption[Gráficas de $a_d$ vs parámetros de interacción]{Gráficas de $a_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
-    \label{fig:advstodo2}
-\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{resultados/fig_td_relaciones2.png}
-    \caption[Gráfica de $\tau_d$ vs parámetros de interacción]{Gráficas de $\tau_d$ vs parámetros de interacción, junto a las curvas de ajuste (línea roja) correspondientes, sus ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME sucesora bajo los cuales ocurre la interacción. \textit{Nota:} Figura de elaboración propia.}
-    \label{fig:tdvstodo2}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{resultados/fig_ad_relaciones2.png}
+        \caption*{(a)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{resultados/fig_td_relaciones2.png}
+        \caption*{(b)}
+    \end{subfigure}
+    \caption[Gráficas de $a_d$ y $\tau_d$ vs parámetros de interacción para el Caso 2]{Gráficas de $a_d$ (a) y $\tau_d$ (b) vs parámetros de interacción para el Caso 2, junto a las curvas de ajuste (línea roja) correspondientes, ecuaciones características y coeficientes de correlación. Los puntos en azul son los datos de la CME--3 bajo los cuales ocurre la interacción.}
+    \label{fig:advstdvstodo2}
 \end{figure}
 
 De la misma manera que se generan los perfiles cinemáticos para las CMEs en la Figura \ref{cinematicaconjunta}, en la Figura \ref{cinematicaconjunta2} se muestran los perfiles de la CME precursora (CME), donde se toma la misma CME precursora pero con la CME sucesora del caso $\#28$ de la Tabla \ref{tab:parametros_decaimiento2}.
