@@ -65,7 +65,7 @@ fig, ax1 = plt.subplots(figsize=(11, 5.5)) # Tamaño de la figura, 11
 # Graficar densidad (azul) - con etiqueta para la leyenda
 linea_densidad, = ax1.plot(R, rho, 'b-', linewidth=2, label='Densidad')
 ax1.axvline(x=0.71, color='k', linestyle='-.', linewidth=1)
-ax1.set_title(r'Densidad y Temperatura en funci\'on del Radio Solar', fontsize=23)
+ax1.set_title(r'Densidad y Temperatura del Sol', fontsize=23)
 ax1.set_xlabel(r'Radio (R/R$_\odot$)', fontsize=23)
 ax1.set_ylabel(r'Densidad (g cm$^{-3}$)', fontsize=23)
 ax1.tick_params(axis='y')

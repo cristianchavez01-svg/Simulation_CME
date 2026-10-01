@@ -113,7 +113,15 @@ filecolor=DarkSlateBlue    % Oscuro
 
 
 \usepackage{titlesec}
-\usepackage{acronym}
+\usepackage{acro}
+
+% Primera mención: Español (en inglés English, SIGLA)
+\NewAcroTemplate{long-short-es}{%
+  \acroiffirstTF
+    {\acrowrite{long}\acspace(\acroifT{foreign}{en~inglés~\acrowrite{foreign},~}\acrowrite{short})}
+    {\acrowrite{short}}}
+\acsetup{first-style = long-short-es}
+\acsetup{format/foreign = \itshape}
 
 \definecolor{chaptercolor}{RGB}{0,0,0}
 \titleformat{\chapter}[display]
@@ -171,3 +179,66 @@ filecolor=DarkSlateBlue    % Oscuro
   }
 } 
 \AtBeginShipout{\margenIzquierdo}
+
+
+%================ACRÓNIMOS==================================
+
+\DeclareAcronym{AIA}{short = AIA, long = {Conjunto de Imágenes Atmosféricas}, foreign = {Atmospheric Imaging Assembly}}
+\DeclareAcronym{AR}{short = AR, long = {Región Activa}, foreign = {Active Region},
+  short-plural-form = {ARs}, long-plural-form = {Regiones Activas}, foreign-plural-form = {Active Regions}}
+\DeclareAcronym{AU}{short = AU, long = {Unidad Astronómica}, foreign = {Astronomical Unit}}
+\DeclareAcronym{CACTus}{short = CACTus, long = {Rastreo de CMEs Asistido por Computadora}, foreign = {Computer Aided CME Tracking}}
+\DeclareAcronym{CDAW}{short = CDAW, long = {Taller de Análisis de Datos Coordinados}, foreign = {Coordinated Data Analysis Workshop}}
+\DeclareAcronym{CDS}{short = CDS, long = {Espectrómetro de Diagnóstico Coronal}, foreign = {Coronal Diagnostic Spectrometer}}
+\DeclareAcronym{CH}{short = CH, long = {Agujero Coronal}, foreign = {Coronal Hole},
+  short-plural-form = {CHs}, long-plural-form = {Agujeros Coronales}, foreign-plural-form = {Coronal Holes}}
+\DeclareAcronym{CME}{short = CME, long = {Eyección de Masa Coronal}, foreign = {Coronal Mass Ejection},
+  short-plural-form = {CMEs}, long-plural-form = {Eyecciones de Masa Coronal}, foreign-plural-form = {Coronal Mass Ejections}}
+\DeclareAcronym{DKIST}{short = DKIST, long = {Telescopio Solar Daniel K. Inouye}, foreign = {Daniel K. Inouye Solar Telescope}}
+\DeclareAcronym{DST}{short = DST, long = {Tiempo de Perturbación de Tormenta}, foreign = {Disturbance Storm Time}}
+\DeclareAcronym{EFR}{short = EFR, long = {Región de Flujo Emergente}, foreign = {Emerging Flux Region},
+  short-plural-form = {EFRs}, long-plural-form = {Regiones de Flujo Emergente}, foreign-plural-form = {Emerging Flux Regions}}
+\DeclareAcronym{EIS}{short = EIS, long = {Espectrómetro de Imágenes en EUV}, foreign = {EUV Imaging Spectrometer}}
+\DeclareAcronym{EUV}{short = EUV, long = {Ultravioleta Extremo}, foreign = {Extreme Ultraviolet}}
+\DeclareAcronym{EUVI}{short = EUVI, long = {Generador de Imágenes en UV Extremo}, foreign = {EUV Imager}}
+\DeclareAcronym{EVE}{short = EVE, long = {Experimento de Variabilidad en EUV}, foreign = {EUV Variability Experiment}}
+\DeclareAcronym{FIELDS}{short = FIELDS, long = {Investigación de Campos Electromagnéticos}, foreign = {Electromagnetic Fields Investigation}}
+\DeclareAcronym{HELCATS}{short = HELCATS, long = {Servicio de Catalogación, Análisis y Técnicas Heliosféricas}, foreign = {Heliospheric Cataloguing, Analysis and Techniques Service}}
+\DeclareAcronym{HI}{short = HI, long = {Generador de Imágenes Heliosféricas}, foreign = {Heliospheric Imager}}
+\DeclareAcronym{HMI}{short = HMI, long = {Generador de Imágenes Heliosismológicas y Magnéticas}, foreign = {Helioseismic and Magnetic Imager}}
+\DeclareAcronym{ICME}{short = ICME, long = {Eyección de Masa Coronal Interplanetaria}, foreign = {Interplanetary Coronal Mass Ejection},
+  short-plural-form = {ICMEs}, long-plural-form = {Eyecciones de Masa Coronal Interplanetarias}, foreign-plural-form = {Interplanetary Coronal Mass Ejections}}
+\DeclareAcronym{IMaX}{short = IMaX, long = {Experimento de Magnetógrafo de Imágenes}, foreign = {Imaging Magnetograph eXperiment}}
+\DeclareAcronym{IMF}{short = IMF, long = {Campo Magnético Interplanetario}, foreign = {Interplanetary Magnetic Field}}
+\DeclareAcronym{ISOIS}{short = ISOIS, long = {Investigación Científica Integrada del Sol}, foreign = {Integrated Science Investigation of the Sun}}
+\DeclareAcronym{LASCO}{short = LASCO, long = {Coronógrafo Espectroscópico de Gran Ángulo}, foreign = {Large Angle and Spectroscopic Coronagraph}}
+\DeclareAcronym{MC}{short = MC, long = {Nube Magnética}, foreign = {Magnetic Cloud},
+  short-plural-form = {MCs}, long-plural-form = {Nubes Magnéticas}, foreign-plural-form = {Magnetic Clouds}}
+\DeclareAcronym{MDI}{short = MDI, long = {Generador de Imágenes Doppler Michelson}, foreign = {Michelson Doppler Imager}}
+\DeclareAcronym{MHD}{short = MHD, long = {Magnetohidrodinámica}, foreign = {Magnetohydrodynamics}}
+\DeclareAcronym{NASA}{short = NASA, long = {Administración Nacional de Aeronáutica y del Espacio}, foreign = {National Aeronautics and Space Administration}}
+\DeclareAcronym{NFI}{short = NFI, long = {Generador de Imágenes de Campo Estrecho}, foreign = {Narrow Field Imager}}
+\DeclareAcronym{PFU}{short = PFU, long = {Unidades de Flujo de Partículas}, foreign = {Particle Flux Unit}}
+\DeclareAcronym{PSP}{short = PSP, long = {Sonda Solar Parker}, foreign = {Parker Solar Probe}}
+\DeclareAcronym{PUNCH}{short = PUNCH, long = {Polarímetro para Unificar la Corona y la Heliosfera}, foreign = {Polarimeter to UNify the Corona and Heliosphere}}
+\DeclareAcronym{SDO}{short = SDO, long = {Observatorio de Dinámica Solar}, foreign = {Solar Dynamics Observatory}}
+\DeclareAcronym{SECCHI}{short = SECCHI, long = {Investigación Coronal y Heliosférica de la Conexión Sol-Tierra}, foreign = {Sun Earth Connection Coronal and Heliospheric Investigation}}
+\DeclareAcronym{SEP}{short = SEP, long = {Partícula Energética Solar}, foreign = {Solar Energetic Particle},
+  short-plural-form = {SEPs}, long-plural-form = {Partículas Energéticas Solares}, foreign-plural-form = {Solar Energetic Particles}}
+\DeclareAcronym{SF}{short = SF, long = {Llamarada Solar}, foreign = {Solar Flare},
+  short-plural-form = {SFs}, long-plural-form = {Llamaradas Solares}, foreign-plural-form = {Solar Flares}}
+\DeclareAcronym{SILSO}{short = SILSO, long = {Índice de Manchas Solares y Observaciones Solares a Largo Plazo}, foreign = {Sunspot Index and Long-term Solar Observations}}
+\DeclareAcronym{SMEI}{short = SMEI, long = {Generador de Imágenes de Eyecciones de Masa Solar}, foreign = {Solar Mass Ejection Imager}}
+\DeclareAcronym{SOHO}{short = SOHO, long = {Observatorio Solar y Heliosférico}, foreign = {Solar and Heliospheric Observatory}}
+\DeclareAcronym{SOLA}{short = SOLA, long = {Promedios Localizados Óptimamente Sustractivos}, foreign = {Subtractive Optimally Localized Averages}}
+\DeclareAcronym{STEREO}{short = STEREO, long = {Observatorio de Relaciones Solares-Terrestres}, foreign = {Solar TErrestrial RElations Observatory}}
+\DeclareAcronym{Sunspots}{short = Sunspots, long = {Manchas Solares}}
+\DeclareAcronym{SW}{short = SW, long = {Viento Solar}, foreign = {Solar Wind}}
+\DeclareAcronym{SWEAP}{short = SWEAP, long = {Electrones, Alfas y Protones del Viento Solar}, foreign = {Solar Wind Electrons Alphas and Protons}}
+\DeclareAcronym{SWOOPS}{short = SWOOPS, long = {Observaciones del Viento Solar Sobre los Polos del Sol}, foreign = {Solar Wind Observations Over the Poles of the Sun}}
+\DeclareAcronym{TRACE}{short = TRACE, long = {Explorador de la Región de Transición y Coronales}, foreign = {Transition Region and Coronal Explorer}}
+\DeclareAcronym{UVCS}{short = UVCS, long = {Espectrómetro Coronógrafo Ultravioleta}, foreign = {Ultraviolet Coronagraph Spectrometer}}
+\DeclareAcronym{WDC}{short = WDC, long = {Centro Mundial de Datos}, foreign = {World Data Center}}
+\DeclareAcronym{WFI}{short = WFI, long = {Generador de Imágenes de Campo Amplio}, foreign = {Wide Field Imager}}
+\DeclareAcronym{WISPR}{short = WISPR, long = {Generador de Imágenes de Campo Amplio para Solar Probe}, foreign = {Wide-field Imager for Solar Probe}}
+ 

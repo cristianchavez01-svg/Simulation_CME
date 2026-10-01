@@ -1,3 +1,15 @@
+\chapter{Ecuaciones Hidromagnéticas}
+\label{ecuHM}
+
+El campo magnético en la corona solar sigue las siguientes ecuaciones:
+\begin{align*}
+\rho \frac{d\mathbf{v}}{dt} &= -\nabla p + \rho \mathbf{g} + \rho\nu \nabla^2\mathbf{v} + \frac{1}{4\pi}(\nabla \times \mathbf{H}) \times \mathbf{H},
+\\
+\frac{\partial \mathbf{H}}{\partial t} &= \nabla \times (\mathbf{v} \times \mathbf{H}) + \frac{\nabla^2 \mathbf{H}}{4\pi\sigma},
+\end{align*}
+donde $\rho$ es la densidad del plasma con una aceleración $\frac{d\mathbf{v}}{dt}$, $-\nabla p$ es la fuerza derivada del gradiente de presión, $\rho \mathbf{g}$ es la fuerza gravitacional resultante de la acción de la gravedad sobre la densidad $\rho$, $\rho\nu \nabla^2\mathbf{v}$ es la disipación por fricción interna la cual depende de la viscosidad $\nu$; y $\frac{1}{4\pi}(\nabla \times \mathbf{H}) \times \mathbf{H}$ es la fuerza de Lorentz por unidad de volumen. También, $\frac{\partial \mathbf{H}}{\partial t}$ es la tasa de cambio local del campo magnético, $\frac{\nabla^2 \mathbf{H}}{4\pi\sigma}$ es la difusión del campo magnético y $\mathbf{v} \times \mathbf{H}$ es el campo eléctrico inducido por el movimiento del plasma a través del campo magnético. Al tomar el rotacional de $\mathbf{v} \times \mathbf{H}$ se obtiene la modificación de $\mathbf{H}$ en el tiempo, expresando los campos magnéticos\index{campos magnéticos} congelados \parencite[e.g.,][]{billings-1966}.
+
+
 
 \chapter{Ecuación de arrastre}
 \label{apendicearrastre}

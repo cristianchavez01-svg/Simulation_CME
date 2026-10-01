@@ -72,8 +72,19 @@ if cme_col:
 lines_1, labels_1 = ax_main.get_legend_handles_labels()
 lines_2, labels_2 = ax2.get_legend_handles_labels()
 if lines_1 or lines_2:
-    ax2.legend(lines_1 + lines_2, labels_1 + labels_2,
-               loc='upper left', fontsize=15)
+    ax2.legend(
+        lines_1 + lines_2,
+        labels_1 + labels_2,
+        loc='upper left',
+        fontsize=13,
+        frameon=True,
+        fancybox=True,
+        borderpad=0.18,
+        handlelength=1.5,
+        handletextpad=0.6,
+        labelspacing=0.35,
+        columnspacing=0.8,
+    )
 
 # ── Subpanel: zoom ───────────────────────────────────────────────
 df_zoom     = df[(df['Año'] >= year_min) & (df['Año'] <= year_max)]
