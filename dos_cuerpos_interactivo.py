@@ -32,11 +32,11 @@ KM2RSOL = 1.0 / 696000.0      # 1 R_sol   = 696000 km
 KM2M_S2 = 1000.0              # km/s^2 -> m/s^2
 N       = 1500
 
-BG    = '#1c1c1e'
-SURF  = '#2c2c2e'
-GRID  = '#3a3a3c'
-TEXT  = '#ebebf0'
-MUTED = '#888'
+BG    = '#ffffff'
+SURF  = '#ffffff'
+GRID  = '#d9dee5'
+TEXT  = '#202833'
+MUTED = '#596575'
 
 COLORS = [
     ('#5b9cf6', '#ff7b54', '#57cc99'),
@@ -49,10 +49,16 @@ DEFAULTS = [
 ]
 T_MAX_DEFAULT    = 30.0
 T_OFFSET_DEFAULT = 0.0
+# Tamaño base aumentado y luego reducido un 20% para evitar solapamientos.
+FONT_SCALE = 1.5
 
 FIELDS = ['ar',    'tr',    'ad',    'td',    'v0',   'x0']
 LABELS = ['a_r',   'tau_r', 'a_d',   'tau_d', 'v_0',  'x_0']
 UNITS  = ['km/s²', 's',     'km/s²', 's',     'km/s', 'km']
+
+
+def fs(value):
+    return value * FONT_SCALE
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -203,7 +209,7 @@ recalc_all_with_dynamic_tmax()
 # ─────────────────────────────────────────────────────────────────────────────
 # Figura
 # ─────────────────────────────────────────────────────────────────────────────
-fig = plt.figure(figsize=(15, 11))
+fig = plt.figure(figsize=(18, 14))
 fig.patch.set_facecolor(BG)
 try:
     fig.canvas.manager.set_window_title("Simulador dos cuerpos")
@@ -222,8 +228,8 @@ ax_x = fig.add_subplot(gs_plots[2])
 ax_x_au = ax_x.twinx()
 ax_x_au.spines['right'].set_position(('outward', 0))
 ax_x_au.set_facecolor('none')
-ax_x_au.tick_params(colors=MUTED, labelsize=8)
-ax_x_au.set_ylabel('x(t)  [AU]', color=MUTED, fontsize=9)
+ax_x_au.tick_params(colors=MUTED, labelsize=fs(8))
+ax_x_au.set_ylabel('x(t)  [AU]', color=MUTED, fontsize=fs(9))
 for sp in ax_x_au.spines.values():
     sp.set_edgecolor(GRID)
 
@@ -231,8 +237,8 @@ for sp in ax_x_au.spines.values():
 ax_x_rsol = ax_x.twinx()
 ax_x_rsol.spines['right'].set_position(('outward', 62))
 ax_x_rsol.set_facecolor('none')
-ax_x_rsol.tick_params(colors=MUTED, labelsize=8)
-ax_x_rsol.set_ylabel('x(t)  [R☉]', color=MUTED, fontsize=9)
+ax_x_rsol.tick_params(colors=MUTED, labelsize=fs(8))
+ax_x_rsol.set_ylabel('x(t)  [R☉]', color=MUTED, fontsize=fs(9))
 for sp in ax_x_rsol.spines.values():
     sp.set_edgecolor(GRID)
 
@@ -242,14 +248,14 @@ for sp in ax_x_rsol.spines.values():
 #   ax_x_rsol (R_sol)      -> desplazado mas arriba aun, hacia la derecha
 ax_x_au.yaxis.get_offset_text().set_position((1.04, 1.10))
 ax_x_au.yaxis.get_offset_text().set_color(MUTED)
-ax_x_au.yaxis.get_offset_text().set_fontsize(7.5)
+ax_x_au.yaxis.get_offset_text().set_fontsize(fs(7.5))
 
 ax_x_rsol.yaxis.get_offset_text().set_position((1.10, 1.22))
 ax_x_rsol.yaxis.get_offset_text().set_color(MUTED)
-ax_x_rsol.yaxis.get_offset_text().set_fontsize(7.5)
+ax_x_rsol.yaxis.get_offset_text().set_fontsize(fs(7.5))
 
 ax_x.yaxis.get_offset_text().set_color(MUTED)
-ax_x.yaxis.get_offset_text().set_fontsize(7.5)
+ax_x.yaxis.get_offset_text().set_fontsize(fs(7.5))
 
 
 gs_ctrl = gridspec.GridSpecFromSubplotSpec(1, 3, subplot_spec=outer[1],
@@ -260,7 +266,7 @@ for ax in [fig.add_subplot(gs_ctrl[i]) for i in range(3)]:
 
 for ax in [ax_a, ax_v, ax_x]:
     ax.set_facecolor(SURF)
-    ax.tick_params(colors=MUTED, labelsize=8)
+    ax.tick_params(colors=MUTED, labelsize=fs(8))
     for sp in ax.spines.values(): sp.set_edgecolor(GRID)
 
 
@@ -282,19 +288,19 @@ for idx in range(2):
     dot_vm.append(dot)
 
 # Marcador de interseccion
-dot_inter, = ax_x.plot([], [], '*', color='#ffffff', ms=12, zorder=7,
-                        markeredgecolor='#aaa', markeredgewidth=0.5, label='_')
+dot_inter, = ax_x.plot([], [], '*', color='#d18b00', ms=12, zorder=7,
+                        markeredgecolor='#8a5a00', markeredgewidth=0.5, label='_')
 txt_inter  = ax_x.text(0.5, 0.96, '', transform=ax_x.transAxes,
-                        color='#ffffff', fontsize=7.5, va='top', ha='center',
+                        color=TEXT, fontsize=fs(7.5), va='top', ha='center',
                         bbox=dict(boxstyle='round,pad=0.25', fc=SURF, ec='none', alpha=0.85))
 
 def _estilo(ax, ylabel, title):
-    ax.set_ylabel(ylabel, color=MUTED, fontsize=9)
-    ax.set_xlabel('tiempo  [h]', color=MUTED, fontsize=9)
-    ax.set_title(title, color=TEXT, fontsize=9, pad=4)
+    ax.set_ylabel(ylabel, color=MUTED, fontsize=fs(9))
+    ax.set_xlabel('tiempo  [h]', color=MUTED, fontsize=fs(9))
+    ax.set_title(title, color=TEXT, fontsize=fs(9), pad=4)
     ax.grid(color=GRID, lw=0.5, ls='--')
     ax.legend(facecolor='none', edgecolor='none', labelcolor=TEXT,
-              fontsize=8, loc='upper left', framealpha=0.0,
+              fontsize=fs(8), loc='upper left', framealpha=0.0,
               borderpad=0.4, handlelength=1.6)
 
 _estilo(ax_a, 'a(t)  [m/s²]', 'Aceleracion')
@@ -304,30 +310,23 @@ _estilo(ax_x, 'x(t)  [km]',   'Posicion')
 # Textos de a(0) y v(0) — esquina superior derecha de cada grafica
 txt_a0 = [
     ax_a.text(0.98, 0.97 - 0.10*i, '', transform=ax_a.transAxes,
-              color=COLORS[i][0], fontsize=7.5, va='top', ha='right',
+              color=COLORS[i][0], fontsize=fs(7.5), va='top', ha='right',
               bbox=dict(boxstyle='round,pad=0.25', fc=SURF, ec='none', alpha=0.85))
     for i in range(2)
 ]
 txt_v0 = [
     ax_v.text(0.98, 0.97 - 0.10*i, '', transform=ax_v.transAxes,
-              color=COLORS[i][0], fontsize=7.5, va='top', ha='right',
+              color=COLORS[i][0], fontsize=fs(7.5), va='top', ha='right',
               bbox=dict(boxstyle='round,pad=0.25', fc=SURF, ec='none', alpha=0.85))
     for i in range(2)
 ]
 # 95% v_max — esquina inferior derecha de velocidad
 txt_vmax = [
     ax_v.text(0.99, 0.03 + 0.11*i, '', transform=ax_v.transAxes,
-              color=COLORS[i][0], fontsize=7.5, va='bottom', ha='right',
+              color=COLORS[i][0], fontsize=fs(7.5), va='bottom', ha='right',
               bbox=dict(boxstyle='round,pad=0.25', fc=SURF, ec='none', alpha=0.85))
     for i in range(2)
 ]
-
-fig.suptitle(
-    'a(t) = [ 1/(a_r · exp(t/tau_r))  +  1/(a_d · exp(-t/tau_d)) ]^(-1)'
-    '        |        dos cuerpos  —  ejes en horas',
-    color=TEXT, fontsize=10.5, fontweight='500'
-)
-
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Render
@@ -429,18 +428,18 @@ def add_textbox(rect, initial):
     global _refs
     ax_tb = fig.add_axes(rect)
     ax_tb.set_facecolor(GRID)
-    for sp in ax_tb.spines.values(): sp.set_edgecolor('#555')
+    for sp in ax_tb.spines.values(): sp.set_edgecolor('#aeb7c2')
     tb = TextBox(ax_tb, '', initial=str(initial),
-                 color=GRID, hovercolor='#4a4a4c', label_pad=0.0)
-    tb.text_disp.set_color(TEXT); tb.text_disp.set_fontsize(8.5)
+                 color='#f1f3f6', hovercolor='#e8edf2', label_pad=0.0)
+    tb.text_disp.set_color(TEXT); tb.text_disp.set_fontsize(fs(8.5))
     _refs += [ax_tb, tb]
     return tb
 
-def add_button(rect, label, bg='#3a3a3c', hov='#555'):
+def add_button(rect, label, bg='#e8edf2', hov='#dce3ea'):
     global _refs
     ax_b = fig.add_axes(rect)
     btn  = Button(ax_b, label, color=bg, hovercolor=hov)
-    btn.label.set_color(TEXT); btn.label.set_fontsize(8)
+    btn.label.set_color(TEXT); btn.label.set_fontsize(fs(8))
     _refs += [ax_b, btn]
     return btn
 
@@ -456,16 +455,16 @@ textboxes = [[], []]
 for idx in range(2):
     xL = PAD_L[idx]
     fig.text(xL, Y_TOP + 0.012, params[idx]['label'],
-             color=COLORS[idx][0], fontsize=10, fontweight='500')
+             color=COLORS[idx][0], fontsize=fs(10), fontweight='500')
 
     for row, (field, label, unit) in enumerate(zip(FIELDS, LABELS, UNITS)):
         y_row = Y_TOP - row * (H_ROW + GAP)
-        fig.text(xL, y_row + 0.009, label, color=MUTED, fontsize=8.5, va='center')
+        fig.text(xL, y_row + 0.009, label, color=MUTED, fontsize=fs(8.5), va='center')
         tb = add_textbox([xL + W_LBL + 0.003, y_row, W_BOX, H_ROW - 0.003],
                          params[idx][field])
         textboxes[idx].append(tb)
         fig.text(xL + W_LBL + 0.003 + W_BOX + 0.005,
-                 y_row + 0.009, unit, color='#aaa', fontsize=7.5, va='center')
+                 y_row + 0.009, unit, color=MUTED, fontsize=fs(7.5), va='center')
 
         def make_cb(i, f, tb_ref):
             def cb(text):
@@ -492,12 +491,12 @@ XE = 0.395; YE = Y_TOP - 0.014
 XB = XE + 0.3   # columna derecha del panel extra
 
 # ── T_max ─────────────────────────────────────────────────────────────────────
-fig.text(XE, YE + 0.010, 'T_max', color=MUTED, fontsize=8.5, va='center')
-fig.text(XE + 0.044, YE + 0.010, '[s]', color='#aaa', fontsize=7.5, va='center')
+fig.text(XE, YE + 0.010, 'T_max', color=MUTED, fontsize=fs(8.5), va='center')
+fig.text(XE + 0.044, YE + 0.010, '[s]', color=MUTED, fontsize=fs(7.5), va='center')
 tb_tmax = add_textbox([XE + 0.065, YE, 0.082, 0.027], state['T_max'])
 lbl_tmax_h = fig.text(XE + 0.150, YE + 0.009,
                       f'= {state["T_max"]*S2H:.5f} h',
-                      color=COLORS[0][0], fontsize=7.5, va='center')
+                      color=COLORS[0][0], fontsize=fs(7.5), va='center')
 
 def cb_tmax(text):
     try:
@@ -517,12 +516,12 @@ tb_tmax.on_submit(cb_tmax)
 
 # ── t_offset ──────────────────────────────────────────────────────────────────
 YE2 = YE - (H_ROW + GAP)
-fig.text(XE, YE2 + 0.010, 't_offset', color=MUTED, fontsize=8.5, va='center')
-fig.text(XE + 0.057, YE2 + 0.010, '[s]', color='#aaa', fontsize=7.5, va='center')
+fig.text(XE, YE2 + 0.010, 't_offset', color=MUTED, fontsize=fs(8.5), va='center')
+fig.text(XE + 0.057, YE2 + 0.010, '[s]', color=MUTED, fontsize=fs(7.5), va='center')
 tb_off = add_textbox([XE + 0.065, YE2, 0.082, 0.027], state['offset_s'])
 lbl_off_h = fig.text(XE + 0.150, YE2 + 0.009,
                      f'= {state["offset_s"]*S2H:.5f} h',
-                     color=COLORS[1][0], fontsize=7.5, va='center')
+                     color=COLORS[1][0], fontsize=fs(7.5), va='center')
 
 def cb_off(text):
     try:
@@ -541,14 +540,14 @@ def cb_off(text):
 tb_off.on_submit(cb_off)
 
 # ── Selector offset — columna derecha, fila superior ──────────────────────────
-fig.text(XB + 0.010, YE + 0.012, 'Aplicar offset a:', color=MUTED, fontsize=8, va='center')
+fig.text(XB + 0.010, YE + 0.012, 'Aplicar offset a:', color=MUTED, fontsize=fs(8), va='center')
 ax_radio = fig.add_axes([XB, YE - 0.052, 0.130, 0.055])
 ax_radio.set_facecolor(SURF)
 for sp in ax_radio.spines.values(): sp.set_edgecolor(GRID)
 radio = RadioButtons(ax_radio, ('Cuerpo 1', 'Cuerpo 2'),
                      active=state['offset_on'], activecolor=COLORS[1][0])
 for lbl in radio.labels:
-    lbl.set_color(TEXT); lbl.set_fontsize(8.5)
+    lbl.set_color(TEXT); lbl.set_fontsize(fs(8.5))
 for circ in radio.circles:
     circ.set_radius(0.12)
 _refs += [ax_radio, radio]
@@ -570,7 +569,7 @@ YE4 = YE - 0.095
 btn_vis = []
 for idx in range(2):
     b = add_button([XB + idx*0.118, YE4, 0.106, 0.027],
-                   f'Ocultar C{idx+1}', '#3a3a3c', '#555')
+                   f'Ocultar C{idx+1}', '#e8edf2', '#dce3ea')
     btn_vis.append(b)
 
     def make_toggle(i, br):
@@ -590,18 +589,18 @@ YE_AUTO = YE4 - 0.034
 _auto_label = lambda: f"Auto-ajuste T_max: {'ON' if state['auto_tmax'] else 'OFF'}"
 btn_auto = add_button([XE, YE_AUTO, 0.165, 0.027],
                       _auto_label(),
-                      '#1a4a2a' if state['auto_tmax'] else '#3a3a3c',
-                      '#2a6a3a' if state['auto_tmax'] else '#555')
+                      '#d9f2df' if state['auto_tmax'] else '#e8edf2',
+                      '#c5e8ce' if state['auto_tmax'] else '#dce3ea')
 
 def toggle_auto(ev):
     state['auto_tmax'] = not state['auto_tmax']
     btn_auto.label.set_text(_auto_label())
     if state['auto_tmax']:
-        btn_auto.ax.set_facecolor('#1a4a2a')
-        btn_auto.color = '#1a4a2a'; btn_auto.hovercolor = '#2a6a3a'
+        btn_auto.ax.set_facecolor('#d9f2df')
+        btn_auto.color = '#d9f2df'; btn_auto.hovercolor = '#c5e8ce'
     else:
-        btn_auto.ax.set_facecolor('#3a3a3c')
-        btn_auto.color = '#3a3a3c'; btn_auto.hovercolor = '#555'
+        btn_auto.ax.set_facecolor('#e8edf2')
+        btn_auto.color = '#e8edf2'; btn_auto.hovercolor = '#dce3ea'
     recalc_all_with_dynamic_tmax()
     tb_tmax.set_val(str(state['T_max']))
     lbl_tmax_h.set_text(f"= {state['T_max']*S2H:.5f} h")
@@ -612,13 +611,13 @@ btn_auto.on_clicked(toggle_auto)
 # ── Exportar / Cargar / Reset — fila inferior, ancho total ─────────────────────
 YE5 = YE_AUTO - 0.034
 W3  = 0.080
-btn_exp  = add_button([XE,                YE5, W3,    0.027], 'Exportar CSV', '#1a3a5c', '#2255aa')
-btn_load = add_button([XE + W3 + 0.005,   YE5, W3,    0.027], 'Cargar CSV',   '#1a3a1a', '#225522')
-btn_rst  = add_button([XE + 2*(W3+0.005), YE5, 0.065, 0.027], 'Reset',        '#3a2010', '#7a4010')
+btn_exp  = add_button([XE,                YE5, W3,    0.027], 'Exportar CSV', '#dcecff', '#c9ddf7')
+btn_load = add_button([XE + W3 + 0.005,   YE5, W3,    0.027], 'Cargar CSV',   '#dff1e3', '#cae6d0')
+btn_rst  = add_button([XE + 2*(W3+0.005), YE5, 0.065, 0.027], 'Reset',        '#f7e5dc', '#efd0c2')
 
 ax_msg  = fig.add_axes([XE, YE5 - 0.028, 0.28, 0.022])
 ax_msg.axis('off')
-txt_msg = ax_msg.text(0, 0.5, '', color='#aaa', fontsize=7.5, va='center')
+txt_msg = ax_msg.text(0, 0.5, '', color=MUTED, fontsize=fs(7.5), va='center')
 _refs.append(ax_msg)
 
 
@@ -707,8 +706,8 @@ def reset(ev):
     state['offset_on']     = 1
     state['auto_tmax']     = True
     btn_auto.label.set_text(_auto_label())
-    btn_auto.ax.set_facecolor('#1a4a2a')
-    btn_auto.color = '#1a4a2a'; btn_auto.hovercolor = '#2a6a3a'
+    btn_auto.ax.set_facecolor('#d9f2df')
+    btn_auto.color = '#d9f2df'; btn_auto.hovercolor = '#c5e8ce'
     tb_off.set_val(str(T_OFFSET_DEFAULT))
     lbl_off_h.set_text(f'= {T_OFFSET_DEFAULT*S2H:.5f} h')
     radio.set_active(1)
