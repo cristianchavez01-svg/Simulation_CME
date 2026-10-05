@@ -3,7 +3,6 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import Patch
 from matplotlib.ticker import FuncFormatter
 import csv
 import os
@@ -31,6 +30,10 @@ plt.rcParams.update({
 })
 PLOT_DPI = 200
 PLOT_POINTS = 200
+REGION_LABEL_POSITIONS = {
+    "Interacción": (0.17, 0.84),
+    "Sin interacción": (0.17, 0.05),
+}
 
 # ------------------------------------------------------------------
 # 1. DATOS DE LA TABLA
@@ -194,11 +197,11 @@ def mejor_ajuste(x, y, x_nombre=r"x", y_nombre=r"y"):
 # 3. FUNCIÓN DE SUBPANEL
 # ------------------------------------------------------------------
 
-def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False,
+def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo,
                     legend_loc="upper right", legend_fontsize=11,
                     xlabel_fontsize=25, ylabel_fontsize=18,
                     x_nombre=r"x", y_nombre=r"y", mostrar_titulo=True,
-                    titulo_pad=6):
+                    titulo_pad=6, region_label_positions=None):
     resultados = mejor_ajuste(x, y, x_nombre, y_nombre)
     if not resultados:
         if mostrar_titulo:
@@ -209,20 +212,21 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False,
     x_fino = np.linspace(np.min(x), np.max(x), PLOT_POINTS)
     y_fino = mejor["func"](x_fino)
 
-    ax.scatter(x, y, color="#1f4e79", s=35, zorder=3)
+    ax.scatter(x, y, color="black", s=42, marker="D", zorder=3)
 
-    if fill_regions:
+    if region_label_positions:
         margen_y = 0.08 * (np.max(y) - np.min(y)) if np.ptp(y) > 0 else 0.1
         ymin = np.min([np.min(y), np.min(y_fino)]) - margen_y
         ymax = np.max([np.max(y), np.max(y_fino)]) + margen_y
         ax.set_ylim(ymin, ymax)
-        ax.fill_between(x_fino, y_fino, ymax, color="#2f6fed", alpha=0.10,
-                        zorder=1)
-        ax.fill_between(x_fino, ymin, y_fino, color="#d9534f", alpha=0.10,
-                        zorder=1)
 
-    ax.plot(x_fino, y_fino, color="#c0392b", linewidth=1.8,
+    ax.plot(x_fino, y_fino, color="black", linewidth=1.8,
             zorder=2)
+
+    if region_label_positions:
+        for label, position in region_label_positions.items():
+            ax.text(*position, label, transform=ax.transAxes, ha="center",
+                    va="center", fontsize=20.7, color="black", zorder=4)
 
     ax.set_xlabel(xlabel, fontsize=xlabel_fontsize)
     ax.set_ylabel(ylabel, fontsize=ylabel_fontsize)
@@ -232,18 +236,10 @@ def poblar_subpanel(ax, x, y, xlabel, ylabel, titulo, fill_regions=False,
     ax.set_xlim(np.min(x), np.max(x))
 
     legend_handles = [
-        Line2D([0], [0], marker="o", color="none", markerfacecolor="#1f4e79",
-               markeredgecolor="#1f4e79", markersize=8, label="Datos"),
-        Line2D([0], [0], color="#c0392b", linewidth=1.8, label=rf"Ajuste {mejor['nombre']}"),
+        Line2D([0], [0], marker="D", color="none", markerfacecolor="black",
+             markeredgecolor="black", markersize=np.sqrt(42), label="Datos"),
+        Line2D([0], [0], color="black", linewidth=1.8, label=rf"Ajuste {mejor['nombre']}"),
     ]
-    if fill_regions:
-        legend_handles.extend([
-            Patch(facecolor="#2f6fed", edgecolor="none", alpha=0.10,
-                  label="Interacción"),
-            Patch(facecolor="#d9534f", edgecolor="none", alpha=0.10,
-                  label="Sin interacción"),
-        ])
-
     legend_handles.extend([
         Line2D([0], [0], linestyle="None", marker="", color="none",
                label=mejor["eq"]),
@@ -283,13 +279,15 @@ def main():
         titulo = f"$a_d$ vs {y_label.split(' [')[0]}"
         r = poblar_subpanel(axes1[i], a_d, y_data,
                             r"$a_d$ [km/s$^2$]", y_label, titulo,
+                            legend_loc="lower right" if y_tag in ("T_interaccion", "Altura_interaccion") else "upper right",
+                            legend_fontsize=15.4,
                             x_nombre=r"a_d", y_nombre=y_nombre,
                             mostrar_titulo=False)
         if r:
             r["relacion"] = f"ad_vs_{y_tag}"
             resumen.append(r)
     fig1.suptitle(r"Relaciones con el parámetro de decaimiento $a_d$ en el Caso 2",
-                  fontsize=25)
+                  fontsize=28.75)
     fig1.tight_layout(rect=(0, 0, 1, 0.965))
     fig1.savefig(os.path.join(OUTPUT_DIR, "fig_ad_relaciones2.png"),
                  dpi=PLOT_DPI, bbox_inches="tight")
@@ -303,6 +301,7 @@ def main():
         titulo = f"$\\tau_d$ vs {y_label.split(' [')[0]}"
         r = poblar_subpanel(axes2[i], t_d, y_data,
                             r"$\tau_d$ [$10^3$ s]", y_label, titulo, legend_loc="lower right",
+                            legend_fontsize=15.4,
                             x_nombre=r"\tau_d", y_nombre=y_nombre,
                             mostrar_titulo=False)
         axes2[i].xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f"{x/1000:.1f}"))
@@ -310,7 +309,7 @@ def main():
             r["relacion"] = f"td_vs_{y_tag}"
             resumen.append(r)
     fig2.suptitle(r"Relaciones con el parámetro de decaimiento $\tau_d$ en el Caso 2",
-                  fontsize=25)
+                  fontsize=28.75)
     fig2.tight_layout(rect=(0, 0, 1, 0.965))
     fig2.savefig(os.path.join(OUTPUT_DIR, "fig_td_relaciones2.png"),
                  dpi=PLOT_DPI, bbox_inches="tight")
@@ -320,10 +319,11 @@ def main():
     print("\n=== Figura 3: a_d vs t_d ===")
     fig3, ax3 = plt.subplots(figsize=(11, 7.14))
     r = poblar_subpanel(ax3, a_d, t_d,
-                        r"$a_d$ [km/s$^2$]", r"$\tau_d$ [s]", r"Relación entre la escala temporal $\tau_d$ y el parámetro de decaimiento $a_d$ del Caso 2",
-                        fill_regions=True, legend_fontsize=20,
-                        xlabel_fontsize=20, ylabel_fontsize=20,
-                        x_nombre=r"a_d", y_nombre=r"\tau_d", titulo_pad=12)
+                        r"$a_d$ [km/s$^2$]", r"$\tau_d$ [s]", r"Relación $\tau_d$ vs $a_d$ (Caso 2)",
+                        legend_fontsize=20,
+                        xlabel_fontsize=23, ylabel_fontsize=23,
+                        x_nombre=r"a_d", y_nombre=r"\tau_d", titulo_pad=12,
+                        region_label_positions=REGION_LABEL_POSITIONS)
     if r:
         r["relacion"] = "ad_vs_td"
         resumen.append(r)

@@ -25,7 +25,7 @@ FACTOR_COMPRESION = 1.15
 DMIN_OVERRIDE     = 0.9 # límite inferior para escala de colores (log10 de densidad)
 DMAX_OVERRIDE     = 4 # límite superior para escala de colores (log10 de densidad)
 
-N_PUNTOS_OBS = 30
+N_PUNTOS_OBS = 20
 print(f"Puntos de observación: {N_PUNTOS_OBS}")
 
 
@@ -410,6 +410,13 @@ t_extensiones, pos_extensiones = primera_interseccion(tiempos_h, rex2, rin1)
 
 
 # ── 1. CINEMÁTICA CONJUNTA ────────────────────────────────────────────────────
+OFFSET_ETIQUETA_CENTROS = (10, 31)
+OFFSET_ETIQUETA_EXTENSIONES = (10, 40)
+TAMANO_ETIQUETAS_INTERACCION = 12
+TAMANO_ETIQUETAS_FASES = 13
+OFFSET_VERTICAL_ETIQUETAS_CME1 = 0.28
+OFFSET_VERTICAL_ETIQUETAS_CME2 = -0.4
+
 def sombrear(ax,ti1,ta1,ti2,ta2):
     ax.axvspan(0,T_HORAS,color='#FFF',alpha=1.,zorder=0)
     ax.axvspan(ti1,ta1,color="#A9C5E3",alpha=.25,zorder=0)
@@ -444,8 +451,11 @@ def dibujar_linea_tiempo(fig, ax_ref, ti1, ta1, ti2, ta2):
                 continue
             if inicio > inicio_linea:
                 timeline.vlines(inicio, y - .24, y + .24, color='black', lw=1.2, zorder=3)
-            timeline.text((inicio + fin) / 2, y + (.22 if y == 1 else -.22), nombre,
-                          ha='center', va='center', fontsize=9, color='black', zorder=3)
+            offset_vertical = (OFFSET_VERTICAL_ETIQUETAS_CME1 if y == 1
+                               else OFFSET_VERTICAL_ETIQUETAS_CME2)
+            timeline.text((inicio + fin) / 2, y + offset_vertical, nombre,
+                          ha='center', va='center', fontsize=TAMANO_ETIQUETAS_FASES,
+                          color='black', zorder=3)
 
 fig,axes=plt.subplots(3,1,figsize=(14,11),sharex=True,gridspec_kw={'hspace':0})
 fig.subplots_adjust(top=0.76,hspace=0.18)
@@ -472,11 +482,23 @@ ax_p.fill_between(tiempos_h,rin2,rex2,color=cme2.color,alpha=.15,label='Extensi�
 if t_centros is not None:
     ax_p.scatter(t_centros, pos_centros, marker='o', s=260, color='white',
                  edgecolors='black', linewidths=1.4, zorder=6,
-                 label='Interacción de centros')
+                 label='_nolegend_')
+    ax_p.annotate('Interacción de centros', xy=(t_centros, pos_centros),
+                  xytext=OFFSET_ETIQUETA_CENTROS, textcoords='offset points',
+                  ha='left', va='bottom', fontsize=TAMANO_ETIQUETAS_INTERACCION,
+                  arrowprops=dict(arrowstyle='->', color='black', lw=1),
+                  bbox=dict(boxstyle='round,pad=0.2', fc='white', ec='none', alpha=.85),
+                  zorder=7)
 if t_extensiones is not None:
     ax_p.scatter(t_extensiones, pos_extensiones, marker='X', s=300, color='black',
                  edgecolors='white', linewidths=1.2, zorder=6,
-                 label='Interacción de extensiones')
+                 label='_nolegend_')
+    ax_p.annotate('Interacción de extensiones', xy=(t_extensiones, pos_extensiones),
+                  xytext=OFFSET_ETIQUETA_EXTENSIONES, textcoords='offset points',
+                  ha='left', va='top', fontsize=TAMANO_ETIQUETAS_INTERACCION,
+                  arrowprops=dict(arrowstyle='->', color='black', lw=1),
+                  bbox=dict(boxstyle='round,pad=0.2', fc='white', ec='none', alpha=.85),
+                  zorder=7)
 ax_p.set_ylabel(f'Posición ({R_SOL_STR})',fontsize=16)
 ax_p.set_xlabel('Tiempo (h)',fontsize=16)
 major_ticks = np.arange(0,T_HORAS+1,5)
@@ -752,13 +774,13 @@ for i,t in enumerate(tiempos):
     if i%50==0: print("✓")
 print("  ✓ Series calculadas")
 
-CMAP_OBS='rainbow'; cmap_obs=plt.cm.get_cmap(CMAP_OBS)
+base30 = plt.get_cmap('copper', N_PUNTOS_OBS)
 norm_obs=plt.Normalize(vmin=min(r for r,_ in PUNTOS_OBS),vmax=max(r for r,_ in PUNTOS_OBS))
 fig,(ax_d,ax_v)=plt.subplots(2,1,figsize=(14,9),sharex=True,gridspec_kw={'hspace':0})
 fig.suptitle(rf'Evolución temporal — {len(PUNTOS_OBS)} puntos',fontsize=21,fontweight='normal',y=.98)
 fig.text(.5,.915,f'{T_HORAS} horas de propagación',ha='center',fontsize=16.8,style='italic',color='#444')
-for ro,to in PUNTOS_OBS:
-    c=cmap_obs(norm_obs(ro)); k=(ro,to)
+for i,(ro,to) in enumerate(PUNTOS_OBS):
+    c=base30(i); k=(ro,to)
     ax_d.plot(tiempos_h,gaussian_filter1d(dens_ser[k],sigma=VENTANA_SUAV),color=c,lw=1.8,alpha=.6,zorder=3)
     ax_v.plot(tiempos_h,gaussian_filter1d(vel_ser[k], sigma=VENTANA_SUAV),color=c,lw=1.8,alpha=.6,zorder=3)
 kwr=dict(lw=1.,alpha=.8,zorder=4)
@@ -789,7 +811,7 @@ for ax in (ax_d, ax_v):
     ax.grid(which='major', axis='x', alpha=0.35, ls='--')
     ax.grid(which='major', axis='y', alpha=0.15, ls='--')
 ax_v.legend(fontsize=10,loc='upper right')
-sm_o=plt.cm.ScalarMappable(cmap=CMAP_OBS,norm=norm_obs); sm_o.set_array([])
+sm_o=plt.cm.ScalarMappable(cmap=base30,norm=norm_obs); sm_o.set_array([])
 fig.colorbar(sm_o,ax=[ax_d,ax_v],orientation='vertical',fraction=.024,pad=.02).set_label(
     f'Distancia al Sol ({R_SOL_STR})',rotation=270,labelpad=20,fontsize=16.8)
 plt.savefig(f"serie_temporal_multipunto_s1_{semilla1}_s2_{semilla2}_2.pdf",dpi=300,bbox_inches='tight')

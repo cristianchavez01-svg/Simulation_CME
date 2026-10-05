@@ -10,6 +10,8 @@ matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['font.serif'] = ['Computer Modern Roman', 'DejaVu Serif']
 matplotlib.rcParams['mathtext.fontset'] = 'cm'
 matplotlib.rcParams['axes.titleweight'] = 'normal'
+matplotlib.rcParams['xtick.labelsize'] = 16
+matplotlib.rcParams['ytick.labelsize'] = 16
 
 # ──────────────────────────────────────────────────────────────────────────────
 # CONSTANTES
@@ -29,7 +31,7 @@ ar1, ad1 = 0.001, 4.950        # Amplitudes (km/s²)
 v01, x01 = 40, 25000          # Velocidad (km/s) y posición inicial (km)
 R_CME_INICIAL = 2.0           # Radio inicial de CME
 SEMILLA     = 502
-COLOR_CINE  = 'steelblue'
+COLOR_CINE  = 'black'
 
 # ──────────────────────────────────────────────────────────────────────────────
 # FUNCIONES CINEMÁTICAS
@@ -184,7 +186,7 @@ fig.text(0.5, 0.90, f'{T_HORAS} horas de propagación',
 
 sombrear_etapas(ax1)
 ax1.plot(tiempos_h, posiciones_rs, color=COLOR_CINE, linewidth=2.5, zorder=3)
-ax1.set_ylabel(f'Posición ({R_SOL_STR})', fontsize=16)
+ax1.set_ylabel(f'Posición ({R_SOL_STR})', fontsize=17.6)
 ax1.set_xlim(0, T_HORAS)
 ax1.grid(True, alpha=0.3, linestyle='--', zorder=1)
 ax1.tick_params(bottom=False)
@@ -192,7 +194,7 @@ etiquetas_etapas(ax1)
 
 sombrear_etapas(ax2)
 ax2.plot(tiempos_h, velocidades, color=COLOR_CINE, linewidth=2.5, zorder=3)
-ax2.set_ylabel('Velocidad (km/s)', fontsize=16)
+ax2.set_ylabel('Velocidad (km/s)', fontsize=17.6)
 ax2.set_xlim(0, T_HORAS)
 ax2.grid(True, alpha=0.3, linestyle='--', zorder=1)
 ax2.tick_params(bottom=False)
@@ -200,8 +202,8 @@ ax2.tick_params(bottom=False)
 sombrear_etapas(ax3)
 ax3.plot(tiempos_h, aceleraciones, color=COLOR_CINE, linewidth=2.5, zorder=3)
 ax3.axhline(y=0, color='k', linestyle='-', alpha=0.3, linewidth=0.5, zorder=2)
-ax3.set_xlabel('Tiempo (h)', fontsize=16)
-ax3.set_ylabel(r'Aceleración (m/s$^2$)', fontsize=16)
+ax3.set_xlabel('Tiempo (h)', fontsize=17.6)
+ax3.set_ylabel(r'Aceleración (m/s$^2$)', fontsize=17.6)
 ax3.set_xlim(0, T_HORAS)
 ax3.set_xticks(np.arange(0, T_HORAS + 1, 1))
 ax3.grid(True, alpha=0.3, linestyle='--', zorder=1)
